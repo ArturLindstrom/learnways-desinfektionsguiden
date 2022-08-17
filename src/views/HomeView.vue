@@ -1,6 +1,6 @@
 <template>
   <div class="home-view">
-        <HeaderComponent bgImg="home">
+        <HeaderComponent bgImg="1">
           <HeadingComponent fontSize="85">
           Desinfektionsguiden
           </HeadingComponent>

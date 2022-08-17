@@ -1,5 +1,5 @@
 <template>
-  <HeaderComponent bgImg="diplom">
+  <HeaderComponent bgImg="4">
    <HeadingComponent fontSize="65">
       Du är inte riktigt klar
     </HeadingComponent>

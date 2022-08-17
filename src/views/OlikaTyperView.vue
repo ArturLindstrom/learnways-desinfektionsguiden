@@ -1,5 +1,5 @@
 <template>
-  <HeaderComponent bgImg="typer">
+  <HeaderComponent bgImg="2">
     <HeadingComponent fontSize="65">
           Olika typer av desinfektion
     </HeadingComponent>
