@@ -1,5 +1,5 @@
 <template>
-  <header :class="bgImg">
+  <header :style="{backgroundImage:bg}">
     <div class="imgs">
         <img src="../assets/Vårdhygien-Stockholm.svg" alt="">
         <router-link to="/">
@@ -24,7 +24,9 @@ const props = defineProps({
     default: "home",
   },
 });
-
+const bg = computed(() => {
+  return `url(../src/assets/bg-${props.bgImg}.svg)`;
+});
 </script>
 
 <style scoped lang="scss">
@@ -38,7 +40,6 @@ header {
   padding: 51px;
   background: no-repeat center center #f4edc9;
   background-size: cover;
-  /* min-height: calc(100vh - 150px); */
   min-height: 85vh;
   margin-bottom:40px ;
 }

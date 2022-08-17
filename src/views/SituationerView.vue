@@ -1,5 +1,5 @@
 <template>
-    <HeaderComponent bgImg="situationer">
+    <HeaderComponent bgImg="3">
         <HeadingComponent fontSize="65">
             Öva på olika situationer
         </HeadingComponent>
