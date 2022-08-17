@@ -1,0 +1,63 @@
+[
+  {
+    "title": "slide1",
+    "heading": "Detta är en påbyggnadsutbildning för dig som arbetar inom vård och omsorg. Utbildningen berör området desinfektion. En förutsättning för utbildningens genomförande är att du först har genomgått utbildningen i Basala hygienrutiner.",
+    "body": 
+      [
+        "Desinfektionsguiden är framtagen för att du på egen hand ska kunna erhålla de grundläggande kunskaperna som krävs. Du kommer att få börja med kunskapsinhämtning, och därefter sätta din kunskap på prov. Utbildningen kan med fördel även genomföras i grupp. Du kan använda utbildningen till att öka på din kunskap och tillsammans diskutera era rutiner på arbetsplatsen."
+      ],
+    "image": "src/assets/home/main/slide/images/start-1.svg"
+  },
+  {
+    "title": "slide2",
+    "heading": "Desinfektion",
+    "body": 
+      [
+        "Desinfektion är en behandling av lokaler, föremål eller personer med fysikaliska eller kemiska medel så att risken för överföring av smitta elimineras. Det innebär inte att alla smittämnen avlägsnas eller avdödas, utan att mängden av potentiellt smittsamma mikroorganismer reduceras så långt som möjligt.*",
+        "Du kommer att få lära dig vad desinfektion är, och i vilka situationer det kan tillämpas. Utbildningen berör desinfektion av händer, hud, föremål och ytor. För att möjliggöra en desinfektion måste den alltid föregås av rengöring.",
+        "*Wikipedia, 2021-02-01"
+      ],
+    "image": "src/assets/home/main/slide/images/start-2.svg"
+  },
+  {
+    "title": "slide3",
+    "heading": "Renhetsgrader",
+    "body": 
+      [
+        "I Sverige används i nuläget tre begrepp för att beskriva renhetsgrader. Rent innebär rengöring genom mekanisk borttagning av smuts, fett, blod eller dylikt, så att de ser rena ut vid inspektion. Höggradigt rent innebär att desinfektion utförs med värme eller med kemiska desinfektionsmedel, så att de blir fria från sjukdomsalstrande mikroorganismer. Slutligen sterilt, vilket innebär att föremålet blir helt fritt från levande mikroorganismer och sporer."
+      ],
+    "image": "src/assets/home/main/slide/images/start-3.svg"
+
+  },
+  {
+    "title": "slide4",
+    "heading": "Olika former av desinfektion",
+    "body": 
+      [
+        "I den här utbildningen fokuserar vi på handdesinfektion, värmedesinfektion, kemisk desinfektion, huddesinfektion och ytdesinfektion. Desinfektionsmetoder såsom väteperoxidånga, uv-ljus etc. kommer inte att beröras i denna utbildning."
+      ],
+    "image": "src/assets/home/main/slide/images/start-4.svg"
+
+  },
+  {
+    "title": "slide5",
+    "heading": "Vad behöver du tänka på?",
+    "body": 
+      [
+        "I den här utbildningen kommer vi att beskriva när och hur olika metoder kan användas. Därutöver kommer vi att ge tips på vad du kan tänka på innan, under och efter desinfektionen. Det kan exempelvis handla om att bedöma vilken renhetsgrad som ska uppnås och behovet av skyddsutrustning."
+      ],
+    "image": "src/assets/home/main/slide/images/start-5.svg"
+
+  },
+  {
+    "title": "slide6",
+    "heading": "Sätt igång!",
+    "body": 
+      [
+        "Nu är det dags att sätta igång! I nästa del kommer du att få bekanta dig med fem rum och olika typer av desinfektionsmetoder. Därefter kan du testa dina kunskaper i olika situationer. När du är klar med båda delarna får du möjlighet att hämta ett diplom.",
+        "Lycka till!"
+      ],
+    "image": "src/assets/home/main/slide/images/start-6.svg"
+
+  }
+]

@@ -1,19 +1,22 @@
 <template>
-  <HeaderComponent bgImg="4">
+  <HeaderComponent bgImg="diplom">
    <HeadingComponent fontSize="65">
-          Du är inte riktigt klar
-          </HeadingComponent>
-         <SubHeadingComponent>
-När du är klar med en del visas en bock i cirkeln nedan. Klicka på den del som saknas för att slutföra utbildningen.
-
-         </SubHeadingComponent>
-        </HeaderComponent>
+      Du är inte riktigt klar
+    </HeadingComponent>
+    <SubHeadingComponent>
+      När du är klar med en del visas en bock i cirkeln nedan. Klicka på den del som saknas för att slutföra utbildningen.
+    </SubHeadingComponent>
+  </HeaderComponent>
+  <MainComponent>
+  </MainComponent>
 </template>
 
 <script setup>
 import HeaderComponent from "../components/HeaderComponent.vue";
 import HeadingComponent from "@/components/HeadingComponent.vue";
 import SubHeadingComponent from "@/components/SubHeadingComponent.vue";
+import MainComponent from "@/components/MainComponent.vue";
+
 </script>
 
 <style>

@@ -1,6 +1,6 @@
 <template>
   <div class="home-view">
-        <HeaderComponent bgImg='1'>
+        <HeaderComponent bgImg="home">
           <HeadingComponent fontSize="85">
           Desinfektionsguiden
           </HeadingComponent>
@@ -8,6 +8,7 @@
           En praktisk guide från Vårdhygien Stockholm om desinfektion av händer, hud, ytor och föremål – för att minska risken för smittspridning.
          </SubHeadingComponent>
         </HeaderComponent>
+        <MainComponent />
   </div>
 </template>
 
@@ -15,6 +16,7 @@
 import HeaderComponent from "../components/HeaderComponent.vue";
 import HeadingComponent from "@/components/HeadingComponent.vue";
 import SubHeadingComponent from "@/components/SubHeadingComponent.vue";
+import MainComponent from "@/components/MainComponent.vue";
 
 </script>
 
