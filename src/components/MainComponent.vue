@@ -1,17 +1,19 @@
 <template>
   <div class="main">
     <h2>Vad kommer du att få lära dig?</h2>
-    <vueper-slides 
+    <vueper-slides
       ref="slide"
+      @slide="sliderIndex"
       :arrows="false"
       :infinite="false"
-      draggable="false"
+      :draggable="false"
       :touchable="false"
-      fixed-height="60vh"
+      fixed-height="50vh"
       class="no-shadow"
       fade
-      bulletsOutsideW
+      :bullets="false"
       disableArrowsOnEdges="true"
+      progress
     >
       <vueper-slide v-for="(slide, i ) in slides" :key="i">
         <template #content>
@@ -24,21 +26,43 @@
           </div>
         </template>
       </vueper-slide>
+          <template #progress>
+            <div class="progress-bar">
+              <div class="progress-bar-fill" :style="{ width: progress + '%', opacity: progress + '%',  height: progress/10 + '%'}"></div>
+            </div>
+          </template>
+          <!-- <template #bullets>
+            <div class="bullets">
+              <div class="bullet" v-for="(slide, i) in slides" :key="i" :class="{ 'active': i === index }" @click="$refs.slide.goToSlide(i)"></div>
+            </div>
+          </template> -->
     </vueper-slides>
-      <div class="arrows">
-        <button class="arrow arrow-left" @click="$refs.slide.previous()"></button>
-        <button class="arrow arrow-right" @click="$refs.slide.next()"></button>
-      </div>
+    <SliderButtonsComponent
+      class="slider-buttons"
+      @previous-slide="$refs.slide.previous()"
+      @next-slide="$refs.slide.next()"
+      :slider-index="index"
+      :slides="slides"
+    />
+    <div class="bullets">
+      <div class="bullet" v-for="(slide, i) in slides" :key="i" :class="{ 'active': i === index }" @click="$refs.slide.goToSlide(i)"></div>
+    </div>
   </div>
 </template>
 
 <script setup>
+import { ref, computed } from 'vue'
 import { VueperSlides, VueperSlide } from 'vueperslides'
 import 'vueperslides/dist/vueperslides.css'
-import slides from '@/assets/home/main/slide/slide.json';
+import MainSlides from '@/assets/home/main/slide/slide.json';
+import SliderButtonsComponent from '@/components/slider/SliderButtonsComponent.vue';
 
-
-
+const slides = ref(MainSlides)
+const index = ref(0)
+const sliderIndex = (event) => {
+  index.value = event.currentSlide.index;
+}
+const progress = computed(() => (index.value + 1) / slides.value.length * 100)
 
 
 </script>
@@ -47,11 +71,11 @@ import slides from '@/assets/home/main/slide/slide.json';
 
 .main {
   display: flex;
-  padding: 5rem;
+  padding: 10rem;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  min-height: 80vh;
+  min-height: 60vh;
 }
 
 h2 {
@@ -61,47 +85,51 @@ h2 {
   line-height: 1.1;
 }
 
-.content-img{
-  width: 400px;
-  height: 300px;
-}
+
 
 .slide-heading {
-font-size: 17px;
-font-family: 'Nunito', sans-serif;
-font-weight: 700;
-font-style: normal;
-margin: 0 0 0.5em 0;
-line-height: 1.1;
-color: #003340;
-width: 100%;
+  font-size: 17px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  margin: 0 0 0.5em 0;
+  line-height: 1.1;
+  color: #003340;
+  width: 100%;
 }
+
+
+.vueperslides {
+  width: 100%;
+}
+.vueperslide {
+  display: flex;
+  align-items: center;
+}
+
+.vueperslide * {user-select: text;}
 
 .slide-content{
   display: flex;
-  justify-content: space-between;
-  align-items: space-between;
+  justify-content: space-evenly;
+  align-items: center;
   width: 100%;
   margin: 0;
-}
-
-.vueperslides {
-  width: 70%;
-}
-
-.vueperslide{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  
+  z-index: 1;
 }
 
 .text-container{
- width: 50%;
- text-align: left;
-
+  text-align: left;
+  width: 40%;
 }
-p{
+.content-img{
+  max-width: 400px;
+  max-height: 300px;
+  width: 40%;
+}
+
+
+p {
  font-family: 'Nunito', sans-serif;
     font-weight: 400;
     font-style: normal;
@@ -111,33 +139,48 @@ p{
     color: #000000;
 }
 
-
-.arrows {
-  position: absolute;
+.progress-bar {
+  height: 1rem;
+  width: 100%;
+  background: white;
 }
-.arrow {
-  color: white;
-  margin: 0.75rem;
-  width: 2.5rem;
-  height: 2.5rem;
-  background: #0E2D57 no-repeat center center;
+
+.progress-bar-fill {
+  height: 10%;
+  width: 0%;
+  background: #002D5A;
+  border-radius: 0.5rem;
+  transition: all 0.8s ease-in-out;
+}
+
+.slider-buttons {
+  position: relative;
+  top: -2.5rem;
+  right: -4.5rem;
+}
+
+.bullets {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0;
+}
+.bullet {
+  width: 0.75rem;
+  height: 0.75rem;
   border-radius: 50%;
-  border: none;
-  transition: all 0.5s ease;
+  background: #dddddd;
+  margin: 0.5rem;
+  transition: all 0.25s ease-in-out;
   &:hover {
+    background: #003340;
     cursor: pointer;
-    filter: brightness(1.5);
-    transition: all 0.5s ease;
+  }
+  &.active {
+    background: #003340;
   }
 }
 
-
-.arrow-left {
-    background-image: url('../assets/home/main/slide/images/arrow-left.svg');
-}
-
-.arrow-right {
-    background-image: url('../assets/home/main/slide/images/arrow-right.svg');
-}
 
 </style>
