@@ -2,29 +2,29 @@
   <footer>
     <div v-if="route.name == 'home'" class="footer-container">
      <div class="kontakt">
-       <h3>
-         Kontakt
-       </h3>
        <p>
+         Kontakt
+       </p>
+       <p class="small">
          Denna utbildning är framtagen av Vårdhygien Stockholm
        </p>
        <a href="https://vardgivarguiden.se/kunskapsstod/vardhygien/">Vårdhygien Vårdgivarguiden
 </a>
      </div>
      <div class="referenslista" >
-       <h3>
-        Referenslista
-       </h3>
        <p>
+        Referenslista
+       </p>
+       <p class="small">
          Ett urval av referenser och litteratur
        </p>
        <a href="chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://projekt.learnways.com/projekt/Learnways/Praktik/Desinfektion/pdfs/Referenslista.pdf">Se referenslistan
 </a>
      </div>
      <div class="hygienrutiner">
-       <h3>
+       <p>
          Basala hygienrutiner
-       </h3>
+       </p>
        <a href="https://www.basala-hygienrutiner.se/login.aspx?ReturnUrl=%2f">Klicka här för att komma till vår andra webbutbildning.
 </a>
      </div>
@@ -42,21 +42,13 @@ import { onMounted } from '@vue/runtime-core';
 import {useRoute, useRouter} from 'vue-router';
 import ButtonComponent from './ButtonComponent.vue';
 const route = useRoute();
-// const router = useRouter();
-// const routes = ["home", "olika-typer", "situationer", "diplom" ]
-// const forward = () => {
-//   const index = routes.indexOf(route.name);
-//   if (index < routes.length - 1) {
-//     console.log(routes[index + 1]);
-//     router.push(routes[index + 1]);
-//   }
-// }
+
 </script>
 
 <style lang="scss" scoped>
 footer {
   background: #e0ded9;
-  min-height: 6em;
+  min-height: 5em;
   /* height: auto; */
   padding: 1em 0;
   color: #000000;
@@ -96,4 +88,11 @@ a{
   text-decoration: underline;
 }
 
+.small{
+  font-size: 15px;
+}
+
+p{
+  font-size:17px
+}
 </style>
