@@ -1,5 +1,5 @@
 <template>
-  <header :style="{backgroundImage:bg}">
+  <header :style="{backgroundImage:bg}" class="header">
     <div class="imgs">
         <img src="@/assets/Vårdhygien-Stockholm.svg" alt="">
         <router-link to="/">
@@ -17,6 +17,17 @@
 <script setup>
 import ProgressBarComponent from "./ProgressBarComponent.vue";
 import { computed, onMounted, ref } from "vue";
+import gsap from "gsap";
+
+onMounted(() => {
+  gsap.from(
+    ".header",
+    
+    {
+      backgroundPositionY: 100,
+    }
+  );
+})
 
 const props = defineProps({
   bgImg: {

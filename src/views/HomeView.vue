@@ -1,7 +1,7 @@
 <template>
   <div class="home-view">
         <HeaderComponent bgImg="1">
-          <HeadingComponent fontSize="85">
+          <HeadingComponent fontSize="85" class="heading">
           Desinfektionsguiden
           </HeadingComponent>
          <SubHeadingComponent>
@@ -20,13 +20,10 @@ import HeaderComponent from "../components/HeaderComponent.vue";
 import HeadingComponent from "@/components/HeadingComponent.vue";
 import SubHeadingComponent from "@/components/SubHeadingComponent.vue";
 import MainComponent from "@/components/MainComponent.vue";
+import { onMounted } from "@vue/runtime-core";
 
-gsap.to("HeadingComponent", {
-  duration: 1,
-  y: 0,
-  opacity: 1,
-  ease: "power3.inOut"
-});
+
+
 
 </script>
 
