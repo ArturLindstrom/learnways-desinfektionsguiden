@@ -11,7 +11,7 @@ import { defineProps, computed } from 'vue';
 const props = defineProps({
   action: {
     type: String,
-    default: 'forward',
+    
   },
 })
 

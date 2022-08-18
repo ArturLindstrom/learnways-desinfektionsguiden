@@ -4,7 +4,7 @@
           <HeadingComponent fontSize="85" animate>
             Desinfektionsguiden
           </HeadingComponent>
-         <SubHeadingComponent>
+         <SubHeadingComponent animate>
             En praktisk guide från Vårdhygien Stockholm om desinfektion av händer, hud, ytor och föremål – för att minska risken för smittspridning.
          </SubHeadingComponent>
         </HeaderComponent>

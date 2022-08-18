@@ -8,7 +8,7 @@
       backgroundColor: rooms[i].thumbnail.backgroundColor,
       backgroundImage: 'url(' + rooms[i].thumbnail.image + ')'
     }">
-    <ButtonComponent action="forward" class="button">
+    <ButtonComponent  class="button">
       Rum {{rooms[i].thumbnail.roomNumber}}: {{rooms[i].thumbnail.title}}
     </ButtonComponent>
   </div>

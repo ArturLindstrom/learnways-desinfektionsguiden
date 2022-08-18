@@ -3,7 +3,7 @@
    <HeadingComponent fontSize="65" animate>
       Du är inte riktigt klar
     </HeadingComponent>
-    <SubHeadingComponent>
+    <SubHeadingComponent animate>
       När du är klar med en del visas en bock i cirkeln nedan. Klicka på den del som saknas för att slutföra utbildningen.
     </SubHeadingComponent>
   </HeaderComponent>

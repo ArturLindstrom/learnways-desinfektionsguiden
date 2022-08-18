@@ -1,5 +1,5 @@
 <template>
-  <h3 :class="{ animate : props.animate }">
+  <h3 :class="{ animated : props.animate }">
     <slot></slot>
   </h3>
 </template>
@@ -15,22 +15,23 @@ const props = defineProps({
   }
 })
 onMounted(() => {
-  if(props.animate){
+  if(props.animate == true){
     gsap.from(
-      ".animate",
+      ".animated",
       
       {
         delay: 0.5,
         duration: 0.5,
         opacity: 0,
         y: 100,
+        stagger: 0.2
       }
     );
   }
 })
 </script>
 
-<style>
+<style scoped>
 
 h3 {
   font-weight: 600;

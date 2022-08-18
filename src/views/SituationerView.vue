@@ -3,7 +3,7 @@
         <HeadingComponent fontSize="65" animate>
             Öva på olika situationer
         </HeadingComponent>
-        <SubHeadingComponent>
+        <SubHeadingComponent animate>
             Nu är det dags att testa dina nya kunskaper i olika situationer.
         </SubHeadingComponent>
     </HeaderComponent>
