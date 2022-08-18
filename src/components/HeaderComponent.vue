@@ -17,19 +17,12 @@
 
 <script setup>
 import ProgressBarComponent from "./ProgressBarComponent.vue";
+
 import ScrollContainer from "./ScrollContainer.vue";
 import { computed, onMounted, ref } from "vue";
 import gsap from "gsap";
 
-onMounted(() => {
-  gsap.from(
-    ".header",
-    
-    {
-      backgroundPositionY: 100,
-    }
-  );
-})
+
 
 const props = defineProps({
   bgImg: {
