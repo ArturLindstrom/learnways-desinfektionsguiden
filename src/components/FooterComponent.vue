@@ -52,6 +52,9 @@ footer {
   /* height: auto; */
   padding: 1em 0;
   color: #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
  
 }
 .footer-container {

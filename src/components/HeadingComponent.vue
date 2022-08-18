@@ -1,7 +1,7 @@
 <template>
 
   <div>
-    <h1 :style="{fontSize: props.fontSize + 'px'}" :class="{animate: props.animate}">
+    <h1 :style="{fontSize: props.fontSize + 'px'}" :class="{ animate: props.animate }">
       <slot></slot>
     </h1>
   </div>

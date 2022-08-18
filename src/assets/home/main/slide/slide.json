@@ -1,6 +1,5 @@
 [
   {
-    "title": "slide1",
     "heading": "Detta är en påbyggnadsutbildning för dig som arbetar inom vård och omsorg. Utbildningen berör området desinfektion. En förutsättning för utbildningens genomförande är att du först har genomgått utbildningen i Basala hygienrutiner.",
     "body": 
       [
@@ -9,7 +8,6 @@
     "image": "src/assets/home/main/slide/images/start-1.svg"
   },
   {
-    "title": "slide2",
     "heading": "Desinfektion",
     "body": 
       [
@@ -20,7 +18,6 @@
     "image": "src/assets/home/main/slide/images/start-2.svg"
   },
   {
-    "title": "slide3",
     "heading": "Renhetsgrader",
     "body": 
       [
@@ -30,7 +27,6 @@
 
   },
   {
-    "title": "slide4",
     "heading": "Olika former av desinfektion",
     "body": 
       [
@@ -40,7 +36,6 @@
 
   },
   {
-    "title": "slide5",
     "heading": "Vad behöver du tänka på?",
     "body": 
       [
@@ -50,7 +45,6 @@
 
   },
   {
-    "title": "slide6",
     "heading": "Sätt igång!",
     "body": 
       [

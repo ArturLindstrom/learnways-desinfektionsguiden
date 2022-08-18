@@ -13,6 +13,9 @@
             Vad kommer du att få lära dig?
           </HeadingComponent>
           <SliderComponent />
+          <ButtonComponent action="forward">
+            Gå till nästa del
+          </ButtonComponent>
         </MainComponent>
   </div>
 </template>
@@ -23,6 +26,7 @@ import HeadingComponent from "@/components/HeadingComponent.vue";
 import SubHeadingComponent from "@/components/SubHeadingComponent.vue";
 import MainComponent from "@/components/MainComponent.vue";
 import SliderComponent from '@/components/slider/SliderComponent.vue';
+import ButtonComponent from "@/components/ButtonComponent.vue";
 import { onMounted } from "@vue/runtime-core";
 
 </script>

@@ -1,6 +1,5 @@
 <template>
   <div class="main">
-    
     <slot></slot>    
   </div>
 </template>
@@ -15,7 +14,7 @@
 
 .main {
   display: flex;
-  padding: 5rem;
+  padding: 4rem;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
