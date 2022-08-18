@@ -31,11 +31,6 @@
               <div class="progress-bar-fill" :style="{ width: progress + '%', opacity: progress + '%',  height: progress/10 + '%'}"></div>
             </div>
           </template>
-          <!-- <template #bullets>
-            <div class="bullets">
-              <div class="bullet" v-for="(slide, i) in slides" :key="i" :class="{ 'active': i === index }" @click="$refs.slide.goToSlide(i)"></div>
-            </div>
-          </template> -->
     </vueper-slides>
     <SliderButtonsComponent
       class="slider-buttons"
@@ -97,7 +92,6 @@ h2 {
   color: #003340;
   width: 100%;
 }
-
 
 .vueperslides {
   width: 100%;
