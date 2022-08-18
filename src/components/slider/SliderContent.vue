@@ -1,6 +1,4 @@
 <template>
-  <vueper-slide v-for="(slide, i ) in slides" :key="i">
-    <!-- <template #content> -->
       <div class="slide-content">
         <img :src="slide.image" alt="" class="content-img">
         <div class="text-container">
@@ -8,17 +6,19 @@
           <p v-for="(content, i) in slide.body" :key="i">{{ content }}</p>
         </div>
       </div>
-    <!-- </template> -->
-  </vueper-slide>
 </template>
 
 <script setup>
 import { VueperSlide } from 'vueperslides'
 
 const props = defineProps({
-  slides: {
-    type: Array,
-    default: () => [],
+  slide: {
+    type: Object,
+    default: () => ({}),
+  },
+  index: {
+    type: Number,
+    default: 0,
   },
 })
 

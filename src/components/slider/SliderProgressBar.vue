@@ -18,9 +18,11 @@ const props = defineProps({
 <style lang="scss" scoped>
 
 .progress-bar {
+  z-index: 1;
   height: 1rem;
   width: 100%;
   background: white;
+  margin: 0;
 }
 
 .progress-bar-fill {
