@@ -1,37 +1,37 @@
 <template>
-
-<VueperSlides
-  ref="slide"
-  @slide="sliderIndex"
-  :arrows="false"
-  :infinite="false"
-  :draggable="false"
-  :touchable="false"
-  fixed-height="50vh"
-  class="no-shadow"
-  fade
-  :bullets="false"
-  :disableArrowsOnEdges="true"
-  >
-  <VueperSlide v-for="(slide, i ) in slides" :key="i">
-    <template #content>
-      <SliderContent :slide="slide" :index="i"/>
-    </template>
-  </VueperSlide>
-</VueperSlides>
-<!-- <SliderProgressBar :progress="progress" /> -->
-<SliderButtonsComponent
-  class="slider-buttons"
-  @previous-slide="$refs.slide.previous()"
-  @next-slide="$refs.slide.next()"
-  :slider-index="index"
-  :slides="slides"
-/>
-<SliderBullets 
-  :slides="slides"
-  :index="index"
-  @goToSlide="(i) => $refs.slide.goToSlide(i)"
-/>
+  <VueperSlides
+    ref="slide"
+    @slide="sliderIndex"
+    :arrows="false"
+    :infinite="false"
+    :draggable="false"
+    :touchable="false"
+    fixed-height="50vh"
+    class="no-shadow"
+    fade
+    :bullets="false"
+    :disableArrowsOnEdges="true"
+    >
+    <VueperSlide v-for="(slide, i ) in slides" :key="i">
+      <template #content>
+        <SliderContent :slide="slide" :index="i"/>
+      </template>
+    </VueperSlide>
+  </VueperSlides>
+  <!-- <SliderProgressBar :progress="progress" /> -->
+  <SliderButtonsComponent
+    class="slider-buttons"
+    @previous-slide="$refs.slide.previous()"
+    @next-slide="$refs.slide.next()"
+    :slider-index="index"
+    :slides="slides"
+  />
+  <SliderBullets
+    class="slider-bullets" 
+    :slides="slides"
+    :index="index"
+    @goToSlide="(i) => $refs.slide.goToSlide(i)"
+  />
 </template>
 
 <script setup>
@@ -55,6 +55,9 @@ const sliderIndex = (event) => {
 
 <style lang="scss" scoped>
 
+.slider-bullets {
+  margin: 0.5rem 0 2rem 0;
+}
 .vueperslides {
   width: 100%;
   margin-bottom: -4rem;

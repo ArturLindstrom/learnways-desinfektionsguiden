@@ -23,6 +23,11 @@ const forward = () => {
   if (index < routes.length - 1) {
     console.log(props.action)
     router.push(routes[index + 1]);
+        window.scrollTo({
+  top: 0,
+  left: 100,
+  behavior: 'smooth'
+});
   }
 }
 const action = () => {
@@ -41,8 +46,11 @@ color: white;
 padding: 10px 2em;
 min-height: 45px;
 border-radius: 5px;
-margin: 0;
 overflow: visible;
-border: none
+border: none;
+font-weight: 700;
+}
+button:hover{
+  text-decoration: underline;
 }
 </style>

@@ -8,7 +8,7 @@
        <p class="small">
          Denna utbildning är framtagen av Vårdhygien Stockholm
        </p>
-       <a href="https://vardgivarguiden.se/kunskapsstod/vardhygien/">Vårdhygien Vårdgivarguiden
+       <a class="links" href="https://vardgivarguiden.se/kunskapsstod/vardhygien/">Vårdhygien Vårdgivarguiden
 </a>
      </div>
      <div class="referenslista" >
@@ -18,14 +18,16 @@
        <p class="small">
          Ett urval av referenser och litteratur
        </p>
-       <a href="chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://projekt.learnways.com/projekt/Learnways/Praktik/Desinfektion/pdfs/Referenslista.pdf">Se referenslistan
+       <a class="links"  href="chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://projekt.learnways.com/projekt/Learnways/Praktik/Desinfektion/pdfs/Referenslista.pdf">Se referenslistan
 </a>
      </div>
      <div class="hygienrutiner">
        <p>
          Basala hygienrutiner
-       </p>
-       <a href="https://www.basala-hygienrutiner.se/login.aspx?ReturnUrl=%2f">Klicka här för att komma till vår andra webbutbildning.
+
+       </h3>
+       <a class="links"  href="https://www.basala-hygienrutiner.se/login.aspx?ReturnUrl=%2f">Klicka här för att komma till vår andra webbutbildning.
+
 </a>
      </div>
     </div>
@@ -52,6 +54,9 @@ footer {
   /* height: auto; */
   padding: 1em 0;
   color: #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
  
 }
 .footer-container {
@@ -84,7 +89,7 @@ footer {
     
 }
 
-a{
+.links, .links:visited .links:link{
   text-decoration: underline;
 }
 

@@ -1,0 +1,41 @@
+{
+  "thumbnail": {
+    "roomNumber": "",
+    "title": "",
+    "image": "",
+    "backgroundColor": ""
+  },
+
+  "header": {
+    "heading": "",
+    "subHeading": "",
+    "dialogs": 
+      [
+        ""
+      ],
+    "image": "",
+    "backgroundColor": ""
+},
+  "main": {
+    "heading": "",
+    "subHeading": "",
+    "slides": 
+      [[
+        {
+          "title": "",
+          "slides": 
+            [
+              {
+                "title": "",
+                "heading": "",
+                "body": 
+                  [
+                    ""
+                  ],
+                "image": ""
+              }
+            ]
+        }
+      ]]
+  }
+}
