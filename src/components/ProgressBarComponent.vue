@@ -1,27 +1,51 @@
 <template>
   <div class="container">
-        <Router-link to="/">
+        <Router-link class="link" to="/">
             <div class="ball"></div>
             Start
         </Router-link>
-        <Router-link to="/olika-typer">
+        <Router-link class="link" to="/olika-typer">
             <div class="ball"></div>
             Olika typer
         </Router-link>
-        <Router-link to="/situationer">
+        <Router-link class="link" to="/situationer">
             <div class="ball"></div>
             Situationer
         </Router-link>
-        <Router-link to="/diplom">
+        <Router-link class="link" to="/diplom">
             <div class="ball"></div>
             Diplom
         </Router-link>
-        <div class="line"></div>
+            <div class="line"></div>
     </div>
 </template>
 
 <script setup>
+import gsap from "gsap";
+import { onMounted } from "vue";
 
+onMounted(() => {
+  gsap.from(
+    ".link",
+    
+    {
+      duration: 0.5,
+      opacity: 0,
+      scale: 0,
+      stagger: 0.1,
+      delay: 0.5,
+    }
+  );
+  
+
+
+  gsap.from(".line", {
+    duration: 0.5,
+    opacity: 1,
+    scaleX: 0,
+    transformOrigin: '0% 100%'
+  });
+})
 </script>
 
 <style scoped>
