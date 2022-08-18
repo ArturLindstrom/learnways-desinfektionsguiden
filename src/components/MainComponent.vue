@@ -2,7 +2,7 @@
   <div class="main">
     <h2>Vad kommer du att få lära dig?</h2>
     <SliderComponent />
-    <slot></slot>
+    <slot></slot>    
   </div>
 </template>
 
@@ -17,7 +17,7 @@ import SliderComponent from '@/components/slider/SliderComponent.vue';
 
 .main {
   display: flex;
-  padding: 10rem;
+  padding: 5rem;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
@@ -30,6 +30,5 @@ h2 {
   margin-bottom: 1rem;
   line-height: 1.1;
 }
-
 
 </style>

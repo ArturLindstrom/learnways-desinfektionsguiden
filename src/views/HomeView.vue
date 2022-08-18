@@ -15,15 +15,11 @@
 </template>
 
 <script setup>
-import gsap from "gsap";
 import HeaderComponent from "../components/HeaderComponent.vue";
 import HeadingComponent from "@/components/HeadingComponent.vue";
 import SubHeadingComponent from "@/components/SubHeadingComponent.vue";
 import MainComponent from "@/components/MainComponent.vue";
 import { onMounted } from "@vue/runtime-core";
-
-
-
 
 </script>
 
