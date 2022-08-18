@@ -1,7 +1,7 @@
 <template>
   <header :style="{backgroundImage:bg}">
     <div class="imgs">
-        <img src="../assets/Vårdhygien-Stockholm.svg" alt="">
+        <img src="@/assets/Vårdhygien-Stockholm.svg" alt="">
         <router-link to="/">
         <img src="../assets/Group-119.svg" alt="">
         </router-link>
