@@ -43,6 +43,10 @@ min-height: 45px;
 border-radius: 5px;
 margin: 0;
 overflow: visible;
-border: none
+border: none;
+font-weight: 700;
+}
+button:hover{
+  text-decoration: underline;
 }
 </style>

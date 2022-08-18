@@ -8,7 +8,7 @@
        <p>
          Denna utbildning är framtagen av Vårdhygien Stockholm
        </p>
-       <a href="https://vardgivarguiden.se/kunskapsstod/vardhygien/">Vårdhygien Vårdgivarguiden
+       <a class="links" href="https://vardgivarguiden.se/kunskapsstod/vardhygien/">Vårdhygien Vårdgivarguiden
 </a>
      </div>
      <div class="referenslista" >
@@ -18,14 +18,14 @@
        <p>
          Ett urval av referenser och litteratur
        </p>
-       <a href="chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://projekt.learnways.com/projekt/Learnways/Praktik/Desinfektion/pdfs/Referenslista.pdf">Se referenslistan
+       <a class="links"  href="chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://projekt.learnways.com/projekt/Learnways/Praktik/Desinfektion/pdfs/Referenslista.pdf">Se referenslistan
 </a>
      </div>
      <div class="hygienrutiner">
        <h3>
          Basala hygienrutiner
        </h3>
-       <a href="https://www.basala-hygienrutiner.se/login.aspx?ReturnUrl=%2f">Klicka här för att komma till vår andra webbutbildning.
+       <a class="links"  href="https://www.basala-hygienrutiner.se/login.aspx?ReturnUrl=%2f">Klicka här för att komma till vår andra webbutbildning.
 </a>
      </div>
     </div>
@@ -42,15 +42,7 @@ import { onMounted } from '@vue/runtime-core';
 import {useRoute, useRouter} from 'vue-router';
 import ButtonComponent from './ButtonComponent.vue';
 const route = useRoute();
-// const router = useRouter();
-// const routes = ["home", "olika-typer", "situationer", "diplom" ]
-// const forward = () => {
-//   const index = routes.indexOf(route.name);
-//   if (index < routes.length - 1) {
-//     console.log(routes[index + 1]);
-//     router.push(routes[index + 1]);
-//   }
-// }
+
 </script>
 
 <style lang="scss" scoped>
@@ -92,7 +84,7 @@ footer {
     
 }
 
-a{
+.links, .links:visited .links:link{
   text-decoration: underline;
 }
 

@@ -10,12 +10,14 @@
         <slot></slot>
     </div>
     <ProgressBarComponent/>
-    <p class="scroll">Skrolla ner</p>
+    <ScrollContainer class="scroll-container"/>
+
   </header>
 </template>
 
 <script setup>
 import ProgressBarComponent from "./ProgressBarComponent.vue";
+import ScrollContainer from "./ScrollContainer.vue";
 import { computed, onMounted, ref } from "vue";
 import gsap from "gsap";
 
@@ -48,25 +50,24 @@ header {
   align-items: center;
   justify-content: flex-start;
   text-align: center;
-  padding: 51px;
+  padding-bottom: 0;
   background: no-repeat center center #f4edc9;
   background-size: cover;
-  min-height: 85vh;
-  margin-bottom:40px ;
+  height: calc(100vh - 40px);
 }
 
 .imgs {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 40px;
-  width: 100%;
+  margin-top: 30px;
+  width: 95%;
 }
 .heading-container{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 100px;
+  margin-top: 80px;
   width: 100%;
 }
 
@@ -85,10 +86,9 @@ header {
   background-image: url(../assets/bg-4.svg);
 }
 
-.scroll{
+.scroll-container {
   position: absolute;
-  bottom: 6rem;
+  bottom: -10px;
 }
-
 
 </style>

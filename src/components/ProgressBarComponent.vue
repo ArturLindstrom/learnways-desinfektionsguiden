@@ -48,7 +48,7 @@ onMounted(() => {
 })
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .container{
     display: flex;
     justify-content: space-around;
@@ -74,16 +74,15 @@ onMounted(() => {
     box-sizing: border-box;
     transition: ease all 0.25s;
     border: 0px solid #62C0D8;
-
-
 }
 
 a:hover .ball{
-    border: 3px #62C0D8 solid;
+    border: 4px #62C0D8 solid;
     transition: ease all 0.25s;
-
 }
-
+a.router-link-active:hover .ball{
+    border: none;
+}
 a {
     z-index: 2;
     text-align: center;
@@ -94,11 +93,14 @@ a {
     justify-content: center;
     font-size: 20px;
     font-weight: bold;
-    
+
 }
 
 a.router-link-active .ball{
-    background: #62C0D8
+    background: #62C0D8;
+    background-image: url('src/assets/home/main/tick-wht.svg');
+    background-repeat: no-repeat;
+    background-position: center;
 }
 a:hover {
     text-decoration: underline;

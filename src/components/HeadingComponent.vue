@@ -1,7 +1,10 @@
 <template>
-  <h1 :style="{fontSize: props.fontSize + 'px'}" class="heading"> 
-    <slot></slot>
-  </h1>
+
+  <div>
+    <h1 :style="{fontSize: props.fontSize + 'px'}" :class="{animate: props.animate}">
+      <slot></slot>
+    </h1>
+  </div>
 </template>
 
 <script setup>
@@ -13,18 +16,25 @@ const props = defineProps({
       type: String,
       default: "24",
     },
+  animate: {
+      type: Boolean,
+      default: false,
+    },
 });
 
 onMounted(() => {
-  gsap.from(
-    ".heading",
-    
-    {
-      duration: 0.5,
-      opacity: 0,
-      y: 100,
-    }
-  );
+  if(props.animate == true){
+    console.log(props.animate)
+    gsap.from(
+      ".animate",
+      
+      {
+        duration: 0.5,
+        opacity: 0,
+        y: 100,
+      }
+    );
+  }
 })
 
  
