@@ -1,11 +1,12 @@
 <template>
-  <h1 :style="{fontSize: props.fontSize + 'px'}">
+  <h1 :style="{fontSize: props.fontSize + 'px'}" class="heading"> 
     <slot></slot>
   </h1>
 </template>
 
 <script setup>
-import { defineProps } from 'vue';
+import gsap from "gsap";
+import { defineProps, onMounted } from 'vue';
 const props = defineProps({
   fontSize:
     {
@@ -13,6 +14,20 @@ const props = defineProps({
       default: "24",
     },
 });
+
+onMounted(() => {
+  gsap.from(
+    ".heading",
+    
+    {
+      duration: 0.5,
+      opacity: 0,
+      y: 100,
+    }
+  );
+})
+
+ 
 </script>
 
 <style scoped lang="scss">

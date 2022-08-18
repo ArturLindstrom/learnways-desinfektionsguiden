@@ -1,11 +1,24 @@
 <template>
-  <h3>
+  <h3 class="sub-heading">
     <slot></slot>
   </h3>
 </template>
 
 <script setup>
-
+import { onMounted } from "vue";
+import gsap from "gsap";
+onMounted(() => {
+  gsap.from(
+    ".sub-heading",
+    
+    {
+      delay: 0.5,
+      duration: 0.5,
+      opacity: 0,
+      y: 100,
+    }
+  );
+})
 </script>
 
 <style>
