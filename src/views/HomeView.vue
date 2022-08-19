@@ -12,7 +12,7 @@
           <HeadingComponent fontSize="32">
             Vad kommer du att få lära dig?
           </HeadingComponent>
-          <SliderComponent />
+          <SliderComponent :slides="HomeSlides"/>
           <ButtonComponent action="forward">
             Gå till nästa del
           </ButtonComponent>
@@ -28,6 +28,7 @@ import MainComponent from "@/components/MainComponent.vue";
 import SliderComponent from '@/components/slider/SliderComponent.vue';
 import ButtonComponent from "@/components/ButtonComponent.vue";
 import { onMounted } from "@vue/runtime-core";
+import HomeSlides from '@/assets/home/main/slide/slide.json'
 
 </script>
 
