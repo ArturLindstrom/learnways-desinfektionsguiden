@@ -3,7 +3,7 @@
         <img :src="slide.image" alt="" class="content-img">
         <div class="text-container">
           <h3 class="slide-heading">{{ slide.heading }}</h3>
-          <p v-for="(content, i) in slide.body" :key="i">{{ content }}</p>
+            <p v-for="(content, i) in slide.body" :key="i">{{ content }}</p>
         </div>
       </div>
 </template>

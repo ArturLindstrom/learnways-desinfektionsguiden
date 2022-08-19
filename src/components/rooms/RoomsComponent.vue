@@ -2,22 +2,40 @@
 <div class="parent">
   <div 
     :class="'div' + (i+1)"
-    v-for="(item, i) in rooms"
-    :key="item"
+    v-for="(room, i) in rooms"
+    :key="room"
     :style="{
-      backgroundColor: rooms[i].thumbnail.backgroundColor,
-      backgroundImage: 'url(' + rooms[i].thumbnail.image + ')'
+      backgroundColor: room.thumbnail.backgroundColor,
+      backgroundImage: 'url(' + room.thumbnail.image + ')'
     }">
-    <ButtonComponent  class="button">
-      Rum {{rooms[i].thumbnail.roomNumber}}: {{rooms[i].thumbnail.title}}
+    <ButtonComponent  class="button" @click="modalToggle(room)">
+      Rum {{room.thumbnail.roomNumber}}: {{room.thumbnail.title}}
     </ButtonComponent>
   </div>
+    <RoomComponent :room="currentRoom" v-if="modalOpen" @closeModal="modalToggle"/>
 </div>
 </template>
 
 <script setup>
+import { ref, computed } from 'vue'
 import rooms from '@/assets/olikatyper/rooms.json'
 import ButtonComponent from '@/components/ButtonComponent.vue'
+import RoomComponent from '@/components/rooms/RoomComponent.vue'
+
+const modalOpen = ref(false)
+const currentRoom = ref({})
+
+const modalToggle = (room) => {
+  currentRoom.value = room
+  modalOpen.value = !modalOpen.value
+  if(modalOpen.value) {
+    document.body.style.overflow = 'hidden'
+  } else {
+    document.body.style.overflow = 'auto'
+  }
+}
+
+
 
 </script>
 

@@ -12,7 +12,7 @@
     :bullets="false"
     :disableArrowsOnEdges="true"
     >
-    <VueperSlide v-for="(slide, i ) in slides" :key="i">
+    <VueperSlide v-for="(slide, i ) in props.slides" :key="i">
       <template #content>
         <SliderContent :slide="slide" :index="i"/>
       </template>
@@ -24,11 +24,11 @@
     @previous-slide="$refs.slide.previous()"
     @next-slide="$refs.slide.next()"
     :slider-index="index"
-    :slides="slides"
+    :slides="props.slides"
   />
   <SliderBullets
     class="slider-bullets" 
-    :slides="slides"
+    :slides="props.slides"
     :index="index"
     @goToSlide="(i) => $refs.slide.goToSlide(i)"
   />
@@ -38,13 +38,24 @@
 import { ref, computed } from 'vue'
 import { VueperSlides, VueperSlide } from 'vueperslides'
 import 'vueperslides/dist/vueperslides.css'
-import MainSlides from '@/assets/home/main/slide/slide.json';
+// import MainSlides from '@/assets/home/main/slide/slide.json';
 import SliderContent from './SliderContent.vue';
 import SliderButtonsComponent from '@/components/slider/SliderButtonsComponent.vue';
 // import SliderProgressBar from './SliderProgressBar.vue';
 import SliderBullets from './SliderBullets.vue';
 
-const slides = ref(MainSlides)
+const props = defineProps(
+  {
+    slides: {
+      type: Array,
+      default: () => []
+    }
+  }
+)
+
+
+
+// const slides = ref(MainSlides)
 const index = ref(0)
 const sliderIndex = (event) => {
   index.value = event.currentSlide.index;

@@ -18,6 +18,7 @@ const props = defineProps({
 const route = useRoute();
 const router = useRouter();
 const routes = ["home", "olika-typer", "situationer", "diplom" ]
+
 const forward = () => {
   const index = routes.indexOf(route.name);
   if (index < routes.length - 1) {
