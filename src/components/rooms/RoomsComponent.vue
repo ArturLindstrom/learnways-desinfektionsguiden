@@ -1,26 +1,32 @@
 <template>
 <div class="parent">
   <div 
-    :class="'div' + (i+1)"
+    :class="'div' + (i+1)" 
+    class="thumbnails"
     v-for="(room, i) in rooms"
     :key="room"
     :style="{
       backgroundColor: room.thumbnail.backgroundColor,
       backgroundImage: 'url(' + room.thumbnail.image + ')'
     }">
-    <ButtonComponent  class="button" @click="modalToggle(room)">
-      Rum {{room.thumbnail.roomNumber}}: {{room.thumbnail.title}}
-    </ButtonComponent>
+    <span class="overlay">
+      </span>
+      <ButtonComponent  class="button" @click="modalToggle(room)">
+        Rum {{room.thumbnail.roomNumber}}: {{room.thumbnail.title}}
+      </ButtonComponent>
   </div>
     <RoomComponent :room="currentRoom" v-if="modalOpen" @closeModal="modalToggle"/>
 </div>
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted, resolveDirective } from 'vue'
+import gsap from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
 import rooms from '@/assets/olikatyper/rooms.json'
 import ButtonComponent from '@/components/ButtonComponent.vue'
 import RoomComponent from '@/components/rooms/RoomComponent.vue'
+gsap.registerPlugin(ScrollTrigger);
 
 const modalOpen = ref(false)
 const currentRoom = ref({})
@@ -34,6 +40,19 @@ const modalToggle = (room) => {
     document.body.style.overflow = 'auto'
   }
 }
+
+
+
+onMounted(() => {
+  gsap.from('.thumbnails', {
+    scrollTrigger: {
+      trigger: '.thumbnails'
+    },
+    y: '100%',
+    opacity: 0,
+    stagger: 0.1,
+  })
+})
 
 
 
@@ -56,7 +75,29 @@ const modalToggle = (room) => {
   place-items: center;
   &:hover .button {
     display: block;
+    z-index: 2;
   }
+}
+
+.overlay {
+  position: absolute;
+  background: white;
+  opacity: 0.4;
+  transform: scaleY(0);
+  transform-origin: top;
+  width: 100%;
+  transition: all ease 0.5s;
+  z-index: 0;
+  height: 0%;
+  top: 0;
+}
+
+.parent div:hover .overlay {
+  opacity: 0.4;
+  transform-origin: top;
+  transform: scaleY(100%);
+  height: 100%;
+  transition: all ease 0.5s;
 }
 
 .button {
