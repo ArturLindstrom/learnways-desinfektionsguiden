@@ -50,12 +50,10 @@ const emit = defineEmits(['closeModal'])
 
 
 const closeModal = () => {
-  setTimeout(() => {
-    emit('closeModal')
-  }, 500)
   gsap.to('.modal-content', {
-    duration: 0.5,
-    y: '-100%',
+    duration: 1,
+    y: '100%',
+    onComplete: () => emit('closeModal')
   })
 }
 

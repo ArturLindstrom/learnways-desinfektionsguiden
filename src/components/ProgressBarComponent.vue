@@ -36,8 +36,6 @@ onMounted(() => {
       delay: 0.5,
     }
   );
-  
-
 
   gsap.from(".line", {
     duration: 0.5,
@@ -98,7 +96,7 @@ a {
 
 a.router-link-active .ball{
     background: #62C0D8;
-    background-image: url('src/assets/home/main/tick-wht.svg');
+    /* background-image: url('src/assets/home/main/tick-wht.svg'); */
     background-repeat: no-repeat;
     background-position: center;
 }
