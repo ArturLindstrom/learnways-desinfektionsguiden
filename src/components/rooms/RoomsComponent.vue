@@ -51,6 +51,7 @@ onMounted(() => {
     y: '100%',
     opacity: 0,
     stagger: 0.1,
+    duration: 1
   })
 })
 
@@ -93,11 +94,11 @@ onMounted(() => {
 }
 
 .parent div:hover .overlay {
-  opacity: 0.4;
+  opacity: 0.5;
   transform-origin: top;
   transform: scaleY(100%);
   height: 100%;
-  transition: all ease 0.5s;
+  transition: all ease-out 0.5s;
 }
 
 .button {
