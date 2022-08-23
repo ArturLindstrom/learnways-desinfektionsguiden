@@ -16,6 +16,7 @@
       >
       <h1>{{props.room.header.heading}}</h1>
       <h3>{{props.room.header.subHeading}}</h3>
+      <DialogComponent :room=props.room />
     </header>
     <MainComponent>
       <h2 > 
@@ -45,18 +46,23 @@ import { ref, onMounted, onBeforeUnmount } from 'vue'
 import MainComponent from '../MainComponent.vue';
 import SliderComponent from '../slider/SliderComponent.vue';
 import gsap from 'gsap';
+import DialogComponent from './DialogComponent.vue';
 
 const emit = defineEmits(['closeModal'])
 
 
 const closeModal = () => {
   gsap.to('.modal-content', {
-    duration: 1,
+    duration: 0.5,
     y: '100%',
     onComplete: () => emit('closeModal')
   })
-}
+  gsap.to('.modal', {
+    opacity: 0,
+    duration: 0.5,
+})
 
+}
 onMounted(() => {
   gsap.from('.modal-content', {
     duration: 1,
@@ -95,12 +101,12 @@ const setCurrentSlide = (i) => {
   /* display: none; Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; 
-  padding-top: 2rem;
+  padding-top: 3rem;
   left: 0;
   top: 0;
   width: 100%; 
   height: 100%; 
-  overflow: auto; /* Enable scroll if needed */
+  overflow: auto;
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
 }
@@ -112,7 +118,7 @@ const setCurrentSlide = (i) => {
   margin: auto;
   border: 1px solid #888;
   min-height: 50vh;
-  width: 90%;
+  width: 85%;
 }
 
 header {
@@ -121,7 +127,7 @@ header {
   background-repeat: no-repeat;
   background-size: 90%;
   background-position: bottom center;
-  padding: 2rem;
+  padding: 3rem;
 }
 
 h1 {
@@ -136,7 +142,7 @@ h1 {
   place-items: center;
   position: fixed;
   top: 2rem;
-  right: 7%;
+  right: 2.5%;
   font-weight: bold;
 }
 

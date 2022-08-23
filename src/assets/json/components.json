@@ -1,0 +1,131 @@
+{
+    "presentations": {
+        "p1": {
+            "id": "1",
+            "pdf": "enpdf.pdf"
+        },
+        "p2": {
+            "id": "2",
+            "pdf": "enpdf.pdf"
+        },
+        "p3": {
+            "id": "3",
+            "pdf": "enpdf.pdf"
+        },
+        "p4": {
+            "id": "4",
+            "pdf": "enpdf.pdf"
+        },
+        "p5": {
+            "id": "5",
+            "pdf": "enpdf.pdf"
+        },
+        "p6": {
+            "id": "6",
+            "pdf": "enpdf.pdf"
+        }
+    },
+    "subjects": {
+        "su1": {
+            "id": "1",
+            "txtr": "su1",
+            "color": "#089086",
+            "img": "subj_1.svg"
+        },
+        "su2": {
+            "id": "2",
+            "txtr": "su2",
+            "color": "#265B6C",
+            "img": "subj_2.svg"
+        },
+        "su3": {
+            "id": "3",
+            "txtr": "su3",
+            "color": "#354989",
+            "img": "subj_3.svg"
+        },
+        "su4": {
+            "id": "4",
+            "txtr": "su4",
+            "color": "#33336B",
+            "img": "subj_4.svg"
+        },
+        "su5": {
+            "id": "5",
+            "txtr": "su5",
+            "color": "#27234A",
+            "img": "subj_5.svg"
+        },
+        "su6": {
+            "id": "6",
+            "txtr": "su6",
+            "color": "#009BA2",
+            "img": "subj_6.svg"
+        }
+    },
+    "situations": [
+        {
+            "id": "1",
+            "txtid": "s03_s1",
+            "img": "situation-1-start.svg",
+            "questions": 3,
+            "scormid": 0
+        },
+        {
+            "id": "2",
+            "txtid": "s03_s2",
+            "img": "situation-1-start.svg",
+            "questions": 3,
+            "scormid": 1
+        },
+        {
+            "id": "3",
+            "txtid": "s03_s3",
+            "img": "situation-2-start.svg",
+            "questions": 2,
+            "scormid": 2
+        },
+        {
+            "id": "4",
+            "txtid": "s03_s4",
+            "img": "situation-2-start.svg",
+            "questions": 2,
+            "scormid": 3
+        },
+        {
+            "id": "5",
+            "txtid": "s03_s5",
+            "img": "situation-3-start.svg",
+            "questions": 2,
+            "scormid": 4
+        },
+        {
+            "id": "6",
+            "txtid": "s03_s6",
+            "img": "situation-3-start.svg",
+            "questions": 3,
+            "scormid": 5
+        },
+        {
+            "id": "7",
+            "txtid": "s03_s9",
+            "img": "",
+            "questions": 0,
+            "scormid": 6
+        },
+        {
+            "id": "8",
+            "txtid": "s03_s7",
+            "img": "situation-4-start.svg",
+            "questions": 3,
+            "scormid": 7
+        },
+        {
+            "id": "9",
+            "txtid": "s03_s8",
+            "img": "situation-4-start.svg",
+            "questions": 2,
+            "scormid": 8
+        }
+    ]
+}
