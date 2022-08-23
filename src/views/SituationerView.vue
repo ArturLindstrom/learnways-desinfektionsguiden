@@ -7,7 +7,14 @@
             Nu är det dags att testa dina nya kunskaper i olika situationer.
         </SubHeadingComponent>
     </HeaderComponent>
-    <MainComponent />
+    <MainComponent>
+        <HeadingComponent fontSize="32">
+            Desinfektionsövningar
+        </HeadingComponent>
+        <SubHeadingComponent>
+            Du har gått igenom X av X övningar
+        </SubHeadingComponent>
+    </MainComponent>
 </template>
 
 <script setup>
