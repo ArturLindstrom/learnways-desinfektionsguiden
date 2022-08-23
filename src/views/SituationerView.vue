@@ -11,9 +11,10 @@
         <HeadingComponent fontSize="32">
             Desinfektionsövningar
         </HeadingComponent>
-        <SubHeadingComponent>
-            Du har gått igenom X av X övningar
+        <SubHeadingComponent >
+            Du har gått igenom 0 av 9 situationer
         </SubHeadingComponent>
+        <SituationsComponent/>
     </MainComponent>
 </template>
 
@@ -22,9 +23,12 @@ import HeaderComponent from "../components/HeaderComponent.vue";
 import HeadingComponent from '../components/HeadingComponent.vue';
 import SubHeadingComponent from '../components/SubHeadingComponent.vue';
 import MainComponent from "@/components/MainComponent.vue";
+import SituationCard from "../components/situations/SituationCard.vue";
+import SituationsComponent from "../components/situations/SituationsComponent.vue";
+
 
 </script>
 
-<style>
-
+<style scoped>
+   
 </style>

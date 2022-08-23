@@ -28,6 +28,8 @@ import SubHeadingComponent from "@/components/SubHeadingComponent.vue";
 import MainComponent from "@/components/MainComponent.vue";
 import RoomsComponent from "@/components/rooms/RoomsComponent.vue";
 
+
+
 </script>
 
 <style>
