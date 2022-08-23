@@ -39,8 +39,8 @@
         </div>
       </div>
     </MainComponent>
-    <footer>
-      <p>{{situation.end}}</p>
+    <footer v-if="questionIndex === 4">
+      <HeadingComponent>{{situation.end}}</HeadingComponent>
       <ButtonComponent @click="closeModal">
         Stäng
       </ButtonComponent>
@@ -143,8 +143,7 @@ onMounted(() => {
 <style scoped lang='scss'>
 
 .modal {
-  /* display: none; Hidden by default */
-  position: fixed; /* Stay in place */
+  position: fixed;
   z-index: 1; 
   padding-top: 3rem;
   left: 0;
@@ -156,7 +155,6 @@ onMounted(() => {
   background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
 }
 
-/* Modal Content */
 .modal-content {
   background-color: #fefefe;
   border-radius: 10px;
@@ -170,7 +168,7 @@ onMounted(() => {
   display: flex;
   flex-direction: column;
   align-items:center;
-  margin-top: 30px;
+  margin-top: 7.5rem;
 }
 
 
@@ -217,7 +215,7 @@ footer {
   place-items: center;
   background: #F4EDC9;
   padding: 3rem;
-  height: 20vh;
+  height: 30vh;
 }
 
 
