@@ -7,7 +7,7 @@
             Nu är det dags att testa dina nya kunskaper i olika situationer.
         </SubHeadingComponent>
     </HeaderComponent>
-    <MainComponent>
+    <MainComponent flex="row">
         <HeadingComponent fontSize="32">
             Desinfektionsövningar
         </HeadingComponent>

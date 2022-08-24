@@ -6,7 +6,7 @@
         </SubHeadingComponent>
 
     <div class="button-container">
-        <ButtonComponent v-for="(situation, i) in category.situations" @click="$emit('openSituation', situation)">
+        <ButtonComponent v-for="(situation, i) in category.situations" :key="i" @click="$emit('openSituation', situation)">
             Situation {{i+1}}
         </ButtonComponent>
         
