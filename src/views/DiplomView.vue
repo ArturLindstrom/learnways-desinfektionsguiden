@@ -7,7 +7,8 @@
       Du är inte riktigt klar
     </HeadingComponent>
     <SubHeadingComponent animate v-if="done">
-Bra jobbat! Du har genomfört hela utbildningen. Nu har du chans att hämta ditt diplom och repetera vid behov.    </SubHeadingComponent>
+      Bra jobbat! Du har genomfört hela utbildningen. Nu har du chans att hämta ditt diplom och repetera vid behov.
+    </SubHeadingComponent>
     <SubHeadingComponent animate v-else>
       När du är klar med en del visas en bock i cirkeln nedan. Klicka på den del som saknas för att slutföra utbildningen.
     </SubHeadingComponent>
@@ -17,7 +18,7 @@ Bra jobbat! Du har genomfört hela utbildningen. Nu har du chans att hämta ditt
     <SubHeadingComponent>
       Du är klar!
     </SubHeadingComponent>
-    <CardWrapper/>
+    <CardWrapper :cards="cards"/>
   </MainComponent>
 </template>
 

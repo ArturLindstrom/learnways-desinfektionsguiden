@@ -7,11 +7,15 @@
 </template>
 
 <script setup>
-    import CardComponent from "@/components/CardComponent.vue";
+  import CardComponent from "@/components/CardComponent.vue";
 
-    // Ska propas in eller komma från vuex sen
-    import cards from "@/assets/diplom/diplom.json"
-    // Ska propas in eller komma från vuex sen
+  const props = defineProps({
+      cards: {
+          type: Array,
+      }
+  });
+
+  const cards = props.cards
 </script>
 
 <style scoped lang='scss'>
