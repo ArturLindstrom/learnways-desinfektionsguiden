@@ -13,10 +13,11 @@ Bra jobbat! Du har genomfört hela utbildningen. Nu har du chans att hämta ditt
     </SubHeadingComponent>
     <button @click="done=!done"> {{done}}</button>
   </HeaderComponent>
-  <MainComponent flex="row">
-    <CardComponent v-for="card in cards" :key="card" :cardContent="card" v-if="done">
-
-    </CardComponent>
+  <MainComponent  v-if="done">
+    <SubHeadingComponent>
+      Du är klar!
+    </SubHeadingComponent>
+    <CardWrapper/>
   </MainComponent>
 </template>
 
@@ -28,6 +29,7 @@ import MainComponent from "@/components/MainComponent.vue";
 import { ref } from "vue";
 import CardComponent from "../components/CardComponent.vue";
 import cards from "../assets/diplom/diplom.json"
+import CardWrapper from "../components/CardWrapper.vue"
 
 const done = ref(false)
 

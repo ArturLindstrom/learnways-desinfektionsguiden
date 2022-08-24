@@ -1,17 +1,12 @@
 <template>
-  <div class="main" :style="{flexDirection: props.flex}">
-    <slot></slot>    
+  <div class="main">
+      <slot></slot> 
   </div>
 </template>
 
 <script setup>
 
-const props = defineProps({
-  flex: {
-    type: String,
-    default: 'column'
-  }
-})
+
 
 </script>
 
@@ -19,10 +14,9 @@ const props = defineProps({
 
 .main {
   display: flex;
+  flex-direction: column;
   padding: 4rem;
-  /* flex-direction: column ; */
   align-items: center;
-  /* justify-content: flex-start; */
   justify-content: center;
   min-height: 60vh;
 }

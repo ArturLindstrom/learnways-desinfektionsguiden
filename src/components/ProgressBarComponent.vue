@@ -25,17 +25,17 @@ import gsap from "gsap";
 import { onMounted } from "vue";
 
 onMounted(() => {
-  gsap.from(
-    ".link",
+//   gsap.from(
+//     ".link",
     
-    {
-      duration: 0.5,
-      opacity: 0,
-      scale: 0,
-      stagger: 0.1,
-      delay: 0.5,
-    }
-  );
+//     {
+//       duration: 0.5,
+//       opacity: 0,
+//       scale: 0,
+//       stagger: 0.1,
+//       delay: 0.5,
+//     }
+//   );
 
   gsap.from(".line", {
     duration: 0.5,
@@ -49,14 +49,15 @@ onMounted(() => {
 <style scoped lang="scss">
 .container{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    width: 50%;
+    width: 40%;
     margin-top:80px;
 }
 
 .line {
-    width: 35%;
+    /* width: 35%; */
+    width: 99%;
     height: 3px;
     background-color: #ffffff;
     position: absolute;

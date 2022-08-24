@@ -9,7 +9,7 @@
     <div class="heading-container">
         <slot></slot>
     </div>
-    <ProgressBarComponent/>
+    <ProgressBarComponent class="progress-bar" />
     <ScrollContainer class="scroll-container"/>
 
   </header>
@@ -62,6 +62,11 @@ header {
   justify-content: center;
   margin-top: 80px;
   width: 100%;
+}
+
+.progress-bar {
+  position: absolute;
+  top: 35%;
 }
 
 .home{
