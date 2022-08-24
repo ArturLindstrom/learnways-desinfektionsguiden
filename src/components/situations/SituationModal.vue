@@ -5,7 +5,7 @@
   <!-- Modal content -->
   <div class="modal-content">
     <header>
-      <!-- <img :src="image" class="img-placeholder"> -->
+      <img :src="category.image" >
       <HeadingComponent>
         {{situation.heading}}
       </HeadingComponent>
@@ -65,10 +65,10 @@ import SubHeadingComponent from '../SubHeadingComponent.vue';
 import MainComponent from '../MainComponent.vue';
 import QuizButton from './QuizButton.vue';
 import ButtonComponent from '../ButtonComponent.vue';
-// import situations from '@/assets/situationer/situations.json'
 
 const emit = defineEmits(['closeModal'])
 const situation = props.situation
+const category = props.category
 
 const answeredQuestion = ref([{}])
 const questionIndex = ref(1)
@@ -78,8 +78,6 @@ const isActive = ref(false)
 const incrementQuestionIndex = (answer) => {
   questionIndex.value++
   answeredQuestion.value.push(answer)
-  console.log(answeredQuestion.value)
-
 }
 
 
@@ -95,21 +93,10 @@ const props = defineProps({
   situation: {
     type: Object,
   },
+  category: {
+    type: Object,
+  }
 })
- 
- 
-
-
-// const image = computed(() => {
-//   for(let i = 0; i < situations.length; i++) {
-//     if(situations[i].situations[0].heading === situation.heading) {
-//       return situations[i].image
-//     }
-//     else {
-//       return ''
-//     }
-//   }
-// })
 
 const closeModal = () => {
   gsap.to('.modal-content', {
@@ -164,13 +151,12 @@ onMounted(() => {
   width: 85%;
 }
 
-.question{
+.question {
   display: flex;
   flex-direction: column;
   align-items:center;
   margin-top: 7.5rem;
 }
-
 
 .alternative-holder{
   display: flex;
@@ -199,15 +185,15 @@ onMounted(() => {
 }
 
 header {
+  display: flex;
+  align-items: center;
   height: 20vh;
   border-radius: 10px;
   background: #F4EDC9;
   padding: 3rem;
-}
-
-h1 {
-  text-align: left;
-  width: 60%;
+  & > img {
+    margin: 1rem;
+  }
 }
 
 footer {
@@ -237,12 +223,5 @@ footer {
   transition: all 0.25s ease-in-out;
   cursor: pointer;
 }
-
-/* .img-placeholder {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-} */
-
 
 </style>
