@@ -1,41 +1,26 @@
 <template>
     <div class="card-wrapper">
-        <SituationCard 
-          v-for="category in situations"
-          :key="category" :category="category"
-          @openSituation="(payload) => modalToggle(payload)" />
-        <SituationModal
-          v-if="modalOpen"
-          :situation="currentSituation"
-          :category="currentCategory"
-          @closeModal="modalToggle" 
-        />
+      <CardComponent v-for="situation in situations" :key="situation" :cardContent="situation"/>
+      <ModalComponent v-if="modalComponentOpen">
+        <SituationContent></SituationContent>
+      </ModalComponent>
     </div>
 </template>
 
 <script setup>
-  import SituationCard from './SituationCard.vue'
-  import SituationModal from './SituationModal.vue'
-  import situations from '@/assets/situationer/situations.json'
-    
-    
-  import { ref } from 'vue';
+  import CardComponent from '../CardComponent.vue';
+  import ModalComponent from '../modal/ModalComponent.vue';
+  import { ref, computed } from 'vue';
+  import { useStore } from 'vuex'
+  import situations from '@/assets/situationer/situations.json';
+  import SituationContent from './SituationContent.vue';
 
-  const currentSituation = ref({})
-  const currentCategory = ref({})
+  const store = useStore()
 
-  const modalOpen = ref(false)
+  const modalComponentOpen = computed(() => {
+    return store.state.modalShown
+})
 
-  const modalToggle = (payload) => {
-    modalOpen.value = !modalOpen.value
-    if(modalOpen.value) {
-      document.body.style.overflow = 'hidden'
-      currentSituation.value = payload.situation
-      currentCategory.value = payload.category
-    } else {
-      document.body.style.overflow = 'auto'
-    }
-  }
 </script>
 
 <style scoped lang='scss'>
@@ -47,4 +32,5 @@
   margin-top: 50px;
   gap: 20px;
   }
+  
 </style>

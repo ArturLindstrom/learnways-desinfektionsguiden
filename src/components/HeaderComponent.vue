@@ -47,6 +47,7 @@ header {
   background: no-repeat center center #f4edc9;
   background-size: cover;
   height: calc(100vh - 40px);
+  width: 100%;
 }
 
 .imgs {
@@ -67,21 +68,6 @@ header {
 .progress-bar {
   position: absolute;
   top: 35%;
-}
-
-.home{
-  background-image: url(../assets/bg-1.svg);
-}
-.situationer{
-  background-image: url(../assets/bg-3.svg);
-}
-
-.typer{
-  background-image: url(../assets/bg-2.svg);
-}
-
-.diplom{
-  background-image: url(../assets/bg-4.svg);
 }
 
 .scroll-container {

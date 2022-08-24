@@ -25,9 +25,12 @@ a, a:visited, a:link {
   text-align: center;
   margin: 0;
   padding: 0;
+  /* max-width: 100vw; */
+  /* overflow-x: hidden; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-nav {
-  padding: 30px;
-}
+
 </style>

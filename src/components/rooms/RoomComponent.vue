@@ -1,90 +1,51 @@
 <template>
-<!-- The Modal -->
-<div class="modal" @click.self="closeModal">
-
-  <!-- Modal content -->
-  <div class="modal-content">
-    <div class="close-container" @click="closeModal">
-      <p>Stäng</p>
-      <img class="close-icon" src="src/assets/close.svg">
-    </div>
+  <div class="room">
     <header
       :style="{
-        backgroundColor: props.room.header.backgroundColor,
-        backgroundImage: 'url(' + props.room.header.image + ')'
+        backgroundColor: content.header.backgroundColor,
+        backgroundImage: 'url(' + content.header.image + ')'
       }" 
       >
-      <h1>{{props.room.header.heading}}</h1>
-      <h3>{{props.room.header.subHeading}}</h3>
-      <DialogComponent :room=props.room />
+      <h1>{{content.header.heading}}</h1>
+      <h3>{{content.header.subHeading}}</h3>
+      <DialogComponent :room=content />
     </header>
     <MainComponent>
       <h2 > 
-        {{props.room.main.heading}}
+        {{content.main.heading}}
       </h2>
       
       <div class="category-container">
-        <div class="category-flex" v-for="(slide, i) in props.room.main.slides">
-          <h3  @click="setCurrentSlide(i)">
-            {{props.room.main.slides[i].title}}
+        <div 
+          class="category-flex"
+          v-for="(slide, i) in content.main.slides"
+          :key="i"
+        >
+          <h3 @click="setCurrentSlide(i)">
+            {{content.main.slides[i].title}}
           </h3>
           <span class="underline"></span>
         </div>
       </div>
-      <SliderComponent :slides="props.room.main.slides[currentSlide].slides">
-      </SliderComponent>
+      <SliderComponent :slides="content.main.slides[currentSlide].slides" />
     </MainComponent>
   </div>
-
-</div>
-
-
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { ref, onMounted, onBeforeUnmount, computed} from 'vue'
 import MainComponent from '../MainComponent.vue';
 import SliderComponent from '../slider/SliderComponent.vue';
 import gsap from 'gsap';
 import DialogComponent from './DialogComponent.vue';
+import { useStore } from 'vuex'
 
-const emit = defineEmits(['closeModal'])
+const store = useStore()
 
-
-const closeModal = () => {
-  gsap.to('.modal-content', {
-    duration: 0.5,
-    y: '100%',
-    onComplete: () => emit('closeModal')
-  })
-  gsap.to('.modal', {
-    opacity: 0,
-    duration: 0.5,
+const content = computed(() => {
+  return store.state.modalContent
 })
 
-}
-onMounted(() => {
-  gsap.from('.modal-content', {
-    duration: 1,
-    y: '100%',
-    opacity: 1
-  });
-
-  gsap.from('.modal', {
-    duration: 0.5,
-    opacity: 0
-  })
-})
-
-
-
-
-
-const props = defineProps({
-  room: {
-    type: Object,
-  },
-})
 
 const currentSlide = ref(0)
 const setCurrentSlide = (i) => {
@@ -97,54 +58,25 @@ const setCurrentSlide = (i) => {
 
 <style scoped lang='scss'>
 
-.modal {
-  /* display: none; Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; 
-  padding-top: 3rem;
-  left: 0;
-  top: 0;
-  width: 100%; 
-  height: 100%; 
-  overflow: auto;
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
-}
-
-/* Modal Content */
-.modal-content {
-  background-color: #fefefe;
-  border-radius: 10px;
-  margin: auto;
-  border: 1px solid #888;
-  min-height: 50vh;
-  width: 85%;
-}
-
 header {
   height: 75vh;
   border-radius: 10px;
   background-repeat: no-repeat;
   background-size: 90%;
   background-position: bottom center;
-  padding: 3rem;
+  width: 100%;
+  /* padding: 3rem; */
 }
 
 h1 {
   text-align: left;
   width: 60%;
+  margin: 3rem;
 }
 
-/* The Close Button */
-.close-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  place-items: center;
-  position: fixed;
-  top: 2rem;
-  right: 2.5%;
-  font-weight: bold;
-}
+/* .room {
+  width: 100%;
+} */
 
 .category-container{
   width: 100%;
@@ -167,15 +99,6 @@ h1 {
   flex-direction: column;
 }
 
-.close-icon{
-  transition: all 0.25s ease-in-out;
-}
-
-.close-icon:hover{
-  transform: rotate(90deg);
-  transition: all 0.25s ease-in-out;
-  cursor: pointer;
-}
 
 
 </style>

@@ -1,11 +1,7 @@
 <template>
-<!-- The Modal -->
-<div class="modal" @click.self="closeModal">
-
-  <!-- Modal content -->
-  <div class="modal-content">
+  <div>
     <header>
-      <img :src="category.image" >
+      <!-- <img :src="category.image" > -->
       <HeadingComponent>
         {{situation.heading}}
       </HeadingComponent>
@@ -13,6 +9,7 @@
     <MainComponent>
       <div class="question" 
         v-for="(question, i) in questions"
+        :key="i"
       >
         <p>
           {{question.description}}
@@ -45,16 +42,8 @@
         Stäng
       </ButtonComponent>
     </footer>
-  <div class="close-container" @click="closeModal">
-    <p>Stäng</p>
-      <img class="close-icon" src="src/assets/close.svg">
+    
   </div>
-   
-  </div>
-
-</div>
-
-
 </template>
 
 <script setup>
@@ -65,10 +54,19 @@ import SubHeadingComponent from '../SubHeadingComponent.vue';
 import MainComponent from '../MainComponent.vue';
 import QuizButton from './QuizButton.vue';
 import ButtonComponent from '../ButtonComponent.vue';
+import { useStore } from 'vuex';
 
-const emit = defineEmits(['closeModal'])
-const situation = props.situation
-const category = props.category
+const store = useStore()
+
+
+const closeModal = () => {
+  store.commit('modalClose')
+}
+
+const situation = computed(()=> {
+  return store.state.modalContent
+})
+
 
 const answeredQuestion = ref([{}])
 const questionIndex = ref(1)
@@ -80,10 +78,8 @@ const incrementQuestionIndex = (answer) => {
   answeredQuestion.value.push(answer)
 }
 
-
-
 const questions = computed(() => {
-  return situation.questions.slice(0, questionIndex.value)
+  return store.state.modalContent.questions.slice(0, questionIndex.value)
   }
 )
 
@@ -98,59 +94,10 @@ const props = defineProps({
   }
 })
 
-const closeModal = () => {
-  gsap.to('.modal-content', {
-    duration: 0.5,
-    y: '100%',
-    onComplete: () => emit('closeModal')
-  })
-  gsap.to('.modal', {
-    opacity: 0,
-    duration: 0.5,
-})
-
-}
-onMounted(() => {
-  gsap.from('.modal-content', {
-    duration: 1,
-    y: '100%',
-    opacity: 1
-  });
-
-  gsap.from('.modal', {
-    duration: 0.5,
-    opacity: 0
-  })
-
-  })
-
 
 </script>
 
 <style scoped lang='scss'>
-
-.modal {
-  position: fixed;
-  z-index: 1; 
-  padding-top: 3rem;
-  left: 0;
-  top: 0;
-  width: 100%; 
-  height: 100%; 
-  overflow: auto;
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
-}
-
-.modal-content {
-  background-color: #fefefe;
-  border-radius: 10px;
-  margin: auto;
-  border: 1px solid #888;
-  min-height: 50vh;
-  width: 85%;
-}
-
 .question {
   display: flex;
   flex-direction: column;
@@ -213,15 +160,6 @@ footer {
   top: 2rem;
   right: 2.5%;
   font-weight: bold;
-}
-.close-icon{
-  transition: all 0.25s ease-in-out;
-}
-
-.close-icon:hover{
-  transform: rotate(90deg);
-  transition: all 0.25s ease-in-out;
-  cursor: pointer;
 }
 
 </style>
