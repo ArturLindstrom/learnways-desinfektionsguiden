@@ -3,10 +3,10 @@
     "title": "Handdesinfektion",
     "image": "src/assets/situationer/situation-1-start.svg",
     "situations": 
-      [
-        {
-          "heading": "Du är på väg in till en patient för att utföra ett vårdmoment.",
-          "end": "Du är klar med situationen. Stäng och gå vidare till nästa.",
+    [
+      {
+        "heading": "Du är på väg in till en patient för att utföra ett vårdmoment.",
+        "end": "Du är klar med situationen. Stäng och gå vidare till nästa.",
           "questions":
             [
               {
