@@ -6,8 +6,10 @@
         </SubHeadingComponent>
 
     <div class="button-container">
-        <ButtonComponent v-for="(situation, i) in category.situations" :key="i" @click="$emit('openSituation', situation)">
-            Situation {{i+1}}
+
+        <ButtonComponent v-for="(situation, i) in category.situations" @click="clickHandler(situation)">
+        Situation {{i+1}}
+
         </ButtonComponent>
         
     </div>
@@ -32,6 +34,14 @@ const props = defineProps({
 const emit = defineEmits([
     'openSituation'
 ]);
+
+const clickHandler = (situation) => {
+    const payload = {
+        situation: situation,
+        category: props.category
+    }
+    emit('openSituation', payload)
+}
 
 
 const category = props.category
