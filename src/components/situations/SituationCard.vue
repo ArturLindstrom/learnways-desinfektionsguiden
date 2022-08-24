@@ -6,8 +6,10 @@
         </SubHeadingComponent>
 
     <div class="button-container">
+
         <ButtonComponent v-for="(situation, i) in category.situations" @click="clickHandler(situation)">
         Situation {{i+1}}
+
         </ButtonComponent>
         
     </div>

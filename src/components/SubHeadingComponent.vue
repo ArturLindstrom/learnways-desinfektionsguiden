@@ -34,7 +34,7 @@ onMounted(() => {
 <style scoped>
 
 h3 {
-  font-weight: 600;
+  font-weight: 700;
   width: 100%;
   font-size: 20px;
 }

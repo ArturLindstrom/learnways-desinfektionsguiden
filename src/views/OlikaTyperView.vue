@@ -8,7 +8,7 @@
     </SubHeadingComponent>
   </HeaderComponent>
 
-  <MainComponent>
+  <MainComponent flex="column">
     <HeadingComponent fontSize="32">
       Utforska de fem rummen
     </HeadingComponent>

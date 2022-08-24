@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <slot></slot>    
+      <slot></slot> 
   </div>
 </template>
 
@@ -14,10 +14,10 @@
 
 .main {
   display: flex;
-  padding: 4rem;
   flex-direction: column;
+  padding: 4rem;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   min-height: 60vh;
 }
 
