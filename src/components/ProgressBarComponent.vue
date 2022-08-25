@@ -25,17 +25,17 @@ import gsap from "gsap";
 import { onMounted } from "vue";
 
 onMounted(() => {
-//   gsap.from(
-//     ".link",
+  gsap.from(
+    ".link",
     
-//     {
-//       duration: 0.5,
-//       opacity: 0,
-//       scale: 0,
-//       stagger: 0.1,
-//       delay: 0.5,
-//     }
-//   );
+    {
+      duration: 0.5,
+      opacity: 0,
+      scale: 0,
+      stagger: 0.2,
+      delay: 0.5,
+    }
+  );
 
   gsap.from(".line", {
     duration: 0.5,

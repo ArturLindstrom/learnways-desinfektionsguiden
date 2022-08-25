@@ -16,9 +16,9 @@
 </template>
 
 <script setup>
-import ProgressBarComponent from "./ProgressBarComponent.vue";
+import ProgressBarComponent from "@/components/ProgressBarComponent.vue";
 
-import ScrollContainer from "./ScrollContainer.vue";
+import ScrollContainer from "@/components/ScrollContainer.vue";
 import { computed, onMounted, ref } from "vue";
 import gsap from "gsap";
 

@@ -35,9 +35,6 @@ const closeModal = () => {
 }
 )}
 
-// const closeModal = () => {
-//   store.commit('modalClose')
-// }
 
 
 onMounted(() => {
