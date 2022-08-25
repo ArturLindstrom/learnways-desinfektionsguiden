@@ -12,7 +12,7 @@
     <SubHeadingComponent animate v-else>
       När du är klar med en del visas en bock i cirkeln nedan. Klicka på den del som saknas för att slutföra utbildningen.
     </SubHeadingComponent>
-    <button @click="done=!done"> {{done}}</button>
+    <button @click="toggleDone"> {{store.state.done}}</button>
   </HeaderComponent>
   <MainComponent  v-if="done">
     <SubHeadingComponent>
@@ -27,14 +27,19 @@ import HeaderComponent from "../components/HeaderComponent.vue";
 import HeadingComponent from "@/components/HeadingComponent.vue";
 import SubHeadingComponent from "@/components/SubHeadingComponent.vue";
 import MainComponent from "@/components/MainComponent.vue";
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import CardComponent from "../components/CardComponent.vue";
 import cards from "../assets/diplom/diplom.json"
 import CardWrapper from "../components/CardWrapper.vue"
+import { useStore } from "vuex";
 
-const done = ref(false)
+// const done = ref(false)
+const store = useStore()
+const done = computed(() => store.state.done)
 
-
+const toggleDone = () => {
+  store.commit("toggleDone")
+}
 </script>
 
 <style>

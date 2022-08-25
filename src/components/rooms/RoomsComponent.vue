@@ -48,18 +48,10 @@ gsap.registerPlugin(ScrollTrigger);
 
 const currentRoom = ref({})
 
-// const modalToggle = (room) => {
-//   currentRoom.value = room
-//   modalOpen.value = !modalOpen.value
-//   if(modalOpen.value) {
-//     document.body.style.overflow = 'hidden'
-//   } else {
-//     document.body.style.overflow = 'auto'
-//   }
-// }
 
 const modalOpen = (room) => {
   store.commit('modalOpen', room)
+  
 }
 
 

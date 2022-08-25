@@ -19,7 +19,7 @@
   align-items: center;
   justify-content: center;
   min-height: 60vh;
-  width: 80%;
+  width: 85%;
 
 }
 

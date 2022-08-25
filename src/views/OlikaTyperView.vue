@@ -13,7 +13,7 @@
       Utforska de fem rummen
     </HeadingComponent>
     <SubHeadingComponent>
-      Du har gått igenom 0 av 5 rum
+      Du har gått igenom {{completedRooms}} av 5 rum
     </SubHeadingComponent>
     <RoomsComponent>
       
@@ -27,9 +27,12 @@ import HeadingComponent from "@/components/HeadingComponent.vue";
 import SubHeadingComponent from "@/components/SubHeadingComponent.vue";
 import MainComponent from "@/components/MainComponent.vue";
 import RoomsComponent from "@/components/rooms/RoomsComponent.vue";
+import { computed } from "vue";
+import { useStore } from "vuex";
 
+const store = useStore()
 
-
+const completedRooms = computed(() => store.state.checkList.filter(Boolean).length)
 </script>
 
 <style>
