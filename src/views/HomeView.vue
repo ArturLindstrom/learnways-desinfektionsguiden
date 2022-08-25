@@ -1,5 +1,4 @@
 <template>
-  <div class="home-view">
         <HeaderComponent bgImg="1">
           <HeadingComponent fontSize="85" animate>
             Desinfektionsguiden
@@ -17,7 +16,6 @@
             Gå till nästa del
           </ButtonComponent>
         </MainComponent>
-  </div>
 </template>
 
 <script setup>

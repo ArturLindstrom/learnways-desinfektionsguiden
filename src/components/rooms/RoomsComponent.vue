@@ -11,11 +11,15 @@
     }">
     <span class="overlay">
       </span>
-      <ButtonComponent  class="button" @click="modalToggle(room)">
+      <!-- <ButtonComponent  class="button" @click="modalToggle(room)"> -->
+      <ButtonComponent  class="button" @click="modalOpen(room)">
         Rum {{room.thumbnail.roomNumber}}: {{room.thumbnail.title}}
       </ButtonComponent>
   </div>
-    <RoomComponent :room="currentRoom" v-if="modalOpen" @closeModal="modalToggle"/>
+    <!-- <RoomComponent :room="currentRoom" v-if="modalOpen" @closeModal="modalToggle"/> -->
+    <ModalComponent v-if="modalComponentOpen">
+      <RoomComponent/>
+    </ModalComponent>
 </div>
 </template>
 
@@ -26,19 +30,36 @@ import ScrollTrigger from 'gsap/ScrollTrigger'
 import rooms from '@/assets/olikatyper/rooms.json'
 import ButtonComponent from '@/components/ButtonComponent.vue'
 import RoomComponent from '@/components/rooms/RoomComponent.vue'
+import ModalComponent from '../modal/ModalComponent.vue'
+import { useStore } from 'vuex'
+
+const store = useStore()
+
+const modalComponentOpen = computed(() => {
+  return store.state.modalShown
+})
+
+
 gsap.registerPlugin(ScrollTrigger);
 
-const modalOpen = ref(false)
+
+
+// const modalOpen = ref(false)
+
 const currentRoom = ref({})
 
-const modalToggle = (room) => {
-  currentRoom.value = room
-  modalOpen.value = !modalOpen.value
-  if(modalOpen.value) {
-    document.body.style.overflow = 'hidden'
-  } else {
-    document.body.style.overflow = 'auto'
-  }
+// const modalToggle = (room) => {
+//   currentRoom.value = room
+//   modalOpen.value = !modalOpen.value
+//   if(modalOpen.value) {
+//     document.body.style.overflow = 'hidden'
+//   } else {
+//     document.body.style.overflow = 'auto'
+//   }
+// }
+
+const modalOpen = (room) => {
+  store.commit('modalOpen', room)
 }
 
 

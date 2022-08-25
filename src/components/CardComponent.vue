@@ -16,7 +16,11 @@
         <ButtonComponent v-for="button in cardContent.buttons" :key="button" >
             {{button}}
         </ButtonComponent>
-        
+        </div>
+    <div class="button-container" v-if="cardContent.situations">
+        <ButtonComponent v-for="(situation,i) in cardContent.situations" :key="i" @click="modalOpen(situation)">
+            Situation {{i+1}}
+        </ButtonComponent>
     </div>
 </div>
 </template>
@@ -27,6 +31,7 @@ import SubHeadingComponent from './SubHeadingComponent.vue';
 import ButtonComponent from './ButtonComponent.vue';
 import gsap from 'gsap';
 import {onMounted} from 'vue'
+import { useStore } from 'vuex';
 
 const props = defineProps({
     cardContent:{
@@ -34,12 +39,16 @@ const props = defineProps({
     }
 });
 
-const emit = defineEmits([
-    'openModal'
-]);
+const store = useStore()
+
+const modalOpen = (situation) => {
+  store.commit('modalOpen', situation)
+}
 
 
 const cardContent = props.cardContent
+
+
 </script>
 
 <style scoped lang='scss'>

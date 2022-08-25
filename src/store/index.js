@@ -3,11 +3,20 @@ import content from '@/assets/json/sv.json'
 
 export default createStore({
   state: {
-    content: content
+    modalShown: false,
+    modalContent: {},
   },
   getters: {
   },
   mutations: {
+    modalClose(state) {
+      state.modalShown = false;
+    },
+    modalOpen(state, content) {
+      state.modalShown = true;
+      state.modalContent = content;
+    }
+      
   },
   actions: {
   },
