@@ -1,8 +1,5 @@
 <template>
-  <!-- <Transition name="modal"> -->
       <div class="modal" @click.self="closeModal" v-if="modalComponentOpen">
-        <!-- Modal content -->
-        <!-- <Transition name="modal-content"> -->
             <div class="modal-content">
               <div class="close-container" @click="closeModal">
                 <p>Stäng</p>
@@ -11,9 +8,7 @@
             <slot>
             </slot>
             </div>
-        <!-- </Transition> -->
       </div>
-  <!-- </Transition> -->
 </template>
 
 <script setup>
