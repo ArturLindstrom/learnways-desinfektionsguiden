@@ -1,10 +1,13 @@
 <template>
 <div class="dialog-wrapper" v-for="(dialog, i) in props.room.header.dialogs" :key="i" :class="'dialog' + (i+1)">
-  <Transition name="text">
+  <transition-group name="text">
     <div class="dialog-text" v-if="dialogShown == i+1">
     <p>{{dialog}}</p>
    </div>
-  </Transition>
+   <div class="triangle" v-if="dialogShown == i+1">
+   </div>
+  </transition-group>
+
     <button class="dialog-button" @click="toggleDialog(i)" :class="{ 'active-button': dialogShown === i+1 }"></button>
 </div>
 </template>
@@ -41,12 +44,16 @@ const toggleDialog = (i) => {
 
 
 .dialog-wrapper {
-  /* display: grid;
-  grid-template-rows: 1fr 1fr; */
-  border: 1px solid red;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: auto;
+  flex-wrap: wrap;
+  /* border: 1px solid red; */
 }
 .dialog-button {
-  position: relative;
+  position: absolute;
   top: 50%;
   border: none;
   height: 2.5rem;
@@ -61,14 +68,45 @@ const toggleDialog = (i) => {
 }
 
 .dialog-text {
-  position: relative;
+     font-family: 'Nunito', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    pointer-events: none;
+    display: block;
+    position: absolute;
+    background-color: white;
+    padding: 15px;
+    position: absolute;
+    text-align: left;
+    left: -50px;
+    bottom: 100%;
+    margin-bottom: 30px;
+    /* z-index: 9999; */
+    width: 325px;
+    color: black;
+}
+
+.triangle {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 30px solid white;
+    bottom: -20px;
+    left: 50%;
+    margin-bottom: 20px;
+    /* transform: translateX(-50%); */
+}
+/* .dialog-text {
+  position: absolute;
   top: 0;
   background: white;
   text-align: left;
   padding: .5rem;
   height: 100%;
-  max-width: 40rem;
-}
+  max-width: 325px;
+} */
 
 
 
