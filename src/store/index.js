@@ -5,6 +5,16 @@ export default createStore({
   state: {
     modalShown: false,
     modalContent: {},
+    done : false,
+    checkList: [
+      
+         false,
+         false,
+         false,
+         false,
+         false,
+      
+    ],
   },
   getters: {
   },
@@ -15,6 +25,10 @@ export default createStore({
     modalOpen(state, content) {
       state.modalShown = true;
       state.modalContent = content;
+      state.checkList[content.thumbnail.roomNumber-1] = true;
+    },
+    toggleDone(state) {
+      state.done = !state.done;
     }
       
   },

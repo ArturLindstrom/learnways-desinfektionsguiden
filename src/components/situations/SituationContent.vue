@@ -7,16 +7,22 @@
       </HeadingComponent>
     </header>
     <MainComponent>
+      
+      <div class="vertical-line"></div>
       <div class="question" 
         v-for="(question, i) in questions"
         :key="i"
+        ref="questionRef"
       >
-        <p>
-          {{question.description}}
-        </p>
-        <SubHeadingComponent>
-          {{question.question}}
-        </SubHeadingComponent>
+        <div class="heading-container" 
+        :class="{left: i+1 < questionIndex}">
+          <p>
+            {{question.description}}
+          </p>
+          <SubHeadingComponent>
+            {{question.question}}
+          </SubHeadingComponent>
+        </div>
         <div 
           class="alternative-holder"
           v-for="answer in question.alternatives"
@@ -58,7 +64,7 @@ import { useStore } from 'vuex';
 
 const store = useStore()
 
-
+const questionRef = ref([])
 const closeModal = () => {
   store.commit('modalClose')
 }
@@ -76,7 +82,28 @@ const isActive = ref(false)
 const incrementQuestionIndex = (answer) => {
   questionIndex.value++
   answeredQuestion.value.push(answer)
+  gsap.from('.alternative-holder', {
+    duration: 0.5,
+    scale: 0.5,
+    opacity: 0.5,
+  })
+  
+
+
+
+
+  // gsap.to('.vertical-line',
+    
+  
+  // {
+  //   duration: 2,
+  //   scaleY: 0.5,
+  //   transformOrigin: '100% 0%'
+
+  
+  // })
 }
+
 
 const questions = computed(() => {
   return store.state.modalContent.questions.slice(0, questionIndex.value)
@@ -98,22 +125,47 @@ const props = defineProps({
 </script>
 
 <style scoped lang='scss'>
+.vertical-line {
+  width: 4px;
+  height: 100%;
+  margin-top: 200px;
+  background-color: #F4EDC9;;
+  transform: scaleY(0);
+    position: absolute;
+}
+
 .question {
   display: flex;
   flex-direction: column;
   align-items:center;
-  margin-top: 7.5rem;
+  margin: 9rem 0;
 }
 
-.alternative-holder{
+.alternative-holder {
   display: flex;
+  align-items: center;
+  justify-content: center;
+  /* display: grid; */
   place-items: center;
   grid-template-columns: 30rem 30rem;
   grid-column: 0 / 1;
+  font-size: 17px;
+  gap: 100px;
 }
 
+.heading-container {
+  width: 50%;
+
+
+}
+
+.left {
+  align-self: flex-start;
+  /* margin-left: 0px */
+}
 .grid {
   display: grid;
+  gap: 100px red;
 }
 
 .grid > .quiz-button{
@@ -151,6 +203,9 @@ footer {
   height: 30vh;
 }
 
+p{
+  font-size: 17px;
+}
 
 .close-container {
   display: grid;
