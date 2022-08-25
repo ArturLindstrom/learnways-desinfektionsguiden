@@ -24,7 +24,6 @@ const props = defineProps({
 
 onMounted(() => {
   if(props.animate == true){
-    console.log(props.animate)
     gsap.from(
       ".animate",
       

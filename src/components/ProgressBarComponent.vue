@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-        <Router-link class="link" to="/">
+        <!-- <Router-link class="link" to="/">
             <div class="ball"></div>
             Start
         </Router-link>
@@ -16,13 +16,55 @@
             <div class="ball"></div>
             Diplom
         </Router-link>
+        
+             -->
+            <RouterLink  v-for="view in routes" 
+            :key="view" 
+            class="link"
+            :to="view.path">
+                <div class="ball" :class="{completed : viewsCompleted[view.name] === true}"></div>
+                {{view.fullName}}
+            </RouterLink>
             <div class="line"></div>
     </div>
 </template>
 
 <script setup>
 import gsap from "gsap";
-import { onMounted } from "vue";
+import { computed, onMounted } from "vue";
+import {useRoute, useRouter, onBeforeRouteLeave } from "vue-router";
+import { useStore } from "vuex";
+
+const router = useRouter();
+const route = useRoute();
+const store = useStore();
+
+const viewsCompleted = computed(() => {
+    return store.state.viewsCompleted
+})
+
+const logRoutes = () => {
+    console.log(routes);
+}
+
+
+const routes = computed(() => {
+  return router.options.routes;
+})
+
+onBeforeRouteLeave((to, from) => {
+      if (from.name == "home"){
+        store.commit("completedRoute", from.name)
+      }
+       if (store.state.roomsVisited.filter(Boolean).length === 5){
+        store.commit("completedRoute", from.name)
+      }
+       if (store.state.situationsCompleted.length === 2){
+        store.commit("completedRoute", from.name)
+      }
+    })
+
+
 
 onMounted(() => {
   gsap.from(
@@ -44,6 +86,9 @@ onMounted(() => {
     transformOrigin: '0% 100%'
   });
 })
+
+
+
 </script>
 
 <style scoped lang="scss">
@@ -73,6 +118,10 @@ onMounted(() => {
     box-sizing: border-box;
     transition: ease all 0.25s;
     border: 0px solid #62C0D8;
+}
+
+.completed{
+        background-image: url('src/assets/home/main/tick-wht.svg');
 }
 
 a:hover .ball{

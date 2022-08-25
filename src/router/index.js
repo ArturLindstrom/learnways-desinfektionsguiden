@@ -12,21 +12,25 @@ const router = createRouter({
     {
           path: '/',
           name: 'home',
-          component: HomeView
+          fullName: 'Start',
+          component: HomeView,
         },
         {
           path: '/olika-typer',
-          name: 'olika-typer',
+          name: 'olikatyper',
+          fullName: 'Olika typer',
           component: OlikaTyperView
         },
         {
           path: '/situationer',
           name: 'situationer',
+          fullName: 'Situationer',
           component: SituationerView
         },
         {
           path: '/diplom',
           name: 'diplom',
+          fullName: 'Diplom',
           component: DiplomView
         }
     

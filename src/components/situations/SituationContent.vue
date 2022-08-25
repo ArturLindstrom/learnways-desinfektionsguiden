@@ -12,7 +12,6 @@
       <div class="question" 
         v-for="(question, i) in questions"
         :key="i"
-        ref="questionRef"
       >
         <div class="heading-container" 
         :class="{left: i+1 < questionIndex}">
@@ -32,7 +31,7 @@
           <QuizButton
             class="quiz-button"
             :class="{selected : answer === answeredQuestion.find(a => a === answer)}"
-            @click="incrementQuestionIndex(answer)"
+            @click="incrementQuestionIndex(answer, question, situation)"
           >
             {{answer.alternative}}
           </QuizButton>
@@ -62,9 +61,18 @@ import QuizButton from './QuizButton.vue';
 import ButtonComponent from '../ButtonComponent.vue';
 import { useStore } from 'vuex';
 
+const props = defineProps({
+  situation: {
+    type: Object,
+  },
+  category: {
+    type: Object,
+  }
+})
+
+
 const store = useStore()
 
-const questionRef = ref([])
 const closeModal = () => {
   store.commit('modalClose')
 }
@@ -74,19 +82,27 @@ const situation = computed(()=> {
 })
 
 
-const answeredQuestion = ref([{}])
+const answeredQuestion = ref([])
 const questionIndex = ref(1)
 
-const isActive = ref(false)
 
-const incrementQuestionIndex = (answer) => {
+const incrementQuestionIndex = (answer, question, situation) => {
   questionIndex.value++
   answeredQuestion.value.push(answer)
+  console.log(situation.id)
+  if (answeredQuestion.value.length === 3) {
+    store.commit('addCompleted' , situation.id)
+  }
+  
+
+
+
   gsap.from('.alternative-holder', {
     duration: 0.5,
     scale: 0.5,
     opacity: 0.5,
   })
+  
   
 
 
@@ -111,15 +127,6 @@ const questions = computed(() => {
 )
 
 
-
-const props = defineProps({
-  situation: {
-    type: Object,
-  },
-  category: {
-    type: Object,
-  }
-})
 
 
 </script>

@@ -6,11 +6,14 @@
     [
       {
         "heading": "Du är på väg in till en patient för att utföra ett vårdmoment.",
+        "id": 1,
         "end": "Du är klar med situationen. Stäng och gå vidare till nästa.",
           "questions":
             [
               {
                 "question": "När ska du desinfektera händerna?",
+                "id": 1,
+                "answered": false,
                 "description": "",
                 "alternatives": 
                   [
@@ -33,6 +36,8 @@
               },
               {
                 "question": "Vad tror du är den främsta orsaken till att handdesinfektionen inte får full effekt?",
+                "id": 2,
+                "answered": false,
                 "description": "Du desinfekterar nu händerna precis före ditt vårdnära arbetsmoment.",
                 "alternatives": 
                   [
@@ -55,6 +60,8 @@
               },
               {
                 "question": "Vad gör du?",
+                "id": 3,
+                "answered": false,
                 "description": "Du är nu klar hos patienten och ska lämna rummet. Dina händer är synligt smutsiga.",
                 "alternatives": 
                   [
@@ -79,11 +86,14 @@
         },
         {
           "heading": "Du är i vårdrummet för att hjälpa patienten med nedre toalett.",
+          "id": 2,
           "end": "Du är klar med situationen. Stäng och gå vidare till nästa.",
           "questions":
             [
               {
                 "question": "Behöver du använda handskar för detta vårdmoment?",
+                "id": 1,
+                "answered": false,
                 "description": "",
                 "alternatives": 
                   [
@@ -91,6 +101,7 @@
                       "alternative": "Ja",
                       "feedback": "Rätt svar! Handskar ska användas vid kontakt med eller risk för, kontakt med kroppsvätskor som till exempel saliv, blod, urin, avföring, kräkning eller sekret.",
                       "correct": true
+                      
                     },
                     {
                       "alternative": "Nej",
@@ -106,6 +117,8 @@
               },
               {
                 "question": "Vad behöver du göra innan du tar på dig handskar?",
+                "id": 2,
+                "answered": false,
                 "description": "Du bedömer att du behöver använda handskar för att genomföra vårdmomentet.",
                 "alternatives": 
                   [
@@ -128,159 +141,8 @@
               },
               {
                 "question": "Vad behöver du göra efter att du tagit av dig handskarna?",
-                "description": "Du är nu klar inne hos patienten och tar därför av dig handskarna. ",
-                "alternatives": 
-                  [
-                    {
-                      "alternative": "Ingenting",
-                      "feedback": "Tyvärr inte rätt. Du ska alltid desinfektera händerna efter användning av handskar. Handskarna ska bytas mellan varje arbetsmoment och mellan varje patient.",
-                      "correct": false
-                    },
-                    {
-                      "alternative": "Desinfekterar händerna",
-                      "feedback": "Rätt svar! Du ska alltid desinfektera händerna efter användning av handskar. Handskarna ska bytas mellan varje arbetsmoment och mellan varje patient.",
-                      "correct": true
-                    },
-                    {
-                      "alternative": "Tvätta och desinfekterar händerna",
-                      "feedback": "Tyvärr inte rätt. Du ska alltid desinfektera händerna efter användning av handskar. Handskarna ska bytas mellan varje arbetsmoment och mellan varje patient.",
-                      "correct": false
-                    }
-                  ]
-              }
-            ]
-        }
-      ]
-  },
-  {
-    "title": "Handdesinfektion",
-    "image": "src/assets/situationer/situation-1-start.svg",
-    "situations": 
-      [
-        {
-          "heading": "Du är på väg in till en patient för att utföra ett vårdmoment.",
-          "end": "Du är klar med situationen. Stäng och gå vidare till nästa.",
-          "questions":
-            [
-              {
-                "question": "När ska du desinfektera händerna?",
-                "description": "",
-                "alternatives": 
-                  [
-                    {
-                      "alternative": "Du behöver inte desinfektera händerna eftersom du tänker använda handskar",
-                      "feedback": "Tyvärr inte rätt. Handdesinfektion ska ske direkt före och efter varje vård- och omsorgsmoment, samt före och efter handskanvändning och efter handtvätt.",
-                      "correct": false
-                    },
-                    {
-                      "alternative": "Det räcker att desinfektera händerna efter att du har utfört vårdmomentet hos patienten",
-                      "feedback": "Tyvärr inte rätt. Handdesinfektion ska ske direkt före och efter varje vård- och omsorgsmoment, samt före och efter handskanvändning och efter handtvätt.",
-                      "correct": false
-                    },
-                    {
-                      "alternative": "Direkt före det vårdnära arbetsmomentet",
-                      "feedback": "Rätt svar! Handdesinfektion ska ske före och efter varje vård- och omsorgsmoment, samt före och efter handskanvändning och efter handtvätt.",
-                      "correct": true
-                    }
-                  ]
-              },
-              {
-                "question": "Vad tror du är den främsta orsaken till att handdesinfektionen inte får full effekt?",
-                "description": "Du desinfekterar nu händerna precis före ditt vårdnära arbetsmoment.",
-                "alternatives": 
-                  [
-                    {
-                      "alternative": "Att man tar för lite desinfektionsmedel",
-                      "feedback": "Rätt svar! Alla dessa alternativ kan göra att handdesinfektionen inte får full effekt, och är lika viktiga för att inte överföra smittämnen till patienten.",
-                      "correct": true
-                    },
-                    {
-                      "alternative": "Att det inte fördelas överallt på händerna",
-                      "feedback": "Rätt svar! Alla dessa alternativ kan göra att handdesinfektionen inte får full effekt, och är lika viktiga för att inte överföra smittämnen till patienten.",
-                      "correct": true
-                    },
-                    {
-                      "alternative": "Missar att gnida tills det dunstat och huden känns torr",
-                      "feedback": "Rätt svar! Alla dessa alternativ kan göra att handdesinfektionen inte får full effekt, och är lika viktiga för att inte överföra smittämnen till patienten.",
-                      "correct": true
-                    }
-                  ]
-              },
-              {
-                "question": "Vad gör du?",
-                "description": "Du är nu klar hos patienten och ska lämna rummet. Dina händer är synligt smutsiga.",
-                "alternatives": 
-                  [
-                    {
-                      "alternative": "Tvättar händerna",
-                      "feedback": "Tyvärr inte rätt. Om händerna är smutsiga måste du både tvätta och desinfektera händerna. Torka händerna torra innan du applicerar handdesinfektionsmedlet.",
-                      "correct": false
-                    },
-                    {
-                      "alternative": "Desinfekterar händerna",
-                      "feedback": "Tyvärr inte rätt. Om händerna är smutsiga måste du både tvätta och desinfektera händerna. Torka händerna torra innan du applicerar handdesinfektionsmedlet.",
-                      "correct": false
-                    },
-                    {
-                      "alternative": "Tvättar och desinfekterar händerna",
-                      "feedback": "ätt svar! Om händerna är smutsiga måste du både tvätta och desinfektera händerna. Torka händerna torra innan du applicerar handdesinfektionsmedlet.",
-                      "correct": true
-                    }
-                  ]
-              }
-            ]
-        },
-        {
-          "heading": "Du är i vårdrummet för att hjälpa patienten med nedre toalett.",
-          "end": "Du är klar med situationen. Stäng och gå vidare till nästa.",
-          "questions":
-            [
-              {
-                "question": "Behöver du använda handskar för detta vårdmoment?",
-                "description": "",
-                "alternatives": 
-                  [
-                    {
-                      "alternative": "Ja",
-                      "feedback": "Rätt svar! Handskar ska användas vid kontakt med eller risk för, kontakt med kroppsvätskor som till exempel saliv, blod, urin, avföring, kräkning eller sekret.",
-                      "correct": true
-                    },
-                    {
-                      "alternative": "Nej",
-                      "feedback": "Tyvärr inte rätt. Handskar ska användas vid kontakt med eller risk för kontakt med kroppsvätskor som till exempel saliv, blod, urin, avföring, kräkning eller sekret.",
-                      "correct": false
-                    },
-                    {
-                      "alternative": "Det beror på",
-                      "feedback": "Tyvärr inte rätt. Handskar ska användas vid kontakt med eller risk för kontakt med kroppsvätskor som till exempel saliv, blod, urin, avföring, kräkning eller sekret.",
-                      "correct": false
-                    }
-                  ]
-              },
-              {
-                "question": "Vad behöver du göra innan du tar på dig handskar?",
-                "description": "Du bedömer att du behöver använda handskar för att genomföra vårdmomentet.",
-                "alternatives": 
-                  [
-                    {
-                      "alternative": "Ingenting",
-                      "feedback": "Tyvärr inte rätt. Du ska alltid desinfektera händerna innan användning av handskar. Du ska alltid desinfektera händerna före användning av handskar, och det ska göras innan handskarna tas ur förpackningen.",
-                      "correct": false
-                    },
-                    {
-                      "alternative": "Desinfekterar händerna",
-                      "feedback": "Rätt svar! Alla dessa alternativ kan göra att handdesinfektionen inte får full effekt, och är lika viktiga för att inte överföra smittämnen till patienten.",
-                      "correct": true
-                    },
-                    {
-                      "alternative": "Smörja in med handkräm så att handskarna glider på lättare",
-                      "feedback": "Tyvärr inte rätt. Du ska alltid desinfektera händerna innan användning av handskar. Du ska alltid desinfektera händerna före användning av handskar, och det ska göras innan handskarna tas ur förpackningen.",
-                      "correct": false
-                    }
-                  ]
-              },
-              {
-                "question": "Vad behöver du göra efter att du tagit av dig handskarna?",
+                "id": 3,
+                "answered": false,
                 "description": "Du är nu klar inne hos patienten och tar därför av dig handskarna. ",
                 "alternatives": 
                   [

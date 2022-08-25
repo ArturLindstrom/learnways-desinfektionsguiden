@@ -12,7 +12,7 @@
             Desinfektionsövningar
         </HeadingComponent>
         <SubHeadingComponent >
-            Du har gått igenom 0 av 9 situationer
+            Du har gått igenom {{completedSituations}} av 9 situationer
         </SubHeadingComponent>
         <SituationsComponent/>
     </MainComponent>
@@ -25,6 +25,14 @@ import SubHeadingComponent from '../components/SubHeadingComponent.vue';
 import MainComponent from "@/components/MainComponent.vue";
 import SituationCard from "../components/situations/SituationCard.vue";
 import SituationsComponent from "../components/situations/SituationsComponent.vue";
+import { useStore } from "vuex";
+import { computed } from "vue";
+
+const store = useStore();
+
+const completedSituations = computed(() => {
+    return store.state.situationsCompleted.length
+})
 
 
 </script>

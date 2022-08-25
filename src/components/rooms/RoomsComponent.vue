@@ -15,6 +15,7 @@
       <ButtonComponent  class="button" @click="modalOpen(room)">
         Rum {{room.thumbnail.roomNumber}}: {{room.thumbnail.title}}
       </ButtonComponent>
+      <img class="done" src="src/assets/done.svg" alt="done" v-if="roomsVisited[i]">
   </div>
     <!-- <RoomComponent :room="currentRoom" v-if="modalOpen" @closeModal="modalToggle"/> -->
     <ModalComponent v-if="modalComponentOpen">
@@ -32,6 +33,7 @@ import ButtonComponent from '@/components/ButtonComponent.vue'
 import RoomComponent from '@/components/rooms/RoomComponent.vue'
 import ModalComponent from '../modal/ModalComponent.vue'
 import { useStore } from 'vuex'
+  gsap.registerPlugin(ScrollTrigger);
 
 const store = useStore()
 
@@ -39,8 +41,10 @@ const modalComponentOpen = computed(() => {
   return store.state.modalShown
 })
 
+const roomsVisited = computed(() => {
+  return store.state.roomsVisited
+})
 
-gsap.registerPlugin(ScrollTrigger);
 
 
 
@@ -90,6 +94,10 @@ onMounted(() => {
   &:hover .button {
     display: block;
     z-index: 2;
+  }
+  &:hover .done {
+    display: none;
+    /* z-index: 1; */
   }
 }
 

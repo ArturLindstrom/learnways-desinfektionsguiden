@@ -18,7 +18,7 @@
         </ButtonComponent>
         </div>
     <div class="button-container" v-if="cardContent.situations">
-        <ButtonComponent v-for="(situation,i) in cardContent.situations" :key="i" @click="modalOpen(situation)">
+        <ButtonComponent v-for="(situation,i) in cardContent.situations" :key="i" @click="modalOpen(situation)" :situationId="situation.id">
             Situation {{i+1}}
         </ButtonComponent>
     </div>

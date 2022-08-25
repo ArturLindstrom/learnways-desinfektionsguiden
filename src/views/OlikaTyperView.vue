@@ -32,7 +32,7 @@ import { useStore } from "vuex";
 
 const store = useStore()
 
-const completedRooms = computed(() => store.state.checkList.filter(Boolean).length)
+const completedRooms = computed(() => store.state.roomsVisited.filter(Boolean).length)
 </script>
 
 <style>
