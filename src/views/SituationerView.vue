@@ -34,7 +34,6 @@ const completedSituations = computed(() => {
     return store.state.situationsCompleted.length
 })
 
-
 </script>
 
 <style scoped>

@@ -5,16 +5,12 @@ import SituationerView from '../views/SituationerView.vue'
 import DiplomView from '../views/DiplomView.vue'
 import store from '../store/index.js'
 
-// const diplomaGuard = (to) => {
-//   // if (Object.values(store.state.viewsCompletedObject).every(
-//     value => value === true
-//   )){
-
-//     console.log('kissa kiss')
-//   }
-//     return true
-  
-// }
+const areViewsCompleted = () => {
+  if(store.state.viewsCompleted.home && store.state.viewsCompleted.olikatyper && store.state.viewsCompleted.situationer) {
+    store.commit('completedRoute', 'diplom')
+  }
+  return true
+}
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -42,7 +38,7 @@ const router = createRouter({
           name: 'diplom',
           fullName: 'Diplom',
           component: DiplomView,
-          // beforeEnter: diplomaGuard
+          beforeEnter: areViewsCompleted
         }
     
   ]

@@ -15,7 +15,7 @@ export default createStore({
     ],
     situationsCompleted: [],
     viewsCompleted: 
-      {
+        {
           home: false,
           olikatyper: false,
           situationer: false,
