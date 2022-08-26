@@ -60,7 +60,7 @@ const setCurrentSlide = (i) => {
 
 header {
   height: 75vh;
-  border-radius: 10px;
+  border-radius: 10px 10px 0px 0px;
   background-repeat: no-repeat;
   background-size: 90%;
   background-position: bottom center;

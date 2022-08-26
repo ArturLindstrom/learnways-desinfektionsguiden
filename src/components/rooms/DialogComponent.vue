@@ -60,9 +60,12 @@ const toggleDialog = (i) => {
   width: 2.5rem;
   border-radius: 50%;
   background: url('src/assets/close-wht.svg') no-repeat center #0E2D57;
+  transform: scale(1);
   transition: all 0.5s ease-in-out;
   &:hover {
     background-color: #1D4C7B;
+    transform: scale(1.1);
+    transition: all 0.5s ease-in-out;
     cursor: pointer;
   } 
 }
@@ -125,7 +128,7 @@ const toggleDialog = (i) => {
 .text-enter-from,
 .text-leave-to {
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(20px) translateX(-5px);
 }
 
 
@@ -133,30 +136,30 @@ const toggleDialog = (i) => {
 
 .dialog1{
     position: absolute;
-    top: 30%;
-    left: 25%
+    top: 45%;
+    left: 24%
 }
 .dialog2{
     position: absolute;
-    top: 28%;
-    left: 31%
+    top: 42%;
+    left: 32.5%
 }
 
 .dialog3{
     position: absolute;
-    top: 30%;
-    left: 61%
+    top: 46.5%;
+    left: 62%
 }
 .dialog4 {
     position: absolute;
-    top: 30%;
-    left: 72.5%
+    top: 49.5%;
+    left: 75.5%
 }
 
 .dialog5{
     position: absolute;
-    top: 35%;
-    left: 80%
+    top: 52%;
+    left: 82%
 }
 
 </style>

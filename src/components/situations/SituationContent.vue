@@ -26,12 +26,12 @@
           class="alternative-holder"
           v-for="answer in question.alternatives"
           :key="answer"
-          :class="{grid: i+1 < questionIndex}"
+          :class="{grid: i+1 < questionIndex}, 'question' + (i+1)"
         >
           <QuizButton
             class="quiz-button"
             :class="{selected : answer === answeredQuestion.find(a => a === answer)}"
-            @click="incrementQuestionIndex(answer, question, situation)"
+            @click="incrementQuestionIndex(answer, situation, i)"
           >
             {{answer.alternative}}
           </QuizButton>
@@ -71,6 +71,7 @@ const props = defineProps({
 })
 
 
+
 const store = useStore()
 
 const closeModal = () => {
@@ -86,7 +87,11 @@ const answeredQuestion = ref([])
 const questionIndex = ref(1)
 
 
-const incrementQuestionIndex = (answer, question, situation) => {
+const incrementQuestionIndex = (answer, situation, i) => {
+   gsap.from(`.question${i+1}`, {
+    duration: 0.5,
+    scale: 0.5,
+  })
   questionIndex.value++
   answeredQuestion.value.push(answer)
   console.log(situation.id)
@@ -97,10 +102,10 @@ const incrementQuestionIndex = (answer, question, situation) => {
 
 
 
-  gsap.from('.alternative-holder', {
-    duration: 0.5,
-    scale: 0.5,
-  })
+  // gsap.from('.alternative-holder', {
+  //   duration: 0.5,
+  //   scale: 0.5,
+  // })
   // gsap.to('.vertical-line',
     
   
@@ -179,6 +184,7 @@ const questions = computed(() => {
   grid-column: 2 / 3;
   
 }
+
 
 header {
   display: flex;

@@ -1,9 +1,11 @@
 <template>
       <div class="modal" @click.self="closeModal" v-if="modalComponentOpen">
             <div class="modal-content">
-              <div class="close-container" @click="closeModal">
-                <p>Stäng</p>
-                <img class="close-icon" src="src/assets/close.svg">
+              <div class="sticky-container" >
+                <div class="close-container" @click="closeModal">
+                  <p>Stäng</p>
+                  <img class="close-icon" src="src/assets/close.svg">
+                </div>
               </div>
             <slot>
             </slot>
@@ -16,14 +18,16 @@ import MainComponent from '../MainComponent.vue'
 import { useStore } from 'vuex'
 import { onMounted, computed } from 'vue';
 import gsap from 'gsap';
+import bodyParser from 'body-parser';
 
- const modalComponentOpen = computed(() => {
+const modalComponentOpen = computed(() => {
     return store.state.modalShown
 })
 
 const store = useStore()
 
 const closeModal = () => {
+  document.body.style.overflow = "auto"
   gsap.to('.modal-content', {
     duration: 0.5,
     y: '100%',
@@ -38,6 +42,7 @@ const closeModal = () => {
 
 
 onMounted(() => {
+  document.body.style.overflow = 'hidden'
   gsap.from('.modal-content', {
     duration: 1,
     y: '100%',
@@ -55,12 +60,12 @@ onMounted(() => {
   .modal {
     position: fixed; /* Stay in place */
     z-index: 1; 
-    padding: 3rem 3rem 0 3rem;
+    padding-top: 3rem;
     left: 0;
     top: 0;
     width: 100%; 
     height: 100%; 
-    overflow: auto;
+    /* overflow: auto; */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
   }
@@ -71,49 +76,57 @@ onMounted(() => {
   border-radius: 10px;
   margin: auto;
   border: 1px solid #888;
-  min-height: 50vh;
-  width: 80%;
+  height: 100vh;
+  width: 86%;
+  position: relative;
+  overflow-y: auto;
 }
 
 /* The Close Button */
-.close-container {
-  display: grid;
+.sticky-container {
+  /* display: grid;
   grid-template-columns: 1fr 1fr;
   place-items: center;
   position: fixed;
   top: 2rem;
   right: 2.5%;
-  font-weight: bold;
+  font-weight: bold; */
+  font-weight: bold; 
+  position: sticky;
+  top: 0;
+  left: 0;
+  height: calc(100% - 1px);
+  width: calc(100% - 1px);
+  float: left;  
+  margin-right: -100%;
+  z-index: -1
+  /* pointer-events: none; */
+}
+
+.close-container {
+  position: absolute;
+  right: 2%;
+  top: 5%;
+  /* transform: translate3d(-50%, -50%, 0); */
+  white-space: nowrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  place-items: center;
+  z-index: 999;
+}
+
+.close-container:hover {
+  cursor: pointer;
 }
 
 .close-icon {
   transition: all 0.25s ease-in-out;
 }
-
-.close-icon:hover{
+.close-container:hover .close-icon{
   transform: rotate(90deg);
   transition: all 0.25s ease-in-out;
-  cursor: pointer;
 }
 
-/* .modal-enter-active,
-.modal-leave-active {
-  transition: all 0.5s ease;
-}
 
-.modal-enter-from,
-.modal-leave-to {
-  opacity: 0;
-}
-
-.modal-content-enter-active,
-.modal-content-leave-active {
-  transition: all 1s ease;
-}
-
-.modal-content-enter-from,
-.modal-content-leave-to {
-   transform: translateY(100%);
-} */
 
 </style>

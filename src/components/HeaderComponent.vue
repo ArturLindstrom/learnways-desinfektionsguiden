@@ -10,18 +10,24 @@
         <slot></slot>
     </div>
     <ProgressBarComponent class="progress-bar" />
-    <ScrollContainer class="scroll-container"/>
+    <ScrollContainer class="scroll-container" v-if="route.name == !'diplom' || route.name == 'diplom' && done"/>
   </header>
 </template>
 
 <script setup>
 import ProgressBarComponent from "@/components/ProgressBarComponent.vue";
-
 import ScrollContainer from "@/components/ScrollContainer.vue";
 import { computed, onMounted, ref } from "vue";
 import gsap from "gsap";
+import { useRoute } from "vue-router";
+import { useStore } from "vuex";
 
+const store = useStore()
+const route = useRoute();
 
+const done = computed(() => {
+  return store.state.done
+})
 
 const props = defineProps({
   bgImg: {

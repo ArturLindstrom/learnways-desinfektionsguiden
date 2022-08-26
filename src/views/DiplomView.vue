@@ -32,14 +32,7 @@ import cards from "../assets/diplom/diplom.json"
 import CardWrapper from "../components/CardWrapper.vue"
 import { useStore } from "vuex";
 
-// const done = ref(false)
-  // onMounted(() => {
-  //   if(store.state.viewsCompleted.filter(view => view == true).length === 3) {
-  //     store.commit("toggleDone")
-  //   } else {
-  //     return
-  //   }
-  // })
+
 const store = useStore()
 const done = computed(() => store.state.done)
 
