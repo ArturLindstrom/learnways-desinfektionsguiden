@@ -3,8 +3,18 @@ import HomeView from '../views/HomeView.vue'
 import OlikaTyperView from '../views/OlikaTyperView.vue'
 import SituationerView from '../views/SituationerView.vue' 
 import DiplomView from '../views/DiplomView.vue'
+import store from '../store/index.js'
 
+// const diplomaGuard = (to) => {
+//   // if (Object.values(store.state.viewsCompletedObject).every(
+//     value => value === true
+//   )){
 
+//     console.log('kissa kiss')
+//   }
+//     return true
+  
+// }
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -31,7 +41,8 @@ const router = createRouter({
           path: '/diplom',
           name: 'diplom',
           fullName: 'Diplom',
-          component: DiplomView
+          component: DiplomView,
+          // beforeEnter: diplomaGuard
         }
     
   ]

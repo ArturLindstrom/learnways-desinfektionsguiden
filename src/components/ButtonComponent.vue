@@ -61,11 +61,6 @@ font-weight: 700;
 display: flex;
 justify-content: space-between;
 align-items: center;
-
-
-/* & img { */
-  /* margin-left: 10px; */
-/* } */
 }
 
 button:hover{

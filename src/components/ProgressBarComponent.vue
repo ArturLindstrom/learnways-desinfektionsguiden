@@ -1,28 +1,10 @@
 <template>
   <div class="container">
-        <!-- <Router-link class="link" to="/">
-            <div class="ball"></div>
-            Start
-        </Router-link>
-        <Router-link class="link" to="/olika-typer">
-            <div class="ball"></div>
-            Olika typer
-        </Router-link>
-        <Router-link class="link" to="/situationer">
-            <div class="ball"></div>
-            Situationer
-        </Router-link>
-        <Router-link class="link" to="/diplom">
-            <div class="ball"></div>
-            Diplom
-        </Router-link>
-        
-             -->
             <RouterLink  v-for="view in routes" 
             :key="view" 
             class="link"
             :to="view.path">
-                <div class="ball" :class="{completed : viewsCompleted[view.name] === true}"></div>
+                <div class="ball" :class="{completed : viewsCompleted[view.name] === true}" ></div>
                 {{view.fullName}}
             </RouterLink>
             <div class="line"></div>
@@ -56,13 +38,7 @@ onBeforeRouteLeave((to, from) => {
       if (from.name == "home"){
         store.commit("completedRoute", from.name)
       }
-       if (store.state.roomsVisited.filter(Boolean).length === 5){
-        store.commit("completedRoute", from.name)
-      }
-       if (store.state.situationsCompleted.length === 2){
-        store.commit("completedRoute", from.name)
-      }
-    })
+})
 
 
 
@@ -102,7 +78,7 @@ onMounted(() => {
 
 .line {
     /* width: 35%; */
-    width: 99%;
+    width: 90%;
     height: 3px;
     background-color: #ffffff;
     position: absolute;
@@ -115,14 +91,17 @@ onMounted(() => {
     width: 3em;
     border-radius: 50%;
     background-color: #FFFFFF;
+    background-repeat: no-repeat;
+    background-position: center;
     box-sizing: border-box;
     transition: ease all 0.25s;
     border: 0px solid #62C0D8;
 }
 
-.completed{
-        background-image: url('src/assets/home/main/tick-wht.svg');
+.ball.completed {
+  background-image: url('src/assets/tick-blue.svg');
 }
+
 
 a:hover .ball{
     border: 4px #62C0D8 solid;
@@ -146,12 +125,15 @@ a {
 
 a.router-link-active .ball{
     background: #62C0D8;
-    /* background-image: url('src/assets/home/main/tick-wht.svg'); */
-    background-repeat: no-repeat;
-    background-position: center;
 }
 a:hover {
     text-decoration: underline;
+}
+
+.router-link-active .ball.completed {
+  background-image: url('src/assets/home/main/tick-wht.svg');
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 </style>

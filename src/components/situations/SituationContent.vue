@@ -100,14 +100,7 @@ const incrementQuestionIndex = (answer, question, situation) => {
   gsap.from('.alternative-holder', {
     duration: 0.5,
     scale: 0.5,
-    opacity: 0.5,
   })
-  
-  
-
-
-
-
   // gsap.to('.vertical-line',
     
   
@@ -152,7 +145,6 @@ const questions = computed(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* display: grid; */
   place-items: center;
   grid-template-columns: 30rem 30rem;
   grid-column: 0 / 1;
@@ -162,8 +154,6 @@ const questions = computed(() => {
 
 .heading-container {
   width: 50%;
-
-
 }
 
 .left {
