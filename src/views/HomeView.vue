@@ -25,7 +25,6 @@ import SubHeadingComponent from "@/components/SubHeadingComponent.vue";
 import MainComponent from "@/components/MainComponent.vue";
 import SliderComponent from '@/components/slider/SliderComponent.vue';
 import ButtonComponent from "@/components/ButtonComponent.vue";
-import { onMounted } from "@vue/runtime-core";
 import HomeSlides from '@/assets/home/main/slide/slide.json'
 
 </script>

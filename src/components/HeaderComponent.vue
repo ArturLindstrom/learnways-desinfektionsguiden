@@ -11,7 +11,6 @@
     </div>
     <ProgressBarComponent class="progress-bar" />
     <ScrollContainer class="scroll-container"/>
-
   </header>
 </template>
 

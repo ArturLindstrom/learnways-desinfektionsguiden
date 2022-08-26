@@ -2,7 +2,6 @@
     <div class="card-wrapper">
       <CardComponent v-for="situation in situations" :key="situation" :cardContent="situation"/>
       <ModalComponent v-if="modalComponentOpen">
-        <!-- <SituationContent @close="scope.closeModal"></SituationContent> -->
         <SituationContent></SituationContent>
       </ModalComponent>
     </div>
@@ -21,7 +20,6 @@
   const modalComponentOpen = computed(() => {
     return store.state.modalShown
 })
-
 </script>
 
 <style scoped lang='scss'>
@@ -33,5 +31,4 @@
   margin-top: 50px;
   gap: 20px;
   }
-  
 </style>

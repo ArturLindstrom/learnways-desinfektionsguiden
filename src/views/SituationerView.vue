@@ -1,6 +1,6 @@
 <template>
     <HeaderComponent bgImg="3">
-        <HeadingComponent fontSize="65" animate>
+        <HeadingComponent animate>
             Öva på olika situationer
         </HeadingComponent>
         <SubHeadingComponent animate>
@@ -14,7 +14,7 @@
         <SubHeadingComponent >
             Du har gått igenom {{completedSituations}} av 9 situationer
         </SubHeadingComponent>
-        <SituationsComponent/>
+        <SituationsComponent />
     </MainComponent>
 </template>
 

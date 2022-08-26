@@ -1,5 +1,4 @@
 <template>
-
   <div>
     <h1 :style="{fontSize: props.fontSize + 'px'}" :class="{ animate: props.animate }">
       <slot></slot>
@@ -25,7 +24,7 @@ const props = defineProps({
 onMounted(() => {
   if(props.animate == true){
     gsap.from(
-      ".animate",
+    ".animate",
       
       {
         duration: 0.5,
