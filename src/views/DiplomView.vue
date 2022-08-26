@@ -12,7 +12,6 @@
     <SubHeadingComponent animate v-else>
       När du är klar med en del visas en bock i cirkeln nedan. Klicka på den del som saknas för att slutföra utbildningen.
     </SubHeadingComponent>
-    <button @click="toggleDone"> {{store.state.done}}</button>
   </HeaderComponent>
   <MainComponent  v-if="done">
     <SubHeadingComponent>

@@ -1,5 +1,4 @@
 import { createStore } from 'vuex'
-import content from '@/assets/json/sv.json'
 
 export default createStore({
   state: {
@@ -23,6 +22,9 @@ export default createStore({
         }
   },
   getters: {
+    viewsCompleted(state){
+      return Object.values(state.viewsCompleted).filter(value => value === true).length == 3
+    }
 
   },
   mutations: {

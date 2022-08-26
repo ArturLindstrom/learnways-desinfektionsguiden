@@ -6,8 +6,9 @@ import DiplomView from '../views/DiplomView.vue'
 import store from '../store/index.js'
 
 const areViewsCompleted = () => {
-  if(store.state.viewsCompleted.home && store.state.viewsCompleted.olikatyper && store.state.viewsCompleted.situationer) {
+  if(store.getters.viewsCompleted) {
     store.commit('completedRoute', 'diplom')
+    store.commit('toggleDone')
   }
   return true
 }
