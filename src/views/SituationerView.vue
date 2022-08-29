@@ -1,6 +1,6 @@
 <template>
     <HeaderComponent bgImg="3">
-        <HeadingComponent animate>
+        <HeadingComponent fontSize="65" animate>
             Öva på olika situationer
         </HeadingComponent>
         <SubHeadingComponent animate>

@@ -1,5 +1,5 @@
 <template>
-  <footer>
+  <footer v-if="route.name != 'diplom'">
     <div v-if="route.name == 'home'" class="footer-container">
      <div class="kontakt">
        <p>
@@ -30,7 +30,7 @@
 </a>
      </div>
     </div>
-    <div v-if="route.name == 'olika-typer' || route.name == 'situationer'"  class="footer-container">
+    <div v-if="route.name == 'olikatyper' || route.name == 'situationer'"  class="footer-container">
         <ButtonComponent action="forward">
           Gå till nästa del
         </ButtonComponent>
@@ -39,7 +39,6 @@
 </template>
 
 <script setup>
-import { onMounted } from '@vue/runtime-core';
 import {useRoute, useRouter} from 'vue-router';
 import ButtonComponent from './ButtonComponent.vue';
 const route = useRoute();

@@ -77,7 +77,7 @@
                     },
                     {
                       "alternative": "Tvättar och desinfekterar händerna",
-                      "feedback": "ätt svar! Om händerna är smutsiga måste du både tvätta och desinfektera händerna. Torka händerna torra innan du applicerar handdesinfektionsmedlet.",
+                      "feedback": "Rätt svar! Om händerna är smutsiga måste du både tvätta och desinfektera händerna. Torka händerna torra innan du applicerar handdesinfektionsmedlet.",
                       "correct": true
                     }
                   ]
