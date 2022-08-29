@@ -6,9 +6,10 @@
         backgroundImage: 'url(' + content.header.image + ')'
       }" 
       >
-      <h1>{{content.header.heading}}</h1>
+      <HeadingComponent fontSize="small" class="room-heading">{{content.header.heading}}</HeadingComponent>
+      <!-- <h1>{{content.header.heading}}</h1> -->
       <h3>{{content.header.subHeading}}</h3>
-      <DialogComponent :room=content />
+      <DialogComponent :room=content class="dialog"/>
     </header>
     <MainComponent>
       <h2 > 
@@ -38,6 +39,7 @@ import MainComponent from '../MainComponent.vue';
 import SliderComponent from '../slider/SliderComponent.vue';
 import gsap from 'gsap';
 import DialogComponent from './DialogComponent.vue';
+import HeadingComponent from '../HeadingComponent.vue';
 import { useStore } from 'vuex'
 
 const store = useStore()
@@ -59,26 +61,28 @@ const setCurrentSlide = (i) => {
 <style scoped lang='scss'>
 
 header {
-  height: 75vh;
+  height: 42.5vw;
   border-radius: 10px 10px 0px 0px;
   background-repeat: no-repeat;
   background-size: 90%;
   background-position: bottom center;
   width: 100%;
-  /* padding: 3rem; */
+  /* z-index: -1; */
 }
 
-h1 {
+.room-heading {
   text-align: left;
   width: 60%;
   margin: 3rem;
+  /* position: absolute; */
 }
 
 /* .room {
   width: 100%;
 } */
 
-.category-container{
+
+.category-container {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -99,6 +103,16 @@ h1 {
   flex-direction: column;
 }
 
-
+@media screen and (max-width: 768px) {
+  header {
+    height: 40vh;
+    border-radius: 0;
+  }
+  .room-heading {
+    margin: 1rem;
+    width: 70%;
+  }
+}
+  
 
 </style>

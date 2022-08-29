@@ -1,6 +1,6 @@
 <template>
   <router-view/>
-  <!-- <footer-component/> -->
+  <footer-component/>
 </template>
 
 <script setup>
@@ -13,7 +13,7 @@ import FooterComponent from "@/components/FooterComponent.vue";
 * {
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 
 a, a:visited, a:link {

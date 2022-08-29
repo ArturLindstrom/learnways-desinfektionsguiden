@@ -3,12 +3,12 @@
             <div class="modal-content">
               <div class="sticky-container" >
                 <div class="close-container" @click="closeModal">
-                  <p>Stäng</p>
+                  <p class="close-text">Stäng</p>
                   <img class="close-icon" src="src/assets/close.svg">
                 </div>
               </div>
-            <slot>
-            </slot>
+              <slot>
+              </slot>
             </div>
       </div>
 </template>
@@ -57,17 +57,17 @@ onMounted(() => {
 </script>
 
 <style scoped lang='scss'>
-  .modal {
-    position: fixed; /* Stay in place */
-    z-index: 1; 
-    padding-top: 3rem;
-    left: 0;
-    top: 0;
-    width: 100%; 
-    height: 100%; 
-    /* overflow: auto; */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
+.modal {
+  position: fixed; /* Stay in place */
+  z-index: 1; 
+  padding-top: 3rem;
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  /* overflow: auto; */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
   }
 
 /* Modal Content */
@@ -77,42 +77,41 @@ onMounted(() => {
   margin: auto;
   border: 1px solid #888;
   height: 100vh;
-  width: 86%;
+  max-width: 100vw;
+  width: 1200px;
+  /* width: 86%; */
   position: relative;
   overflow-y: auto;
+  z-index: 2;
 }
 
 /* The Close Button */
-.sticky-container {
-  /* display: grid;
-  grid-template-columns: 1fr 1fr;
-  place-items: center;
-  position: fixed;
-  top: 2rem;
-  right: 2.5%;
-  font-weight: bold; */
+/* .sticky-container {
   font-weight: bold; 
   position: sticky;
   top: 0;
   left: 0;
   height: calc(100% - 1px);
   width: calc(100% - 1px);
-  float: left;  
+  float: left;
   margin-right: -100%;
-  z-index: -1
-  /* pointer-events: none; */
-}
+  z-index: 1;
+} */
 
 .close-container {
   position: absolute;
   right: 2%;
-  top: 5%;
+  top: 4%;
   /* transform: translate3d(-50%, -50%, 0); */
-  white-space: nowrap;
+  /* white-space: nowrap; */
   display: grid;
   grid-template-columns: 1fr 1fr;
   place-items: center;
-  z-index: 999;
+}
+
+.close-icon {
+  height: 38px;
+  width: 38px;
 }
 
 .close-container:hover {
@@ -125,6 +124,30 @@ onMounted(() => {
 .close-container:hover .close-icon{
   transform: rotate(90deg);
   transition: all 0.25s ease-in-out;
+}
+
+@media screen and (max-width: 768px) {
+  .modal {
+    padding: 0;
+  }
+  .modal-content {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+  }
+  .close-container {
+    top: 3%;
+    right: -4%;
+  }
+  .close-text {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1200px){
+  .modal {
+    padding: 0;
+  }
 }
 
 
