@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 :style="{fontSize: props.fontSize + 'px'}" :class="{ animate: props.animate }">
+    <h1 :class="[{ animate: props.animate }, props.fontSize ]">
       <slot></slot>
     </h1>
   </div>
@@ -13,7 +13,6 @@ const props = defineProps({
   fontSize:
     {
       type: String,
-      default: "24",
     },
   animate: {
       type: Boolean,
@@ -42,6 +41,14 @@ onMounted(() => {
 h1 {
   font-weight: 700;
   color: #002D5A;
+
 }
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 10.5rem;
+  }
+}
+  
+
 
 </style>

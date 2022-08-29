@@ -1,6 +1,6 @@
 <template>
         <HeaderComponent bgImg="1">
-          <HeadingComponent fontSize="85" animate>
+          <HeadingComponent fontSize="HEJSAN" animate>
             Desinfektionsguiden
           </HeadingComponent>
          <SubHeadingComponent animate>
@@ -8,7 +8,7 @@
          </SubHeadingComponent>
         </HeaderComponent>
         <MainComponent>
-          <HeadingComponent fontSize="32">
+          <HeadingComponent fontSize="3">
             Vad kommer du att få lära dig?
           </HeadingComponent>
           <SliderComponent :slides="HomeSlides"/>

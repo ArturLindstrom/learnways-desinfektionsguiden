@@ -10,7 +10,7 @@
         <slot></slot>
     </div>
     <ProgressBarComponent class="progress-bar" />
-    <ScrollContainer class="scroll-container" v-if="route.name == !'diplom' || route.name == 'diplom' && done"/>
+    <ScrollContainer class="scroll-container" v-if="route.name != 'diplom' || done"/>
   </header>
 </template>
 
