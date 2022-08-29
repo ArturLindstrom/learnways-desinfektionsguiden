@@ -40,9 +40,7 @@ h3 {
   font-size: 20px;
 }
 @media screen and (max-width: 768px) {
-  /* h3 {
-    font-size: 1rem;
-  } */
+
   h3 {
     max-width: 95%;
   }

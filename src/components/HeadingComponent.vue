@@ -56,6 +56,10 @@ h1 {
     font-size: 3rem
   }
 
+  .big{
+    font-size: 2rem;
+  }
+
   .small{
     font-size: 1.5rem;
   }

@@ -1,6 +1,6 @@
 <template>
     <HeaderComponent bgImg="3">
-        <HeadingComponent fontSize="65" animate>
+        <HeadingComponent fontSize="big" animate>
             Öva på olika situationer
         </HeadingComponent>
         <SubHeadingComponent animate>
@@ -8,7 +8,7 @@
         </SubHeadingComponent>
     </HeaderComponent>
     <MainComponent flex="column">
-        <HeadingComponent fontSize="32">
+        <HeadingComponent fontSize="small">
             Desinfektionsövningar
         </HeadingComponent>
         <SubHeadingComponent >

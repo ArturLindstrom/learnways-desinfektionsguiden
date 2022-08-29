@@ -63,7 +63,7 @@ const cardContent = props.cardContent
     padding: 30px;
     margin: 0 10px;
     flex: 1;
-    min-width: 250px;
+    min-width: 220px;
   
 }
 
