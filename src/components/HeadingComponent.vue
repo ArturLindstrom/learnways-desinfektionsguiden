@@ -47,9 +47,17 @@ h1 {
 .big{
   font-size: 6.5vw;
 }
+
+.small{
+  font-size: 2.5vw;
+}
 @media screen and (max-width: 768px) {
   h1 {
     font-size: 3rem
+  }
+
+  .small{
+    font-size: 1.5rem;
   }
 }
   

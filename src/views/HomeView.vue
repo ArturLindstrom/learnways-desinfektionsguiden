@@ -8,7 +8,7 @@
          </SubHeadingComponent>
         </HeaderComponent>
         <MainComponent>
-          <HeadingComponent fontSize="3">
+          <HeadingComponent fontSize="small">
             Vad kommer du att få lära dig?
           </HeadingComponent>
           <SliderComponent :slides="HomeSlides"/>
