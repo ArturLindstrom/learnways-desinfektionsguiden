@@ -1,6 +1,6 @@
 <template>
         <HeaderComponent bgImg="1">
-          <HeadingComponent fontSize="HEJSAN" animate>
+          <HeadingComponent fontSize="big" animate>
             Desinfektionsguiden
           </HeadingComponent>
          <SubHeadingComponent animate>

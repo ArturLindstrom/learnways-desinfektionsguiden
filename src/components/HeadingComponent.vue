@@ -39,13 +39,17 @@ onMounted(() => {
 
 <style scoped lang="scss">
 h1 {
+  font-size: 5vw;
   font-weight: 700;
-  color: #002D5A;
+  color: #003340;
 
+}
+.big{
+  font-size: 6.5vw;
 }
 @media screen and (max-width: 768px) {
   h1 {
-    font-size: 10.5rem;
+    font-size: 3rem
   }
 }
   
