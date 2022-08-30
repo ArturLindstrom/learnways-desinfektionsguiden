@@ -27,4 +27,12 @@
   margin-top: 50px;
   gap: 20px;
   }
+
+  @media screen and (max-width: 768px) {
+    .card-wrapper {
+      flex-direction: column;
+    }
+  }
+    
+  
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container" v-if="!store.state.modalShown">
             <RouterLink  v-for="view in routes" 
             :key="view" 
             class="link"

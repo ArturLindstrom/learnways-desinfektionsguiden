@@ -1,76 +1,71 @@
 <template>
-      <div class="modal" @click.self="closeModal" v-if="modalComponentOpen">
-            <div class="modal-content">
-              <div class="sticky-container" >
-                <div class="close-container" @click="closeModal">
-                  <p class="close-text">Stäng</p>
-                  <img class="close-icon" src="src/assets/close.svg">
-                </div>
-              </div>
-              <slot>
-              </slot>
-            </div>
-      </div>
+  <Transition name="modal-animation" @enter="showContent" >
+    <div class="modal" @click.self="closeModal" v-if="modalComponentOpen">
+      <Transition name="modal-animation-inner" @enter="showCloseContainer">
+        <div class="modal-content" v-if="showModalContent">
+          <div class="close-container" @click="closeModal">
+            <p class="close-text">Stäng</p>
+            <img class="close-icon" src="src/assets/close.svg">
+          </div>
+          <slot>
+          </slot>
+        </div>
+      </Transition>
+    </div>
+  </Transition>
 </template>
 
 <script setup>
-import MainComponent from '../MainComponent.vue'
 import { useStore } from 'vuex'
-import { onMounted, computed } from 'vue';
+import { computed, ref, onMounted } from 'vue';
 import gsap from 'gsap';
-import bodyParser from 'body-parser';
+
+const showCloseContainer = () => {
+  gsap.from('.close-container', {duration: 0.5, opacity: 0, y: 20, ease: 'power2.out', delay: 0.5})
+  }
+const hideCloseContainer = () => {
+  gsap.set('.close-container', {duration: 0.1, opacity: 0, y: 20, ease: 'power2.out', delay: 0})
+  }
+
+
 
 const modalComponentOpen = computed(() => {
     return store.state.modalShown
 })
 
+const showModalContent = computed(() => {
+    return store.state.modalContentShown
+})
+
 const store = useStore()
 
-const closeModal = () => {
-  document.body.style.overflow = "auto"
-  gsap.to('.modal-content', {
-    duration: 0.5,
-    y: '100%',
-    onComplete: () => store.commit('modalClose')
-  })
-  gsap.to('.modal', {
-    opacity: 0,
-    duration: 0.5,
+const showContent = () => {
+  store.commit('modalContentOpen')
 }
-)}
 
+const closeModal = () => {
+  hideCloseContainer()
+  store.commit('modalContentClose')
+  setTimeout(() => {
+      store.commit('modalClose')
+  }, 500)
+}
 
-
-onMounted(() => {
-  document.body.style.overflow = 'hidden'
-  gsap.from('.modal-content', {
-    duration: 1,
-    y: '100%',
-    opacity: 1
-  });
-
-  gsap.from('.modal', {
-    duration: 0.5,
-    opacity: 0
-  })
-})
 </script>
 
 <style scoped lang='scss'>
+
 .modal {
-  position: fixed; /* Stay in place */
+  position: fixed;
   z-index: 1; 
   padding-top: 3rem;
   left: 0;
   top: 0;
   width: 100%; 
   height: 100%; 
-  /* overflow: auto; */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
+  background-color: rgba(0,0,0,0.5);
   }
 
-/* Modal Content */
 .modal-content {
   background-color: #fefefe;
   border-radius: 10px;
@@ -79,34 +74,20 @@ onMounted(() => {
   height: 100vh;
   max-width: 100vw;
   width: 1200px;
-  /* width: 86%; */
-  position: relative;
+  position: fixed;
   overflow-y: auto;
-  z-index: 2;
+  z-index: 3;
+  /* display: flex; */
 }
 
-/* The Close Button */
-/* .sticky-container {
-  font-weight: bold; 
-  position: sticky;
-  top: 0;
-  left: 0;
-  height: calc(100% - 1px);
-  width: calc(100% - 1px);
-  float: left;
-  margin-right: -100%;
-  z-index: 1;
-} */
-
 .close-container {
-  position: absolute;
-  right: 2%;
-  top: 4%;
-  /* transform: translate3d(-50%, -50%, 0); */
-  /* white-space: nowrap; */
+  position: fixed;
   display: grid;
+  right: 12%;
+  top: 10%;
   grid-template-columns: 1fr 1fr;
   place-items: center;
+  z-index: 9999
 }
 
 .close-icon {
@@ -126,6 +107,38 @@ onMounted(() => {
   transition: all 0.25s ease-in-out;
 }
 
+.modal-animation-enter-active,
+.modal-animation-leave-active {
+  transition: opacity 0.5s ease-in-out
+}
+
+.modal-animation-enter-from,
+.modal-animation-leave-to {
+  opacity: 0;
+}
+
+.modal-animation-inner-enter-active {
+  transition: all 0.5s ease-in-out
+}
+
+.modal-animation-inner-leave-active {
+  transition: all 0.5s ease-in-out
+}
+
+.modal-animation-inner-enter-from {
+  /* opacity: 0; */
+  transform: translateY(100%);
+}
+
+.modal-animation-inner-leave-to {
+  transform: translateY(100%);
+  
+}
+
+
+
+
+
 @media screen and (max-width: 768px) {
   .modal {
     padding: 0;
@@ -143,6 +156,8 @@ onMounted(() => {
     display: none;
   }
 }
+
+
 
 @media screen and (max-width: 1200px){
   .modal {

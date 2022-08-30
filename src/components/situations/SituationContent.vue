@@ -75,8 +75,10 @@ const props = defineProps({
 const store = useStore()
 
 const closeModal = () => {
-  store.commit('modalClose')
-  document.body.style.overflow = "auto"
+  store.commit('modalContentClose')
+  setTimeout(() => {
+    store.commit('modalClose')
+  }, 500)
 }
 
 const situation = computed(()=> {
