@@ -27,13 +27,13 @@ const props = defineProps({
 <style lang="scss" scoped>
 
 
-.vueperslide {
+/* .vueperslide {
   display: flex;
   align-items: center;
   & * {
     user-select: text;
     }
-}
+} */
 
 
 .slide-heading {
@@ -74,6 +74,24 @@ p {
   max-width: 400px;
   max-height: 300px;
   width: 40%;
+}
+
+@media (max-width: 768px) {
+  .slide-content{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 0;
+    gap: 3rem;
+    z-index: 1;
+  }
+  .text-container{
+    width: 100%;
+  }
+  .content-img{
+    width: 100%;
+  }
 }
 
 

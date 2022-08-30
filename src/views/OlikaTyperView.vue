@@ -1,6 +1,6 @@
 <template>
   <HeaderComponent bgImg="2">
-    <HeadingComponent fontSize="65" animate>
+    <HeadingComponent fontSize="big" animate>
           Olika typer av desinfektion
     </HeadingComponent>
     <SubHeadingComponent animate>
@@ -9,7 +9,7 @@
   </HeaderComponent>
 
   <MainComponent flex="column">
-    <HeadingComponent fontSize="32">
+    <HeadingComponent fontSize="small">
       Utforska de fem rummen
     </HeadingComponent>
     <SubHeadingComponent>

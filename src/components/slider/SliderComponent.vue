@@ -5,8 +5,8 @@
     :arrows="false"
     :infinite="false"
     :draggable="false"
-    :touchable="false"
-    fixed-height="50vh"
+    :touchable="true"
+    :fixed-height=true
     class="no-shadow"
     fade
     :bullets="false"
@@ -71,11 +71,25 @@ const sliderIndex = (event) => {
 }
 .vueperslides {
   width: 100%;
+  margin-top: 2rem;
   margin-bottom: -4rem;
+}
+
+.vueperslides--fixed-height {
+  height: 50vh;
 }
 
 .vueperslide--fade, .vueperslide__image {
   transition-delay: 0.5s;
+}
+
+@media (max-width: 768px) {
+  .slider-buttons {
+    margin-top: 3rem;
+  }
+  .vueperslides--fixed-height {
+  height: 80vh;
+}
 }
 
 </style>

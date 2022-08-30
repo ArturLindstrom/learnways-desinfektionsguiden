@@ -35,8 +35,16 @@ onMounted(() => {
 
 h3 {
   font-weight: 700;
-  width: 100%;
+  /* width: 100%; */
+  max-width: 35rem;
   font-size: 20px;
 }
+@media screen and (max-width: 768px) {
+
+  h3 {
+    max-width: 95%;
+  }
+}
+  
 
 </style>

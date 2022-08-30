@@ -1,9 +1,9 @@
 <template>
   <HeaderComponent bgImg="4">
-   <HeadingComponent fontSize="65" animate v-if="done">
+   <HeadingComponent fontSize="big" animate v-if="done">
       Bra jobbat!
     </HeadingComponent>
-   <HeadingComponent fontSize="65" animate v-else>
+   <HeadingComponent fontSize="big" animate v-else>
       Du är inte riktigt klar
     </HeadingComponent>
     <SubHeadingComponent animate v-if="done">

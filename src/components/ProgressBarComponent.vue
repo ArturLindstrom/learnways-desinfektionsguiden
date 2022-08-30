@@ -73,13 +73,13 @@ onMounted(() => {
     justify-content: space-between;
     align-items: center;
     width: 40%;
-    margin-top:80px;
+    /* margin-top:80px; */
 }
 
 .line {
-    /* width: 35%; */
-    width: 90%;
-    height: 3px;
+    width: 38%;
+    /* width: 550px; */
+    height: 2px;
     background-color: #ffffff;
     position: absolute;
     z-index: 1;
@@ -136,4 +136,16 @@ a:hover {
   background-position: center;
 }
 
+@media (max-width: 768px) {
+  .container {
+    width: 80vw;
+  }
+  .line {
+    width: 70%;
+  }
+
+  a{
+    font-size: 16px;
+  }
+}
 </style>

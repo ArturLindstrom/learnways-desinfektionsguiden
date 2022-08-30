@@ -1,16 +1,16 @@
 <template>
   <header :style="{backgroundImage:bg}" class="header">
     <div class="imgs">
-        <img src="@/assets/Vårdhygien-Stockholm.svg" alt="">
+        <img src="@/assets/Vårdhygien-Stockholm.svg" class="logo-vardhygien" alt="">
         <router-link to="/">
-        <img src="../assets/Group-119.svg" alt="">
+        <img src="../assets/Group-119.svg" class="logo-region-stockholm" alt="">
         </router-link>
     </div>
     <div class="heading-container">
         <slot></slot>
-    </div>
-    <ProgressBarComponent class="progress-bar" />
-    <ScrollContainer class="scroll-container" v-if="route.name == !'diplom' || route.name == 'diplom' && done"/>
+        <ProgressBarComponent class="progress-bar" />
+      </div>
+    <ScrollContainer class="scroll-container" v-if="route.name != 'diplom' || done"/>
   </header>
 </template>
 
@@ -46,20 +46,24 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   text-align: center;
-  padding-bottom: 0;
+  /* padding-bottom: 0; */
   background: no-repeat center center #f4edc9;
   background-size: cover;
-  height: calc(100vh - 40px);
+  /* height: calc(100vh - 30px); */
+  min-height: 95vh;
   width: 100%;
 }
 
 .imgs {
+  position: absolute;
+  top: 1rem;
   display: flex;
   justify-content: space-between;
   margin-top: 30px;
   width: 95%;
+
 }
 .heading-container{
   display: flex;
@@ -71,13 +75,26 @@ header {
 }
 
 .progress-bar {
-  position: absolute;
-  top: 35%;
+margin-top: 50px;
 }
 
 .scroll-container {
   position: absolute;
   bottom: -10px;
 }
+
+@media (max-width: 768px) {
+ .logo-vardhygien {
+    width: 175px;
+  }
+
+  .logo-region-stockholm {
+    width: 175px;
+  }
+  /* header{
+    background-size: 300%;
+  } */
+}
+
 
 </style>

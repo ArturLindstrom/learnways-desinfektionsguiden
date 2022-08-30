@@ -8,11 +8,12 @@
     :style="{
       backgroundColor: room.thumbnail.backgroundColor,
       backgroundImage: 'url(' + room.thumbnail.image + ')'
-    }">
+    }"
+    @click="modalOpen(room)">
     <span class="overlay">
       </span>
       <!-- <ButtonComponent  class="button" @click="modalToggle(room)"> -->
-      <ButtonComponent  class="button" @click="modalOpen(room)">
+      <ButtonComponent  class="button" >
         Rum {{room.thumbnail.roomNumber}}: {{room.thumbnail.title}}
       </ButtonComponent>
       <img class="done" src="src/assets/done.svg" alt="done" v-if="roomsVisited[i]">
@@ -79,6 +80,7 @@ onMounted(() => {
 <style scoped lang='scss'>
 .parent {
   display: grid;
+  padding-top: 2rem;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(8, 1fr);
   grid-column-gap: 10px;
@@ -91,6 +93,7 @@ onMounted(() => {
   background-size: cover;
   display: grid;
   place-items: center;
+ 
   &:hover .button {
     display: block;
     z-index: 2;
@@ -99,6 +102,9 @@ onMounted(() => {
     display: none;
     /* z-index: 1; */
   }
+}
+.thumbnails {
+  cursor: pointer;
 }
 
 .overlay {
@@ -131,4 +137,24 @@ onMounted(() => {
 .div3 { grid-area: 5 / 1 / 9 / 2; }
 .div4 { grid-area: 5 / 2 / 9 / 3; }
 .div5 { grid-area: 4 / 3 / 9 / 5; }
+
+@media (max-width: 768px) {
+.parent {
+display: grid;
+grid-template-columns: 1fr;
+grid-template-rows: repeat(5, 1fr);
+grid-row-gap: 10px;
+height: 175vh;
+}
+.parent div {
+  background-size: 120%;
+  background-position: center bottom;
+}
+
+.div1 { grid-area: 1 / 1 / 2 / 2; }
+.div2 { grid-area: 2 / 1 / 3 / 2; }
+.div3 { grid-area: 3 / 1 / 4 / 2; }
+.div4 { grid-area: 4 / 1 / 5 / 2; }
+.div5 { grid-area: 5 / 1 / 6 / 2; } 
+}
 </style>
