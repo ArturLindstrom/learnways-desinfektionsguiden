@@ -3,6 +3,7 @@ import { createStore } from 'vuex'
 export default createStore({
   state: {
     modalShown: false,
+    modalContentShown: false,
     modalContent: {},
     done : false,
     roomsVisited: [
@@ -24,19 +25,26 @@ export default createStore({
   getters: {
     viewsCompleted(state){
       return Object.values(state.viewsCompleted).filter(value => value === true).length == 3
-    }
+    },
+
+    
+
 
   },
   mutations: {
     modalClose(state) {
+    
       state.modalShown = false;
+      
       if(state.situationsCompleted.length === 2){
         state.viewsCompleted.situationer = true
       }
+      document.body.style.overflow = 'auto';
     },
     modalOpen(state, content) {
       state.modalShown = true;
       state.modalContent = content;
+      document.body.style.overflow = 'hidden';
       if(content.thumbnail){
         state.roomsVisited[content.thumbnail.roomNumber-1] = true;
 
@@ -44,6 +52,12 @@ export default createStore({
           state.viewsCompleted.olikatyper = true
         }
       }
+    },
+    modalContentClose(state) {
+      state.modalContentShown = false;
+    },
+    modalContentOpen(state) {
+      state.modalContentShown = true;
     },
     toggleDone(state) {
       state.done = !state.done;

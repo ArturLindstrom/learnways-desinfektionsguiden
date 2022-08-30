@@ -19,8 +19,11 @@
       <img class="done" src="src/assets/done.svg" alt="done" v-if="roomsVisited[i]">
   </div>
     <!-- <RoomComponent :room="currentRoom" v-if="modalOpen" @closeModal="modalToggle"/> -->
-    <ModalComponent v-if="modalComponentOpen">
-      <RoomComponent/>
+    <ModalComponent>
+      <!-- <NewModalComponent> -->
+        <RoomComponent/>
+
+      <!-- </NewModalComponent> -->
     </ModalComponent>
 </div>
 </template>

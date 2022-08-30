@@ -1,7 +1,7 @@
 <template>
     <div class="card-wrapper">
       <CardComponent v-for="situation in situations" :key="situation" :cardContent="situation"/>
-      <ModalComponent v-if="modalComponentOpen">
+      <ModalComponent>
         <SituationContent></SituationContent>
       </ModalComponent>
     </div>

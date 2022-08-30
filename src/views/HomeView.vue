@@ -26,8 +26,7 @@ import MainComponent from "@/components/MainComponent.vue";
 import SliderComponent from '@/components/slider/SliderComponent.vue';
 import ButtonComponent from "@/components/ButtonComponent.vue";
 import HomeSlides from '@/assets/home/main/slide/slide.json'
-
-</script>
+ </script>
 
 <style lang="scss" scoped>
 
