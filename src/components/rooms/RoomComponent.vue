@@ -9,7 +9,9 @@
       <HeadingComponent fontSize="small" class="room-heading">{{content.header.heading}}</HeadingComponent>
       <!-- <h1>{{content.header.heading}}</h1> -->
       <h3>{{content.header.subHeading}}</h3>
-      <DialogComponent :room=content class="dialog"/>
+      <div class="dialogs-container">
+        <DialogComponent :room=content />
+      </div>
     </header>
     <MainComponent>
       <h2 > 
@@ -67,6 +69,9 @@ header {
   background-size: 90%;
   background-position: bottom center;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   /* z-index: -1; */
 }
 
@@ -77,9 +82,10 @@ header {
   /* position: absolute; */
 }
 
-/* .room {
+.dialogs-container {
+  height: 22.5vw;
   width: 100%;
-} */
+}
 
 
 .category-container {

@@ -2,7 +2,7 @@
   <div>
     <header>
       <!-- <img :src="category.image" > -->
-      <HeadingComponent>
+      <HeadingComponent font-size="small">
         {{situation.heading}}
       </HeadingComponent>
     </header>
@@ -42,7 +42,7 @@
       </div>
     </MainComponent>
     <footer v-if="questionIndex === 4">
-      <HeadingComponent>{{situation.end}}</HeadingComponent>
+      <HeadingComponent fontSize="small">{{situation.end}}</HeadingComponent>
       <ButtonComponent @click="closeModal">
         Stäng
       </ButtonComponent>
@@ -76,6 +76,7 @@ const store = useStore()
 
 const closeModal = () => {
   store.commit('modalClose')
+  document.body.style.overflow = "auto"
 }
 
 const situation = computed(()=> {
@@ -130,6 +131,10 @@ const questions = computed(() => {
 </script>
 
 <style scoped lang='scss'>
+
+header {
+  border-radius: 10px 10px 0px 0px;
+}
 .vertical-line {
   width: 4px;
   height: 100%;
@@ -167,7 +172,6 @@ const questions = computed(() => {
 }
 .grid {
   display: grid;
-  gap: 100px red;
 }
 
 .grid > .quiz-button{
@@ -219,5 +223,29 @@ p{
   right: 2.5%;
   font-weight: bold;
 }
+
+@media screen and (max-width: 768px) {
+  .alternative-holder {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .heading-container {
+    width: 100%;
+  }
+  .feedback-holder {
+    grid-column: 1 / 2;
+  }
+  .left {
+    align-self: center;
+  }
+  .question {
+    margin: 3rem 0;
+  }
+  .vertical-line {
+    margin-top: 0;
+  }
+ 
+}
+  
 
 </style>

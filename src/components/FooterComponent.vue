@@ -99,4 +99,20 @@ footer {
 p{
   font-size:17px
 }
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+    margin-left: 1rem;
+  }
+  .footer-container div {
+    padding-left: 50px;
+    text-align: left;
+    background-position: center left;
+  }
+
+}
+  
 </style>

@@ -43,18 +43,19 @@ onBeforeRouteLeave((to, from) => {
 
 
 onMounted(() => {
-  gsap.from(
-    ".link",
-    
-    {
-      duration: 0.5,
-      opacity: 0,
-      scale: 0,
-      stagger: 0.2,
-      delay: 0.5,
-    }
-  );
-
+  if(route.name == "home"){
+    gsap.from(
+      ".link",
+      
+      {
+        duration: 0.5,
+        opacity: 0,
+        scale: 0,
+        stagger: 0.2,
+        delay: 0.5,
+      }
+    );
+  }
   gsap.from(".line", {
     duration: 0.5,
     opacity: 1,
@@ -77,12 +78,12 @@ onMounted(() => {
 }
 
 .line {
-    width: 38%;
+    width: 98%;
     /* width: 550px; */
     height: 2px;
     background-color: #ffffff;
     position: absolute;
-    z-index: 1;
+    z-index: 0;
     transform: translateY(-12px)
 }
 
@@ -110,8 +111,9 @@ a:hover .ball{
 a.router-link-active:hover .ball{
     border: none;
 }
+
 a {
-    z-index: 2;
+    z-index: 1;
     text-align: center;
     display: flex;
     /* width: 100px; */
@@ -120,11 +122,15 @@ a {
     justify-content: center;
     font-size: 20px;
     font-weight: bold;
+}
 
+.a.router-link-active {
+  transition: ease all 0.25s;
 }
 
 a.router-link-active .ball{
-    background: #62C0D8;
+    background-color: #62C0D8;
+    transition: ease all 0.25s;
 }
 a:hover {
     text-decoration: underline;

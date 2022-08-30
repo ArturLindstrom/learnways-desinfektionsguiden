@@ -17,7 +17,8 @@ button{
     padding: 10px;
     font-size: 18px;
     font-weight: 700;
-    width: 450px;
+    max-width: 450px;
+    min-width: 300px;
     margin-top: 15px;
     &:hover{
         background-color: #1D4C7B;
