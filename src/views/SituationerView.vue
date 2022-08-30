@@ -23,7 +23,6 @@ import HeaderComponent from "../components/HeaderComponent.vue";
 import HeadingComponent from '../components/HeadingComponent.vue';
 import SubHeadingComponent from '../components/SubHeadingComponent.vue';
 import MainComponent from "@/components/MainComponent.vue";
-import SituationCard from "../components/situations/SituationCard.vue";
 import SituationsComponent from "../components/situations/SituationsComponent.vue";
 import { useStore } from "vuex";
 import { computed } from "vue";

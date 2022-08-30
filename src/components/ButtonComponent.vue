@@ -22,22 +22,18 @@ const props = defineProps({
 
 const route = useRoute();
 const router = useRouter();
-const routes = ["home", "olika-typer", "situationer", "diplom" ]
+const routes = router.options.routes
 const situationComplete = computed(() => {
   return store.state.situationsCompleted.includes(props.situationId)
 })
 
 const forward = () => {
-  const index = routes.indexOf(route.name);
-  if (index < routes.length - 1) {
-    console.log(props.action)
-    router.push(routes[index + 1]);
-        window.scrollTo({
-  top: 0,
-  left: 100,
-  behavior: 'smooth'
+  const index = routes.map(route => route.path).indexOf(route.path);
+    router.push(routes[index + 1].path);
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
 });
-  }
 }
 const action = () => {
   if (props.action === 'forward') {
