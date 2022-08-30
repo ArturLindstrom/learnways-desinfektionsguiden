@@ -74,7 +74,7 @@ const closeModal = () => {
   height: 100vh;
   max-width: 100vw;
   width: 1200px;
-  position: fixed;
+  position: relative;
   overflow-y: auto;
   z-index: 3;
   /* display: flex; */

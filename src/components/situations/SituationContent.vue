@@ -89,11 +89,11 @@ const situation = computed(()=> {
 const answeredQuestion = ref([])
 const questionIndex = ref(1)
 
-
 const incrementQuestionIndex = (answer, situation, i) => {
    gsap.from(`.question${i+1}`, {
     duration: 0.5,
     scale: 0.5,
+    transformOrigin: 'center center',
   })
   questionIndex.value++
   answeredQuestion.value.push(answer)
