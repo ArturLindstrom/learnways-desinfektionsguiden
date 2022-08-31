@@ -14,6 +14,7 @@
   import { useStore } from 'vuex'
   import situations from '@/assets/situationer/situations.json';
   import SituationContent from './SituationContent.vue';
+  import CardWrapper from '../CardWrapper.vue';
 
   const store = useStore()
 
@@ -30,5 +31,11 @@
   align-items: center;
   margin-top: 50px;
   gap: 20px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .card-wrapper {
+      flex-direction: column;
+    }
   }
 </style>

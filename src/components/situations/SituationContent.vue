@@ -13,6 +13,7 @@
         v-for="(question, i) in questions"
         :key="i"
       >
+      <div>
         <div class="heading-container" 
         :class="{left: i+1 < questionIndex}">
           <p>
@@ -35,6 +36,7 @@
           >
             {{answer.alternative}}
           </QuizButton>
+        </div>
           <div class="feedback-holder" v-if="i < questionIndex && answeredQuestion.find(a => a === answer)">
             <p class="feedback">{{answer.feedback}}</p>
           </div>
@@ -80,6 +82,8 @@ const closeModal = () => {
     store.commit('modalClose')
   }, 500)
 }
+
+const feedbackString = ref()
 
 const situation = computed(()=> {
   return store.state.modalContent

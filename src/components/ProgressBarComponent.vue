@@ -80,7 +80,7 @@ onMounted(() => {
 .line {
     width: 98%;
     /* width: 550px; */
-    height: 2px;
+    height: 4px;
     background-color: #ffffff;
     position: absolute;
     z-index: 0;
