@@ -25,12 +25,18 @@ const array = computed(() => {
   })
 })
 
-const array2 = Object.entries(data).map(([key, value]) => { key, value })
+const array2 = Object.entries(data).map(([key, value]) => {
+  return { key, value }
+})
 
 const filteredArray = computed(() => {
   return array.value.filter(item => {
     return item.key.includes('s01_about_h')
   })
+})
+
+const filteredArray2 = array2.filter(item => {
+  return item.key.includes('s01_about_h')
 })
 
 

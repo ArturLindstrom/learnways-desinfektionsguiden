@@ -49,7 +49,77 @@ const roomsVisited = computed(() => {
   return store.state.roomsVisited
 })
 
+const rooms2 = ref(
+  [
+    {
+      thumbnail: {
+        roomNumber: "",
+        title: "",
+        image: "",
+        backgroundColor: ""
+      },
+      header: {
+        heading: "",
+        subHeading: "",
+        dialogs: 
+          [
+            ""
+          ],
+        image: "",
+        backgroundColor: ""
+      },
+      main: {
+        heading: "",
+        subHeading: "",
+        slides: 
+          [[
+            {
+              title: "",
+              slides: 
+                [
+                  {
+                    title: "",
+                    heading: "",
+                    body: 
+                      [
+                        ""
+                      ],
+                    image: ""
+                  }
+                ]
+            }
+          ]]
+      },
+    }
+  ]
+)
 
+const rooms3 = ref([])
+const backgroundColors = ["#C5D0E4", "#DFEAF7", "#D2E0DD", "#D0DFE3", "#B9CFD0"]
+const roomsContent = store.getters.makeArray('s02_room')
+
+onMounted(() => {
+  for (let i = 0; i < 5; i++) {
+    rooms3.value.push({ 
+    thumbnail: 
+      {
+        roomNumber: i+1,
+        // title: roomsContent.s02_room1_h3_1
+      
+      },
+    // thumbnail.image: `src/assets/olikatyper/thumbnails/room-${i+1}.svg`,
+    // thumbnail.backgroundColor: backgroundColors[i],
+    // header.heading: roomsContent[`s02_room${i+1}_h1`],
+    // header.subHeading: roomsContent[`s02_room${i+1}_h2_1`],
+    // header.dialogs: roomsContent[i].dialogs,
+    // header.backgroundColor: roomsContent[i].backgroundColor,
+    // main.heading: roomsContent[i].heading,
+    // main.subHeading: roomsContent[i].subHeading,
+    // main.slides: roomsContent[i].slides
+  })
+  }
+  console.log(rooms3.value)
+})
 
 
 // const modalOpen = ref(false)

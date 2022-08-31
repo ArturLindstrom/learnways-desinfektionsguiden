@@ -1,16 +1,16 @@
 <template>
   <HeaderComponent bgImg="2">
     <HeadingComponent fontSize="big" animate>
-          Olika typer av desinfektion
+      {{data.s02_h1}}
     </HeadingComponent>
     <SubHeadingComponent animate>
-      I vårt arbete stöter vi på situationer med olika behov av desinfektion.
+      {{data.s02_ingress}}
     </SubHeadingComponent>
   </HeaderComponent>
 
   <MainComponent flex="column">
     <HeadingComponent fontSize="small">
-      Utforska de fem rummen
+      {{s02_h2_1}}
     </HeadingComponent>
     <SubHeadingComponent>
       Du har gått igenom {{completedRooms}} av 5 rum
@@ -31,6 +31,8 @@ import { computed } from "vue";
 import { useStore } from "vuex";
 
 const store = useStore()
+
+const data = store.state.data
 
 const completedRooms = computed(() => store.state.roomsVisited.filter(Boolean).length)
 </script>

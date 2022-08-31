@@ -15,7 +15,6 @@
           <ButtonComponent action="forward">
             {{data.btn_nextsection}}
           </ButtonComponent>
-          <!-- <h1>{{slideData}}</h1> -->
         </MainComponent>
 </template>
 
@@ -38,6 +37,7 @@ const slideData = ref([])
 
 const slideHeadings = store.getters.makeArray('s01_about_h')
 const slideBodies = store.getters.makeArray('s01_about_p')
+
 onMounted(() => {
   for (let i = 0; i < slideHeadings.length; i++) {
   slideData.value.push({
@@ -47,13 +47,6 @@ onMounted(() => {
   })
 }
   })
-
-
-
-
-// slideHeadings.map((item, index) => {
-//   slideData[index].heading = item
-// })
 
  </script>
 
