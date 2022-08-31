@@ -5,6 +5,16 @@
 
 <script setup>
 import FooterComponent from "@/components/FooterComponent.vue";
+import { useStore } from 'vuex';
+import { onMounted } from 'vue'
+
+const store = useStore()
+
+onMounted(() => {
+  console.log('mounted')
+  store.commit('removeMarkup')
+})
+
 </script>
 <style lang="scss">
 

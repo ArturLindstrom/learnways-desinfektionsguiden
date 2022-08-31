@@ -1,7 +1,9 @@
 import { createStore } from 'vuex'
 
+import data from '@/assets/json/sv.json'
 export default createStore({
   state: {
+    data: data,
     modalShown: false,
     modalContentShown: false,
     modalContent: {},
@@ -26,12 +28,28 @@ export default createStore({
     viewsCompleted(state){
       return Object.values(state.viewsCompleted).filter(value => value === true).length == 3
     },
-
+    makeArray: (state) => (query) => {
+      const array2 = Object.entries(state.data).map(([key, value]) => {
+        return { key, value }
+      })
+      const filteredArray2 = array2.filter(item => {
+        return item.key.includes(query)
+      })
+      return filteredArray2
+      // return Object.values(state.data)
+      // return Object.fromEntries(Object.entries(state.data).filter((([key]) => key.startsWith(query))))
+      // return Object.keys(state.data).map(key => state.data[key]).filter(key => key[key].startsWith(query));
+    } ,
     
-
-
   },
+ 
   mutations: {
+    removeMarkup(state){
+      Object.keys(state.data).forEach(key => {
+        state.data[key] = state.data[key].replace(/<[^>]*>?/gm, '')
+      })
+    },
+
     modalClose(state) {
     
       state.modalShown = false;

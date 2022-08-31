@@ -1,20 +1,21 @@
 <template>
         <HeaderComponent bgImg="1">
           <HeadingComponent fontSize="big" animate>
-            Desinfektionsguiden
+            {{data.page_title}}
           </HeadingComponent>
          <SubHeadingComponent animate>
-            En praktisk guide från Vårdhygien Stockholm om desinfektion av händer, hud, ytor och föremål – för att minska risken för smittspridning.
+          {{data.s01_ingress}}
          </SubHeadingComponent>
         </HeaderComponent>
         <MainComponent>
           <HeadingComponent fontSize="small">
-            Vad kommer du att få lära dig?
+            {{data.s01_h2_1}}
           </HeadingComponent>
-          <SliderComponent :slides="HomeSlides"/>
+          <SliderComponent :slides="slideData"/>
           <ButtonComponent action="forward">
-            Gå till nästa del
+            {{data.btn_nextsection}}
           </ButtonComponent>
+          <!-- <h1>{{slideData}}</h1> -->
         </MainComponent>
 </template>
 
@@ -26,6 +27,34 @@ import MainComponent from "@/components/MainComponent.vue";
 import SliderComponent from '@/components/slider/SliderComponent.vue';
 import ButtonComponent from "@/components/ButtonComponent.vue";
 import HomeSlides from '@/assets/home/main/slide/slide.json'
+import { useStore } from 'vuex';
+import { computed, ref, onMounted } from 'vue';
+
+const store = useStore()
+
+const data = store.state.data
+
+const slideData = ref([])
+
+const slideHeadings = store.getters.makeArray('s01_about_h')
+const slideBodies = store.getters.makeArray('s01_about_p')
+onMounted(() => {
+  for (let i = 0; i < slideHeadings.length; i++) {
+  slideData.value.push({
+    heading: slideHeadings[i].value,
+    body: slideBodies[i].value,
+    image: `src/assets/home/main/slide/images/start-${i+1}.svg`
+  })
+}
+  })
+
+
+
+
+// slideHeadings.map((item, index) => {
+//   slideData[index].heading = item
+// })
+
  </script>
 
 <style lang="scss" scoped>

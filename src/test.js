@@ -1,16 +1,13 @@
-const data = require('./assets/json/sv.json');
-
-const generateCategories = () => {
-  const categories = []
-  const keyValuePairs = Object.entries(data);
-  const s03 = keyValuePairs.filter(([key, value]) => key.startsWith('s03'));
-  const arrayOfObjects = s03.map(([key, value]) => ({[key]: value}));
-  const categoryTitles = arrayOfObjects.filter((item) => Object.keys(item)[0].startsWith('s03_h3'));
+const testString = "<p>Desinfektionsguiden är framtagen för att du på egen hand ska kunna erhålla de grundläggande kunskaperna som krävs. Du kommer att få börja med kunskapsinhämtning, och därefter sätta din kunskap på prov. Utbildningen kan med fördel även genomföras i grupp. Du kan använda utbildningen till att öka på din kunskap och tillsammans diskutera era rutiner på arbetsplatsen.</p>";
 
 
-  return categoryTitles ;
+
+const trimString = (str) => {
+  if(str.includes('<')){
+    return str.substring(3, str.length - 4)
+  }
 }
 
-const foundCategories = generateCategories()
+const test = trimString(testString)
 
-console.log(foundCategories)
+console.log(test)
