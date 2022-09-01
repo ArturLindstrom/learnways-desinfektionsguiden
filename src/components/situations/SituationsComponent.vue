@@ -2,7 +2,7 @@
     <div class="card-wrapper">
       <CardComponent v-for="situation in situations" :key="situation" :cardContent="situation"/>
       <ModalComponent>
-        <SituationContent></SituationContent>
+        <SituationContent2></SituationContent2>
       </ModalComponent>
     </div>
 </template>
@@ -13,7 +13,7 @@
   import { ref, computed } from 'vue';
   import { useStore } from 'vuex'
   import situations from '@/assets/situationer/situations.json';
-  import SituationContent from './SituationContent.vue';
+  import SituationContent2 from './SituationContent2.vue';
   import CardWrapper from '../CardWrapper.vue';
 
   const store = useStore()

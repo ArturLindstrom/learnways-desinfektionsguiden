@@ -6,7 +6,63 @@ export default createStore({
     data: data,
     modalShown: false,
     modalContentShown: false,
-    modalContent: {},
+    // modalContent: {},
+    modalContent: {
+      "heading": "Du är på väg in till en patient för att utföra ett vårdmoment.",
+      "id": 1,
+      "end": "Du är klar med situationen. Stäng och gå vidare till nästa.",
+        "questions":
+          [
+            {
+              "question": "När ska du desinfektera händerna?",
+              "id": 1,
+              "answered": false,
+              "description": "",
+              "alternatives": 
+                [
+                  {
+                    "alternative": "Du behöver inte desinfektera händerna eftersom du tänker använda handskar",
+                    "feedback": "Tyvärr inte rätt. Handdesinfektion ska ske direkt före och efter varje vård- och omsorgsmoment, samt före och efter handskanvändning och efter handtvätt.",
+                    "correct": false
+                  },
+                  {
+                    "alternative": "Det räcker att desinfektera händerna efter att du har utfört vårdmomentet hos patienten",
+                    "feedback": "Tyvärr inte rätt. Handdesinfektion ska ske direkt före och efter varje vård- och omsorgsmoment, samt före och efter handskanvändning och efter handtvätt.",
+                    "correct": false
+                  },
+                  {
+                    "alternative": "Direkt före det vårdnära arbetsmomentet",
+                    "feedback": "Rätt svar! Handdesinfektion ska ske före och efter varje vård- och omsorgsmoment, samt före och efter handskanvändning och efter handtvätt.",
+                    "correct": true
+                  }
+                ]
+            },
+            {
+              "question": "Vad tror du är den främsta orsaken till att handdesinfektionen inte får full effekt?",
+              "id": 2,
+              "answered": false,
+              "description": "Du desinfekterar nu händerna precis före ditt vårdnära arbetsmoment.",
+              "alternatives": 
+                [
+                  {
+                    "alternative": "Att man tar för lite desinfektionsmedel",
+                    "feedback": "Rätt svar! Alla dessa alternativ kan göra att handdesinfektionen inte får full effekt, och är lika viktiga för att inte överföra smittämnen till patienten.",
+                    "correct": true
+                  },
+                  {
+                    "alternative": "Att det inte fördelas överallt på händerna",
+                    "feedback": "Rätt svar! Alla dessa alternativ kan göra att handdesinfektionen inte får full effekt, och är lika viktiga för att inte överföra smittämnen till patienten.",
+                    "correct": true
+                  },
+                  {
+                    "alternative": "Missar att gnida tills det dunstat och huden känns torr",
+                    "feedback": "Rätt svar! Alla dessa alternativ kan göra att handdesinfektionen inte får full effekt, och är lika viktiga för att inte överföra smittämnen till patienten.",
+                    "correct": true
+                  }
+                ]
+            },
+          ]
+      },
     done : false,
     roomsVisited: [
          false,

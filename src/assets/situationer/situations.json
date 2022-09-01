@@ -6,6 +6,7 @@
     [
       {
         "heading": "Du är på väg in till en patient för att utföra ett vårdmoment.",
+        "image": "src/assets/situationer/situation-1-start.svg",
         "id": 1,
         "end": "Du är klar med situationen. Stäng och gå vidare till nästa.",
           "questions":
@@ -173,6 +174,7 @@
     "situations": 
     [
       {
+        "image": "src/assets/situationer/situation-1-start.svg",
         "heading": "Du är på väg in till en patient för att utföra ett vårdmoment.",
         "id": 1,
         "end": "Du är klar med situationen. Stäng och gå vidare till nästa.",

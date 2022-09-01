@@ -76,6 +76,8 @@ const props = defineProps({
 
 const store = useStore()
 
+
+
 const closeModal = () => {
   store.commit('modalContentClose')
   setTimeout(() => {
