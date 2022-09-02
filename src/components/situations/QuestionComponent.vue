@@ -25,7 +25,10 @@
 import SubHeadingComponent from '../SubHeadingComponent.vue';
 import QuizButton from './QuizButton.vue';
 import { ref } from 'vue'
+import { useMq } from "vue3-mq";
 import gsap from 'gsap';
+
+const mq = useMq();
 
 
 const questionDone = ref(false);
@@ -50,19 +53,27 @@ const questionDone = ref(false);
     feedback.value = props.question.alternatives[i].feedback
     emit('answer')
     console.log(isSelected.value)
-    gsap.to('.question-container', {
-      duration: 1,
-      // display:'grid',
-      x: '-50%',
-    })
+    if(mq.current != 'xs'){
+      gsap.to('.question-container', {
+        duration: 1,
+        // display:'grid',
+        x: '-50%',
+      })
 
-    gsap.to('.feedback-container', {
-      duration: 1,
-      // delay: 0.5,
-      opacity: 1,
-      x: '15%',
-    })
-
+      gsap.to('.feedback-container', {
+        duration: 1,
+        // delay: 0.5,
+        opacity: 1,
+        x: '15%',
+      })
+    }
+    else{
+      gsap.to('.feedback-container', {
+        duration: 1,
+        // delay: 0.5,
+        opacity: 1,
+      })
+    }
   }
 
   
@@ -131,4 +142,11 @@ const questionDone = ref(false);
   pointer-events: none;
 }
 
+@media screen and (max-width: 768px) {
+  .feedback-container{
+    margin-top: 1rem;
+    margin-right: 0;
+    /* opacity: 1; */
+  }
+}
 </style>

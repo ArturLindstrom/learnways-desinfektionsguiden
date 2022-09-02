@@ -15,9 +15,7 @@
     <SubHeadingComponent>
       Du har gått igenom {{completedRooms}} av 5 rum
     </SubHeadingComponent>
-    <RoomsComponent>
-      
-    </RoomsComponent>
+    <RoomsComponent />
   </MainComponent>
 </template>
 

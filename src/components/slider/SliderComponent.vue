@@ -72,7 +72,7 @@ const sliderIndex = (event) => {
 .vueperslides {
   width: 100%;
   margin-top: 2rem;
-  margin-bottom: -4rem;
+  margin-bottom: 0rem;
 }
 
 .vueperslides--fixed-height {
@@ -88,7 +88,7 @@ const sliderIndex = (event) => {
     margin-top: 3rem;
   }
   .vueperslides--fixed-height {
-  height: 80vh;
+  height: 90vh;
 }
 }
 

@@ -16,13 +16,12 @@
       </TransitionGroup>
     </MainComponent>
     <!-- <footer class="footer"> -->
-      <footer class="footer" v-if="showFooter" >
-      <!-- <footer class="footer" v-if="questionIndex > situation.questions.length" > -->
+      <footer class="footer" v-if="showFooter">
         <img class="thumbs-up-icon" src="src/assets/qicon-last.svg" alt="">
         <SubHeadingComponent class="sub-heading">
           {{situation.end}}
-        </SubHeadingComponent>
-        <ButtonComponent @click="closeModal">
+        </SubHeadingComponent>  
+        <ButtonComponent @click="closeModal" class="trigger">
           Stäng
         </ButtonComponent>
       </footer>
@@ -47,17 +46,6 @@ gsap.registerPlugin(ScrollTrigger);
 const store = useStore();
 const situation = store.state.modalContent;
 
-const thumb = () => {
-  gsap.from('.thumbs-up-icon', {
-    scrollTrigger: {
-      trigger: ".footer"
-    },
-    rotate: 45,
-    scale: 0.5,
-    opacity: 0,
-    duration: 1,
-  })
-}
 
 const showFooter = ref(false)
 
@@ -71,7 +59,6 @@ const incrementQuestionIndex = () => {
   questionIndex.value++;
   if(questionIndex.value > situation.questions.length){
     showFooter.value = true;
-    setTimeout(thumb, 1000)
   }
 }
 
@@ -135,11 +122,21 @@ footer{
     width: 160px;
     height: 160px;
     margin-bottom: 80px;
+    /* transform: rotate(45deg) scale(0.8);
+    opacity: 0;
+    transition: all 1s ease-in-out; */
+
   }
   .sub-heading {
     margin-bottom: 80px;
   }
 }
+/* 
+footer:hover .thumbs-up-icon {
+  transform: rotate(0deg) scale(1);
+  opacity: 1;
+  transition: all 1s ease-in-out;
+} */
 
 @media screen and (max-width: 768px) {
   header {
