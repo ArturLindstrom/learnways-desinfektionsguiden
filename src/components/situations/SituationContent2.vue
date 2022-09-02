@@ -18,7 +18,7 @@
     <!-- <footer class="footer"> -->
       <footer class="footer" v-if="showFooter" >
       <!-- <footer class="footer" v-if="questionIndex > situation.questions.length" > -->
-        <img class="thumbs-up-icon" src="src/assets/qicon-last.svg" alt="" >
+        <img class="thumbs-up-icon" src="src/assets/qicon-last.svg" alt="">
         <SubHeadingComponent class="sub-heading">
           {{situation.end}}
         </SubHeadingComponent>
@@ -55,10 +55,9 @@ const thumb = () => {
     rotate: 45,
     scale: 0.5,
     opacity: 0,
-    duration: 1
+    duration: 1,
   })
 }
-
 
 const showFooter = ref(false)
 
@@ -116,8 +115,8 @@ const showNextQuestion = (el, done) => {
 header {
   display: flex;
   align-items: center;
-  height: 20vh;
-  border-radius: 10px;
+  /* height: 20vh; */
+  border-radius: 10px 10px 0 0;
   background: #F4EDC9;
   padding: 3rem;
   & > img {
@@ -140,6 +139,14 @@ footer{
   .sub-heading {
     margin-bottom: 80px;
   }
+}
+
+@media screen and (max-width: 768px) {
+  header {
+    display: flex;
+    flex-direction: column;
+  } 
+
 }
 
 

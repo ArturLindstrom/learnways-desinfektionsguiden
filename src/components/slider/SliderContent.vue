@@ -9,7 +9,6 @@
 </template>
 
 <script setup>
-import { VueperSlide } from 'vueperslides'
 
 const props = defineProps({
   slide: {

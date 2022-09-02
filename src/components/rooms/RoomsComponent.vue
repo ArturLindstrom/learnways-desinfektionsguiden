@@ -18,12 +18,9 @@
       </ButtonComponent>
       <img class="done" src="src/assets/done.svg" alt="done" v-if="roomsVisited[i]">
   </div>
-    <!-- <RoomComponent :room="currentRoom" v-if="modalOpen" @closeModal="modalToggle"/> -->
     <ModalComponent>
-      <!-- <NewModalComponent> -->
         <RoomComponent/>
 
-      <!-- </NewModalComponent> -->
     </ModalComponent>
 </div>
 </template>
@@ -159,7 +156,7 @@ onMounted(() => {
   grid-column-gap: 10px;
   grid-row-gap: 10px;
   height: 70vh;
-  width: 100%;
+  width: 90vw;
 }
 .parent div {
   background-repeat: no-repeat;

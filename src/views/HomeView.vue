@@ -1,21 +1,21 @@
 <template>
-        <HeaderComponent bgImg="1">
-          <HeadingComponent fontSize="big" animate>
-            {{data.page_title}}
-          </HeadingComponent>
-         <SubHeadingComponent animate>
-          {{data.s01_ingress}}
-         </SubHeadingComponent>
-        </HeaderComponent>
-        <MainComponent>
-          <HeadingComponent fontSize="small">
-            {{data.s01_h2_1}}
-          </HeadingComponent>
-          <SliderComponent :slides="slideData"/>
-          <ButtonComponent action="forward">
-            {{data.btn_nextsection}}
-          </ButtonComponent>
-        </MainComponent>
+  <HeaderComponent bgImg="1">
+    <HeadingComponent fontSize="big" animate>
+      {{data.page_title}}
+    </HeadingComponent>
+    <SubHeadingComponent animate>
+    {{data.s01_ingress}}
+    </SubHeadingComponent>
+  </HeaderComponent>
+  <MainComponent>
+    <HeadingComponent fontSize="small">
+      {{data.s01_h2_1}}
+    </HeadingComponent>
+    <SliderComponent :slides="slideData"/>
+    <ButtonComponent action="forward">
+      {{data.btn_nextsection}}
+    </ButtonComponent>
+  </MainComponent>
 </template>
 
 <script setup>
@@ -45,8 +45,8 @@ onMounted(() => {
     body: slideBodies[i].value,
     image: `src/assets/home/main/slide/images/start-${i+1}.svg`
   })
-}
-  })
+  }
+})
 
  </script>
 

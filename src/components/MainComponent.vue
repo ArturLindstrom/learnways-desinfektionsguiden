@@ -19,10 +19,8 @@
   align-items: center;
   justify-content: center;
   min-height: 60vh;
-  /* width: 85%; */
-  /* width: 100%; */
+  max-width: 90%;
   min-width: 85%;
-
 }
 
 </style>

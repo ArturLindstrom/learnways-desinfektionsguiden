@@ -74,7 +74,7 @@ onMounted(() => {
     justify-content: space-between;
     align-items: center;
     width: 40%;
-    /* margin-top:80px; */
+    /* margin-top:200px; */
 }
 
 .line {
@@ -147,7 +147,7 @@ a:hover {
     width: 80vw;
   }
   .line {
-    width: 70%;
+    width: 90%;
   }
 
   a{

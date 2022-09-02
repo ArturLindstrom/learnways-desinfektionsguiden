@@ -75,7 +75,7 @@ header {
 }
 
 .progress-bar {
-margin-top: 50px;
+margin-top: 100px;
 }
 
 .scroll-container {
