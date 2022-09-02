@@ -1,21 +1,23 @@
 <template>
-  <HeaderComponent bgImg="1">
-    <HeadingComponent fontSize="big" animate>
-      {{data.page_title}}
-    </HeadingComponent>
-    <SubHeadingComponent animate>
-    {{data.s01_ingress}}
-    </SubHeadingComponent>
-  </HeaderComponent>
-  <MainComponent>
-    <HeadingComponent fontSize="small">
-      {{data.s01_h2_1}}
-    </HeadingComponent>
-    <SliderComponent :slides="slideData"/>
-    <ButtonComponent action="forward">
-      {{data.btn_nextsection}}
-    </ButtonComponent>
-  </MainComponent>
+  <div>
+    <HeaderComponent bgImg="1">
+      <HeadingComponent fontSize="big" animate>
+        {{data.page_title}}
+      </HeadingComponent>
+      <SubHeadingComponent animate>
+      {{data.s01_ingress}}
+      </SubHeadingComponent>
+    </HeaderComponent>
+    <MainComponent>
+      <HeadingComponent fontSize="small">
+        {{data.s01_h2_1}}
+      </HeadingComponent>
+      <SliderComponent :slides="slideData"/>
+      <ButtonComponent action="forward">
+        {{data.btn_nextsection}}
+      </ButtonComponent>
+    </MainComponent>
+  </div>
 </template>
 
 <script setup>

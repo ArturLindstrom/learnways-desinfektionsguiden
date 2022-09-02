@@ -1,6 +1,6 @@
 <template>
-  <router-view/>
-  <footer-component/>
+<router-view />
+<footer-component/>
 </template>
 
 <script setup>
@@ -14,6 +14,7 @@ onMounted(() => {
   console.log('mounted')
   store.commit('removeMarkup')
 })
+
 
 </script>
 <style lang="scss">
@@ -40,6 +41,7 @@ a, a:visited, a:link {
   flex-direction: column;
   align-items: center;
 }
+
 
 
 </style>

@@ -1,22 +1,23 @@
 <template>
-  <HeaderComponent bgImg="2">
-    <HeadingComponent fontSize="big" animate>
-      {{data.s02_h1}}
-    </HeadingComponent>
-    <SubHeadingComponent animate>
-      {{data.s02_ingress}}
-    </SubHeadingComponent>
-  </HeaderComponent>
-
-  <MainComponent flex="column">
-    <HeadingComponent fontSize="small">
-      {{s02_h2_1}}
-    </HeadingComponent>
-    <SubHeadingComponent>
-      Du har gått igenom {{completedRooms}} av 5 rum
-    </SubHeadingComponent>
-    <RoomsComponent />
-  </MainComponent>
+  <div>
+    <HeaderComponent bgImg="2">
+      <HeadingComponent fontSize="big" animate>
+        {{data.s02_h1}}
+      </HeadingComponent>
+      <SubHeadingComponent animate>
+        {{data.s02_ingress}}
+      </SubHeadingComponent>
+    </HeaderComponent>
+    <MainComponent flex="column">
+      <HeadingComponent fontSize="small">
+        {{s02_h2_1}}
+      </HeadingComponent>
+      <SubHeadingComponent>
+        Du har gått igenom {{completedRooms}} av 5 rum
+      </SubHeadingComponent>
+      <RoomsComponent />
+    </MainComponent>
+  </div>
 </template>
 
 <script setup>
@@ -35,6 +36,5 @@ const data = store.state.data
 const completedRooms = computed(() => store.state.roomsVisited.filter(Boolean).length)
 </script>
 
-<style>
-
+<style scoped>
 </style>

@@ -22,13 +22,17 @@ const props = defineProps({
 
 onMounted(() => {
   if(props.animate == true){
-    gsap.from(
+    gsap.fromTo(
     ".animate",
       
       {
-        duration: 0.5,
+        duration: 1,
         opacity: 0,
-        y: 100,
+        y:  -100,
+      },
+      {
+        opacity: 1,
+        y:0,
       }
     );
   }

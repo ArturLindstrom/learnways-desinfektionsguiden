@@ -1,4 +1,5 @@
 <template>
+<div>
   <HeaderComponent bgImg="4">
     <ConfettiExplosion v-if="done" 
     :particleCount="100"
@@ -25,6 +26,7 @@
     </SubHeadingComponent>
     <CardWrapper :cards="cards"/>
   </MainComponent>
+</div>
 </template>
 
 <script setup>
