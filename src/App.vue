@@ -1,10 +1,21 @@
 <template>
-  <router-view/>
-  <footer-component/>
+<router-view />
+<footer-component/>
 </template>
 
 <script setup>
 import FooterComponent from "@/components/FooterComponent.vue";
+import { useStore } from 'vuex';
+import { onMounted } from 'vue'
+
+const store = useStore()
+
+onMounted(() => {
+  console.log('mounted')
+  store.commit('removeMarkup')
+})
+
+
 </script>
 <style lang="scss">
 
@@ -30,6 +41,7 @@ a, a:visited, a:link {
   flex-direction: column;
   align-items: center;
 }
+
 
 
 </style>

@@ -1,9 +1,11 @@
 <template>
+<div>
   <HeaderComponent bgImg="4">
     <ConfettiExplosion v-if="done" 
     :particleCount="100"
     :stageHeight="1000"
     :stageWidth="800"
+    :duration="3000"
     />
    <HeadingComponent fontSize="big" animate v-if="done">
       Bra jobbat!
@@ -24,6 +26,7 @@
     </SubHeadingComponent>
     <CardWrapper :cards="cards"/>
   </MainComponent>
+</div>
 </template>
 
 <script setup>

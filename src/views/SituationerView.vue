@@ -1,4 +1,5 @@
 <template>
+<div>
     <HeaderComponent bgImg="3">
         <HeadingComponent fontSize="big" animate>
             Öva på olika situationer
@@ -16,6 +17,7 @@
         </SubHeadingComponent>
         <SituationsComponent />
     </MainComponent>
+</div>
 </template>
 
 <script setup>

@@ -1,24 +1,23 @@
 <template>
-  <HeaderComponent bgImg="2">
-    <HeadingComponent fontSize="big" animate>
-          Olika typer av desinfektion
-    </HeadingComponent>
-    <SubHeadingComponent animate>
-      I vårt arbete stöter vi på situationer med olika behov av desinfektion.
-    </SubHeadingComponent>
-  </HeaderComponent>
-
-  <MainComponent flex="column">
-    <HeadingComponent fontSize="small">
-      Utforska de fem rummen
-    </HeadingComponent>
-    <SubHeadingComponent>
-      Du har gått igenom {{completedRooms}} av 5 rum
-    </SubHeadingComponent>
-    <RoomsComponent>
-      
-    </RoomsComponent>
-  </MainComponent>
+  <div>
+    <HeaderComponent bgImg="2">
+      <HeadingComponent fontSize="big" animate>
+        {{data.s02_h1}}
+      </HeadingComponent>
+      <SubHeadingComponent animate>
+        {{data.s02_ingress}}
+      </SubHeadingComponent>
+    </HeaderComponent>
+    <MainComponent flex="column">
+      <HeadingComponent fontSize="small">
+        {{s02_h2_1}}
+      </HeadingComponent>
+      <SubHeadingComponent>
+        Du har gått igenom {{completedRooms}} av 5 rum
+      </SubHeadingComponent>
+      <RoomsComponent />
+    </MainComponent>
+  </div>
 </template>
 
 <script setup>
@@ -32,9 +31,10 @@ import { useStore } from "vuex";
 
 const store = useStore()
 
+const data = store.state.data
+
 const completedRooms = computed(() => store.state.roomsVisited.filter(Boolean).length)
 </script>
 
-<style>
-
+<style scoped>
 </style>

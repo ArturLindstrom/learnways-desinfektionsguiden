@@ -77,7 +77,9 @@ const closeModal = () => {
   position: relative;
   overflow-y: auto;
   z-index: 3;
-  /* display: flex; */
+  /* display: flex;
+  flex-direction: column;
+  align-items: center; */
 }
 
 .close-container {

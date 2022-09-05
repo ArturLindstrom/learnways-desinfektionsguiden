@@ -10,7 +10,9 @@
         <slot></slot>
         <ProgressBarComponent class="progress-bar" />
       </div>
-    <ScrollContainer class="scroll-container" v-if="route.name != 'diplom' || done"/>
+      <Transition >
+      <ScrollContainer class="scroll-container" v-if="route.name != 'diplom' || done"/>
+      </Transition>
   </header>
 </template>
 
@@ -27,6 +29,17 @@ const route = useRoute();
 
 const done = computed(() => {
   return store.state.done
+})
+
+onMounted(() => {
+  console.log('ENTER')
+  gsap.from(".scroll-container", {
+    duration: 1,
+    opacity: 0,
+    // y: 20,
+    ease: "power2.out",
+    delay: 0.5
+  });
 })
 
 const props = defineProps({
@@ -53,7 +66,7 @@ header {
   background-size: cover;
   /* height: calc(100vh - 30px); */
   min-height: 95vh;
-  width: 100%;
+  width: 100vw;
 }
 
 .imgs {
@@ -75,13 +88,24 @@ header {
 }
 
 .progress-bar {
-margin-top: 50px;
+margin-top: 100px;
 }
 
 .scroll-container {
   position: absolute;
   bottom: -10px;
 }
+
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
+
 
 @media (max-width: 768px) {
  .logo-vardhygien {
