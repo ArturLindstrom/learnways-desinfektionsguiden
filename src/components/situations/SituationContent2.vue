@@ -6,7 +6,7 @@
         {{situation.heading}}
       </HeadingComponent>
     </header>
-    <MainComponent>
+    <MainComponent v-if="situation.questions">
       <TransitionGroup @enter="showNextQuestion">
         <QuestionComponent 
           v-for="question in questions"
@@ -14,6 +14,11 @@
           :question="question"
           @answer="incrementQuestionIndex"/>
       </TransitionGroup>
+    </MainComponent>
+    <MainComponent v-else>
+      <DragAndDrop :content="situation.dragAndDrop">
+
+      </DragAndDrop>
     </MainComponent>
     <!-- <footer class="footer"> -->
       <footer class="footer" v-if="showFooter">
@@ -40,6 +45,7 @@ import SubHeadingComponent from '../SubHeadingComponent.vue';
 import ButtonComponent from '../ButtonComponent.vue';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
+import DragAndDrop from './DragAndDrop.vue';
 gsap.registerPlugin(ScrollTrigger);
 
 

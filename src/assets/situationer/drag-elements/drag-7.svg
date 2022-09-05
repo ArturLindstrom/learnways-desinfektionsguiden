@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="101" height="101" viewBox="0 0 101 101">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_1565" data-name="Rectangle 1565" width="83.272" height="37.111" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-3">
+      <rect id="Rectangle_1562" data-name="Rectangle 1562" width="4.706" height="10.066" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-4">
+      <rect id="Rectangle_1563" data-name="Rectangle 1563" width="13.184" height="13.575" fill="#d9e5f0"/>
+    </clipPath>
+  </defs>
+  <g id="Group_8377" data-name="Group 8377" transform="translate(-476.5 -953.5)">
+    <circle id="Ellipse_44" data-name="Ellipse 44" cx="50" cy="50" r="50" transform="translate(477 954)" fill="#e7e7e7" stroke="#707070" stroke-width="1"/>
+    <g id="Group_8366" data-name="Group 8366" transform="translate(485.363 985.103)">
+      <g id="Group_6403" data-name="Group 6403" transform="translate(0 0)">
+        <g id="Group_6402" data-name="Group 6402" clip-path="url(#clip-path)">
+          <g id="Group_6401" data-name="Group 6401">
+            <g id="Group_6400" data-name="Group 6400" clip-path="url(#clip-path)">
+              <path id="Path_5984" data-name="Path 5984" d="M14.089,9.708,39.2,19.794a19.678,19.678,0,0,0,7.334,1.418L74.82,24.066a21.437,21.437,0,0,1,5.674.765l7.2,1.975a2.94,2.94,0,0,1,2.153,2.6l1.232,12.81a2.94,2.94,0,0,1-2.931,3.171H43.5A2.94,2.94,0,0,1,40.945,43.9l-4-7.04a11.472,11.472,0,0,0-5.629-4.947L9.159,22.855Z" transform="translate(-7.813 -8.281)" fill="#3175ae" opacity="0.186"/>
+              <path id="Path_5985" data-name="Path 5985" d="M10.785.745,9.549.251,8.78,2.176A24,24,0,0,0,5.95,7.487a24.011,24.011,0,0,0-1.61,5.8l-.769,1.925,1.236.494c1.02.407,3.185-2.611,4.836-6.742s2.162-7.81,1.142-8.218" transform="translate(-3.046 -0.214)" fill="#2a6791"/>
+              <path id="Path_5986" data-name="Path 5986" d="M1.668,6.779C.017,10.91-.494,14.589.526,15S3.71,12.386,5.361,8.255,7.523.445,6.5.037,3.318,2.648,1.668,6.779" transform="translate(-0.001 0)" fill="#3175ae"/>
+              <g id="Group_6396" data-name="Group 6396" transform="translate(1.161 2.484)" opacity="0.41">
+                <g id="Group_6395" data-name="Group 6395">
+                  <g id="Group_6394" data-name="Group 6394" clip-path="url(#clip-path-3)">
+                    <path id="Path_5987" data-name="Path 5987" d="M9.014,21.432c-1.105,2.766-1.448,5.23-.765,5.5s2.132-1.748,3.238-4.515,1.448-5.23.765-5.5-2.133,1.748-3.238,4.515" transform="translate(-7.898 -16.893)" fill="#ededed"/>
+                  </g>
+                </g>
+              </g>
+              <path id="Path_5988" data-name="Path 5988" d="M9.159,102.2s.274,13.587,7.286,3.019" transform="translate(-7.813 -87.179)" fill="none" stroke="#2a6791" stroke-miterlimit="10" stroke-width="1"/>
+              <path id="Path_5989" data-name="Path 5989" d="M64.241,37.218c.847.727-.859,4.1-3.81,7.54s-6.029,5.635-6.876,4.909.859-4.1,3.81-7.54S63.395,36.492,64.241,37.218Z" transform="translate(-45.498 -31.629)" fill="none" stroke="#2a6791" stroke-miterlimit="10" stroke-width="1"/>
+              <g id="Group_6399" data-name="Group 6399" transform="translate(5.198 3.979)" opacity="0.7">
+                <g id="Group_6398" data-name="Group 6398">
+                  <g id="Group_6397" data-name="Group 6397" clip-path="url(#clip-path-4)">
+                    <path id="Path_5990" data-name="Path 5990" d="M42.79,27.07l5.751,2.31-9.75,11.265-3.434-1.4Z" transform="translate(-35.357 -27.07)" fill="#d9e5f0"/>
+                  </g>
+                </g>
+              </g>
+              <line id="Line_175" data-name="Line 175" x2="44.135" transform="translate(34.727 33.726)" fill="none" stroke="#e5e5e5" stroke-linecap="round" stroke-miterlimit="10" stroke-width="0.5"/>
+            </g>
+          </g>
+        </g>
+      </g>
+      <path id="Path_5995" data-name="Path 5995" d="M1.892-.371S12.813-1.525,22.085-1.525A126,126,0,0,1,38.98-.371a1.892,1.892,0,1,1,0,3.784H1.892a1.892,1.892,0,1,1,0-3.784Z" transform="translate(37.354 32.451)" fill="#fff" opacity="0.382"/>
+    </g>
+  </g>
+</svg>
