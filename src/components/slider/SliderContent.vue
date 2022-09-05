@@ -4,7 +4,6 @@
         <div class="text-container">
           <h3 class="slide-heading">{{ slide.heading }}</h3>
             <p v-for="paragraph in slide.body" :key="paragraph">{{ paragraph }}</p>
-            
         </div>
       </div>
 </template>
