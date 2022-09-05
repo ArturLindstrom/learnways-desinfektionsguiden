@@ -3,7 +3,8 @@
         <img :src="slide.image" alt="" class="content-img">
         <div class="text-container">
           <h3 class="slide-heading">{{ slide.heading }}</h3>
-            <p>{{ slide.body }}</p>
+            <p v-for="paragraph in slide.body" :key="paragraph">{{ paragraph }}</p>
+            
         </div>
       </div>
 </template>

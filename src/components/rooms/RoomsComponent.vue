@@ -77,10 +77,11 @@ const rooms2 = ref(
                   {
                     title: "",
                     heading: "",
-                    body: 
-                      [
+                    body: [
+                      
                         ""
-                      ],
+                  ]
+                      ,
                     image: ""
                   }
                 ]
