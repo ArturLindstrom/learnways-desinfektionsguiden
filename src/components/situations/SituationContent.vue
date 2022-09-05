@@ -6,7 +6,7 @@
         {{situation.heading}}
       </HeadingComponent>
     </header>
-    <MainComponent>
+    <MainComponent v-if="situation.questions">
       
       <div class="vertical-line"></div>
       <div class="question" 
@@ -42,6 +42,9 @@
           </div>
         </div>
       </div>
+    </MainComponent>
+    <MainComponent v-else>
+
     </MainComponent>
     <footer v-if="questionIndex === 4">
       <HeadingComponent fontSize="small">{{situation.end}}</HeadingComponent>
@@ -129,7 +132,15 @@ const incrementQuestionIndex = (answer, situation, i) => {
 
 
 const questions = computed(() => {
-  return store.state.modalContent.questions.slice(0, questionIndex.value)
+  console.log(store.state.modalContent.questions)
+  if(store.state.modalContent.questions){
+
+    return store.state.modalContent.questions.slice(0, questionIndex.value)
+  }
+  else{
+    return []
+  }
+
   }
 )
 
