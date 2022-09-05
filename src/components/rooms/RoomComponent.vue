@@ -27,7 +27,7 @@
           <h3 @click="setCurrentSlide(i)">
             {{content.main.slides[i].title}}
           </h3>
-          <span class="underline"></span>
+          <span class="underline" :class="'underline' + i"></span>
         </div>
       </div>
       <SliderComponent :slides="content.main.slides[currentSlide].slides" />
@@ -54,8 +54,30 @@ const content = computed(() => {
 const currentSlide = ref(0)
 const setCurrentSlide = (i) => {
   currentSlide.value = i
-  console.log(currentSlide.value)
+  drawUnderline(currentSlide.value)
 }
+
+onMounted(() => {
+  drawUnderline(currentSlide.value)
+})
+
+
+const drawUnderline = (i) => {
+  gsap.to(`.underline${i}`, {
+    duration: 0.5,
+    width: '80%',
+    ease: 'power3.inOut'
+  })
+  for (let j = 0; j < content.value.main.slides.length; j++) {
+    if (j !== i) {
+      gsap.to(`.underline${j}`, {
+        duration: 0.5,
+        width: '0%',
+        ease: 'power3.inOut'
+      })
+    }
+  }
+} 
 
 
 </script>
@@ -80,6 +102,13 @@ header {
   width: 60%;
   margin: 3rem;
   /* position: absolute; */
+}
+
+.underline {
+  width: 0%;
+  height: 2px;
+  margin-top: -1.75rem;
+  background-color: #003340;
 }
 
 .dialogs-container {
