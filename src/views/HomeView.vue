@@ -45,7 +45,7 @@ onMounted(() => {
   for (let i = 0; i < slideHeadings.length; i++) {
   slideData.value.push({
     heading: slideHeadings[i].value,
-    body: slideBodies[i].value,
+    body: [slideBodies[i].value],
     image: `src/assets/home/main/slide/images/start-${i+1}.svg`
   })
   }
