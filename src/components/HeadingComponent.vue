@@ -8,7 +8,7 @@
 
 <script setup>
 import gsap from "gsap";
-import { defineProps, onMounted } from 'vue';
+import { onMounted } from 'vue';
 const props = defineProps({
   fontSize:
     {

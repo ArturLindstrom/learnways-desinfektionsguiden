@@ -7,7 +7,7 @@
 <script setup>
 import {useRoute, useRouter} from 'vue-router';
 import { useStore } from 'vuex';
-import { defineProps, computed } from 'vue';
+import { computed } from 'vue';
 import store from '../store';
 
 const props = defineProps({
