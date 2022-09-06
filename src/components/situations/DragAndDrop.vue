@@ -1,204 +1,170 @@
 <template>
-<div class="question">
+  <div class="drag-and-drop-container">
     <SubHeadingComponent>
-        {{content.question}}
+        {{props.content.question}}
     </SubHeadingComponent>
-    <div class="img-wrapper">
-        <draggable 
-          :list="diskList"
-          group="people"
-          itemKey="name"
-          class="diskdesinfektor"
-          :move="checkAnswer"
-          ghostClass="ghost"
-          @change="change"
-          :animation="200"
-          
-        >
-        <template #item="{element}">
-            <div class="answered">
-              <img src="@/assets/situationer/check.svg" class="tick">
-              <img :src="element.image" alt=""> 
-            </div>
-          </template>
-        </draggable>
-        <draggable
-          :list="spolList"
-          group="people"
-          itemKey="name"
-          class="spoldesinfektor"
-          :move="checkAnswer"
-          @change="change"
-          ghostClass="ghost"
-          :animation="200"
-         
-        >
-            <template #item="{element}">
-              <div class="answered">
-                <img src="@/assets/situationer/check.svg" class="tick">
-                <img :src="element.image">
-              </div>
-            </template>
-        </draggable>
+    <div class="machines-container">
+      <div class="diskdesinfektor" ref="diskdesinfektor">
+        <div v-for="image in placedItemsInDisk" :key="item" class="placed-item">
+          <img src="@/assets/situationer/check.svg" class="tick">
+          <img :src="image" alt="">
+        </div>
+      </div>
+      <div class="spoldesinfektor" ref="spoldesinfektor">
+        <div v-for="image in placedItemsInSpol" :key="item" class="placed-item">
+          <img src="@/assets/situationer/check.svg" class="tick">
+          <img :src="image" alt="">
+        </div>
+      </div>
     </div>
-      <draggable 
-        :list="content.dragElements" 
-        class="item-wrapper" 
-        itemKey="name" 
-        group="people"
-        :move="checkAnswer"
-        :animation="200"
-        :reverseTransition="true"
-      >
-        <template #item="{element}">
-          <div class="drag-items" >
-            <!-- <img :src="element.image"> -->
-            <div :style="{backgroundImage: 'url(' + element.image + ')'}" class="drag-item" >
-
-            </div>
-            <span>
-              {{element.title}}
-            </span>
-          </div>
-        </template>
-      </draggable>
-        <!-- <div class="drag-items" v-for="item in content.dragElements" :key="item">
-                <img :src="item.image" alt="">
-                <span>
-                    {{item.title}}
-                </span>
-        </div> -->
-</div>
+    <div class="element-container">
+      <div v-for="dragElement in dragElements" :key="dragElement" class="drag-element draggable" :style="{backgroundImage: 'url(' + dragElement.image + ')'}">
+        <!-- <img :src="dragElement.image" class="drag-image"> -->
+        <span class="drag-element-text">
+          {{dragElement.title}}
+        </span>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import SubHeadingComponent from '@/components/headings/SubHeadingComponent.vue';
-import draggable from 'vuedraggable'
+  import { gsap } from 'gsap';
+  import { Draggable } from 'gsap/Draggable';
+  import { ref, onMounted } from 'vue';
+  import SubHeadingComponent from '@/components/headings/SubHeadingComponent.vue';
+  gsap.registerPlugin(Draggable);
 
-const props = defineProps({
-    content : {
+  const diskdesinfektor = ref(null);
+  const spoldesinfektor = ref(null);
+
+  const placedItemsInDisk = ref([]);
+  const placedItemsInSpol = ref([]);
+
+  const props = defineProps({
+    content: {
         type: Object,
         required: true
     }
-})
+  })
 
-const checkAnswer = (e) => {
-  // const answer = e.draggedContext.element.title
-  // const target = e.to.classList[0]
-  // if(target === 'diskdesinfektor'){
-  //   if(diskListFacit.value.includes(answer)){
-  //     return true
-  //   } else {
-  //     return false
-  //   }
-  // }
-  // if(target === 'spoldesinfektor'){
-  //   if(spolListFacit.value.includes(answer)){
-  //     return true
-  //   } else {
-  //     return false
-  //   }
-  // }
-  // return false
-  return true
-}
+  const dragElements = ref(props.content.dragElements);
 
-const change = (e) =>{
-    console.log('CHANGE')
-}
+  onMounted(() => {
+    Draggable.create('.draggable', {
+      type: 'x,y',
+      bounds: '.drag-and-drop-container',
+      onRelease: (e) => {
+        checkAnswer(e)
+      },
+    })
+  })
 
-
-const disk = (e) => {
-  if(diskListFacit.value.includes(e.item.innerText)){
-    return true
+  const checkAnswer = (e) => {
+    const diskZone = diskdesinfektor.value.getBoundingClientRect();
+    const spolZone = spoldesinfektor.value.getBoundingClientRect();
+    const drop = e.target.getBoundingClientRect()
+    if(drop.y < (diskZone.y + diskZone.height)){
+      if(drop.x < (diskZone.x + (diskZone.width*0.75))){
+        if(diskListFacit.value.includes(e.target.innerText)){
+          placedItemsInDisk.value.push(e.target.style.backgroundImage.slice(5, -2))
+          e.target.classList.add('correct')
+          return
+        }
+      }
+    } if(drop.x > (diskZone.x + (diskZone.width*0.75))){
+        if(spolListFacit.value.includes(e.target.innerText)){
+          placedItemsInSpol.value.push(e.target.style.backgroundImage.slice(5, -2))
+          e.target.classList.add('correct')
+        return
+        }
+      }
+    revertPosition(e)
   }
-  else {
-    return false
+
+  const revertPosition = (e) => {
+    gsap.to(e.target, {scale: 0.90, repeat: 3, duration: 0.2})
+    gsap.to(e.target, {duration: 0.5, scale: 1, x: 0, y: 0, delay: 0.6})
   }
-}
 
-const content = props.content
-
-const diskList = ref([])
-const spolList = ref([])
-
-const diskListFacit = ref(['Hink', 'Sugflaska', 'Bäcken', 'Urinflaska'])
-const spolListFacit = ref(['Rondskål', 'Anesti­utrustning', 'Inhalationsutrustning', 'Peang'])
-
+  const diskListFacit = ref(['Hink', 'Sugflaska', 'Bäcken', 'Urinflaska'])
+  const spolListFacit = ref(['Rondskål', 'Anesti­utrustning', 'Inhalationsutrustning', 'Peang'])
 
 </script>
 
 <style scoped lang='scss'>
-    
 
-    .question {
-        width: 100%;
-    }
+  .drag-and-drop-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .machines-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25vh;
+    width: 100%;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+  }
 
-    .img-wrapper{
-        display: flex;
-        justify-content: space-around;
-        align-items: flex-end;
-        width: 100%;
-        margin: 50px 0;
-       
-    }
-    .item-wrapper{
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        place-items: center;
-        padding: 0 50px;
-        gap: 20px;
+  .diskdesinfektor, .spoldesinfektor {
+    display: flex;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: center;
+    flex-direction: space-around;
+    height: 100%;
+    width: 100%;
+  }
 
-    }
+  .diskdesinfektor {
+    background: url("../../assets/situationer/drag-elements/diskdesinfektor.svg") no-repeat bottom center;
+    flex: 1;
+  }
+  .spoldesinfektor {
+    background: url("../../assets/situationer/drag-elements/spoldesinfektor.svg") no-repeat bottom center;
+    flex: 1;
+  }
 
-    .drag-items{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 100px;
-        
-    }
 
-    .drag-item {
-      width: 100px;
-      height: 100px;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      margin-bottom: 10px;
-    }
+  .element-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    place-items: center;
+    grid-gap: 1rem;
+    margin-top: 1rem;
+    width: 100%;
+    margin-bottom: 10rem;
+  }
 
-    .spoldesinfektor, .diskdesinfektor {
-      height: 45vh;
-      width: 50%;
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-      justify-content: center;
+  .drag-element {
+    display: flex;
+    flex-direction: column-reverse;
+    place-items: center;
+    width: 120px;
+    height: 130px;
+    background-repeat: no-repeat;
+    background-size: 100px 100px;
+    background-position: center top;
+    & > .drag-element-text {
+      margin-top: 20px;
     }
-    .spoldesinfektor {
-      background: url("../../assets/situationer/drag-elements/spoldesinfektor.svg") no-repeat bottom center;
+  }
 
-    }
-    .diskdesinfektor {
-      background: url("../../assets/situationer/drag-elements/diskdesinfektor.svg") no-repeat bottom center;
-    }
+  .placed-item {
+    position: relative;
+  }
 
-    .answered {
-      position:relative;
-    }
-
-    .tick {
-        position: absolute;
-        top: 0;
-        right: 0;
-    }
-
-    .ghost {
-      display: none;
-    }
+  .tick {
+    position: absolute;
+    top: -5px;
+    right: 0px;
+  }
+  .correct {
+   display: none;
+  }
 
 </style>
