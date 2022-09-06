@@ -40,7 +40,7 @@
 
 <script setup>
 import {useRoute, useRouter} from 'vue-router';
-import ButtonComponent from './ButtonComponent.vue';
+import ButtonComponent from '@/components/ButtonComponent.vue';
 const route = useRoute();
 
 </script>

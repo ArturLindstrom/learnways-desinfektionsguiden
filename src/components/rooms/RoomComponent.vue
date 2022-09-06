@@ -37,7 +37,7 @@
 
 <script setup>
 import { ref, onMounted, onBeforeUnmount, computed} from 'vue'
-import MainComponent from '../MainComponent.vue';
+import MainComponent from '@/components/layouts/MainComponent.vue';
 import SliderComponent from '../slider/SliderComponent.vue';
 import gsap from 'gsap';
 import DialogComponent from './DialogComponent.vue';

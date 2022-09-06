@@ -39,7 +39,7 @@
 import { useStore } from 'vuex';
 import { computed, ref, onMounted } from 'vue';
 import HeadingComponent from '@/components/headings/HeadingComponent.vue';
-import MainComponent from '../MainComponent.vue';
+import MainComponent from '@/components/layouts/MainComponent.vue';
 import QuestionComponent from './QuestionComponent.vue';
 import SubHeadingComponent from '@/components/headings/SubHeadingComponent.vue';
 import ButtonComponent from '../ButtonComponent.vue';
