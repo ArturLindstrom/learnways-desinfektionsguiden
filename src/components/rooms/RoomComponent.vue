@@ -3,29 +3,31 @@
     <header
       :style="{
         backgroundColor: content.header.backgroundColor,
-        backgroundImage: 'url(' + content.header.image + ')'
-      }" 
-      >
-      <HeadingComponent fontSize="small" class="room-heading">{{content.header.heading}}</HeadingComponent>
+        backgroundImage: 'url(' + content.header.image + ')',
+      }"
+    >
+      <HeadingComponent fontSize="small" class="room-heading">{{
+        content.header.heading
+      }}</HeadingComponent>
       <!-- <h1>{{content.header.heading}}</h1> -->
-      <h3>{{content.header.subHeading}}</h3>
+      <h3>{{ content.header.subHeading }}</h3>
       <div class="dialogs-container">
-        <DialogComponent :room=content />
+        <DialogComponent :room="content" />
       </div>
     </header>
     <MainComponent>
-      <h2 > 
-        {{content.main.heading}}
+      <h2>
+        {{ content.main.heading }}
       </h2>
-      
+
       <div class="category-container">
-        <div 
+        <div
           class="category-flex"
           v-for="(slide, i) in content.main.slides"
           :key="i"
         >
           <h3 @click="setCurrentSlide(i)">
-            {{content.main.slides[i].title}}
+            {{ content.main.slides[i].title }}
           </h3>
           <span class="underline" :class="'underline' + i"></span>
         </div>
@@ -36,54 +38,49 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount, computed} from 'vue'
-import MainComponent from '@/components/layouts/MainComponent.vue';
-import SliderComponent from '../slider/SliderComponent.vue';
-import gsap from 'gsap';
-import DialogComponent from './DialogComponent.vue';
-import HeadingComponent from '@/components/headings/HeadingComponent.vue';
-import { useStore } from 'vuex'
+import { ref, onMounted, onBeforeUnmount, computed } from "vue";
+import MainComponent from "@/components/layouts/MainComponent.vue";
+import SliderComponent from "../slider/SliderComponent.vue";
+import gsap from "gsap";
+import DialogComponent from "./DialogComponent.vue";
+import HeadingComponent from "@/components/headings/HeadingComponent.vue";
+import { useStore } from "vuex";
 
-const store = useStore()
+const store = useStore();
 
 const content = computed(() => {
-  return store.state.modalContent
-})
+  return store.state.modalContent;
+});
 
-
-const currentSlide = ref(0)
+const currentSlide = ref(0);
 const setCurrentSlide = (i) => {
-  currentSlide.value = i
-  drawUnderline(currentSlide.value)
-}
+  currentSlide.value = i;
+  drawUnderline(currentSlide.value);
+};
 
 onMounted(() => {
-  drawUnderline(currentSlide.value)
-})
-
+  drawUnderline(currentSlide.value);
+});
 
 const drawUnderline = (i) => {
   gsap.to(`.underline${i}`, {
     duration: 0.5,
-    width: '80%',
-    ease: 'power3.inOut'
-  })
+    width: "80%",
+    ease: "power3.inOut",
+  });
   for (let j = 0; j < content.value.main.slides.length; j++) {
     if (j !== i) {
       gsap.to(`.underline${j}`, {
         duration: 0.5,
-        width: '0%',
-        ease: 'power3.inOut'
-      })
+        width: "0%",
+        ease: "power3.inOut",
+      });
     }
   }
-} 
-
-
+};
 </script>
 
-<style scoped lang='scss'>
-
+<style scoped lang="scss">
 header {
   /* max-height: 42.5vw; */
   height: 40rem;
@@ -117,7 +114,6 @@ header {
   width: 100%;
 }
 
-
 .category-container {
   width: 100%;
   display: flex;
@@ -132,7 +128,7 @@ header {
   user-select: none;
 }
 
-.category-flex{
+.category-flex {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -148,8 +144,5 @@ header {
     margin: 1rem;
     width: 70%;
   }
-
 }
-  
-
 </style>

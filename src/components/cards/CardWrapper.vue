@@ -1,27 +1,23 @@
 <template>
   <div class="card-wrapper">
-    <CardComponent v-for="card in cards" :key="card" :cardContent="card" >
-      
-      
+    <CardComponent v-for="card in cards" :key="card" :cardContent="card">
     </CardComponent>
   </div>
 </template>
 
 <script setup>
-  import CardComponent from "./CardComponent.vue";
+import CardComponent from "./CardComponent.vue";
 
-  const props = defineProps({
-      cards: {
-          type: Array,
-      }
-  });
+const props = defineProps({
+  cards: {
+    type: Array,
+  },
+});
 
-  const cards = props.cards
-
-
+const cards = props.cards;
 </script>
 
-<style scoped lang='scss'>
+<style scoped lang="scss">
 .card-wrapper {
   display: flex;
   flex-direction: row;
@@ -29,14 +25,11 @@
   align-items: center;
   margin-top: 50px;
   gap: 20px;
-  }
+}
 
-
-  @media screen and (max-width: 768px) {
-    .card-wrapper {
-      flex-direction: column;
-    }
+@media screen and (max-width: 768px) {
+  .card-wrapper {
+    flex-direction: column;
   }
-    
-  
+}
 </style>

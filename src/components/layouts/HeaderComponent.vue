@@ -1,18 +1,29 @@
 <template>
-  <header :style="{backgroundImage:bg}" class="header">
+  <header :style="{ backgroundImage: bg }" class="header">
     <div class="imgs">
-        <img src="@/assets/Vårdhygien-Stockholm.svg" class="logo-vardhygien" alt="">
-        <router-link to="/">
-        <img src="../assets/Group-119.svg" class="logo-region-stockholm" alt="">
-        </router-link>
+      <img
+        src="@/assets/Vårdhygien-Stockholm.svg"
+        class="logo-vardhygien"
+        alt=""
+      />
+      <router-link to="/">
+        <img
+          src="../assets/Group-119.svg"
+          class="logo-region-stockholm"
+          alt=""
+        />
+      </router-link>
     </div>
     <div class="heading-container">
-        <slot></slot>
-        <ProgressBarComponent class="progress-bar" />
-      </div>
-      <Transition >
-      <ScrollContainer class="scroll-container" v-if="route.name != 'diplom' || done"/>
-      </Transition>
+      <slot></slot>
+      <ProgressBarComponent class="progress-bar" />
+    </div>
+    <Transition>
+      <ScrollContainer
+        class="scroll-container"
+        v-if="route.name != 'diplom' || done"
+      />
+    </Transition>
   </header>
 </template>
 
@@ -24,23 +35,23 @@ import gsap from "gsap";
 import { useRoute } from "vue-router";
 import { useStore } from "vuex";
 
-const store = useStore()
+const store = useStore();
 const route = useRoute();
 
 const done = computed(() => {
-  return store.state.done
-})
+  return store.state.done;
+});
 
 onMounted(() => {
-  console.log('ENTER')
+  console.log("ENTER");
   gsap.from(".scroll-container", {
     duration: 1,
     opacity: 0,
     // y: 20,
     ease: "power2.out",
-    delay: 0.5
+    delay: 0.5,
   });
-})
+});
 
 const props = defineProps({
   bgImg: {
@@ -54,7 +65,6 @@ const bg = computed(() => {
 </script>
 
 <style scoped lang="scss">
-
 header {
   display: flex;
   flex-direction: column;
@@ -64,7 +74,7 @@ header {
   background: no-repeat center center #f4edc9;
   background-size: cover;
   min-height: 95vh;
-  width: 100%
+  width: 100%;
 }
 
 .imgs {
@@ -74,9 +84,8 @@ header {
   justify-content: space-between;
   margin-top: 30px;
   width: 95%;
-
 }
-.heading-container{
+.heading-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -86,7 +95,7 @@ header {
 }
 
 .progress-bar {
-margin-top: 100px;
+  margin-top: 100px;
 }
 
 .scroll-container {
@@ -104,9 +113,8 @@ margin-top: 100px;
   opacity: 0;
 }
 
-
 @media (max-width: 768px) {
- .logo-vardhygien {
+  .logo-vardhygien {
     width: 175px;
   }
 
@@ -117,6 +125,4 @@ margin-top: 100px;
     background-size: 300%;
   } */
 }
-
-
 </style>

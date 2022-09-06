@@ -1,14 +1,13 @@
 <template>
-  <Transition name="modal-animation" @enter="showContent" >
+  <Transition name="modal-animation" @enter="showContent">
     <div class="modal" @click.self="closeModal" v-if="modalComponentOpen">
       <Transition name="modal-animation-inner" @enter="showCloseContainer">
         <div class="modal-content" v-if="showModalContent">
           <div class="close-container" @click="closeModal">
             <p class="close-text">Stäng</p>
-            <img class="close-icon" src="src/assets/close.svg">
+            <img class="close-icon" src="src/assets/close.svg" />
           </div>
-          <slot>
-          </slot>
+          <slot> </slot>
         </div>
       </Transition>
     </div>
@@ -16,55 +15,63 @@
 </template>
 
 <script setup>
-import { useStore } from 'vuex'
-import { computed, ref, onMounted } from 'vue';
-import gsap from 'gsap';
+import { useStore } from "vuex";
+import { computed, ref, onMounted } from "vue";
+import gsap from "gsap";
 
 const showCloseContainer = () => {
-  gsap.from('.close-container', {duration: 0.5, opacity: 0, y: 20, ease: 'power2.out', delay: 0.5})
-  }
+  gsap.from(".close-container", {
+    duration: 0.5,
+    opacity: 0,
+    y: 20,
+    ease: "power2.out",
+    delay: 0.5,
+  });
+};
 const hideCloseContainer = () => {
-  gsap.set('.close-container', {duration: 0.1, opacity: 0, y: 20, ease: 'power2.out', delay: 0})
-  }
-
-
+  gsap.set(".close-container", {
+    duration: 0.1,
+    opacity: 0,
+    y: 20,
+    ease: "power2.out",
+    delay: 0,
+  });
+};
 
 const modalComponentOpen = computed(() => {
-    return store.state.modalShown
-})
+  return store.state.modalShown;
+});
 
 const showModalContent = computed(() => {
-    return store.state.modalContentShown
-})
+  return store.state.modalContentShown;
+});
 
-const store = useStore()
+const store = useStore();
 
 const showContent = () => {
-  store.commit('modalContentOpen')
-}
+  store.commit("modalContentOpen");
+};
 
 const closeModal = () => {
-  hideCloseContainer()
-  store.commit('modalContentClose')
+  hideCloseContainer();
+  store.commit("modalContentClose");
   setTimeout(() => {
-      store.commit('modalClose')
-  }, 500)
-}
-
+    store.commit("modalClose");
+  }, 500);
+};
 </script>
 
-<style scoped lang='scss'>
-
+<style scoped lang="scss">
 .modal {
   position: fixed;
-  z-index: 1; 
+  z-index: 1;
   padding-top: 3rem;
   left: 0;
   top: 0;
-  width: 100%; 
-  height: 100%; 
-  background-color: rgba(0,0,0,0.5);
-  }
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
 
 .modal-content {
   background-color: #fefefe;
@@ -86,7 +93,7 @@ const closeModal = () => {
   top: 10%;
   grid-template-columns: 1fr 1fr;
   place-items: center;
-  z-index: 9999
+  z-index: 9999;
 }
 
 .close-icon {
@@ -101,14 +108,14 @@ const closeModal = () => {
 .close-icon {
   transition: all 0.25s ease-in-out;
 }
-.close-container:hover .close-icon{
+.close-container:hover .close-icon {
   transform: rotate(90deg);
   transition: all 0.25s ease-in-out;
 }
 
 .modal-animation-enter-active,
 .modal-animation-leave-active {
-  transition: opacity 0.5s ease-in-out
+  transition: opacity 0.5s ease-in-out;
 }
 
 .modal-animation-enter-from,
@@ -117,11 +124,11 @@ const closeModal = () => {
 }
 
 .modal-animation-inner-enter-active {
-  transition: all 0.5s ease-in-out
+  transition: all 0.5s ease-in-out;
 }
 
 .modal-animation-inner-leave-active {
-  transition: all 0.5s ease-in-out
+  transition: all 0.5s ease-in-out;
 }
 
 .modal-animation-inner-enter-from {
@@ -131,12 +138,7 @@ const closeModal = () => {
 
 .modal-animation-inner-leave-to {
   transform: translateY(100%);
-  
 }
-
-
-
-
 
 @media screen and (max-width: 768px) {
   .modal {
@@ -156,14 +158,9 @@ const closeModal = () => {
   }
 }
 
-
-
-@media screen and (max-width: 1200px){
+@media screen and (max-width: 1200px) {
   .modal {
     padding: 0;
   }
 }
-
-
-
 </style>

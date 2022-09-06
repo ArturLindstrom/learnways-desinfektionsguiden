@@ -1,53 +1,52 @@
 <template>
   <div class="dialog-container">
-    <div class="dialog-wrapper" v-for="(dialog, i) in props.room.header.dialogs" :key="i" :class="'dialog' + (i+1)">
+    <div
+      class="dialog-wrapper"
+      v-for="(dialog, i) in props.room.header.dialogs"
+      :key="i"
+      :class="'dialog' + (i + 1)"
+    >
       <transition-group name="text">
-        <div class="dialog-text" v-if="dialogShown == i+1">
-        <p>{{dialog}}</p>
-      </div>
-      <div class="triangle" v-if="dialogShown == i+1">
-      </div>
+        <div class="dialog-text" v-if="dialogShown == i + 1">
+          <p>{{ dialog }}</p>
+        </div>
+        <div class="triangle" v-if="dialogShown == i + 1"></div>
       </transition-group>
-        <button class="dialog-button" @click="toggleDialog(i)" :class="{ 'active-button': dialogShown === i+1 }"></button>
+      <button
+        class="dialog-button"
+        @click="toggleDialog(i)"
+        :class="{ 'active-button': dialogShown === i + 1 }"
+      ></button>
     </div>
   </div>
 </template>
 
 <script setup>
-
-import { ref } from 'vue'
-import gsap from 'gsap';
+import { ref } from "vue";
+import gsap from "gsap";
 
 const props = defineProps({
   room: {
     type: Object,
   },
-})
+});
 
-
-
-const dialogShown = ref(0)
+const dialogShown = ref(0);
 
 const toggleDialog = (i) => {
-    if (dialogShown.value == i+1) {
-        dialogShown.value = 0
-    } else {
-        dialogShown.value = i+1
-    }
-
-}
- 
-
-
+  if (dialogShown.value == i + 1) {
+    dialogShown.value = 0;
+  } else {
+    dialogShown.value = i + 1;
+  }
+};
 </script>
 
-<style scoped lang='scss'>
-
-  
+<style scoped lang="scss">
 .dialog-container {
   position: relative;
   width: 100%;
-  height:100%;
+  height: 100%;
   /* overflow: hidden; */
 }
 .dialog-wrapper {
@@ -68,18 +67,18 @@ const toggleDialog = (i) => {
   height: 2.5rem;
   width: 2.5rem;
   border-radius: 50%;
-  background: url('src/assets/close-wht.svg') no-repeat center #0E2D57;
+  background: url("src/assets/close-wht.svg") no-repeat center #0e2d57;
   background-size: 30%;
   transition: all 0.5s ease-in-out;
   &:hover {
-    background-color: #1D4C7B;
+    background-color: #1d4c7b;
     transition: all 0.5s ease-in-out;
     cursor: pointer;
-  } 
+  }
 }
 
 .dialog-text {
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   font-weight: 400;
   font-style: normal;
   pointer-events: none;
@@ -99,31 +98,27 @@ const toggleDialog = (i) => {
 }
 
 .triangle {
-    position: absolute;
-    width: 0;
-    height: 0;
-    border-left: 15px solid transparent;
-    border-right: 20px solid transparent;
-    border-top: 30px solid white;
-    bottom: -20px;
-    left: 50%;
-    margin-bottom: 20px;
-    /* transform: translateX(-50%); */
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 30px solid white;
+  bottom: -20px;
+  left: 50%;
+  margin-bottom: 20px;
+  /* transform: translateX(-50%); */
 }
 
-
-
-
-.active-button{
+.active-button {
   transform: rotate(45deg) scale(1.1);
-  background-color: #1D4C7B;
-  transition: all 0.5s ease-in-out;  
+  background-color: #1d4c7b;
+  transition: all 0.5s ease-in-out;
 }
 
 .text-enter-active,
 .text-leave-active {
-  transition: all 0.5s ease
-
+  transition: all 0.5s ease;
 }
 
 .text-enter-from,
@@ -132,21 +127,18 @@ const toggleDialog = (i) => {
   transform: translateY(20px) translateX(-5px);
 }
 
-
-
-
-.dialog1{
+.dialog1 {
   position: absolute;
   top: 25%;
-  left: 24%
+  left: 24%;
 }
-.dialog2{
+.dialog2 {
   position: absolute;
   top: 20%;
-  left: 31%
+  left: 31%;
 }
 
-.dialog3{
+.dialog3 {
   position: absolute;
   top: 30%;
   left: 60%;
@@ -163,33 +155,32 @@ const toggleDialog = (i) => {
   }
 }
 
-.dialog5{
+.dialog5 {
   position: absolute;
   top: 50%;
   left: 82%;
-    > .dialog-text {
+  > .dialog-text {
     left: -180px;
   }
 }
 
 @media only screen and (max-width: 768px) {
-
-  .dialog-button{
+  .dialog-button {
     height: 2rem;
     width: 2rem;
   }
-  .dialog1{
+  .dialog1 {
     position: absolute;
     top: 0%;
-    left: 20%
+    left: 20%;
   }
-  .dialog2{
+  .dialog2 {
     position: absolute;
     top: -1%;
-    left: 29%
+    left: 29%;
   }
-  
-  .dialog3{
+
+  .dialog3 {
     position: absolute;
     top: 0%;
     left: 60%;
@@ -205,15 +196,14 @@ const toggleDialog = (i) => {
       left: -250px;
     } */
   }
-  
-  .dialog5{
+
+  .dialog5 {
     position: absolute;
     top: 4%;
     left: 80%;
-      /* > .dialog-text {
+    /* > .dialog-text {
       left: -300px;
     } */
   }
 }
-
 </style>

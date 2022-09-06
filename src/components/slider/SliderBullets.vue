@@ -1,17 +1,16 @@
 <template>
   <div class="bullets">
-    <div 
+    <div
       class="bullet"
       v-for="(slide, i) in slides"
       :key="i"
-      :class="{ 'active': i === index }"
+      :class="{ active: i === index }"
       @click="$emit('goToSlide', i)"
     />
   </div>
 </template>
 
 <script setup>
-
 const props = defineProps({
   slides: {
     type: Array,
@@ -21,12 +20,10 @@ const props = defineProps({
     type: Number,
     default: 0,
   },
-})
-
-
+});
 </script>
 
-<style scoped lang='scss'>
+<style scoped lang="scss">
 .bullets {
   display: flex;
   justify-content: center;
@@ -49,7 +46,4 @@ const props = defineProps({
     background: #003340;
   }
 }
-
-
-
 </style>

@@ -1,80 +1,74 @@
 <template>
   <div class="content-container">
     <header>
-      <img :src="situation.image" >
+      <img :src="situation.image" />
       <HeadingComponent font-size="small">
-        {{situation.heading}}
+        {{ situation.heading }}
       </HeadingComponent>
     </header>
     <MainComponent v-if="situation.questions">
       <TransitionGroup @enter="showNextQuestion">
-        <QuestionComponent 
+        <QuestionComponent
           v-for="question in questions"
-          :key="question.id" 
+          :key="question.id"
           :question="question"
-          @answer="incrementQuestionIndex"/>
+          @answer="incrementQuestionIndex"
+        />
       </TransitionGroup>
     </MainComponent>
     <MainComponent v-else>
-      <DragAndDrop :content="situation.dragAndDrop">
-
-      </DragAndDrop>
+      <DragAndDrop :content="situation.dragAndDrop"> </DragAndDrop>
     </MainComponent>
     <!-- <footer class="footer"> -->
-      <footer class="footer" v-if="showFooter">
-        <img class="thumbs-up-icon" src="src/assets/qicon-last.svg" alt="">
-        <SubHeadingComponent class="sub-heading">
-          {{situation.end}}
-        </SubHeadingComponent>  
-        <ButtonComponent @click="closeModal" class="trigger">
-          Stäng
-        </ButtonComponent>
-      </footer>
+    <footer class="footer" v-if="showFooter">
+      <img class="thumbs-up-icon" src="src/assets/qicon-last.svg" alt="" />
+      <SubHeadingComponent class="sub-heading">
+        {{ situation.end }}
+      </SubHeadingComponent>
+      <ButtonComponent @click="closeModal" class="trigger">
+        Stäng
+      </ButtonComponent>
+    </footer>
   </div>
-
-
 </template>
 
 <script setup>
-import { useStore } from 'vuex';
-import { computed, ref, onMounted } from 'vue';
-import HeadingComponent from '@/components/headings/HeadingComponent.vue';
-import MainComponent from '@/components/layouts/MainComponent.vue';
-import QuestionComponent from './QuestionComponent.vue';
-import SubHeadingComponent from '@/components/headings/SubHeadingComponent.vue';
-import ButtonComponent from '../ButtonComponent.vue';
-import gsap from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger';
-import DragAndDrop from './DragAndDrop.vue';
+import { useStore } from "vuex";
+import { computed, ref, onMounted } from "vue";
+import HeadingComponent from "@/components/headings/HeadingComponent.vue";
+import MainComponent from "@/components/layouts/MainComponent.vue";
+import QuestionComponent from "./QuestionComponent.vue";
+import SubHeadingComponent from "@/components/headings/SubHeadingComponent.vue";
+import ButtonComponent from "../ButtonComponent.vue";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import DragAndDrop from "./DragAndDrop.vue";
 gsap.registerPlugin(ScrollTrigger);
-
 
 const store = useStore();
 const situation = store.state.modalContent;
 
-
-const showFooter = ref(false)
+const showFooter = ref(false);
 
 const questions = computed(() => {
   return situation.questions.slice(0, questionIndex.value);
-})
+});
 
 const questionIndex = ref(1);
 
 const incrementQuestionIndex = () => {
   questionIndex.value++;
-  if(questionIndex.value > situation.questions.length){
+  if (questionIndex.value > situation.questions.length) {
     showFooter.value = true;
   }
-}
+};
 
 const closeModal = () => {
-  store.commit('modalContentClose')
+  store.commit("modalContentClose");
   setTimeout(() => {
-    store.commit('modalClose')
-  }, 500)
-}
-
+    store.commit("modalClose");
+  }, 500);
+};
 
 const showNextQuestion = (el, done) => {
   gsap.from(el, {
@@ -82,8 +76,8 @@ const showNextQuestion = (el, done) => {
     delay: 0.5,
     opacity: 0,
     y: 100,
-  })
-}
+  });
+};
 
 // const scrollTo = () => {
 //   gsap.to(container.value, {
@@ -94,10 +88,9 @@ const showNextQuestion = (el, done) => {
 //     }
 //   })
 // }
-
 </script>
 
-<style scoped lang='scss'>
+<style scoped lang="scss">
 .content-container {
   display: flex;
   flex-direction: column;
@@ -110,16 +103,16 @@ header {
   align-items: center;
   /* height: 20vh; */
   border-radius: 10px 10px 0 0;
-  background: #F4EDC9;
+  background: #f4edc9;
   padding: 3rem;
   & > img {
     margin: 1rem;
   }
 }
 
-footer{
+footer {
   height: 100vh;
-  background-color: #F4EDC9;
+  background-color: #f4edc9;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -131,7 +124,6 @@ footer{
     /* transform: rotate(45deg) scale(0.8);
     opacity: 0;
     transition: all 1s ease-in-out; */
-
   }
   .sub-heading {
     margin-bottom: 80px;
@@ -148,9 +140,6 @@ footer:hover .thumbs-up-icon {
   header {
     display: flex;
     flex-direction: column;
-  } 
-
+  }
 }
-
-
 </style>

@@ -1,23 +1,25 @@
 <template>
   <div>
     <p class="scroll">Skrolla ner</p>
-    <img class="scroll-icon" src="src/assets/home/main/scroll.svg" @click="toBottom">
+    <img
+      class="scroll-icon"
+      src="src/assets/home/main/scroll.svg"
+      @click="toBottom"
+    />
   </div>
 </template>
 
 <script setup>
-  const toBottom = () => {
-    window.scrollTo({
-  top: 1000,
-  left: 100,
-  behavior: 'smooth'
-});
-    
-  }
+const toBottom = () => {
+  window.scrollTo({
+    top: 1000,
+    left: 100,
+    behavior: "smooth",
+  });
+};
 </script>
 
-<style scoped lang='scss'>
-
+<style scoped lang="scss">
 .scroll {
   font-weight: 700;
 }
@@ -33,8 +35,4 @@
     transition: all 0.3s ease-in-out;
   }
 }
-
-
-
-
 </style>

@@ -1,48 +1,48 @@
 <template>
   <footer v-if="route.name != 'diplom'">
     <div v-if="route.name == 'home'" class="footer-container">
-     <div class="kontakt">
-       <p>
-         Kontakt
-       </p>
-       <p class="small">
-         Denna utbildning är framtagen av Vårdhygien Stockholm
-       </p>
-       <a class="links" href="https://vardgivarguiden.se/kunskapsstod/vardhygien/">Vårdhygien Vårdgivarguiden
-</a>
-     </div>
-     <div class="referenslista" >
-       <p>
-        Referenslista
-       </p>
-       <p class="small">
-         Ett urval av referenser och litteratur
-       </p>
-       <a class="links"  href="chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://projekt.learnways.com/projekt/Learnways/Praktik/Desinfektion/pdfs/Referenslista.pdf">Se referenslistan
-</a>
-     </div>
-     <div class="hygienrutiner">
-       <p>
-         Basala hygienrutiner
-         </p>
-       <a class="links"  href="https://www.basala-hygienrutiner.se/login.aspx?ReturnUrl=%2f">Klicka här för att komma till vår andra webbutbildning.
-
-</a>
-     </div>
+      <div class="kontakt">
+        <p>Kontakt</p>
+        <p class="small">
+          Denna utbildning är framtagen av Vårdhygien Stockholm
+        </p>
+        <a
+          class="links"
+          href="https://vardgivarguiden.se/kunskapsstod/vardhygien/"
+          >Vårdhygien Vårdgivarguiden
+        </a>
+      </div>
+      <div class="referenslista">
+        <p>Referenslista</p>
+        <p class="small">Ett urval av referenser och litteratur</p>
+        <a
+          class="links"
+          href="chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://projekt.learnways.com/projekt/Learnways/Praktik/Desinfektion/pdfs/Referenslista.pdf"
+          >Se referenslistan
+        </a>
+      </div>
+      <div class="hygienrutiner">
+        <p>Basala hygienrutiner</p>
+        <a
+          class="links"
+          href="https://www.basala-hygienrutiner.se/login.aspx?ReturnUrl=%2f"
+          >Klicka här för att komma till vår andra webbutbildning.
+        </a>
+      </div>
     </div>
-    <div v-if="route.name == 'olikatyper' || route.name == 'situationer'"  class="footer-container">
-        <ButtonComponent action="forward">
-          Gå till nästa del
-        </ButtonComponent>
-     </div>
+    <div
+      v-if="route.name == 'olikatyper' || route.name == 'situationer'"
+      class="footer-container"
+    >
+      <ButtonComponent action="forward"> Gå till nästa del </ButtonComponent>
+    </div>
   </footer>
 </template>
 
 <script setup>
-import {useRoute, useRouter} from 'vue-router';
-import ButtonComponent from '@/components/ButtonComponent.vue';
+import { useRoute, useRouter } from "vue-router";
+import ButtonComponent from "@/components/ButtonComponent.vue";
 const route = useRoute();
-
 </script>
 
 <style lang="scss" scoped>
@@ -56,7 +56,6 @@ footer {
   justify-content: center;
   align-items: center;
   width: 100%;
- 
 }
 .footer-container {
   display: flex;
@@ -69,35 +68,33 @@ footer {
   text-align: left;
   padding-left: 60px;
   background-repeat: no-repeat;
-    background-position: top left;
-    background-size: 37px 37px;
+  background-position: top left;
+  background-size: 37px 37px;
 }
 
-.kontakt{
-     background-image: url(../assets/footerImgs/icon-kontakt.svg);
-    
+.kontakt {
+  background-image: url(../assets/footerImgs/icon-kontakt.svg);
 }
 
-.referenslista{
-     background-image: url(../assets/footerImgs/icon-referens.svg);
-    
+.referenslista {
+  background-image: url(../assets/footerImgs/icon-referens.svg);
 }
 
-.hygienrutiner{
-     background-image: url(../assets/footerImgs/icon-link.svg);
-    
+.hygienrutiner {
+  background-image: url(../assets/footerImgs/icon-link.svg);
 }
 
-.links, .links:visited .links:link{
+.links,
+.links:visited .links:link {
   text-decoration: underline;
 }
 
-.small{
+.small {
   font-size: 15px;
 }
 
-p{
-  font-size:17px
+p {
+  font-size: 17px;
 }
 
 @media (max-width: 768px) {
@@ -112,7 +109,5 @@ p{
     text-align: left;
     background-position: center left;
   }
-
 }
-  
 </style>
