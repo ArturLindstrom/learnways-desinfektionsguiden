@@ -4,7 +4,7 @@
 </template>
 
 <script setup>
-import FooterComponent from "@/components/FooterComponent.vue";
+import FooterComponent from "@/components/layouts/FooterComponent.vue";
 import { useStore } from 'vuex';
 import { onMounted } from 'vue'
 

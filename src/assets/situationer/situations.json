@@ -223,6 +223,57 @@
               }
               
             
+        },
+      {
+        "image": "src/assets/situationer/situation-3-start.svg",
+        "heading": "Olika föremål kan desinfekteras i en disk- och spoldesinfektor.",
+        "id": 1,
+        "end": "Du är klar med situationen. Stäng och gå vidare till nästa.",
+          "dragAndDrop":
+            
+              {
+                "question": "Dra föremålen till rätt maskin för att desinfekteras.",
+                "id": 1,
+                "answered": false,
+                "description": "",
+                "dragElements": 
+                  [
+                    {
+                      "title": "Hink",
+                      "image": "src/assets/situationer/drag-elements/drag-1.svg"
+                    },
+                    {
+                      "title": "Rondskål",
+                      "image": "src/assets/situationer/drag-elements/drag-2.svg"
+                    },
+                    {
+                      "title": "Sugflaska",
+                      "image": "src/assets/situationer/drag-elements/drag-3.svg"
+                    },
+                    {
+                      "title": "Anesti­utrustning",
+                      "image": "src/assets/situationer/drag-elements/drag-4.svg"
+                    },
+                    {
+                      "title": "Bäcken",
+                      "image": "src/assets/situationer/drag-elements/drag-8.svg"
+                    },
+                    {
+                      "title": "Urinflaska",
+                      "image": "src/assets/situationer/drag-elements/drag-6.svg"
+                    },
+                    {
+                      "title": "Inhalationsutrustning",
+                      "image": "src/assets/situationer/drag-elements/drag-7.svg"
+                    },
+                    {
+                      "title": "Peang",
+                      "image": "src/assets/situationer/drag-elements/drag-5.svg"
+                    }
+                  ]
+              }
+              
+            
         }
         
       ]

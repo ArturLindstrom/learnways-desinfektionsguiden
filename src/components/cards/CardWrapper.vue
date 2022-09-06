@@ -1,13 +1,14 @@
 <template>
   <div class="card-wrapper">
     <CardComponent v-for="card in cards" :key="card" :cardContent="card" >
-
+      
+      
     </CardComponent>
   </div>
 </template>
 
 <script setup>
-  import CardComponent from "@/components/CardComponent.vue";
+  import CardComponent from "./CardComponent.vue";
 
   const props = defineProps({
       cards: {
@@ -16,6 +17,8 @@
   });
 
   const cards = props.cards
+
+
 </script>
 
 <style scoped lang='scss'>
