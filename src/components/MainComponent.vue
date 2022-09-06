@@ -20,8 +20,15 @@
   justify-content: center;
   min-height: 60vh;
   min-width: 85%;
-  margin: 4.5rem;
-  /* max-width:90vw; */
+  margin:  4.5rem;
+  /* max-width:90%; */
 }
+
+@media screen and (max-width: 768px) {
+  .main {
+    margin:  4.5rem 1rem;
+  }
+}
+  
 
 </style>
