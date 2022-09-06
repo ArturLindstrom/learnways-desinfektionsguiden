@@ -31,8 +31,8 @@
 
 <script setup>
 import HeaderComponent from "../components/HeaderComponent.vue";
-import HeadingComponent from "@/components/HeadingComponent.vue";
-import SubHeadingComponent from "@/components/SubHeadingComponent.vue";
+import HeadingComponent from '@/components/headings/HeadingComponent.vue';
+import SubHeadingComponent from '@/components/headings/SubHeadingComponent.vue';
 import MainComponent from "@/components/MainComponent.vue";
 import { ref, computed, onMounted } from "vue";
 import cards from "../assets/diplom/diplom.json"

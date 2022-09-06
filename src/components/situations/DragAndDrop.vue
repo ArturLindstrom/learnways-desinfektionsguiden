@@ -73,7 +73,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import SubHeadingComponent from '../SubHeadingComponent.vue';
+import SubHeadingComponent from '@/components/headings/SubHeadingComponent.vue';
 import draggable from 'vuedraggable'
 
 const props = defineProps({

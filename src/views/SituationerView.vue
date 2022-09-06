@@ -22,8 +22,8 @@
 
 <script setup>
 import HeaderComponent from "../components/HeaderComponent.vue";
-import HeadingComponent from '../components/HeadingComponent.vue';
-import SubHeadingComponent from '../components/SubHeadingComponent.vue';
+import HeadingComponent from '@/components/headings/HeadingComponent.vue';
+import SubHeadingComponent from '@/components/headings/SubHeadingComponent.vue';
 import MainComponent from "@/components/MainComponent.vue";
 import SituationsComponent from "../components/situations/SituationsComponent.vue";
 import { useStore } from "vuex";

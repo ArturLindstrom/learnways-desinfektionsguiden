@@ -26,7 +26,7 @@
 </template>
 
 <script setup>
-import SubHeadingComponent from '../SubHeadingComponent.vue';
+import SubHeadingComponent from '@/components/headings/SubHeadingComponent.vue';
 import ButtonComponent from '../ButtonComponent.vue';
 import { useStore } from 'vuex';
 

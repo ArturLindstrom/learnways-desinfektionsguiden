@@ -22,7 +22,7 @@
 </template>
 
 <script setup>
-import SubHeadingComponent from '../SubHeadingComponent.vue';
+import SubHeadingComponent from '@/components/headings/SubHeadingComponent.vue';
 import QuizButton from './QuizButton.vue';
 import { ref } from 'vue'
 import { useMq } from "vue3-mq";
