@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="wrapper">
     <HeaderComponent bgImg="1">
       <HeadingComponent fontSize="big" animate>
         {{data.page_title}}
@@ -54,5 +54,7 @@ onMounted(() => {
  </script>
 
 <style lang="scss" scoped>
-  
+  .wrapper{
+    width: 100%;
+  }
 </style>

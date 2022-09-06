@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="wrapper">
   <HeaderComponent bgImg="4">
     <ConfettiExplosion v-if="done" 
     :particleCount="100"
@@ -51,5 +51,7 @@ const toggleDone = () => {
 </script>
 
 <style>
- 
+ .wrapper{
+    width: 100%;
+ }
 </style>

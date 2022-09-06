@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="wrapper">
     <HeaderComponent bgImg="3">
         <HeadingComponent fontSize="big" animate>
             Öva på olika situationer
@@ -38,5 +38,7 @@ const completedSituations = computed(() => {
 </script>
 
 <style scoped>
-   
+   .wrapper{
+       width: 100%;
+   }
 </style>
