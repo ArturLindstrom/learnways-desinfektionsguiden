@@ -35,11 +35,11 @@ import HeadingComponent from "@/components/HeadingComponent.vue";
 import SubHeadingComponent from "@/components/SubHeadingComponent.vue";
 import MainComponent from "@/components/MainComponent.vue";
 import { ref, computed, onMounted } from "vue";
-import CardComponent from "../components/CardComponent.vue";
 import cards from "../assets/diplom/diplom.json"
-import CardWrapper from "../components/CardWrapper.vue"
+import CardWrapper from "../components/cards/CardWrapper.vue"
 import { useStore } from "vuex";
 import ConfettiExplosion from "vue-confetti-explosion";
+import CardComponent from "../components/cards/CardComponent.vue";
 
 const store = useStore()
 const done = computed(() => store.state.done)

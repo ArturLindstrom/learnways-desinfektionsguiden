@@ -26,12 +26,11 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import SubHeadingComponent from './SubHeadingComponent.vue';
-import ButtonComponent from './ButtonComponent.vue';
-import gsap from 'gsap';
-import {onMounted} from 'vue'
+import SubHeadingComponent from '../SubHeadingComponent.vue';
+import ButtonComponent from '../ButtonComponent.vue';
 import { useStore } from 'vuex';
+
+
 
 const props = defineProps({
     cardContent:{
