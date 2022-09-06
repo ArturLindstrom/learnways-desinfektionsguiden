@@ -85,7 +85,8 @@ const drawUnderline = (i) => {
 <style scoped lang='scss'>
 
 header {
-  height: 42.5vw;
+  /* max-height: 42.5vw; */
+  height: 40rem;
   border-radius: 10px 10px 0px 0px;
   background-repeat: no-repeat;
   background-size: 90%;
