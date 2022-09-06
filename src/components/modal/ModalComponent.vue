@@ -77,18 +77,13 @@ const closeModal = () => {
   position: relative;
   overflow-y: auto;
   z-index: 3;
-  /* display: flex;
-  flex-direction: column;
-  align-items: center; */
 }
 
 .close-container {
-  position: sticky;
-  width: 5%;
-  height: 0;
+  position: fixed;
   display: grid;
-  top: 2rem;
-  left: calc(90% - 1vw);
+  right: 12%;
+  top: 10%;
   grid-template-columns: 1fr 1fr;
   place-items: center;
   z-index: 9999
@@ -130,6 +125,7 @@ const closeModal = () => {
 }
 
 .modal-animation-inner-enter-from {
+  /* opacity: 0; */
   transform: translateY(100%);
 }
 
@@ -139,16 +135,7 @@ const closeModal = () => {
 }
 
 
-@media screen and (max-width: 900px) {
-  .close-container {
-    top: calc(2rem - 3vw);
-    left: calc(90% + 2vw);
-  }
-  .close-text {
-    display: none;
-  }
 
-}
 
 
 @media screen and (max-width: 768px) {
@@ -161,8 +148,8 @@ const closeModal = () => {
     border-radius: 0;
   }
   .close-container {
-    left: calc(90% + 0.5vw);
-
+    top: 3%;
+    right: -4%;
   }
   .close-text {
     display: none;
