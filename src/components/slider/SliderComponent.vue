@@ -76,7 +76,7 @@ const sliderIndex = (event) => {
 }
 
 .vueperslides--fixed-height {
-  /* height: 50vh; */
+  height: 50vh;
 }
 
 .vueperslide--fade, .vueperslide__image {

@@ -46,8 +46,9 @@ const toggleDialog = (i) => {
   
 .dialog-container {
   position: relative;
+  outline: red 1px solid;
   width: 100%;
-  height: 40rem;
+  height:100%;
   /* overflow: hidden; */
 }
 .dialog-wrapper {
@@ -137,18 +138,18 @@ const toggleDialog = (i) => {
 
 .dialog1{
   position: absolute;
-  top: 15%;
+  top: 25%;
   left: 24%
 }
 .dialog2{
   position: absolute;
-  top: 10%;
+  top: 20%;
   left: 31%
 }
 
 .dialog3{
   position: absolute;
-  top: 15%;
+  top: 30%;
   left: 60%;
   > .dialog-text {
     left: -100px;
@@ -156,7 +157,7 @@ const toggleDialog = (i) => {
 }
 .dialog4 {
   position: absolute;
-  top: 17%;
+  top: 35%;
   left: 75%;
   > .dialog-text {
     left: -150px;
@@ -165,7 +166,7 @@ const toggleDialog = (i) => {
 
 .dialog5{
   position: absolute;
-  top: 25%;
+  top: 50%;
   left: 82%;
     > .dialog-text {
     left: -180px;
