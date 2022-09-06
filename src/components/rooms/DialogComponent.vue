@@ -43,10 +43,11 @@ const toggleDialog = (i) => {
 
 <style scoped lang='scss'>
 
+  
 .dialog-container {
   position: relative;
   width: 100%;
-  height: 100%;
+  height:100%;
   /* overflow: hidden; */
 }
 .dialog-wrapper {
@@ -92,7 +93,8 @@ const toggleDialog = (i) => {
   bottom: 100%;
   margin-bottom: 30px;
   /* z-index: 9999; */
-  width: 325px;
+  max-width: 325px;
+  min-width: 200px;
   color: black;
 }
 
@@ -108,15 +110,7 @@ const toggleDialog = (i) => {
     margin-bottom: 20px;
     /* transform: translateX(-50%); */
 }
-/* .dialog-text {
-  position: absolute;
-  top: 0;
-  background: white;
-  text-align: left;
-  padding: .5rem;
-  height: 100%;
-  max-width: 325px;
-} */
+
 
 
 
@@ -148,33 +142,77 @@ const toggleDialog = (i) => {
 }
 .dialog2{
   position: absolute;
-  top: 19%;
-  left: 32%
+  top: 20%;
+  left: 31%
 }
 
 .dialog3{
   position: absolute;
-  top: 27.5%;
+  top: 30%;
   left: 60%;
   > .dialog-text {
-    left: -250px;
+    left: -100px;
   }
 }
 .dialog4 {
   position: absolute;
-  top: 30%;
-  left: 76%;
+  top: 35%;
+  left: 75%;
   > .dialog-text {
-    left: -250px;
+    left: -150px;
   }
 }
 
 .dialog5{
   position: absolute;
-  top: 35%;
+  top: 50%;
   left: 82%;
     > .dialog-text {
-    left: -300px;
+    left: -180px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+
+  .dialog-button{
+    height: 2rem;
+    width: 2rem;
+  }
+  .dialog1{
+    position: absolute;
+    top: 0%;
+    left: 20%
+  }
+  .dialog2{
+    position: absolute;
+    top: -1%;
+    left: 29%
+  }
+  
+  .dialog3{
+    position: absolute;
+    top: 0%;
+    left: 60%;
+    /* > .dialog-text {
+      left: -250px;
+    } */
+  }
+  .dialog4 {
+    position: absolute;
+    top: 1%;
+    left: 73%;
+    /* > .dialog-text {
+      left: -250px;
+    } */
+  }
+  
+  .dialog5{
+    position: absolute;
+    top: 4%;
+    left: 80%;
+      /* > .dialog-text {
+      left: -300px;
+    } */
   }
 }
 

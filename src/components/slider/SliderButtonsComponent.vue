@@ -64,7 +64,8 @@ const props = defineProps({
 }
 @media (max-width: 768px) {
   .arrow {
-    margin-top: 2rem;
+    margin-top: -2rem;
+    /* outline: 1px red solid */
   }
 }
 </style>
