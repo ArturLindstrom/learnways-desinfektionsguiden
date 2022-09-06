@@ -61,12 +61,10 @@ header {
   align-items: center;
   justify-content: center;
   text-align: center;
-  /* padding-bottom: 0; */
   background: no-repeat center center #f4edc9;
   background-size: cover;
-  /* height: calc(100vh - 30px); */
   min-height: 95vh;
-  width: 100vw;
+  width: 100%
 }
 
 .imgs {

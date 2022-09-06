@@ -1,5 +1,5 @@
 <template>
-<router-view />
+<router-view class="wrapper"/>
 <footer-component/>
 </template>
 
@@ -27,6 +27,11 @@ onMounted(() => {
   /* overflow-x: hidden; */
 }
 
+html{
+  max-width: 100%;
+  /* overflow-x: hidden; */
+}
+
 a, a:visited, a:link {
   text-decoration: none;
   color: #002D5A;
@@ -40,6 +45,7 @@ a, a:visited, a:link {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width:100%
 }
 
 
