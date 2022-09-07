@@ -1,6 +1,7 @@
 <template>
   <div class="content-container">
     <header>
+      
       <img :src="situation.image" />
       <HeadingComponent font-size="small">
         {{ situation.heading }}
@@ -17,7 +18,7 @@
       </TransitionGroup>
     </MainComponent>
     <MainComponent v-else>
-      <DragAndDrop :content="situation.dragAndDrop"> </DragAndDrop>
+      <DragAndDrop :content="situation.dragAndDrop" :id="situation.id"> </DragAndDrop>
     </MainComponent>
     <!-- <footer class="footer"> -->
     <footer class="footer" v-if="showFooter">
