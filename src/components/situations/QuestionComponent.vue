@@ -144,4 +144,8 @@ const getFeedback = (i) => {
     /* opacity: 1; */
   }
 }
+
+.question{
+  margin-bottom: 100px;
+}
 </style>

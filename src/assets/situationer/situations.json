@@ -176,7 +176,7 @@
       {
         "image": "src/assets/situationer/situation-3-start.svg",
         "heading": "Olika föremål kan desinfekteras i en disk- och spoldesinfektor.",
-        "id": 1,
+        "id": 3,
         "end": "Du är klar med situationen. Stäng och gå vidare till nästa.",
           "dragAndDrop":
             
@@ -227,7 +227,7 @@
       {
         "image": "src/assets/situationer/situation-3-start.svg",
         "heading": "Olika föremål kan desinfekteras i en disk- och spoldesinfektor.",
-        "id": 1,
+        "id": 4,
         "end": "Du är klar med situationen. Stäng och gå vidare till nästa.",
           "dragAndDrop":
             
@@ -286,7 +286,7 @@
       {
         "heading": "Du är på väg in till en patient för att utföra ett vårdmoment.",
         "image": "src/assets/situationer/situation-1-start.svg",
-        "id": 1,
+        "id": 5,
         "end": "Du är klar med situationen. Stäng och gå vidare till nästa.",
           "questions":
             [
@@ -366,7 +366,88 @@
         },
         {
           "heading": "Du är i vårdrummet för att hjälpa patienten med nedre toalett.",
-          "id": 2,
+          "id": 9,
+          "end": "Du är klar med situationen. Stäng och gå vidare till nästa.",
+          "questions":
+            [
+              {
+                "question": "Behöver du använda handskar för detta vårdmoment?",
+                "id": 1,
+                "answered": false,
+                "description": "",
+                "alternatives": 
+                  [
+                    {
+                      "alternative": "Ja",
+                      "feedback": "Rätt svar! Handskar ska användas vid kontakt med eller risk för, kontakt med kroppsvätskor som till exempel saliv, blod, urin, avföring, kräkning eller sekret.",
+                      "correct": true
+                      
+                    },
+                    {
+                      "alternative": "Nej",
+                      "feedback": "Tyvärr inte rätt. Handskar ska användas vid kontakt med eller risk för kontakt med kroppsvätskor som till exempel saliv, blod, urin, avföring, kräkning eller sekret.",
+                      "correct": false
+                    },
+                    {
+                      "alternative": "Det beror på",
+                      "feedback": "Tyvärr inte rätt. Handskar ska användas vid kontakt med eller risk för kontakt med kroppsvätskor som till exempel saliv, blod, urin, avföring, kräkning eller sekret.",
+                      "correct": false
+                    }
+                  ]
+              },
+              {
+                "question": "Vad behöver du göra innan du tar på dig handskar?",
+                "id": 2,
+                "answered": false,
+                "description": "Du bedömer att du behöver använda handskar för att genomföra vårdmomentet.",
+                "alternatives": 
+                  [
+                    {
+                      "alternative": "Ingenting",
+                      "feedback": "Tyvärr inte rätt. Du ska alltid desinfektera händerna innan användning av handskar. Du ska alltid desinfektera händerna före användning av handskar, och det ska göras innan handskarna tas ur förpackningen.",
+                      "correct": false
+                    },
+                    {
+                      "alternative": "Desinfekterar händerna",
+                      "feedback": "Rätt svar! Alla dessa alternativ kan göra att handdesinfektionen inte får full effekt, och är lika viktiga för att inte överföra smittämnen till patienten.",
+                      "correct": true
+                    },
+                    {
+                      "alternative": "Smörja in med handkräm så att handskarna glider på lättare",
+                      "feedback": "Tyvärr inte rätt. Du ska alltid desinfektera händerna innan användning av handskar. Du ska alltid desinfektera händerna före användning av handskar, och det ska göras innan handskarna tas ur förpackningen.",
+                      "correct": false
+                    }
+                  ]
+              },
+              {
+                "question": "Vad behöver du göra efter att du tagit av dig handskarna?",
+                "id": 3,
+                "answered": false,
+                "description": "Du är nu klar inne hos patienten och tar därför av dig handskarna. ",
+                "alternatives": 
+                  [
+                    {
+                      "alternative": "Ingenting",
+                      "feedback": "Tyvärr inte rätt. Du ska alltid desinfektera händerna efter användning av handskar. Handskarna ska bytas mellan varje arbetsmoment och mellan varje patient.",
+                      "correct": false
+                    },
+                    {
+                      "alternative": "Desinfekterar händerna",
+                      "feedback": "Rätt svar! Du ska alltid desinfektera händerna efter användning av handskar. Handskarna ska bytas mellan varje arbetsmoment och mellan varje patient.",
+                      "correct": true
+                    },
+                    {
+                      "alternative": "Tvätta och desinfekterar händerna",
+                      "feedback": "Tyvärr inte rätt. Du ska alltid desinfektera händerna efter användning av handskar. Handskarna ska bytas mellan varje arbetsmoment och mellan varje patient.",
+                      "correct": false
+                    }
+                  ]
+              }
+            ]
+        },
+        {
+          "heading": "Du är i vårdrummet för att hjälpa patienten med nedre toalett.",
+          "id": 6,
           "end": "Du är klar med situationen. Stäng och gå vidare till nästa.",
           "questions":
             [
@@ -455,7 +536,7 @@
       {
         "heading": "Du är på väg in till en patient för att utföra ett vårdmoment.",
         "image": "src/assets/situationer/situation-1-start.svg",
-        "id": 1,
+        "id": 7,
         "end": "Du är klar med situationen. Stäng och gå vidare till nästa.",
           "questions":
             [
@@ -535,7 +616,7 @@
         },
         {
           "heading": "Du är i vårdrummet för att hjälpa patienten med nedre toalett.",
-          "id": 2,
+          "id": 8,
           "end": "Du är klar med situationen. Stäng och gå vidare till nästa.",
           "questions":
             [

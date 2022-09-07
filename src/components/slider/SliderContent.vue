@@ -87,4 +87,10 @@ p {
     width: 100%;
   }
 }
+
+@media screen and (max-width: 480px) {
+  .content-img{
+    width: 60%;
+  }
+}
 </style>

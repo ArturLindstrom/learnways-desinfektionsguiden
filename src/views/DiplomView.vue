@@ -1,6 +1,7 @@
 <template>
 <div class="wrapper">
   <HeaderComponent bgImg="4">
+    <button @click="toggleDone"> HEMLIGA KNAPPEN</button>
     <ConfettiExplosion v-if="done" 
     :particleCount="100"
     :stageHeight="1000"

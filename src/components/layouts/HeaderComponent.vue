@@ -125,4 +125,15 @@ header {
     background-size: 300%;
   } */
 }
+
+@media (max-width: 480px) {
+  .logo-vardhygien {
+    width: 120px;
+  }
+
+  .logo-region-stockholm {
+    width: 120px;
+  }
+
+}
 </style>
