@@ -12,7 +12,7 @@
           v-for="question in questions"
           :key="question.id"
           :question="question"
-          @answer="incrementQuestionIndex"
+          @answer="incrementQuestionIndex(situation.id)"
         />
       </TransitionGroup>
     </MainComponent>
@@ -56,10 +56,11 @@ const questions = computed(() => {
 
 const questionIndex = ref(1);
 
-const incrementQuestionIndex = () => {
+const incrementQuestionIndex = (situationId) => {
   questionIndex.value++;
   if (questionIndex.value > situation.questions.length) {
     showFooter.value = true;
+    store.commit("addCompleted", situationId);
   }
 };
 

@@ -38,7 +38,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount, computed } from "vue";
+import { ref, onMounted, computed } from "vue";
 import MainComponent from "@/components/layouts/MainComponent.vue";
 import SliderComponent from "../slider/SliderComponent.vue";
 import gsap from "gsap";
@@ -97,7 +97,7 @@ header {
 
 .room-heading {
   text-align: left;
-  width: 60%;
+  /* width: 60%; */
   margin: 3rem;
   /* position: absolute; */
 }
@@ -137,12 +137,23 @@ header {
 
 @media screen and (max-width: 768px) {
   header {
-    height: 40vh;
+    height: 65vh;
     border-radius: 0;
   }
   .room-heading {
     margin: 1rem;
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  header {
+    height: 65vh;
+    border-radius: 0;
+  }
+  .room-heading {
     width: 70%;
   }
 }
+
 </style>

@@ -147,4 +147,19 @@ a:hover {
     font-size: 16px;
   }
 }
+
+@media screen and (max-width: 480px) {
+  .container {
+    width: 90vw;
+  }
+  .line {
+    width: 90%;
+  }
+
+  a {
+    font-size: 16px;
+  }
+}
+  
+
 </style>

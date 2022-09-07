@@ -35,4 +35,16 @@ const toBottom = () => {
     transition: all 0.3s ease-in-out;
   }
 }
+
+@media screen and (max-width: 480px) {
+  .scroll {
+    font-size: 0.7rem;
+  }
+  .scroll-icon {
+    width: 50px;
+    height: 50px;
+  }
+}
+  
+
 </style>

@@ -80,4 +80,13 @@ li {
   justify-content: space-between;
   gap: 10px;
 }
+
+@media screen and (max-width: 480px) {
+  .card {
+    padding: 10px
+  }
+  
+}
+  
+
 </style>
