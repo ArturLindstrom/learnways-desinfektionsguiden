@@ -8,7 +8,7 @@
       />
       <router-link to="/">
         <img
-          src="../assets/Group-119.svg"
+          src="@/assets/Group-119.svg"
           class="logo-region-stockholm"
           alt=""
         />
