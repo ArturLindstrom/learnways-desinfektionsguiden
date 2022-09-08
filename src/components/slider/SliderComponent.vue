@@ -1,7 +1,15 @@
 <template>
+  <SliderBullets
+    class="slider-bullets"
+    :slides="props.slides"
+    :index="index"
+    @goToSlide="(i) => $refs.slide.goToSlide(i)"
+  />
   <VueperSlides
     ref="slide"
     @slide="sliderIndex"
+    @touchstart="showControls"
+    @touchend="hideControls"
     :arrows="false"
     :infinite="false"
     :draggable="false"
@@ -26,23 +34,17 @@
     :slider-index="index"
     :slides="props.slides"
   />
-  <SliderBullets
-    class="slider-bullets"
-    :slides="props.slides"
-    :index="index"
-    @goToSlide="(i) => $refs.slide.goToSlide(i)"
-  />
+
 </template>
 
 <script setup>
 import { ref, computed } from "vue";
 import { VueperSlides, VueperSlide } from "vueperslides";
 import "vueperslides/dist/vueperslides.css";
-// import MainSlides from 'assets/home/main/slide/slide.json';
 import SliderContent from "./SliderContent.vue";
 import SliderButtonsComponent from "@/components/slider/SliderButtonsComponent.vue";
-// import SliderProgressBar from './SliderProgressBar.vue';
 import SliderBullets from "./SliderBullets.vue";
+import gsap from 'gsap'
 
 const props = defineProps({
   slides: {
@@ -51,10 +53,28 @@ const props = defineProps({
   },
 });
 
+const showControls = () => {
+  gsap.to(".slider-buttons", {
+    duration: 0.5,
+    y: -100,
+    opacity: 1,
+  });
+};
+
+const hideControls = () => {
+  gsap.to(".slider-buttons", {
+    duration: 0.5,
+    y: 0,
+    opacity: 0,
+    delay: 2.5,
+  });
+}
+
 // const slides = ref(MainSlides)
 const index = ref(0);
 const sliderIndex = (event) => {
   index.value = event.currentSlide.index;
+  showControls();
 };
 // const progress = computed(() => (index.value + 1) / slides.value.length * 100)
 </script>
@@ -70,21 +90,30 @@ const sliderIndex = (event) => {
 }
 
 .vueperslides--fixed-height {
-  height: 50vh;
+  height: calc(20rem + 4vw);
 }
 
-.vueperslide--fade,
+/* .vueperslide--fade,
 .vueperslide__image {
   transition-delay: 0.5s;
-}
+} */
 
 @media (max-width: 768px) {
   .slider-buttons {
     margin-top: 3rem;
   }
   .vueperslides--fixed-height {
+    height: calc(25rem + 55vw);
     /* height: 68vh; */
-    height: calc(100vw + 12.5rem);
+    /* height: calc(100vw + 12.5rem); */
+  }
+
+  .slider-buttons {
+    position: fixed;
+    opacity: 0;
+    & :hover {
+      cursor: pointer;
+    }
   }
 }
 </style>

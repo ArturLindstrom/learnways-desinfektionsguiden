@@ -29,6 +29,15 @@ const props = defineProps({
     user-select: text;
     }
 } */
+.slide-content {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  margin: 0;
+  z-index: 1;
+}
+
 
 .slide-heading {
   font-size: 17px;
@@ -41,14 +50,7 @@ const props = defineProps({
   width: 100%;
 }
 
-.slide-content {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  width: 100%;
-  margin: 0;
-  z-index: 1;
-}
+
 
 .text-container {
   text-align: left;
@@ -67,6 +69,7 @@ p {
 .content-img {
   max-width: 400px;
   max-height: 300px;
+  height: 300px;
   width: 40%;
 }
 
@@ -85,6 +88,7 @@ p {
   }
   .content-img {
     width: 100%;
+    height: auto;
   }
 }
 
