@@ -38,7 +38,7 @@
 import { ref, computed } from "vue";
 import { VueperSlides, VueperSlide } from "vueperslides";
 import "vueperslides/dist/vueperslides.css";
-// import MainSlides from '@/assets/home/main/slide/slide.json';
+// import MainSlides from 'assets/home/main/slide/slide.json';
 import SliderContent from "./SliderContent.vue";
 import SliderButtonsComponent from "@/components/slider/SliderButtonsComponent.vue";
 // import SliderProgressBar from './SliderProgressBar.vue';

@@ -18,7 +18,7 @@
       </ButtonComponent>
       <img
         class="done"
-        src="@/assets/done.svg"
+        src="/assets/done.svg"
         alt="done"
         v-if="roomsVisited[i]"
       />
@@ -104,7 +104,7 @@ onMounted(() => {
         roomNumber: i + 1,
         // title: roomsContent.s02_room1_h3_1
       },
-      // thumbnail.image: `src/assets/olikatyper/thumbnails/room-${i+1}.svg`,
+      // thumbnail.image: `assets/olikatyper/thumbnails/room-${i+1}.svg`,
       // thumbnail.backgroundColor: backgroundColors[i],
       // header.heading: roomsContent[`s02_room${i+1}_h1`],
       // header.subHeading: roomsContent[`s02_room${i+1}_h2_1`],

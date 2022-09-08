@@ -73,15 +73,15 @@ footer {
 }
 
 .kontakt {
-  background-image: url(@/assets/footerImgs/icon-kontakt.svg);
+  background-image: url(/assets/footerImgs/icon-kontakt.svg);
 }
 
 .referenslista {
-  background-image: url(@/assets/footerImgs/icon-referens.svg);
+  background-image: url(/assets/footerImgs/icon-referens.svg);
 }
 
 .hygienrutiner {
-  background-image: url(@/assets/footerImgs/icon-link.svg);
+  background-image: url(/assets/footerImgs/icon-link.svg);
 }
 
 .links,

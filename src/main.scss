@@ -2,47 +2,47 @@ $color-yellow: #f4edc9;
 
 @font-face {
     font-family: "FrutigerNEXT";
-    src: local("FrutigerNEXT"),   url(./assets/fonts/FrutigerNEXT/FrutigerNextLT-Medium.otf) format("truetype");
+    src: local("FrutigerNEXT"),   url(/assets/fonts/FrutigerNEXT/FrutigerNextLT-Medium.otf) format("truetype");
     font-weight: 400;
     font-style: normal;
 }
 @font-face {
     font-family: "FrutigerNEXT";
-    src: local("FrutigerNEXT"),   url(./assets/fonts/FrutigerNEXT/FrutigerNextLT-Bold.otf) format("truetype");
+    src: local("FrutigerNEXT"),   url(/assets/fonts/FrutigerNEXT/FrutigerNextLT-Bold.otf) format("truetype");
     font-weight: 700;
     font-style: normal;
 }
 @font-face {
     font-family: "FrutigerNEXT";
-    src: local("FrutigerNEXT"),   url(./assets/fonts/FrutigerNEXT/FrutigerNextLT-Heavy.otf) format("truetype");
+    src: local("FrutigerNEXT"),   url(/assets/fonts/FrutigerNEXT/FrutigerNextLT-Heavy.otf) format("truetype");
     font-weight: 800;
     font-style: normal;
 }
 
 @font-face {
     font-family: "FrutigerNEXT";
-    src: local("FrutigerNEXT"), url(./assets/fonts/FrutigerNEXT/FrutigerNextLT-Black.otf) format("truetype");
+    src: local("FrutigerNEXT"), url(/assets/fonts/FrutigerNEXT/FrutigerNextLT-Black.otf) format("truetype");
     font-weight: 900;
     font-style: normal;
 }
 
 @font-face {
     font-family: "Nunito";
-    src: local("Nunito"), url(./assets/fonts/Nunito/Nunito-Regular.ttf) format("truetype");
+    src: local("Nunito"), url(/assets/fonts/Nunito/Nunito-Regular.ttf) format("truetype");
     font-weight: 400;
     font-style: normal;
 }
 
 @font-face {
     font-family: "Nunito";
-    src: local("Nunito"), url(./assets/fonts/Nunito/Nunito-Bold.ttf) format("truetype");
+    src: local("Nunito"), url(/assets/fonts/Nunito/Nunito-Bold.ttf) format("truetype");
     font-weight: 700;
     font-style: normal;
 }
 
 @font-face {
     font-family: "Nunito";
-    src: local("Nunito"), url(./assets/fonts/Nunito/Nunito-SemiBold.ttf) format("truetype");
+    src: local("Nunito"), url(/assets/fonts/Nunito/Nunito-SemiBold.ttf) format("truetype");
     font-weight: 600;
     font-style: normal;
 }
