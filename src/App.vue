@@ -24,12 +24,10 @@ onMounted(() => {
 * {
   margin: 0;
   padding: 0;
-  /* overflow-x: hidden; */
 }
 
 html{
   max-width: 100%;
-  /* overflow-x: hidden; */
 }
 
 a, a:visited, a:link {

@@ -129,7 +129,7 @@ const modalOpen = (room) => {
 onMounted(() => {
   gsap.from(".thumbnails", {
     scrollTrigger: {
-      trigger: ".thumbnails",
+      trigger: ".parent",
     },
     y: "100%",
     opacity: 0,

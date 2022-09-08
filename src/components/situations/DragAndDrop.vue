@@ -20,7 +20,7 @@
             :key="image"
             class="placed-item"
           >
-          <img :src="image" alt="" class="placed-image"/>
+            <img :src="image" alt="" class="placed-image"/>
             <img src="@/assets/situationer/check.svg" class="tick" />
           </div>
         </div>
@@ -32,7 +32,7 @@
           class="drag-element draggable"
           :style="{ backgroundImage: 'url(' + dragElement.image + ')' }"
         >
-          {{ dragElement.title }}
+          {{dragElement.title}}
       </div>
     </div>
   </div>
@@ -52,6 +52,8 @@ const spoldesinfektor = ref(null);
 
 const placedItemsInDisk = ref([]);
 const placedItemsInSpol = ref([]);
+
+const draggedItem = ref(null);
 
 const store = useStore()
 
@@ -74,7 +76,10 @@ onMounted(() => {
   Draggable.create(".draggable", {
     type: "x,y",
     bounds: ".drag-and-drop-container",
-    onRelease: (e) => {
+    onDragStart: (e) => {
+      draggedItem.value = e.target;
+    },
+    onDragEnd: (e) => {
       checkAnswer(e);
     },
   });
@@ -110,11 +115,8 @@ const checkAnswer = (e) => {
 };
 
 const revertPosition = (e) => {
-  console.log(e)
-  if(e.target.classList[0] == 'drag-element'){
-    gsap.to(e.target, { scale: 0.9, repeat: 3, duration: 0.2 });
-    gsap.to(e.target, { duration: 0.5, scale: 1, x: 0, y: 0, delay: 0.6 });
-  }
+    gsap.to(draggedItem.value, { scale: 0.9, repeat: 3, duration: 0.2 });
+    gsap.to(draggedItem.value, { duration: 0.5, scale: 1, x: 0, y: 0, delay: 0.6 });
 };
 
 const diskListFacit = ref(["Hink", "Sugflaska", "Bäcken", "Urinflaska"]);
@@ -127,9 +129,9 @@ const spolListFacit = ref([
 </script>
 
 <style scoped lang="scss">
-* {
+/* * {
   outline: red 1px solid;
-}
+} */
 .drag-and-drop-container {
   width: 100%;
   display: flex;
@@ -145,28 +147,42 @@ const spolListFacit = ref([
   width: 100%;
   margin-top: 5rem;
   margin-bottom: 5rem;
+  gap: 100px;
 }
 
 .diskdesinfektor,
 .spoldesinfektor {
   display: flex;
-  grid-template-columns: repeat(4, 1fr);
   justify-content: center;
-  flex-direction: space-around;
+  align-items: flex-end;
   height: 100%;
-  width: 100%;
-  padding-top: 200px;
-  margin-top: 100px;
-}
+  /* width: 100%; */
+    & .placed-item {
+      position: relative;
+      max-height: 100px;
+      & .placed-image {
+        width: 50px;
+        height: 50px;
+      }
+      & .tick {
+        position: absolute;
+        height: 20px;
+        width: 20px;
+        top: -5px;
+        right: 0px;
+      }
+    }
+  
+  }
 
 .diskdesinfektor {
   background: url("../../assets/situationer/drag-elements/diskdesinfektor.svg")
-    no-repeat top center;
+    no-repeat bottom center tomato;
   flex: 1;
 }
 .spoldesinfektor {
   background: url("../../assets/situationer/drag-elements/spoldesinfektor.svg")
-    no-repeat top center;
+    no-repeat bottom center cornflowerblue;
   flex: 1;
 }
 
@@ -194,55 +210,33 @@ const spolListFacit = ref([
   }
 }
 
-.placed-item {
-  position: relative;
-  max-height: 100px;
-}
 
-.tick {
-  position: absolute;
-  top: -5px;
-  right: 0px;
-}
+
+
 .correct {
   display: none;
 }
 
 @media screen and (max-width: 768px) {
-  .machines-container {
-    max-width: 100vw;
-    margin: 0;
-  }
+  .element-container {
+  grid-template-columns: repeat(3, 1fr);
+}
 
-  .drag-element {
-    width: 80px;
-    height: 100px;
-    background-size: 80px 80px;
-    font-size: 0.8rem;
-  }
-  
-  .element-container{
-    grid-template-columns: repeat(3, 1fr);
-  }
+.machines-container{
+  gap: 20px
+}
 
-  .placed-image {
-    height: 40px;
-    width: 40px;
+.drag-element{
+  width: 90px;
+  height: 100px;
+  background-size: 80px 80px;
+  & > .drag-element-text {
+    margin-top: 10px;
   }
-  .tick {
-    height: 20px;
-    width: 20px;
-  }
-  
-.diskdesinfektor,
-.spoldesinfektor {
-  display: grid;
-  grid-auto-rows: 20px;
-  padding: 0;
-  flex: 1;
+}
 }
     
     
     
-}
+
 </style>

@@ -73,8 +73,9 @@ header {
   text-align: center;
   background: no-repeat center center #f4edc9;
   background-size: cover;
-  min-height: 95vh;
+  height: 95vh;
   width: 100%;
+  position: relative;
 }
 
 .imgs {
@@ -90,7 +91,7 @@ header {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 80px;
+  /* margin-top: 80px; */
   width: 100%;
 }
 
@@ -100,7 +101,7 @@ header {
 
 .scroll-container {
   position: absolute;
-  bottom: -10px;
+  bottom: -40px;
 }
 
 .v-enter-active,
@@ -114,6 +115,10 @@ header {
 }
 
 @media (max-width: 768px) {
+
+  header{
+    height: 80vh;
+  }
   .logo-vardhygien {
     width: 175px;
   }
@@ -121,11 +126,15 @@ header {
   .logo-region-stockholm {
     width: 175px;
   }
-  /* header{
-    background-size: 300%;
-  } */
-}
 
+  .imgs{ 
+    top: 0;
+   }
+
+   .scroll-container {
+    bottom: -30px;
+  }
+}
 @media (max-width: 480px) {
   .logo-vardhygien {
     width: 120px;

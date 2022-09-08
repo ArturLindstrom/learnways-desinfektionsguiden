@@ -7,6 +7,7 @@
     :stageHeight="1000"
     :stageWidth="800"
     :duration="3000"
+    :particleSize="7"
     />
    <HeadingComponent fontSize="big" animate v-if="done">
       Bra jobbat!
