@@ -11,6 +11,7 @@
         v-for="(alternative, i) in question.alternatives"
         @click="getFeedback(i)"
         :isSelected="isSelected"
+        :key="alternative.alternative"
         :class="{
           selected: isSelected === i + 1,
           'not-selected': isSelected && isSelected !== i + 1,
