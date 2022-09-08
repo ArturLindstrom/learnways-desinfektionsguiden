@@ -18,7 +18,7 @@
       </ButtonComponent>
       <img
         class="done"
-        src="src/assets/done.svg"
+        src="@/assets/done.svg"
         alt="done"
         v-if="roomsVisited[i]"
       />
