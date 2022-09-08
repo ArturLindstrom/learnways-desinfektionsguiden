@@ -1,7 +1,6 @@
 <template>
   <div class="content-container">
     <header>
-      
       <img :src="situation.image" />
       <HeadingComponent font-size="small">
         {{ situation.heading }}
@@ -18,10 +17,12 @@
       </TransitionGroup>
     </MainComponent>
     <MainComponent v-else>
-      <DragAndDrop :content="situation.dragAndDrop" :id="situation.id"> </DragAndDrop>
+      <DragAndDrop :content="situation.dragAndDrop" :id="situation.id" @done="showFooter = true"> </DragAndDrop>
+      
     </MainComponent>
+   
     <!-- <footer class="footer"> -->
-    <footer class="footer" v-if="showFooter">
+    <!-- <footer class="footer" v-if="showFooter">
       <img class="thumbs-up-icon" src="src/assets/qicon-last.svg" alt="" />
       <SubHeadingComponent class="sub-heading">
         {{ situation.end }}
@@ -29,7 +30,9 @@
       <ButtonComponent @click="closeModal" class="trigger">
         Stäng
       </ButtonComponent>
-    </footer>
+    </footer> -->
+    
+    <SituationFooter v-if="showFooter" />
   </div>
 </template>
 
@@ -41,6 +44,7 @@ import MainComponent from "@/components/layouts/MainComponent.vue";
 import QuestionComponent from "./QuestionComponent.vue";
 import SubHeadingComponent from "@/components/headings/SubHeadingComponent.vue";
 import ButtonComponent from "../ButtonComponent.vue";
+import SituationFooter from "@/components/situations/SituationFooter.vue";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import DragAndDrop from "./DragAndDrop.vue";
@@ -48,6 +52,8 @@ gsap.registerPlugin(ScrollTrigger);
 
 const store = useStore();
 const situation = store.state.modalContent;
+
+
 
 const showFooter = ref(false);
 

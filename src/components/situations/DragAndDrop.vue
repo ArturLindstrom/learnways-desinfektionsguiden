@@ -71,6 +71,7 @@ const dragElements = ref(props.content.dragElements);
 
 const mq = useMq()
 
+const emit = defineEmits(["done"]);
 
 onMounted(() => {
   Draggable.create(".draggable", {
@@ -78,11 +79,15 @@ onMounted(() => {
     bounds: ".drag-and-drop-container",
     onDragStart: (e) => {
       draggedItem.value = e.target;
+      store.commit('setDragging', true)
     },
     onDragEnd: (e) => {
       checkAnswer(e);
+      setTimeout(() => {
+        store.commit('setDragging', false)
+      }, 501);
     },
-  });
+   });
 });
 
 const checkAnswer = (e) => {
@@ -109,9 +114,9 @@ const checkAnswer = (e) => {
   } 
   revertPosition(e);
   if(placedItemsInDisk.value.length == 4 && placedItemsInSpol.value.length == 4) {
+    emit('done')
     store.commit('addCompleted' , props.id)
   }
-
 };
 
 const revertPosition = (e) => {
@@ -120,12 +125,8 @@ const revertPosition = (e) => {
 };
 
 const diskListFacit = ref(["Hink", "Sugflaska", "Bäcken", "Urinflaska"]);
-const spolListFacit = ref([
-  "Rondskål",
-  "Anesti­utrustning",
-  "Inhalationsutrustning",
-  "Peang",
-]);
+const spolListFacit = ref(["Rondskål", "Anesti­utrustning", "Inhalationsutrustning", "Peang"]);
+
 </script>
 
 <style scoped lang="scss">
@@ -177,12 +178,12 @@ const spolListFacit = ref([
 
 .diskdesinfektor {
   background: url("../../assets/situationer/drag-elements/diskdesinfektor.svg")
-    no-repeat bottom center tomato;
+    no-repeat bottom center;
   flex: 1;
 }
 .spoldesinfektor {
   background: url("../../assets/situationer/drag-elements/spoldesinfektor.svg")
-    no-repeat bottom center cornflowerblue;
+    no-repeat bottom center;
   flex: 1;
 }
 
@@ -209,21 +210,32 @@ const spolListFacit = ref([
     margin-top: 20px;
   }
 }
-
-
-
-
 .correct {
   display: none;
 }
 
 @media screen and (max-width: 768px) {
-  .element-container {
+.element-container {
   grid-template-columns: repeat(3, 1fr);
 }
 
 .machines-container{
   gap: 20px
+}
+
+.diskdesinfektor, .spoldesinfektor {
+  flex-wrap: wrap;
+  padding: 1rem;
+  gap: 0;
+  outline: red 1px solid;
+}
+
+.placed-item {
+  outline: green 1px solid;
+}
+.placed-image {
+  width: 100px;
+  height: 700px;
 }
 
 .drag-element{

@@ -5,6 +5,7 @@ export default createStore({
   state: {
     data: data,
     modalShown: false,
+    isDragging: false,
     modalContentShown: false,
     // modalContent: {},
     modalContent: {
@@ -107,7 +108,6 @@ export default createStore({
     },
 
     modalClose(state) {
-    
       state.modalShown = false;
       
       if(state.situationsCompleted.length === 2){
@@ -143,6 +143,10 @@ export default createStore({
     },
     completedRoute(state, route) {
       state.viewsCompleted[route] = true;
+    },
+
+    setDragging(state, dragging) {
+      state.isDragging = dragging;
     }
 
     

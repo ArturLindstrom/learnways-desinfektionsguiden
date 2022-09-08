@@ -28,15 +28,6 @@ const showCloseContainer = () => {
     delay: 0.5,
   });
 };
-const hideCloseContainer = () => {
-  gsap.set(".close-container", {
-    duration: 0.1,
-    opacity: 0,
-    y: 20,
-    ease: "power2.out",
-    delay: 0,
-  });
-};
 
 const modalComponentOpen = computed(() => {
   return store.state.modalShown;
@@ -53,12 +44,13 @@ const showContent = () => {
 };
 
 const closeModal = () => {
-  hideCloseContainer();
+  if(store.state.isDragging == false){
   store.commit("modalContentClose");
   setTimeout(() => {
     store.commit("modalClose");
   }, 500);
-};
+}
+}
 </script>
 
 <style scoped lang="scss">
