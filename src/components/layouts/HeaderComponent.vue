@@ -60,7 +60,7 @@ const props = defineProps({
   },
 });
 const bg = computed(() => {
-  return `url(@/assets/bg-${props.bgImg}.svg)`;
+  return `url(../assets/bg-${props.bgImg}.svg)`;
 });
 </script>
 
