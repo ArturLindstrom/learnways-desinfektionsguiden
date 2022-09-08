@@ -3,10 +3,10 @@
     <div class="modal" @click.self="closeModal" v-if="modalComponentOpen">
       <Transition name="modal-animation-inner" @enter="showCloseContainer">
         <div class="modal-content" v-if="showModalContent">
-          <div class="close-container" @click="closeModal">
-            <p class="close-text">Stäng</p>
-            <img class="close-icon" src="src/assets/close.svg" />
-          </div>
+            <div class="close-container" >
+              <p class="close-text" @click="closeModal">Stäng</p>
+              <img class="close-icon" src="src/assets/close.svg" @click="closeModal" />
+            </div>
           <slot> </slot>
         </div>
       </Transition>
@@ -28,15 +28,6 @@ const showCloseContainer = () => {
     delay: 0.5,
   });
 };
-const hideCloseContainer = () => {
-  gsap.set(".close-container", {
-    duration: 0.1,
-    opacity: 0,
-    y: 20,
-    ease: "power2.out",
-    delay: 0,
-  });
-};
 
 const modalComponentOpen = computed(() => {
   return store.state.modalShown;
@@ -53,12 +44,13 @@ const showContent = () => {
 };
 
 const closeModal = () => {
-  hideCloseContainer();
+  if(store.state.isDragging == false){
   store.commit("modalContentClose");
   setTimeout(() => {
     store.commit("modalClose");
   }, 500);
-};
+}
+}
 </script>
 
 <style scoped lang="scss">
@@ -85,33 +77,41 @@ const closeModal = () => {
   overflow-y: auto;
   z-index: 3;
 }
-
 .close-container {
   position: fixed;
   display: grid;
-  right: 12%;
-  top: 10%;
-  grid-template-columns: 1fr 1fr;
+  /* top: 7.5%;
+  right: 10%; */
+  margin-top: 1rem;
+  grid-template-columns: 26fr 1fr 1fr;
+  grid-template-areas: ".. close-text close-icon";
   place-items: center;
   z-index: 9999;
 }
 
+.close-text {
+  grid-area: close-text;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.close-text:hover + .close-icon {
+  transform: rotate(90deg);
+}
+
 .close-icon {
+  grid-area: close-icon;
   height: 38px;
   width: 38px;
+  transition: all 0.25s ease-in-out;
+  &:hover {
+    cursor: pointer;
+    transform: rotate(90deg);
+    transition: all 0.25s ease-in-out;
+  }
 }
 
-.close-container:hover {
-  cursor: pointer;
-}
-
-.close-icon {
-  transition: all 0.25s ease-in-out;
-}
-.close-container:hover .close-icon {
-  transform: rotate(90deg);
-  transition: all 0.25s ease-in-out;
-}
 
 .modal-animation-enter-active,
 .modal-animation-leave-active {
@@ -151,7 +151,8 @@ const closeModal = () => {
   }
   .close-container {
     top: 3%;
-    right: -4%;
+    right: -2%;
+    width: 38px;
   }
   .close-text {
     display: none;
@@ -161,6 +162,10 @@ const closeModal = () => {
 @media screen and (max-width: 1200px) {
   .modal {
     padding: 0;
+  }
+  .close-container {
+    top: 2%;
+    right: 2%;
   }
 }
 </style>

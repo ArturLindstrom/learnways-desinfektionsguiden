@@ -1,18 +1,18 @@
 <template>
-  <div>
+  <div class="wrapper">
     <p class="scroll">Skrolla ner</p>
-    <img
-      class="scroll-icon"
-      src="src/assets/home/main/scroll.svg"
-      @click="toBottom"
-    />
+      <img
+        class="scroll-icon"
+        src="src/assets/home/main/scroll.svg"
+        @click="toBottom"
+      />
   </div>
 </template>
 
 <script setup>
 const toBottom = () => {
   window.scrollTo({
-    top: 1000,
+    top: 700,
     left: 100,
     behavior: "smooth",
   });
@@ -20,6 +20,7 @@ const toBottom = () => {
 </script>
 
 <style scoped lang="scss">
+
 .scroll {
   font-weight: 700;
 }
@@ -27,7 +28,7 @@ const toBottom = () => {
   width: 70px;
   height: 70px;
   border-radius: 50%;
-  margin-top: 1.25rem;
+  margin-top: 10px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   &:hover {
@@ -44,6 +45,10 @@ const toBottom = () => {
     width: 50px;
     height: 50px;
   }
+  /* .img-wrapper{
+    background-color: white;
+    width: 100%;
+  } */
 }
   
 

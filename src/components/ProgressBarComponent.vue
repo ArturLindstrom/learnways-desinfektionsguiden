@@ -25,9 +25,7 @@ const viewsCompleted = computed(() => {
   return store.state.viewsCompleted;
 });
 
-const logRoutes = () => {
-  console.log(routes);
-};
+
 
 const routes = computed(() => {
   return router.options.routes;

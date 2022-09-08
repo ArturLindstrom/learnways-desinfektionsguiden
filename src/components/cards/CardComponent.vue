@@ -83,7 +83,7 @@ li {
 
 @media screen and (max-width: 480px) {
   .card {
-    padding: 10px
+    padding: 40px
   }
   
 }

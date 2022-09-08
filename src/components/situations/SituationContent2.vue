@@ -1,5 +1,5 @@
 <template>
-  <div class="content-container">
+  <div class="content-container" ref="contentContainer">
     <header>
       <img :src="situation.image" />
       <HeadingComponent font-size="small">
@@ -11,24 +11,18 @@
         <QuestionComponent
           v-for="question in questions"
           :key="question.id"
+          class="question"
           :question="question"
           @answer="incrementQuestionIndex(situation.id)"
         />
       </TransitionGroup>
     </MainComponent>
     <MainComponent v-else>
-      <DragAndDrop :content="situation.dragAndDrop"> </DragAndDrop>
+      <DragAndDrop :content="situation.dragAndDrop" :id="situation.id" @done="showFooter = true"> </DragAndDrop>
+      
     </MainComponent>
-    <!-- <footer class="footer"> -->
-    <footer class="footer" v-if="showFooter">
-      <img class="thumbs-up-icon" src="src/assets/qicon-last.svg" alt="" />
-      <SubHeadingComponent class="sub-heading">
-        {{ situation.end }}
-      </SubHeadingComponent>
-      <ButtonComponent @click="closeModal" class="trigger">
-        Stäng
-      </ButtonComponent>
-    </footer>
+    
+    <SituationFooter v-if="showFooter" />
   </div>
 </template>
 
@@ -38,8 +32,7 @@ import { computed, ref, onMounted } from "vue";
 import HeadingComponent from "@/components/headings/HeadingComponent.vue";
 import MainComponent from "@/components/layouts/MainComponent.vue";
 import QuestionComponent from "./QuestionComponent.vue";
-import SubHeadingComponent from "@/components/headings/SubHeadingComponent.vue";
-import ButtonComponent from "../ButtonComponent.vue";
+import SituationFooter from "@/components/situations/SituationFooter.vue";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import DragAndDrop from "./DragAndDrop.vue";
@@ -48,7 +41,10 @@ gsap.registerPlugin(ScrollTrigger);
 const store = useStore();
 const situation = store.state.modalContent;
 
+
+
 const showFooter = ref(false);
+const contentContainer = ref(null)
 
 const questions = computed(() => {
   return situation.questions.slice(0, questionIndex.value);
@@ -80,6 +76,8 @@ const showNextQuestion = (el, done) => {
   });
 };
 
+
+
 // const scrollTo = () => {
 //   gsap.to(container.value, {
 //     duration: 0.5,
@@ -95,7 +93,7 @@ const showNextQuestion = (el, done) => {
 .content-container {
   display: flex;
   flex-direction: column;
-  /* height: 500px; */
+  min-height: 100vh;
   /* overflow: scroll; */
 }
 
@@ -130,6 +128,7 @@ footer {
     margin-bottom: 80px;
   }
 }
+
 /* 
 footer:hover .thumbs-up-icon {
   transform: rotate(0deg) scale(1);
