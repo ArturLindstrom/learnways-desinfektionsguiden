@@ -141,5 +141,6 @@ footer:hover .thumbs-up-icon {
     display: flex;
     flex-direction: column;
   }
+
 }
 </style>

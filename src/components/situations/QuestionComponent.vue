@@ -139,6 +139,7 @@ const getFeedback = (i) => {
 @media screen and (max-width: 768px) {
   .question {
     flex-direction: column;
+    margin-bottom: 100px;
   }
   .feedback-container {
     position: static;
@@ -146,6 +147,7 @@ const getFeedback = (i) => {
     margin-right: 0;
     /* opacity: 1; */
   }
+
 }
 
 
