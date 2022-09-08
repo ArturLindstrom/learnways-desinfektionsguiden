@@ -5,7 +5,7 @@
         <div class="modal-content" v-if="showModalContent">
             <div class="close-container" >
               <p class="close-text" @click="closeModal">Stäng</p>
-              <img class="close-icon" src="src/assets/close.svg" @click="closeModal" />
+              <img class="close-icon" src="@/assets/close.svg" @click="closeModal" />
             </div>
           <slot> </slot>
         </div>

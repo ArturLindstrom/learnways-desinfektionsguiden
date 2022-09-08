@@ -226,7 +226,6 @@ const spolListFacit = ref(["Rondskål", "Anesti­utrustning", "Inhalationsutrust
 .diskdesinfektor, .spoldesinfektor {
   flex-wrap: wrap;
   gap: 0;
-  outline: red 1px solid;
   justify-content: center;
 }
 
