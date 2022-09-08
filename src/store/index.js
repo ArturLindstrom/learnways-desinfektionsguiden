@@ -110,7 +110,7 @@ export default createStore({
     modalClose(state) {
       state.modalShown = false;
       
-      if(state.situationsCompleted.length === 2){
+      if(state.situationsCompleted.length === 9){
         state.viewsCompleted.situationer = true
       }
       document.body.style.overflow = 'auto';

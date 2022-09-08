@@ -59,7 +59,7 @@ p {
   font-family: "Nunito", sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 17px;
+  font-size: 16px;
   line-height: 1.3;
   margin: 0.5em 0;
   color: #000000;

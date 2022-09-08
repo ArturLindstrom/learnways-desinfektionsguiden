@@ -2,7 +2,7 @@
   <footer class="footer">
     <img class="thumbs-up-icon" src="src/assets/qicon-last.svg" alt="" />
     <SubHeadingComponent class="subheading">
-      Du är klar med situationen
+      Du är klar med situationen. Stäng och gå vidare till nästa.
     </SubHeadingComponent>
     <ButtonComponent @click="closeModal" class="trigger">
       Stäng
