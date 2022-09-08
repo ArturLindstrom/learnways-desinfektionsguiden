@@ -2,13 +2,13 @@
   <header :style="{ backgroundImage: bg }" class="header">
     <div class="imgs">
       <img
-        src="@/assets/Vårdhygien-Stockholm.svg"
+        src="/assets/Vårdhygien-Stockholm.svg"
         class="logo-vardhygien"
         alt=""
       />
       <router-link to="/">
         <img
-          src="@/assets/Group-119.svg"
+          src="/assets/Group-119.svg"
           class="logo-region-stockholm"
           alt=""
         />

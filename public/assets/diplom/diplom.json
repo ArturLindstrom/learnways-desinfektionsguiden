@@ -1,6 +1,6 @@
 [
     {
-      "image": "src/assets/diplom/diplom-1.svg",
+      "image": "assets/diplom/diplom-1.svg",
       "title": "Du har lärt dig om:",
       "list": true,
       "listItems": [
@@ -9,14 +9,14 @@
       "buttons": ["Öppna referenslista"]
     },
     {
-      "image": "src/assets/diplom/diplom-2.svg",
+      "image": "assets/diplom/diplom-2.svg",
       "title": "Ladda ner ditt diplom här",
       "body": "Du har nu genomfört samtliga delar i denna utbildning och kan hämta ditt diplom.",
       
       "buttons": ["Hämta diplom"]
     },
     {
-      "image": "src/assets/diplom/diplom-3.svg",
+      "image": "assets/diplom/diplom-3.svg",
       "title": "Repetera gärna",
       "body": "Vi vill avslutningsvis uppmana dig att använda utbildningen som en resurs att återkomma till för repetition eller för att kolla upp saker vid behov.",
       "list": true,

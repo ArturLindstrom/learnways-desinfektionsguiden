@@ -67,7 +67,7 @@ const toggleDialog = (i) => {
   height: 2.5rem;
   width: 2.5rem;
   border-radius: 50%;
-  background: url("src/assets/close-wht.svg") no-repeat center #0e2d57;
+  background: url("/assets/close-wht.svg") no-repeat center #0e2d57;
   background-size: 30%;
   transition: all 0.5s ease-in-out;
   &:hover {

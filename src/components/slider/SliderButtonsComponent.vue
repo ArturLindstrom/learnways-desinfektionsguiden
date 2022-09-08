@@ -46,11 +46,11 @@ const props = defineProps({
   }
 }
 .arrow-left {
-  background-image: url("@/assets/home/main/slide/images/arrow-left.svg");
+  background-image: url("/assets/home/main/slide/images/arrow-left.svg");
 }
 
 .arrow-right {
-  background-image: url("@/assets/home/main/slide/images/arrow-right.svg");
+  background-image: url("/assets/home/main/slide/images/arrow-right.svg");
 }
 
 .disabled {

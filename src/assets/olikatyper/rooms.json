@@ -3,7 +3,7 @@
   "thumbnail": {
       "roomNumber": "1",
       "title": "Handdesinfektion",
-      "image": "src/assets/olikatyper/thumbnails/room-1.svg",
+      "image": "/assets/olikatyper/thumbnails/room-1.svg",
       "backgroundColor": "#C5D0E4"
     },
 
@@ -18,7 +18,7 @@
           "Efter kontakt med en tagyta eller föremål i patientens närmiljö",
           "Efter att du varit i kontakt med patient med kräkning eller diarré ska du innan handdesinfektion, även tvätta händerna med flytande tvål och vatten. Torka händerna torra innan du applicerar handdesinfektionsmedlet."
         ],
-      "image": "src/assets/olikatyper/room1/room-1.svg",
+      "image": "/assets/olikatyper/room1/room-1.svg",
       "backgroundColor": "#C5D0E4"
     },
 
@@ -37,7 +37,7 @@
                     [
                       "Använd alkoholbaserat handdesinfektionsmedel. Tag rikligt, ca 2-4 ml."
                     ],
-                  "image": "src/assets/olikatyper/room1/room1-1-1.svg"
+                  "image": "/assets/olikatyper/room1/room1-1-1.svg"
                 },
                 {
                   "heading": "Steg 2",
@@ -45,7 +45,7 @@
                     [
                       "Fördela handdesinfektionsmedlet överallt på händerna. I handflatorna, på handryggarna och fingertopparna, runt alla fingrar, tumgrepp och cirka 15 cm upp på underarmarna."
                     ],
-                  "image": "src/assets/olikatyper/room1/room1-1-2.svg"
+                  "image": "/assets/olikatyper/room1/room1-1-2.svg"
                 },
                 {
                   "heading": "Steg 3",
@@ -53,7 +53,7 @@
                     [
                       "Gnid in handdesinfektionsmedlet tills det har dunstat och huden känns torr. Full effekt har då uppnåtts."
                     ],
-                  "image": "src/assets/olikatyper/room1/room1-1-3.svg"
+                  "image": "/assets/olikatyper/room1/room1-1-3.svg"
                 },
                 {
                   "heading": "Steg 4",
@@ -61,7 +61,7 @@
                     [
                       "När du varit i kontakt med patient med kräkning eller diarré ska du innan handdesinfektion, även tvätta händerna med flytande tvål och vatten. Torka händerna torra innan du applicerar handdesinfektionsmedlet."
                     ],
-                  "image": "src/assets/olikatyper/room1/room1-1-4.svg"
+                  "image": "/assets/olikatyper/room1/room1-1-4.svg"
                 }
               ]
           }
@@ -73,7 +73,7 @@
     "thumbnail": {
       "roomNumber": "2",
       "title": "Desinfektionsrummet",
-      "image": "src/assets/olikatyper/thumbnails/room-2.svg",
+      "image": "/assets/olikatyper/thumbnails/room-2.svg",
       "backgroundColor": "#DFEAF7"
     },
 
@@ -87,7 +87,7 @@
           "Rummet organiseras så att arbetsgången underlättas; smutsiga ytor närmast dörren, desinfektorernas placering därefter och rena ytor längre in eller på motsatt sida.",
           "Endast material som krävs för arbetet i desinfektionsrummet får förvaras där. Rummet ska inte användas som förråd till allmänt material."
         ],
-      "image": "src/assets/olikatyper/room2/room-2.svg",
+      "image": "/assets/olikatyper/room2/room-2.svg",
       "backgroundColor": "#DFEAF7"
     },
 
@@ -106,7 +106,7 @@
                     [
                       "Tillämpa basala hygienrutiner och använd skyddsutrustning vid behov. Desinfektera alltid händerna mellan olika moment."
                     ],
-                  "image": "src/assets/olikatyper/room2/room2-1-1.svg"
+                  "image": "/assets/olikatyper/room2/room2-1-1.svg"
                 },
                 {
                   "heading": "Steg 2",
@@ -114,7 +114,7 @@
                     [
                       "Använd handskar om du kommer i kontakt med kroppsvätskor och utsöndringar. Använd engångsplastförkläde vid risk för stänk av kroppsvätska eller desinfektionsmedel, och använd stänkskydd vid risk för stänk mot ögon och ansikte, exempelvis visir."
                     ],
-                  "image": "src/assets/olikatyper/room2/room2-1-2.svg"
+                  "image": "/assets/olikatyper/room2/room2-1-2.svg"
                 },
                 {
                   "heading": "Steg 3",
@@ -122,7 +122,7 @@
                     [
                       "Töm och placera smutsigt gods som bäcken eller urinflaska direkt i spoldesinfektorn. Tänk på att godset placeras rätt så att vatten kommer åt överallt. Gods som ska placeras i diskdesinfektorn måste först tömmas ut i spoldesinfektorn eftersom diskdesinfektorn saknar utslagsfunktion. Överlasta inte diskdesinfektorn och använd fästanordningar till rörformigt gods och slangar."
                     ],
-                  "image": "src/assets/olikatyper/room2/room2-1-3.svg"
+                  "image": "/assets/olikatyper/room2/room2-1-3.svg"
                 },
                 {
                   "heading": "Steg 4",
@@ -131,7 +131,7 @@
                       "Desinfektionsrummet ska inte användas som förråd. Det höggradigt rena godset placeras direkt, torrt och dammfritt, i för detta ändamål avsett skåp eller i en desinfekterad låda med lock."
                       
                     ],
-                  "image": "src/assets/olikatyper/room2/room2-1-4.svg"
+                  "image": "/assets/olikatyper/room2/room2-1-4.svg"
                 },
                 {
                   "heading": "Steg 5",
@@ -139,7 +139,7 @@
                     [
                       "Rummets arbetsytor och utrustning ska rengöras och desinfekteras dagligen samt efter orent arbete. Golvet rengörs dagligen enligt lokal rutin."
                     ],
-                  "image": "src/assets/olikatyper/room2/room2-1-5.svg"
+                  "image": "/assets/olikatyper/room2/room2-1-5.svg"
                 },
                 {
                   "heading": "Steg 6",
@@ -147,7 +147,7 @@
                     [
                       "Kontrollera desinfektorerna enligt anvisning från tillverkaren och notera detta i loggboken eller checklistan till varje maskin."
                     ],
-                  "image": "src/assets/olikatyper/room2/room2-1-6.svg"
+                  "image": "/assets/olikatyper/room2/room2-1-6.svg"
                 }
               ]
           }
@@ -158,7 +158,7 @@
     "thumbnail": {
       "roomNumber": "3",
       "title": "Spol- och diskdesinfektorerna",
-      "image": "src/assets/olikatyper/thumbnails/room-3.svg",
+      "image": "/assets/olikatyper/thumbnails/room-3.svg",
       "backgroundColor": "#D2E0DD"
     },
 
@@ -172,7 +172,7 @@
           "Diskdesinfektorns process innefattar minst en sköljning, rengöring (diskning) och värmedesinfektion. Processtiden är betydligt längre (cirka 50 minuter) än vid behandling i en spoldesinfektor.",
           "Diskdesinfektor används vid rengöring och desinfektion av: sårvårdsinstrument för flergångsbruk (exempelvis sax och peang), rondskål, inhalationsutrustning, anestesiutrustning med mera."
         ],
-      "image": "src/assets/olikatyper/room3/room-3.svg",
+      "image": "/assets/olikatyper/room3/room-3.svg",
       "backgroundColor": "#D2E0DD"
   },
     "main": {
@@ -190,7 +190,7 @@
                   [
                     "Spoldesinfektorn är endast avsedd för sugflaskor, bäcken, urinflaskor, hinkar mm. Den är inte avsedd för sårvårdsinstrument eller porösa material som textilier, tvättsvampar, städmoppar och skumplast etc. Se till att inga föremål kan orsaka stopp i avloppet."
                   ],
-                "image": "src/assets/olikatyper/room3/room3-1-1.svg"
+                "image": "/assets/olikatyper/room3/room3-1-1.svg"
               },
               {
                 "heading": "Steg 1",
@@ -198,7 +198,7 @@
                   [
                     "Använd handskar och engångsplastförkläde enligt basala hygienrutiner vid orent arbete och vid behov ett stänkskydd för ansiktet."
                   ],
-                "image": "src/assets/olikatyper/room3/room3-1-2.svg"
+                "image": "/assets/olikatyper/room3/room3-1-2.svg"
               },
               {
                 "heading": "Steg 2",
@@ -206,7 +206,7 @@
                   [
                     "Placera det tömda godset i spoldesinfektorn. Urinflaskor och bäcken placeras ovanför spolmunstyckena."
                   ],
-                "image": "src/assets/olikatyper/room3/room3-1-3.svg"
+                "image": "/assets/olikatyper/room3/room3-1-3.svg"
               },
               {
                 "heading": "Steg 3",
@@ -214,7 +214,7 @@
                   [
                     "Efter inlastning av gods, stäng locket och starta processen. Handskar, plastförkläde tas av och händerna desinfekteras."
                   ],
-                "image": "src/assets/olikatyper/room3/room3-1-4.svg"
+                "image": "/assets/olikatyper/room3/room3-1-4.svg"
               },
               {
                 "heading": "Steg 4",
@@ -222,7 +222,7 @@
                   [
                     "När processen är avslutad öppnas luckan. Desinfektera händerna innan godset tas ur maskinen."
                   ],
-                "image": "src/assets/olikatyper/room3/room3-1-5.svg"
+                "image": "/assets/olikatyper/room3/room3-1-5.svg"
               },
               {
                 "heading": "Steg 5",
@@ -230,7 +230,7 @@
                   [
                     "Kontrollera att godset är rent. Förvara det rena och torra godset dammfritt."
                   ],
-                "image": "src/assets/olikatyper/room3/room3-1-6.svg"
+                "image": "/assets/olikatyper/room3/room3-1-6.svg"
               },
               {
                 "heading": "Steg 6",
@@ -238,7 +238,7 @@
                   [
                     "Alla processer ska ske med diskmedel för att uppnå en fullgod rengöring. Kontrollera att det finns diskmedel i behållaren."
                   ],
-                "image": "src/assets/olikatyper/room3/room3-1-7.svg"
+                "image": "/assets/olikatyper/room3/room3-1-7.svg"
               },
               {
                 "heading": "Kontroller och underhåll",
@@ -247,7 +247,7 @@
                     "Dagliga kontroller görs av vård- och omsorgspersonal, medan förebyggande underhåll görs av auktoriserad tekniker efter tillverkarens anvisningar minst en gång per år.",
                     "<a href='https://projekt.learnways.com/projekt/Learnways/Praktik/Desinfektion/pdfs/Spoldesinfektor_Checklista.pdf'>Checklista spoldesinfektor</a> (öppnas i nytt fönster)"
                   ],
-                "image": "src/assets/olikatyper/room3/room3-1-7.svg"
+                "image": "/assets/olikatyper/room3/room3-1-7.svg"
               }
             ]
           },
@@ -261,7 +261,7 @@
                     [
                       "En diskdesinfektor har ingen utslagsfunktion. Det finns insatser för olika slags gods. Ihåliga instrument placeras i en diskinsats för genomspolning. Porösa material som textilier, tvättsvampar och skumplast kan inte desinfekteras i en diskdesinfektor. Vissa maskiner har inbyggd torkfunktion."
                     ],
-                  "image": "src/assets/olikatyper/room3/room3-2-1.svg"
+                  "image": "/assets/olikatyper/room3/room3-2-1.svg"
                 },
                 {
                   "heading": "Steg 1",
@@ -269,7 +269,7 @@
                     [
                       "Använd handskar och engångsplastförkläde enligt basala hygienrutiner vid orent arbete och vid behov ett stänkskydd för ansiktet."
                     ],
-                  "image": "src/assets/olikatyper/room3/room3-2-2.svg"
+                  "image": "/assets/olikatyper/room3/room3-2-2.svg"
                 },
                 {
                   "heading": "Steg 2",
@@ -277,7 +277,7 @@
                     [
                       "Placera godset i diskdesinfektorn direkt efter användning. Följ tillverkarens rekommendationer. Överlasta inte."
                     ],
-                  "image": "src/assets/olikatyper/room3/room3-2-3.svg"
+                  "image": "/assets/olikatyper/room3/room3-2-3.svg"
                 },
                 {
                   "heading": "Steg 3",
@@ -285,7 +285,7 @@
                     [
                       "Koppla rörformiga instrument för genomspolning i diskdesinfektor. Kontrollera att diskarmarna kan röra sig fritt."
                     ],
-                  "image": "src/assets/olikatyper/room3/room3-2-3.svg"
+                  "image": "/assets/olikatyper/room3/room3-2-3.svg"
                 },
                 {
                   "heading": "Steg 4",
@@ -293,7 +293,7 @@
                     [
                       "Kontrollera att det finns medel i behållarna. Följ åtgången av diskmedel genom att märka dunken. Vid diskning används automatiskt doserat diskmedel och i vissa fall sköljmedel. Välj därefter program och starta diskdesinfektorn. Handskar, plastförkläde tas av och händerna desinfekteras."
                     ],
-                  "image": "src/assets/olikatyper/room3/room3-2-3.svg"
+                  "image": "/assets/olikatyper/room3/room3-2-3.svg"
                 },
                 {
                   "heading": "Steg 5",
@@ -301,7 +301,7 @@
                     [
                       "När processen är avslutad öppnas luckan. Desinfektera händerna innan godset tas ur maskinen. Använd höggradigt ren plockpeang eller desinfekterade händer."
                     ],
-                  "image": "src/assets/olikatyper/room3/room3-2-3.svg"
+                  "image": "/assets/olikatyper/room3/room3-2-3.svg"
                 },
                 {
                   "heading": "Steg 6",
@@ -310,7 +310,7 @@
                       "Kontrollera att godset är rent och torrt. Förvara det rena godset torrt och dammfritt. Dagliga kontroller görs av vård- och omsorgspersonal, medan förebyggande underhåll görs av auktoriserad tekniker efter tillverkarens anvisningar minst en gång per år.",
                       "<a href='https://projekt.learnways.com/projekt/Learnways/Praktik/Desinfektion/pdfs/Diskdesinfektor_Checklista.pdf'>Checklista diskdesinfektor</a> (öppnas i nytt fönster)"
                     ],
-                  "image": "src/assets/olikatyper/room3/room3-2-3.svg"
+                  "image": "/assets/olikatyper/room3/room3-2-3.svg"
                 }
               ]
           }
@@ -321,7 +321,7 @@
     "thumbnail": {
       "roomNumber": "4",
       "title": "Huddesinfektion",
-      "image": "src/assets/olikatyper/thumbnails/room-4.svg",
+      "image": "/assets/olikatyper/thumbnails/room-4.svg",
       "backgroundColor": "#D0DFE3"
     },
   
@@ -336,7 +336,7 @@
           "Efter kontakt med en tagyta eller föremål i patientens närmiljö",
           "Efter att du varit i kontakt med patient med kräkning eller diarré ska du innan handdesinfektion, även tvätta händerna med flytande tvål och vatten. Torka händerna torra innan du applicerar handdesinfektionsmedlet."
         ],
-      "image": "src/assets/olikatyper/room1/room-1.svg",
+      "image": "/assets/olikatyper/room1/room-1.svg",
       "backgroundColor": "#C5D0E4"
     },
 
@@ -355,7 +355,7 @@
                     [
                       "Använd alkoholbaserat handdesinfektionsmedel. Tag rikligt, ca 2-4 ml."
                     ],
-                  "image": "src/assets/olikatyper/room1/room1-1-1.svg"
+                  "image": "/assets/olikatyper/room1/room1-1-1.svg"
                 },
                 {
                   "heading": "Steg 2",
@@ -363,7 +363,7 @@
                     [
                       "Fördela handdesinfektionsmedlet överallt på händerna. I handflatorna, på handryggarna och fingertopparna, runt alla fingrar, tumgrepp och cirka 15 cm upp på underarmarna."
                     ],
-                  "image": "src/assets/olikatyper/room1/room1-1-2.svg"
+                  "image": "/assets/olikatyper/room1/room1-1-2.svg"
                 },
                 {
                   "heading": "Steg 3",
@@ -371,7 +371,7 @@
                     [
                       "Gnid in handdesinfektionsmedlet tills det har dunstat och huden känns torr. Full effekt har då uppnåtts."
                     ],
-                  "image": "src/assets/olikatyper/room1/room1-1-3.svg"
+                  "image": "/assets/olikatyper/room1/room1-1-3.svg"
                 },
                 {
                   "heading": "Steg 4",
@@ -379,7 +379,7 @@
                     [
                       "När du varit i kontakt med patient med kräkning eller diarré ska du innan handdesinfektion, även tvätta händerna med flytande tvål och vatten. Torka händerna torra innan du applicerar handdesinfektionsmedlet."
                     ],
-                  "image": "src/assets/olikatyper/room1/room1-1-4.svg"
+                  "image": "/assets/olikatyper/room1/room1-1-4.svg"
                 }
               ]
           }
@@ -390,7 +390,7 @@
     "thumbnail": {
       "roomNumber": "5",
       "title": "Ytdesinfektion",
-      "image": "src/assets/olikatyper/thumbnails/room-5.svg",
+      "image": "/assets/olikatyper/thumbnails/room-5.svg",
       "backgroundColor": "#B9CFD0"
     },
   
@@ -405,7 +405,7 @@
           "Efter kontakt med en tagyta eller föremål i patientens närmiljö",
           "Efter att du varit i kontakt med patient med kräkning eller diarré ska du innan handdesinfektion, även tvätta händerna med flytande tvål och vatten. Torka händerna torra innan du applicerar handdesinfektionsmedlet."
         ],
-      "image": "src/assets/olikatyper/room1/room-1.svg",
+      "image": "/assets/olikatyper/room1/room-1.svg",
       "backgroundColor": "#C5D0E4"
     },
 
@@ -424,7 +424,7 @@
                     [
                       "Använd alkoholbaserat handdesinfektionsmedel. Tag rikligt, ca 2-4 ml."
                     ],
-                  "image": "src/assets/olikatyper/room1/room1-1-1.svg"
+                  "image": "/assets/olikatyper/room1/room1-1-1.svg"
                 },
                 {
                   "heading": "Steg 2",
@@ -432,7 +432,7 @@
                     [
                       "Fördela handdesinfektionsmedlet överallt på händerna. I handflatorna, på handryggarna och fingertopparna, runt alla fingrar, tumgrepp och cirka 15 cm upp på underarmarna."
                     ],
-                  "image": "src/assets/olikatyper/room1/room1-1-2.svg"
+                  "image": "/assets/olikatyper/room1/room1-1-2.svg"
                 },
                 {
                   "heading": "Steg 3",
@@ -440,7 +440,7 @@
                     [
                       "Gnid in handdesinfektionsmedlet tills det har dunstat och huden känns torr. Full effekt har då uppnåtts."
                     ],
-                  "image": "src/assets/olikatyper/room1/room1-1-3.svg"
+                  "image": "/assets/olikatyper/room1/room1-1-3.svg"
                 },
                 {
                   "heading": "Steg 4",
@@ -448,7 +448,7 @@
                     [
                       "När du varit i kontakt med patient med kräkning eller diarré ska du innan handdesinfektion, även tvätta händerna med flytande tvål och vatten. Torka händerna torra innan du applicerar handdesinfektionsmedlet."
                     ],
-                  "image": "src/assets/olikatyper/room1/room1-1-4.svg"
+                  "image": "/assets/olikatyper/room1/room1-1-4.svg"
                 }
               ]
           }

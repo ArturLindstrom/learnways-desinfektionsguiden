@@ -9,7 +9,7 @@
 </template>
 
 <script setup>
-// import data from '@/assets/json/sv.json'
+// import data from 'assets/json/sv.json'
 import { computed, ref } from 'vue';
 import { useStore } from 'vuex';
 

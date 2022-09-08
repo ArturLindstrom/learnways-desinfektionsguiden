@@ -11,7 +11,7 @@
             class="placed-item"
           >
           <img :src="image" alt="" class="placed-image" />
-            <img src="@/assets/situationer/check.svg" class="tick" />
+            <img src="/assets/situationer/check.svg" class="tick" />
           </div>
         </div>
         <div class="spoldesinfektor" ref="spoldesinfektor">
@@ -21,7 +21,7 @@
             class="placed-item"
           >
             <img :src="image" alt="" class="placed-image"/>
-            <img src="@/assets/situationer/check.svg" class="tick" />
+            <img src="/assets/situationer/check.svg" class="tick" />
           </div>
         </div>
       </div>

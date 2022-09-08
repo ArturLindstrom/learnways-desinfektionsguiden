@@ -3,7 +3,7 @@
     <p class="scroll">Skrolla ner</p>
       <img
         class="scroll-icon"
-        src="@/assets/home/main/scroll.svg"
+        src="/assets/home/main/scroll.svg"
         @click="toBottom"
       />
   </div>

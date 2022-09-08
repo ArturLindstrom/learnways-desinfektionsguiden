@@ -92,7 +92,7 @@ onMounted(() => {
 }
 
 .ball.completed {
-  background-image: url("src/assets/tick-blue.svg");
+  background-image: url("/assets/tick-blue.svg");
 }
 
 a:hover .ball {
@@ -128,7 +128,7 @@ a:hover {
 }
 
 .router-link-active .ball.completed {
-  background-image: url("src/assets/home/main/tick-wht.svg");
+  background-image: url("/assets/home/main/tick-wht.svg");
   background-repeat: no-repeat;
   background-position: center;
 }
