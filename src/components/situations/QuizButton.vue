@@ -4,7 +4,9 @@
   </button>
 </template>
 
-<script setup></script>
+<script setup>
+  
+</script>
 
 <style scoped lang="scss">
 button {
@@ -18,7 +20,7 @@ button {
   font-weight: 700;
   /* max-width: 450px;
     min-width: 300px; */
-  width: 100%;
+  width: 80%;
   margin-top: 15px;
   &:hover {
     background-color: #1d4c7b;

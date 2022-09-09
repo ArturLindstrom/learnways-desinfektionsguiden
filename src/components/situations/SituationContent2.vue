@@ -6,7 +6,12 @@
         {{ situation.heading }}
       </HeadingComponent>
     </header>
-    <MainComponent v-if="situation.questions">
+    <MainComponent v-if="situation.questions" class="main">
+      <div class="vertical-line">
+        <div class="circle">
+          🥵
+        </div>
+      </div>
       <TransitionGroup @enter="showNextQuestion">
         <QuestionComponent
           v-for="question in questions"
@@ -14,6 +19,7 @@
           class="question"
           :question="question"
           @answer="incrementQuestionIndex(situation.id)"
+          @offset="animateLine"
         />
       </TransitionGroup>
     </MainComponent>
@@ -41,6 +47,33 @@ gsap.registerPlugin(ScrollTrigger);
 const store = useStore();
 const situation = store.state.modalContent;
 
+
+
+const animateLine = (payload) => {
+  const travelDistance = payload.target.parentElement.offsetHeight
+  console.log(travelDistance);
+  console.log(questionIndex.value);
+  if(questionIndex.value < 3){
+
+    gsap.to('.vertical-line', 
+    {
+      delay: 0.5,
+     duration: 1,
+    //  delay: 0.5,
+     height:  ` +=${travelDistance +200}px`,
+     ease: "power2.inOut",
+   })
+  }
+  else{
+    gsap.to('.vertical-line', 
+    {
+      delay: 0.5,
+     duration: 1,
+    //  delay: 0.5,
+     height:  ` +=${travelDistance +400}px`,
+   })
+  }
+};
 
 
 const showFooter = ref(false);
@@ -74,22 +107,38 @@ const showNextQuestion = (el, done) => {
     opacity: 0,
     y: 100,
   });
+  
+  done();
 };
 
 
-
-// const scrollTo = () => {
-//   gsap.to(container.value, {
-//     duration: 0.5,
-//     scrollTo: {
-//       y: 1000,
-//       behavior: 'smooth'
-//     }
-//   })
-// }
 </script>
 
 <style scoped lang="scss">
+  .circle {
+    width: 20px;
+    height: 20px;
+    background-color: black;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 50px;
+  }
+
+  .main{
+    position: relative;
+    
+  }
+  .vertical-line {
+    /* height: 20px; */
+    position: absolute;
+    left: 50%;
+    top: -80px;
+    width: 10px;
+    background: #f4edc9;
+  }
 .content-container {
   display: flex;
   flex-direction: column;

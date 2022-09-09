@@ -1,5 +1,6 @@
 <template>
   <div class="question">
+
     <div class="question-container">
       <p class="description" v-if="question.description.length">
         {{ question.description }}
@@ -9,7 +10,7 @@
       </SubHeadingComponent>
       <QuizButton
         v-for="(alternative, i) in question.alternatives"
-        @click="getFeedback(i)"
+        @click="(e) => getFeedback(e,i)"
         :isSelected="isSelected"
         :key="alternative.alternative"
         :class="{
@@ -44,13 +45,14 @@ const props = defineProps({
   },
 });
 
-const emit = defineEmits(["answer"]);
+const emit = defineEmits(["answer", "offset"]);
 
 const isSelected = ref(null);
 
 const feedback = ref('');
 
-const getFeedback = (i) => {
+const getFeedback = (e,i) => {
+  emit('offset', e)
   isSelected.value = i + 1;
   questionDone.value = true;
   feedback.value = props.question.alternatives[i].feedback;
@@ -59,7 +61,6 @@ const getFeedback = (i) => {
   if (mq.current != "xs") {
     gsap.to(".question-container", {
       duration: 1,
-      // display:'grid',
       x: "-50%",
     });
 
@@ -80,17 +81,19 @@ const getFeedback = (i) => {
 </script>
 
 <style scoped lang="scss">
+
+  
   .question {
     display: flex;
     flex-direction: column;
     align-items: center;
-  
+    position: relative;
     /* display: grid; */
     grid-template-columns: 1fr 1fr;
     place-items: center;
     /* grid-gap: 100px; */
     width: 80%;
-    margin-bottom: 200px;
+    margin-bottom: 250px;
   }
   
   .grid {
