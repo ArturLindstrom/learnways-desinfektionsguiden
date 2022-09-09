@@ -10,7 +10,7 @@
     @slide="sliderIndex"
     @touchstart="showControls"
     @touchend="hideControls"
-    :arrows="false"
+    :arrows="true"
     :infinite="false"
     :draggable="false"
     :touchable="true"
@@ -66,7 +66,7 @@ const hideControls = () => {
     duration: 0.5,
     y: 0,
     opacity: 0,
-    delay: 2.5,
+    delay: 1,
   });
 }
 
