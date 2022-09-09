@@ -1,15 +1,23 @@
 <template>
-  <div class="wrapper">
+  <div class="scroll-container">
     <p class="scroll">Skrolla ner</p>
       <img
+        tabindex="0"
         class="scroll-icon"
         src="/assets/home/main/scroll.svg"
+        @keyup.enter="toBottom"
         @click="toBottom"
       />
   </div>
 </template>
 
 <script setup>
+import { onMounted } from 'vue';
+import { useRoute } from 'vue-router';
+import gsap from 'gsap';
+
+const route = useRoute();
+
 const toBottom = () => {
   window.scrollTo({
     top: 700,
@@ -17,6 +25,27 @@ const toBottom = () => {
     behavior: "smooth",
   });
 };
+
+onMounted(() => {
+  gsap.to(".scroll-container", {
+    scale: 1.1,
+    delay: 1.5,
+    duration: 1,
+    onComplete: () => {
+      scrollAnimation();
+    },
+    ease: "power2.out",
+    })
+});
+
+const scrollAnimation = () => {
+  gsap.to(".scroll-container", {
+    scale: 1,
+    duration: 1,
+    ease: "power2.out",
+  });
+}
+
 </script>
 
 <style scoped lang="scss">
