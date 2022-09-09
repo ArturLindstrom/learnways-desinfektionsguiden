@@ -88,7 +88,7 @@ onMounted(() => {
   background-position: center;
   box-sizing: border-box;
   transition: ease all 0.25s;
-  border: 0px solid #62c0d8;
+  border: 0px solid white;
 }
 
 .ball.completed {

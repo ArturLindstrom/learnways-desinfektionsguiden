@@ -19,6 +19,7 @@
       <ProgressBarComponent class="progress-bar" />
     </div>
     <Transition>
+    <!-- <Transition :name="animateScroll"> -->
       <ScrollContainer
         class="scroll-container"
         v-if="route.name != 'diplom' || done"
@@ -42,16 +43,6 @@ const done = computed(() => {
   return store.state.done;
 });
 
-onMounted(() => {
-  console.log("ENTER");
-  gsap.from(".scroll-container", {
-    duration: 1,
-    opacity: 0,
-    // y: 20,
-    ease: "power2.out",
-    delay: 0.5,
-  });
-});
 
 const props = defineProps({
   bgImg: {
@@ -101,6 +92,7 @@ header {
 
 .scroll-container {
   position: absolute;
+  transform: scale(1);
   bottom: -40px;
 }
 
