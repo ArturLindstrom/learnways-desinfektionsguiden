@@ -202,10 +202,11 @@ const spolListFacit = ref(["Rondskål", "Anesti­utrustning", "Inhalationsutrust
   flex-direction: column-reverse;
   place-items: center;
   width: 120px;
-  height: 130px;
+  height: 140px;
   background-repeat: no-repeat;
   background-size: 100px 100px;
   background-position: center top;
+
   & > .drag-element-text {
     margin-top: 20px;
   }
@@ -239,7 +240,7 @@ const spolListFacit = ref(["Rondskål", "Anesti­utrustning", "Inhalationsutrust
 
 .drag-element{
   width: 90px;
-  height: 100px;
+  height: 120px;
   background-size: 80px 80px;
   & > .drag-element-text {
     margin-top: 10px;
