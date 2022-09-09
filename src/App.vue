@@ -46,6 +46,10 @@ a, a:visited, a:link {
   width:100%
 }
 
+p {
+  font-size: 17px;
+}
+
 
 
 </style>
