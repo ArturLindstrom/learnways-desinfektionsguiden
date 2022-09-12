@@ -83,10 +83,11 @@ const closeModal = () => {
   /* top: 7.5%;
   right: 10%; */
   margin-top: 1rem;
-  grid-template-columns: 26fr 1fr 1fr;
+  grid-template-columns: 24.5fr 1fr 1fr;
   grid-template-areas: ".. close-text close-icon";
   place-items: center;
   z-index: 9999;
+  /* max-width: 100%; */
 }
 
 .close-text {

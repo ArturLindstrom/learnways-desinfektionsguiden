@@ -1,14 +1,13 @@
 <template>
   <div class="slide-content" >
     <div class="image-container">
-      <img :src="slide.image" alt="" class="slide-image" />
+      <img :src="imageRef" alt="" class="slide-image" />
     </div>
-    <div class="text-container">
-      <h3 class="slide-heading">{{ slide.heading }}</h3>
-      <p v-for="paragraph in slide.body" :key="paragraph">{{ paragraph }}</p>
-      <i v-if="slide.source" class="slide-source">{{slide.source}}</i>
+    <div class="text-container" ref="textContainerRef">
+      <h3 class="slide-heading" :class="{'left-align' : slideRef.heading.length > 200}">{{ slideRef.heading }}</h3>
+      <p v-for="paragraph in slideRef.body" :key="paragraph">{{ paragraph }}</p>
+      <i v-if="slideRef.source" class="slide-source">{{slideRef.source}}</i>
     </div>
-    
   </div>
 </template>
 
@@ -26,28 +25,78 @@
       default: 0,
     },
   })
+
+
   const slide = computed(() => props.slide)
   const index = computed(() => props.index)
-
+  const slideRef = ref(slide.value)
+  const imageRef = ref(slide.value.image)
+  
   watch(index, (newVal, oldVal) => {
     if(newVal > oldVal){
-      gsap.from('.text-container', {
-        x: '100%',
-        duration: 0.5,
-        opacity: 0,
-      });
+      nextSlideTransition()
     } else {
-      gsap.from('.text-container', {
-        x: '-50%',
-        duration: 0.5,
-        opacity: 0,
-      });
+      prevSlideTransition()
     }
+    gsap.to('.slide-image', { duration: 0.25, opacity: 0, delay: 0.5, onComplete: () => {
+      imageRef.value = slide.value.image
+      gsap.to('.slide-image', { duration: 0.25, opacity: 1 })
+    }})
   });
 
+  const nextSlideTransition = () => {
+    gsap.fromTo('.text-container', 
+      {
+        opacity: 1,
+        x: 0
+      },
+      { 
+        opacity: 0,
+        x: '-65%',
+        duration: 0.25,
+        onComplete: () => {
+          slideRef.value = slide.value
+          gsap.fromTo('.text-container', 
+            { 
+              opacity: 0.25,
+              x: '100%'
+            },
+            { 
+              opacity: 1,
+              x: 0,
+              duration: 0.5
+            }
+          )
+        }
+      }
+    )
+  }
 
-
-
+  const prevSlideTransition = () => {
+    gsap.fromTo('.text-container', 
+      { 
+        x: 0
+      },
+      {
+        x: '100%',
+        duration: 0.25,
+        onComplete: () => {
+          slideRef.value = slide.value
+          gsap.fromTo('.text-container', 
+            { 
+              opacity: 0.25,
+              x: '-65%'
+            },
+            { 
+              opacity: 1,
+              x: 0,
+              duration: 0.5
+            }
+            )
+        }
+      }
+    )
+  }
 </script>
 
 <style scoped lang='scss'>
@@ -55,7 +104,6 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     width: 100%;
-
   }
   .image-container {
     z-index: 1;
@@ -88,6 +136,19 @@
       }
     .slide-source {
       font-size: 0.75rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .slide-content {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    .slide-heading {
+      text-align: center;
+    }
+    .left-align {
+      text-align: left;
     }
   }
 </style>

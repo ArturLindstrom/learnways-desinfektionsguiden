@@ -15,6 +15,7 @@
   min-height: 60vh;
   min-width: 85%;
   margin: 4.5rem;
+  transition: all 0.5s ease;
 }
 
 @media screen and (max-width: 768px) {
