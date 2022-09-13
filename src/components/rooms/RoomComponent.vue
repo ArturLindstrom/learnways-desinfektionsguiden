@@ -32,7 +32,7 @@
           <span class="underline" :class="'underline' + i"></span>
         </div>
       </div>
-      <SliderComponent :slides="content.main.slides[currentSlide].slides" />
+      <SliderComponent :slides="content.main.slides[currentSlide].slides" modal />
     </MainComponent>
   </div>
 </template>
@@ -82,7 +82,6 @@ const drawUnderline = (i) => {
 
 <style scoped lang="scss">
 header {
-  /* max-height: 42.5vw; */
   height: 40rem;
   border-radius: 10px 10px 0px 0px;
   background-repeat: no-repeat;
@@ -92,14 +91,11 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /* z-index: -1; */
 }
 
 .room-heading {
   text-align: left;
-  /* width: 60%; */
   margin: 3rem;
-  /* position: absolute; */
 }
 
 .underline {
@@ -133,6 +129,7 @@ header {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin: 1rem 0;
 }
 
 @media screen and (max-width: 768px) {

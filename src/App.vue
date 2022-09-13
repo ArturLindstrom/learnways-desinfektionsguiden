@@ -1,5 +1,5 @@
 <template>
-<router-view class="wrapper"/>
+<router-view />
 <footer-component/>
 </template>
 
@@ -44,6 +44,10 @@ a, a:visited, a:link {
   flex-direction: column;
   align-items: center;
   width:100%
+}
+
+p {
+  font-size: 17px;
 }
 
 

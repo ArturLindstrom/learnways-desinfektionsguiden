@@ -125,7 +125,7 @@ const revertPosition = (e) => {
 };
 
 const diskListFacit = ref(["Hink", "Sugflaska", "Bäcken", "Urinflaska"]);
-const spolListFacit = ref(["Rondskål", "Anesti­utrustning", "Inhalationsutrustning", "Peang"]);
+const spolListFacit = ref(["Rondskål", "Anesti­utrustning", "Inhalations-utrustning", "Peang"]);
 
 </script>
 

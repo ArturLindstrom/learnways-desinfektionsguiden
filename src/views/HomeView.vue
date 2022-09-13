@@ -12,8 +12,7 @@
       <HeadingComponent fontSize="small">
         {{data.s01_h2_1}}
       </HeadingComponent>
-      <SliderComponent :slides="HomeSlides"/>
-      <!-- <SliderComponent :slides="slideData"/> -->
+      <SliderComponent :slides="HomeSlides" />
       <ButtonComponent action="forward">
         {{data.btn_nextsection}}
       </ButtonComponent>
