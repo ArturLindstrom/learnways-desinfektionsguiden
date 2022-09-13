@@ -1,5 +1,8 @@
 <template>
-  <header :style="{ backgroundImage: bg }" class="header">
+  <header class="header">
+  <!-- <header :style="{ backgroundImage: bg }" class="header"> -->
+    <div class="background" :style="{ backgroundImage: bg }">
+    </div>
     <div class="imgs">
       <img
         src="/assets/Vårdhygien-Stockholm.svg"
@@ -31,7 +34,7 @@
 <script setup>
 import ProgressBarComponent from "@/components/ProgressBarComponent.vue";
 import ScrollContainer from "@/components/ScrollContainer.vue";
-import { computed, onMounted, ref } from "vue";
+import { computed, onMounted, ref, watch } from "vue";
 import gsap from "gsap";
 import { useRoute } from "vue-router";
 import { useStore } from "vuex";
@@ -43,16 +46,18 @@ const done = computed(() => {
   return store.state.done;
 });
 
-
 const props = defineProps({
-  bgImg: {
+  backgroundImage: {
     type: String,
-    default: "home",
+    required: true,
   },
 });
+
+// computed that returns prop
 const bg = computed(() => {
-  return `url(../assets/bg-${props.bgImg}.svg)`;
+  return props.backgroundImage;
 });
+
 </script>
 
 <style scoped lang="scss">
@@ -68,7 +73,16 @@ header {
   width: 100%;
   position: relative;
 }
-
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: no-repeat center center #f4edc9;
+  background-size: cover;
+  z-index: 0;
+}
 .imgs {
   position: absolute;
   top: 1rem;

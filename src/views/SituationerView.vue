@@ -1,6 +1,6 @@
 <template>
 <div class="wrapper">
-    <HeaderComponent bgImg="3">
+    <HeaderComponent background-image="url('/assets/bg-3.svg')">
         <HeadingComponent fontSize="big" animate>
             Öva på olika situationer
         </HeadingComponent>

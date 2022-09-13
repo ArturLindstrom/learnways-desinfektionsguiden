@@ -1,7 +1,6 @@
 <template>
 <div class="wrapper">
-  <HeaderComponent bgImg="4">
-    <button @click="toggleDone"> HEMLIGA KNAPPEN</button>
+  <HeaderComponent background-image="url('/assets/bg-4.svg')">
     <ConfettiExplosion v-if="done" 
     :particleCount="100"
     :stageHeight="1000"
@@ -12,9 +11,11 @@
    <HeadingComponent fontSize="big" animate v-if="done">
       Bra jobbat!
     </HeadingComponent>
+  
    <HeadingComponent fontSize="big" animate v-else>
       Du är inte riktigt klar
     </HeadingComponent>
+    <button class="button" @click="toggleDone"> HEMLIGA KNAPPEN</button>
     <SubHeadingComponent animate v-if="done">
       Bra jobbat! Du har genomfört hela utbildningen. Nu har du chans att hämta ditt diplom och repetera vid behov.
     </SubHeadingComponent>
@@ -55,5 +56,9 @@ const toggleDone = () => {
 <style>
  .wrapper{
     width: 100%;
+ }
+
+ .button {
+  z-index: 1;
  }
 </style>
