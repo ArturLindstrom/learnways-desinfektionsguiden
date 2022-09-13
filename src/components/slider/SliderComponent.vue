@@ -1,90 +1,215 @@
 <template>
-  <VueperSlides
-    ref="slide"
-    @slide="sliderIndex"
-    :arrows="false"
-    :infinite="false"
-    :draggable="false"
-    :touchable="true"
-    :fixed-height="true"
-    class="no-shadow"
-    fade
-    :bullets="false"
-    :disableArrowsOnEdges="true"
-  >
-    <VueperSlide v-for="(slide, i) in props.slides" :key="i">
-      <template #content>
-        <SliderContent :slide="slide" :index="i" />
-      </template>
-    </VueperSlide>
-  </VueperSlides>
-  <!-- <SliderProgressBar :progress="progress" /> -->
-  <SliderButtonsComponent
-    class="slider-buttons"
-    @previous-slide="$refs.slide.previous()"
-    @next-slide="$refs.slide.next()"
-    :slider-index="index"
-    :slides="props.slides"
-  />
-  <SliderBullets
-    class="slider-bullets"
-    :slides="props.slides"
-    :index="index"
-    @goToSlide="(i) => $refs.slide.goToSlide(i)"
-  />
+  <div class="carousel-wrapper" :class="{'modal' : modal}" @keyup.right="incrementIndex" @keyup.left="decrementIndex">
+    <div class="slider-container">
+      <div class="image-container">
+        <img :src="slideImage" alt="" class="slide-image" />
+      </div>
+      <div class="text-and-button-container">
+        <Carousel v-model="currentIndex" :items-to-show=1 :transition=500 ref="myCarousel" :mouse-drag="false" >
+          <Slide v-for="slide in slides" :key="slide" >
+            <div class="text-container">
+              <h3 class="slide-heading" :class="{'left-align' : slide.heading.length > 200}">{{ slide.heading }}</h3>
+              <p v-for="paragraph in slide.body" :key="paragraph">{{ paragraph }}</p>
+              <i v-if="slide.source" class="slide-source">{{slide.source}}</i>
+              <p v-if="slide.link">
+                <a :href="slide.link">{{slide.linkInner}}</a> {{slide.linkAfter}}
+              </p>
+            </div>
+          </Slide>
+        </Carousel>
+        <SliderNewButtons
+          class="slider-buttons"
+          @previous-slide="decrementIndex"
+          @next-slide="incrementIndex"
+          :index="currentIndex"
+          :slides="slides"
+        />
+      </div>
+    </div>
+    <SliderNewBullets
+      class="slider-bullets"
+      :slides="slides"
+      :index="currentIndex"
+      @go-to-slide="setIndex"
+    />
+  </div>
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
-import { VueperSlides, VueperSlide } from "vueperslides";
-import "vueperslides/dist/vueperslides.css";
-// import MainSlides from 'assets/home/main/slide/slide.json';
-import SliderContent from "./SliderContent.vue";
-import SliderButtonsComponent from "@/components/slider/SliderButtonsComponent.vue";
-// import SliderProgressBar from './SliderProgressBar.vue';
-import SliderBullets from "./SliderBullets.vue";
+  import { ref, computed, watch, onMounted } from 'vue'
+  import SliderNewButtons from '@/components/slider/SliderButtons.vue'
+  import SliderNewBullets from '@/components/slider/SliderBullets.vue'
+  import 'vue3-carousel/dist/carousel.css'
+  import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel';
+  import gsap from 'gsap'
 
-const props = defineProps({
-  slides: {
-    type: Array,
-    default: () => [],
-  },
-});
+  const props = defineProps({
+    slides: {
+      type: Array,
+      required: true
+    }, 
+    modal: {
+      type: Boolean,
+    }
+  })
 
-// const slides = ref(MainSlides)
-const index = ref(0);
-const sliderIndex = (event) => {
-  index.value = event.currentSlide.index;
-};
-// const progress = computed(() => (index.value + 1) / slides.value.length * 100)
+  const slides = computed(() => props.slides)
+  const modal = computed(() => props.modal)
+  
+  const myCarousel = ref(null)
+
+
+  watch(slides, () => {
+    currentIndex.value = 0
+    fadeImage()
+  })
+ 
+  const currentIndex = ref(0)
+
+  const incrementIndex = () => {
+    if(currentIndex.value < props.slides.length - 1) {
+      currentIndex.value++
+    }
+  }
+  const decrementIndex = () => {
+    if(currentIndex.value > 0) {
+      currentIndex.value--
+    }
+  }
+  const setIndex = (index) => {
+    currentIndex.value = index
+  }
+
+  watch(currentIndex, () => {
+    fadeImage()
+    myCarousel.value.restartCarousel()
+  })
+
+  const slideImage = ref(slides.value[currentIndex.value].image)
+  const fadeImage = () => {
+    gsap.to('.slide-image', {
+      opacity: 0,
+      delay: 0.5,
+      duration: 0.25,
+      onComplete: () => {
+        slideImage.value = slides.value[currentIndex.value].image
+        gsap.to('.slide-image', {
+          opacity: 1,
+          duration: 0.5
+        })
+      }
+    })
+  }
+
 </script>
 
-<style lang="scss" scoped>
-.slider-bullets {
-  margin: 0.5rem 0 2rem 0;
-}
-.vueperslides {
-  width: 100%;
-  margin-top: 2rem;
-  margin-bottom: 0rem;
-}
+<style scoped lang='scss'>
 
-.vueperslides--fixed-height {
-  height: 50vh;
-}
-
-.vueperslide--fade,
-.vueperslide__image {
-  transition-delay: 0.5s;
-}
-
-@media (max-width: 768px) {
-  .slider-buttons {
-    margin-top: 3rem;
+  .carousel-wrapper {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    width: 80%;
+    height: calc(0.5 * -30vw);
+    margin-bottom: 2rem;
   }
-  .vueperslides--fixed-height {
-    /* height: 68vh; */
-    height: calc(100vw + 12.5rem);
+
+  .modal {
+    width: 70vw;
+    height: 80vh;
   }
-}
+  .slider-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 1rem;
+    margin-top: 5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .image-container {
+    width: 50%;
+    .slide-image {
+      height: 300px;
+      width: 100%;
+    }
+  }
+    
+  .text-and-button-container {
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    gap: 1.5rem;
+    .slider-buttons {
+      display: flex;
+    }
+  }
+  .text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    text-align: left;
+    & p::after, h3::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 1px;
+      margin: 0.25em 0;
+    }
+    .slide-heading {
+      font-size: 17px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-style: normal;
+      margin: 0 0 0.5em 0;
+      line-height: 1;
+      color: #003340;
+      }
+    .slide-source {
+      font-size: 0.75rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .carousel-wrapper {
+      margin-bottom: 2rem;
+      width: 95%;
+    }
+    .modal {
+      width: 100%;
+    }
+    .slider-container {
+      flex-direction: column;
+      height: 100%;
+      gap: 1.5rem;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    .image-container {
+      width: 100%;
+      .slide-image {
+        height: 250px;
+        width: 300px;
+      }
+    }
+    .text-and-button-container {
+      width: 100%;
+      display: flex;
+      gap: 1rem;
+    }
+    .text-container {
+      justify-content: flex-start;
+      height: 100%;
+      width: 80vw;
+    }
+
+    .slider-buttons {
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+  }
+
+
 </style>

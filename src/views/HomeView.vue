@@ -12,10 +12,7 @@
       <HeadingComponent fontSize="small">
         {{data.s01_h2_1}}
       </HeadingComponent>
-      <!-- <SliderComponent :slides="HomeSlides"/> -->
-      <!-- <SliderComponent :slides="slideData"/> -->
-      <!-- <SliderNew :slides="HomeSlides" class="slider"/> -->
-      <VueCarousel :slides="HomeSlides" />
+      <SliderComponent :slides="HomeSlides" />
       <ButtonComponent action="forward">
         {{data.btn_nextsection}}
       </ButtonComponent>
@@ -29,8 +26,6 @@ import HeadingComponent from '@/components/headings/HeadingComponent.vue';
 import SubHeadingComponent from '@/components/headings/SubHeadingComponent.vue';
 import MainComponent from '@/components/layouts/MainComponent.vue';
 import SliderComponent from '@/components/slider/SliderComponent.vue';
-import SliderNew from '@/components/slider/slider2/SliderNew.vue';
-import VueCarousel from '@/components/slider/slider2/slider3/VueCarousel.vue';
 import ButtonComponent from "@/components/ButtonComponent.vue";
 import HomeSlides from '@/assets/home/main/slide/slide.json'
 import { useStore } from 'vuex';

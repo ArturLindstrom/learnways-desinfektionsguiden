@@ -242,10 +242,12 @@
               },
               {
                 "heading": "Kontroller och underhåll",
+                "link": "https://projekt.learnways.com/projekt/Learnways/Praktik/Desinfektion/pdfs/Spoldesinfektor_Checklista.pdf",
+                "linkInner": "Checklista spoldesinfektor",
+                "linkAfter": "(öppnas i nytt fönster)",
                 "body": 
                   [
-                    "Dagliga kontroller görs av vård- och omsorgspersonal, medan förebyggande underhåll görs av auktoriserad tekniker efter tillverkarens anvisningar minst en gång per år.",
-                    "<a href='https://projekt.learnways.com/projekt/Learnways/Praktik/Desinfektion/pdfs/Spoldesinfektor_Checklista.pdf'>Checklista spoldesinfektor</a> (öppnas i nytt fönster)"
+                    "Dagliga kontroller görs av vård- och omsorgspersonal, medan förebyggande underhåll görs av auktoriserad tekniker efter tillverkarens anvisningar minst en gång per år."
                   ],
                 "image": "/assets/olikatyper/room3/room3-1-7.svg"
               }
@@ -305,10 +307,12 @@
                 },
                 {
                   "heading": "Steg 6",
+                  "link": "https://projekt.learnways.com/projekt/Learnways/Praktik/Desinfektion/pdfs/Diskdesinfektor_Checklista.pdf",
+                  "linkInner": "Checklista diskdesinfektor",
+                  "linkAfter": "(öppnas i nytt fönster)",
                   "body":
                     [
-                      "Kontrollera att godset är rent och torrt. Förvara det rena godset torrt och dammfritt. Dagliga kontroller görs av vård- och omsorgspersonal, medan förebyggande underhåll görs av auktoriserad tekniker efter tillverkarens anvisningar minst en gång per år.",
-                      "<a href='https://projekt.learnways.com/projekt/Learnways/Praktik/Desinfektion/pdfs/Diskdesinfektor_Checklista.pdf'>Checklista diskdesinfektor</a> (öppnas i nytt fönster)"
+                      "Kontrollera att godset är rent och torrt. Förvara det rena godset torrt och dammfritt. Dagliga kontroller görs av vård- och omsorgspersonal, medan förebyggande underhåll görs av auktoriserad tekniker efter tillverkarens anvisningar minst en gång per år."
                     ],
                   "image": "/assets/olikatyper/room3/room3-2-3.svg"
                 }
