@@ -27,12 +27,8 @@ const props = defineProps({
 </script>
 
 <style lang="scss" scoped>
-.arrows-container {
-  z-index: 1;
-}
 .arrow {
   color: white;
-  margin: 0.75rem;
   width: 2.5rem;
   height: 2.5rem;
   background: #0e2d57 no-repeat center center;
@@ -47,10 +43,12 @@ const props = defineProps({
 }
 .arrow-left {
   background-image: url("/assets/home/main/slide/images/arrow-left.svg");
+  margin-right: 0.75rem;
 }
 
 .arrow-right {
   background-image: url("/assets/home/main/slide/images/arrow-right.svg");
+  margin-left: 0.75rem;
 }
 
 .disabled {

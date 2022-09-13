@@ -1,0 +1,189 @@
+<template>
+  <div class="carousel-wrapper" @keyup.right="incrementIndex" @keyup.left="decrementIndex">
+    <div class="slider-container">
+      <div class="image-container">
+        <img :src="slideImage" alt="" class="slide-image" />
+      </div>
+      <div class="text-and-button-container">
+        <Carousel v-model="currentIndex" :items-to-show=1 :transition=500>
+          <Slide v-for="slide in slides" :key="slide" >
+            <div class="text-container">
+              <h3 class="slide-heading" :class="{'left-align' : slide.heading.length > 200}">{{ slide.heading }}</h3>
+              <p v-for="paragraph in slide.body" :key="paragraph">{{ paragraph }}</p>
+              <i v-if="slide.source" class="slide-source">{{slide.source}}</i>
+            </div>
+          </Slide>
+        </Carousel>
+        <SliderNewButtons
+          class="slider-buttons"
+          @previous-slide="decrementIndex"
+          @next-slide="incrementIndex"
+          :index="currentIndex"
+          :slides="slides"
+        />
+      </div>
+    </div>
+    <SliderNewBullets
+      class="slider-bullets"
+      :slides="slides"
+      :index="currentIndex"
+      @go-to-slide="setIndex"
+    />
+  </div>
+</template>
+
+<script setup>
+  import { ref, computed, watch, onMounted } from 'vue'
+  import SliderNewButtons from '@/components/slider/slider2/SliderNewButtons.vue'
+  import SliderNewBullets from '@/components/slider/slider2/SliderNewBullets.vue'
+  import 'vue3-carousel/dist/carousel.css'
+  import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel';
+  import gsap from 'gsap'
+
+  const props = defineProps({
+    slides: {
+      type: Array,
+      required: true
+    }
+  })
+
+  const slides = computed(() => props.slides)
+  
+  const currentIndex = ref(0)
+
+  const incrementIndex = () => {
+    if(currentIndex.value < props.slides.length - 1) {
+      currentIndex.value++
+      fadeImage()
+    }
+  }
+
+  const decrementIndex = () => {
+    if(currentIndex.value > 0) {
+      currentIndex.value--
+      fadeImage()
+    }
+  }
+
+  const setIndex = (index) => {
+    currentIndex.value = index
+    fadeImage()
+  }
+
+  const slideImage = ref(slides.value[currentIndex.value].image)
+  const fadeImage = () => {
+    gsap.to('.slide-image', {
+      opacity: 0,
+      delay: 0.5,
+      duration: 0.25,
+      onComplete: () => {
+        slideImage.value = slides.value[currentIndex.value].image
+        gsap.to('.slide-image', {
+          opacity: 1,
+          duration: 0.5
+        })
+      }
+    })
+  }
+
+</script>
+
+<style scoped lang='scss'>
+
+  .carousel-wrapper {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    width: 90%;
+    height: calc(0.5 * -30vw);
+  }
+  .slider-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 1rem;
+    margin-top: 5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .image-container {
+    width: 50%;
+    .slide-image {
+      height: 300px;
+      width: 100%;
+    }
+  }
+    
+  .text-and-button-container {
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    gap: 1.5rem;
+    .slider-buttons {
+      display: flex;
+    }
+  }
+  .text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    & p::after, h3::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 1px;
+      margin: 0.25em 0;
+    }
+    .slide-heading {
+      font-size: 17px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-style: normal;
+      margin: 0 0 0.5em 0;
+      line-height: 1;
+      color: #003340;
+      }
+    .slide-source {
+      font-size: 0.75rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+
+    .carousel-wrapper {
+      margin-bottom: 2rem;
+    }
+    .slider-container {
+      flex-direction: column;
+      height: 100%;
+      gap: 1.5rem;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    .image-container {
+      width: 100%;
+      .slide-image {
+        height: 250px;
+        width: 300px;
+      }
+    }
+    .text-and-button-container {
+      width: 100%;
+      display: flex;
+      gap: 1rem;
+    }
+    .text-container {
+      justify-content: flex-start;
+      height: 100%;
+    }
+
+    .slider-buttons {
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+  }
+
+
+</style>

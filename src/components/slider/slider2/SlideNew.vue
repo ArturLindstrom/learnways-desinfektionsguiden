@@ -25,8 +25,7 @@
       default: 0,
     },
   })
-
-
+  
   const slide = computed(() => props.slide)
   const index = computed(() => props.index)
   const slideRef = ref(slide.value)
