@@ -9,9 +9,11 @@
     <MainComponent v-if="situation.questions" class="main">
       <div class="vertical-line">
         <div class="circle">
-          🥵
+          <img src="/assets/scroll-icon-small.svg" alt="" class="scroll-icon" 
+          v-if="questionIndex > 1 && questionIndex < 4">
         </div>
       </div>
+      <!-- <div class="arrow"></div> -->
       <TransitionGroup @enter="showNextQuestion">
         <QuestionComponent
           v-for="question in questions"
@@ -57,18 +59,18 @@ const animateLine = (payload) => {
 
     gsap.to('.vertical-line', 
     {
-      delay: 0.5,
-     duration: 1,
+      // delay: 0.5,
+     duration: 1.2,
     //  delay: 0.5,
      height:  ` +=${travelDistance +200}px`,
-     ease: "power2.inOut",
+    //  ease: "power2.inOut",
    })
   }
   else{
     gsap.to('.vertical-line', 
     {
-      delay: 0.5,
-     duration: 1,
+      // delay: 0.5,
+     duration: 1.2,
     //  delay: 0.5,
      height:  ` +=${travelDistance +400}px`,
    })
@@ -116,16 +118,20 @@ const showNextQuestion = (el, done) => {
 
 <style scoped lang="scss">
   .circle {
-    width: 20px;
-    height: 20px;
-    background-color: black;
+    width: 30px;
+    height: 30px;
+    background-color: #f4edc9;
     border-radius: 50%;
     position: absolute;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
   }
+
 
   .main{
     position: relative;
@@ -138,6 +144,10 @@ const showNextQuestion = (el, done) => {
     top: -80px;
     width: 10px;
     background: #f4edc9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 .content-container {
   display: flex;

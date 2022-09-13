@@ -22,6 +22,7 @@
       </QuizButton>
     </div>
     <div class="feedback-container">
+      <div class="arrow"></div>
       <p>{{ feedback }}</p>
     </div>
   </div>
@@ -60,15 +61,21 @@ const getFeedback = (e,i) => {
   console.log(isSelected.value);
   if (mq.current != "xs") {
     gsap.to(".question-container", {
-      duration: 1,
-      x: "-50%",
+      duration: 0.5,
+      x: "-60%",
     });
 
     gsap.to(".feedback-container", {
-      duration: 1,
+      duration: 0.5,
       // delay: 0.5,
       opacity: 1,
       x: "15%",
+    });
+
+    gsap.to(".arrow", {
+      duration: 0.4,
+      delay: 0.5,
+      opacity: 1,
     });
   } else {
     gsap.to(".feedback-container", {
@@ -81,6 +88,20 @@ const getFeedback = (e,i) => {
 </script>
 
 <style scoped lang="scss">
+  
+  .arrow{
+    width: 100px;
+    height: 100px;
+    background: #f4edc9 url(../assets/qicon-1.svg) no-repeat center center;
+    border-radius: 50%;
+    position: absolute;
+    right: 113.4%;
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+  }
 
   
   .question {
