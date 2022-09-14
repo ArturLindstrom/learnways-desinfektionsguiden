@@ -36,7 +36,6 @@
       >
       </DragAndDrop>
     </MainComponent>
-    {{mq}}
     <SituationFooter v-if="showFooter" />
   </div>
 </template>
@@ -52,7 +51,6 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import DragAndDrop from "./DragAndDrop.vue";
 import { useMq } from "vue3-mq";
-import { conditionalExpression } from "@babel/types";
 gsap.registerPlugin(ScrollTrigger);
 
 const store = useStore();
@@ -66,16 +64,22 @@ const animateLine = (payload) => {
   console.log(questionIndex.value);
   if (questionIndex.value < 3) {
     if(mq.current == 'xs'){
-      console.log('xs')
+      gsap.to(".vertical-line", {
+        height: ` +=${travelDistance + 250}px`,
+ 
+      })
     }
-    gsap.to(".vertical-line", {
-      duration: 1.2,
-      height: ` +=${travelDistance + 200 -50}px`,
-    });
+    else{
+
+      gsap.to(".vertical-line", {
+        duration: 1.2,
+        height: ` +=${travelDistance + 200 -50}px`,
+      });
+    }
   } else {
     gsap.to(".vertical-line", {
       duration: 1.2,
-      height: ` +=${travelDistance + 400}px`,
+      height: ` +=${travelDistance + 420}px`,
     });
   }
 };
