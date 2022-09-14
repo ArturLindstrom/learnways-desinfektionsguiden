@@ -76,6 +76,8 @@ const getFeedback = (e,i) => {
       duration: 0.4,
       delay: 0.5,
       opacity: 1,
+      rotate: 0,
+      scale: 1,
     });
   } else {
     gsap.to(".feedback-container", {
@@ -97,6 +99,8 @@ const getFeedback = (e,i) => {
     position: absolute;
     right: 113.4%;
     opacity: 0;
+    transform: scale(0);
+    transform: rotate(60deg);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -165,11 +169,15 @@ const getFeedback = (e,i) => {
   .question {
     flex-direction: column;
     margin-bottom: 100px;
+    width: 100%
   }
   .feedback-container {
     position: static;
     margin-top: 1rem;
     margin-right: 0;
+    background: #f4edc9;
+    width: 100%;
+    padding: 2rem;
     /* opacity: 1; */
   }
 

@@ -13,7 +13,7 @@ button {
   font-family: "Nunito";
   border: 2px solid #1d4c7b;
   border-radius: 5px;
-  background-color: transparent;
+  background-color: white;
   color: black;
   padding: 10px;
   font-size: 18px;

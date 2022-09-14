@@ -9,11 +9,14 @@
     <MainComponent v-if="situation.questions" class="main">
       <div class="vertical-line">
         <div class="circle">
-          <img src="/assets/scroll-icon-small.svg" alt="" class="scroll-icon" 
-          v-if="questionIndex > 1 && questionIndex < 4">
+          <img
+            src="/assets/scroll-icon-small.svg"
+            alt=""
+            class="scroll-icon"
+            v-if="questionIndex > 1 && questionIndex < 4"
+          />
         </div>
       </div>
-      <!-- <div class="arrow"></div> -->
       <TransitionGroup @enter="showNextQuestion">
         <QuestionComponent
           v-for="question in questions"
@@ -26,10 +29,14 @@
       </TransitionGroup>
     </MainComponent>
     <MainComponent v-else>
-      <DragAndDrop :content="situation.dragAndDrop" :id="situation.id" @done="showFooter = true"> </DragAndDrop>
-      
+      <DragAndDrop
+        :content="situation.dragAndDrop"
+        :id="situation.id"
+        @done="showFooter = true"
+      >
+      </DragAndDrop>
     </MainComponent>
-    
+    {{mq}}
     <SituationFooter v-if="showFooter" />
   </div>
 </template>
@@ -44,42 +51,34 @@ import SituationFooter from "@/components/situations/SituationFooter.vue";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import DragAndDrop from "./DragAndDrop.vue";
+import { useMq } from "vue3-mq";
 gsap.registerPlugin(ScrollTrigger);
 
 const store = useStore();
 const situation = store.state.modalContent;
 
-
+const mq = useMq();
 
 const animateLine = (payload) => {
-  const travelDistance = payload.target.parentElement.offsetHeight
+  const travelDistance = payload.target.parentElement.offsetHeight;
   console.log(travelDistance);
   console.log(questionIndex.value);
-  if(questionIndex.value < 3){
-
-    gsap.to('.vertical-line', 
-    {
-      // delay: 0.5,
-     duration: 1.2,
-    //  delay: 0.5,
-     height:  ` +=${travelDistance +200}px`,
-    //  ease: "power2.inOut",
-   })
-  }
-  else{
-    gsap.to('.vertical-line', 
-    {
-      // delay: 0.5,
-     duration: 1.2,
-    //  delay: 0.5,
-     height:  ` +=${travelDistance +400}px`,
-   })
+  if (questionIndex.value < 3) {
+    
+    gsap.to(".vertical-line", {
+      duration: 1.2,
+      height: ` +=${travelDistance + 200 -50}px`,
+    });
+  } else {
+    gsap.to(".vertical-line", {
+      duration: 1.2,
+      height: ` +=${travelDistance + 400}px`,
+    });
   }
 };
 
-
 const showFooter = ref(false);
-const contentContainer = ref(null)
+const contentContainer = ref(null);
 
 const questions = computed(() => {
   return situation.questions.slice(0, questionIndex.value);
@@ -109,46 +108,42 @@ const showNextQuestion = (el, done) => {
     opacity: 0,
     y: 100,
   });
-  
+
   done();
 };
-
-
 </script>
 
 <style scoped lang="scss">
-  .circle {
-    width: 30px;
-    height: 30px;
-    background-color: #f4edc9;
-    border-radius: 50%;
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-  }
+.circle {
+  width: 25px;
+  height: 25px;
+  background-color: #f4edc9;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-
-  .main{
-    position: relative;
-    
-  }
-  .vertical-line {
-    /* height: 20px; */
-    position: absolute;
-    left: 50%;
-    top: -80px;
-    width: 10px;
-    background: #f4edc9;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
+.main {
+  position: relative;
+}
+.vertical-line {
+  height: 70px;
+  position: absolute;
+  left: 50%;
+  top: -80px;
+  width: 10px;
+  background: #f4edc9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* z-index: -99; */
+}
 .content-container {
   display: flex;
   flex-direction: column;
@@ -200,6 +195,7 @@ footer:hover .thumbs-up-icon {
     display: flex;
     flex-direction: column;
   }
-
+  .vertical-line {
+  }
 }
 </style>
