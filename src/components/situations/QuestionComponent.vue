@@ -73,7 +73,7 @@ const getFeedback = (e,i) => {
 
     gsap.to(".arrow", {
       duration: 0.4,
-      delay: 0.75,
+      delay: 0.5,
       opacity: 1,
       rotate: 0,
       scale: 1,
@@ -83,6 +83,13 @@ const getFeedback = (e,i) => {
       duration: 1,
       // delay: 0.5,
       opacity: 1,
+    });
+    gsap.to(".arrow", {
+      duration: 0.4,
+      delay: 0.5,
+      opacity: 1,
+      rotate: 0,
+      scale: 1,
     });
   }
 };
