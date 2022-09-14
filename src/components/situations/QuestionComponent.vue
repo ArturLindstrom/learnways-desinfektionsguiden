@@ -73,7 +73,7 @@ const getFeedback = (e,i) => {
 
     gsap.to(".arrow", {
       duration: 0.4,
-      delay: 0.5,
+      delay: 0.75,
       opacity: 1,
       rotate: 0,
       scale: 1,

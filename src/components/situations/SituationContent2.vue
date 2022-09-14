@@ -79,7 +79,7 @@ const animateLine = (payload) => {
   } else {
     gsap.to(".vertical-line", {
       duration: 1.2,
-      height: ` +=${travelDistance + 420}px`,
+      height: ` +=${travelDistance + 450}px`,
     });
   }
 };
