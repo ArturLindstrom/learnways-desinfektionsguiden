@@ -115,7 +115,6 @@ onMounted(() => {
       // main.slides: roomsContent[i].slides
     });
   }
-  console.log(rooms3.value);
 });
 
 // const modalOpen = ref(false)
