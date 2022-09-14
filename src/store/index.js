@@ -79,7 +79,8 @@ export default createStore({
           olikatyper: false,
           situationer: false,
           diplom: false,
-        }
+        },
+    currentBackground: "",
   },
   getters: {
     viewsCompleted(state){
@@ -147,6 +148,17 @@ export default createStore({
 
     setDragging(state, dragging) {
       state.isDragging = dragging;
+    },
+    addRoute(state, route) {
+      if(route === 'home'){
+        state.currentBackground = "url('/assets/bg-1.svg')"
+      } else if (route === 'olikatyper'){
+        state.currentBackground = "url('/assets/bg-2.svg')"
+      } else if (route === 'situationer'){
+        state.currentBackground = "url('/assets/bg-3.svg')"
+      } else if (route === 'diplom'){
+        state.currentBackground = "url('/assets/bg-4.svg')"
+      }
     }
 
     

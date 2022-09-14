@@ -1,7 +1,6 @@
 <template>
   <header class="header">
-  <!-- <header :style="{ backgroundImage: bg }" class="header"> -->
-    <div class="background" :style="{ backgroundImage: bg }">
+    <div class="background" :style="{ backgroundImage: backgroundImage }">
     </div>
     <div class="imgs">
       <img
@@ -22,7 +21,6 @@
       <ProgressBarComponent class="progress-bar" />
     </div>
     <Transition>
-    <!-- <Transition :name="animateScroll"> -->
       <ScrollContainer
         class="scroll-container"
         v-if="route.name != 'diplom' || done"
@@ -46,17 +44,52 @@ const done = computed(() => {
   return store.state.done;
 });
 
-const props = defineProps({
-  backgroundImage: {
-    type: String,
-    required: true,
-  },
+onMounted(() => {
+  store.commit("addRoute", route.name);
+  if(route.name != 'diplom') {
+    gsap.to(".background",
+      {
+        duration: 0.75,
+        opacity: 0,
+        ease: "power2.out",
+        onComplete: () => 
+          {
+            backgroundImage.value = store.state.currentBackground;
+            gsap.to(".background", 
+              {
+                duration: 1.5,
+                opacity: 1,
+                ease: "power2.out",
+              }
+            )
+          }
+      }
+    )
+  } else {
+    gsap.to(".background",
+      {
+        duration: 0.25,
+        opacity: 0,
+        ease: "power2.out",
+        onComplete: () => 
+          {
+            backgroundImage.value = store.state.currentBackground;
+            gsap.set(".background", {scale: 0})
+            gsap.to(".background", 
+              {
+                duration: 1,
+                scale: 1,
+                opacity: 1,
+                ease: "power2.out",
+              }
+            )
+          }
+      }
+    )
+  }
 });
 
-// computed that returns prop
-const bg = computed(() => {
-  return props.backgroundImage;
-});
+const backgroundImage = ref(store.state.currentBackground)
 
 </script>
 
