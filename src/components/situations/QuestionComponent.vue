@@ -1,5 +1,6 @@
 <template>
   <div class="question">
+
     <div class="question-container">
       <p class="description" v-if="question.description.length">
         {{ question.description }}
@@ -9,7 +10,7 @@
       </SubHeadingComponent>
       <QuizButton
         v-for="(alternative, i) in question.alternatives"
-        @click="getFeedback(i)"
+        @click="(e) => getFeedback(e,i)"
         :isSelected="isSelected"
         :key="alternative.alternative"
         :class="{
@@ -21,6 +22,7 @@
       </QuizButton>
     </div>
     <div class="feedback-container">
+      <div class="arrow"></div>
       <p>{{ feedback }}</p>
     </div>
   </div>
@@ -44,13 +46,14 @@ const props = defineProps({
   },
 });
 
-const emit = defineEmits(["answer"]);
+const emit = defineEmits(["answer", "offset"]);
 
 const isSelected = ref(null);
 
 const feedback = ref('');
 
-const getFeedback = (i) => {
+const getFeedback = (e,i) => {
+  emit('offset', e)
   isSelected.value = i + 1;
   questionDone.value = true;
   feedback.value = props.question.alternatives[i].feedback;
@@ -58,16 +61,23 @@ const getFeedback = (i) => {
   console.log(isSelected.value);
   if (mq.current != "xs") {
     gsap.to(".question-container", {
-      duration: 1,
-      // display:'grid',
-      x: "-50%",
+      duration: 0.5,
+      x: "-60%",
     });
 
     gsap.to(".feedback-container", {
-      duration: 1,
+      duration: 0.5,
       // delay: 0.5,
       opacity: 1,
       x: "15%",
+    });
+
+    gsap.to(".arrow", {
+      duration: 0.4,
+      delay: 0.5,
+      opacity: 1,
+      rotate: 0,
+      scale: 1,
     });
   } else {
     gsap.to(".feedback-container", {
@@ -80,17 +90,35 @@ const getFeedback = (i) => {
 </script>
 
 <style scoped lang="scss">
+  
+  .arrow{
+    width: 100px;
+    height: 100px;
+    background: #f4edc9 url(../assets/qicon-1.svg) no-repeat center center;
+    border-radius: 50%;
+    position: absolute;
+    right: 113.4%;
+    opacity: 0;
+    transform: scale(0);
+    transform: rotate(60deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+  }
+
+  
   .question {
     display: flex;
     flex-direction: column;
     align-items: center;
-  
+    position: relative;
     /* display: grid; */
     grid-template-columns: 1fr 1fr;
     place-items: center;
     /* grid-gap: 100px; */
     width: 80%;
-    margin-bottom: 200px;
+    margin-bottom: 250px;
   }
   
   .grid {
@@ -141,11 +169,15 @@ const getFeedback = (i) => {
   .question {
     flex-direction: column;
     margin-bottom: 100px;
+    width: 100%
   }
   .feedback-container {
     position: static;
     margin-top: 1rem;
     margin-right: 0;
+    background: #f4edc9;
+    width: 100%;
+    padding: 2rem;
     /* opacity: 1; */
   }
 
