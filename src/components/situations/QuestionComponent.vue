@@ -84,13 +84,7 @@ const getFeedback = (e,i) => {
       // delay: 0.5,
       opacity: 1,
     });
-    gsap.to(".arrow", {
-      duration: 0.4,
-      delay: 0.5,
-      opacity: 1,
-      rotate: 0,
-      scale: 1,
-    });
+    
   }
 };
 </script>
@@ -119,10 +113,8 @@ const getFeedback = (e,i) => {
     flex-direction: column;
     align-items: center;
     position: relative;
-    /* display: grid; */
     grid-template-columns: 1fr 1fr;
     place-items: center;
-    /* grid-gap: 100px; */
     width: 80%;
     margin-bottom: 250px;
   }
