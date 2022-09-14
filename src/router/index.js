@@ -23,29 +23,37 @@ const router = createRouter({
           name: 'home',
           fullName: 'Start',
           component: HomeView,
+          meta: {title: 'Start'}
         },
         {
           path: '/olika-typer',
           name: 'olikatyper',
           fullName: 'Olika typer',
-          component: OlikaTyperView
+          component: OlikaTyperView,
+          meta: {title: 'Olika typer'}
         },
         {
           path: '/situationer',
           name: 'situationer',
           fullName: 'Situationer',
-          component: SituationerView
+          component: SituationerView,
+          meta: {title: 'Situationer'}
         },
         {
           path: '/diplom',
           name: 'diplom',
           fullName: 'Diplom',
           component: DiplomView,
+          meta: {title: 'Diplom'},
           beforeEnter: areViewsCompleted
         }
     
   ]
 })
+
+router.afterEach((to, from) => {
+  document.title = to.meta.title + ' | Desinfektionsguiden';
+});
 
 
 export default router
