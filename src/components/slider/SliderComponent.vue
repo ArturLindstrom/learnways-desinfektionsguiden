@@ -17,7 +17,7 @@
             </div>
           </Slide>
         </Carousel>
-        <SliderNewButtons
+        <SliderButtons
           class="slider-buttons"
           @previous-slide="decrementIndex"
           @next-slide="incrementIndex"
@@ -26,7 +26,7 @@
         />
       </div>
     </div>
-    <SliderNewBullets
+    <SliderBullets
       class="slider-bullets"
       :slides="slides"
       :index="currentIndex"
@@ -36,9 +36,9 @@
 </template>
 
 <script setup>
+  import SliderButtons from '@/components/slider/SliderButtons.vue'
+  import SliderBullets from '@/components/slider/SliderBullets.vue'
   import { ref, computed, watch, onMounted } from 'vue'
-  import SliderNewButtons from '@/components/slider/SliderButtons.vue'
-  import SliderNewBullets from '@/components/slider/SliderBullets.vue'
   import 'vue3-carousel/dist/carousel.css'
   import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel';
   import gsap from 'gsap'
@@ -82,10 +82,11 @@
 
   watch(currentIndex, () => {
     fadeImage()
-    myCarousel.value.restartCarousel()
+    // myCarousel.value.restartCarousel()
   })
 
   const slideImage = ref(slides.value[currentIndex.value].image)
+
   const fadeImage = () => {
     gsap.to('.slide-image', {
       opacity: 0,
@@ -115,7 +116,7 @@
   }
 
   .modal {
-    width: 70vw;
+    width: 60vw;
     height: 80vh;
   }
   .slider-container {
@@ -178,6 +179,7 @@
     }
     .modal {
       width: 100%;
+      height: 100%;
     }
     .slider-container {
       flex-direction: column;
@@ -210,6 +212,4 @@
       margin-bottom: 1rem;
     }
   }
-
-
 </style>

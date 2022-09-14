@@ -7,127 +7,76 @@ export default createStore({
     modalShown: false,
     isDragging: false,
     modalContentShown: false,
-    // modalContent: {},
-    modalContent: {
-      "heading": "Du är på väg in till en patient för att utföra ett vårdmoment.",
-      "id": 1,
-      "end": "Du är klar med situationen. Stäng och gå vidare till nästa.",
-        "questions":
-          [
-            {
-              "question": "När ska du desinfektera händerna?",
-              "id": 1,
-              "answered": false,
-              "description": "",
-              "alternatives": 
-                [
-                  {
-                    "alternative": "Du behöver inte desinfektera händerna eftersom du tänker använda handskar",
-                    "feedback": "Tyvärr inte rätt. Handdesinfektion ska ske direkt före och efter varje vård- och omsorgsmoment, samt före och efter handskanvändning och efter handtvätt.",
-                    "correct": false
-                  },
-                  {
-                    "alternative": "Det räcker att desinfektera händerna efter att du har utfört vårdmomentet hos patienten",
-                    "feedback": "Tyvärr inte rätt. Handdesinfektion ska ske direkt före och efter varje vård- och omsorgsmoment, samt före och efter handskanvändning och efter handtvätt.",
-                    "correct": false
-                  },
-                  {
-                    "alternative": "Direkt före det vårdnära arbetsmomentet",
-                    "feedback": "Rätt svar! Handdesinfektion ska ske före och efter varje vård- och omsorgsmoment, samt före och efter handskanvändning och efter handtvätt.",
-                    "correct": true
-                  }
-                ]
-            },
-            {
-              "question": "Vad tror du är den främsta orsaken till att handdesinfektionen inte får full effekt?",
-              "id": 2,
-              "answered": false,
-              "description": "Du desinfekterar nu händerna precis före ditt vårdnära arbetsmoment.",
-              "alternatives": 
-                [
-                  {
-                    "alternative": "Att man tar för lite desinfektionsmedel",
-                    "feedback": "Rätt svar! Alla dessa alternativ kan göra att handdesinfektionen inte får full effekt, och är lika viktiga för att inte överföra smittämnen till patienten.",
-                    "correct": true
-                  },
-                  {
-                    "alternative": "Att det inte fördelas överallt på händerna",
-                    "feedback": "Rätt svar! Alla dessa alternativ kan göra att handdesinfektionen inte får full effekt, och är lika viktiga för att inte överföra smittämnen till patienten.",
-                    "correct": true
-                  },
-                  {
-                    "alternative": "Missar att gnida tills det dunstat och huden känns torr",
-                    "feedback": "Rätt svar! Alla dessa alternativ kan göra att handdesinfektionen inte får full effekt, och är lika viktiga för att inte överföra smittämnen till patienten.",
-                    "correct": true
-                  }
-                ]
-            },
-          ]
-      },
+    modalContent: {},
     done : false,
-    roomsVisited: [
-         false,
-         false,
-         false,
-         false,
-         false,
-    ],
+    roomsVisited: 
+      {
+        0: false,
+        1: false,
+        2: false,
+        3: false,
+        4: false
+      },
     situationsCompleted: [],
     viewsCompleted: 
-        {
-          home: false,
-          olikatyper: false,
-          situationer: false,
-          diplom: false,
-        },
+      {
+        home: false,
+        olikatyper: false,
+        situationer: false,
+        diplom: false,
+      },
     currentBackground: "",
   },
   getters: {
     viewsCompleted(state){
       return Object.values(state.viewsCompleted).filter(value => value === true).length == 3
     },
+
+    // makeArray getter is used to make an array from the data (which is the json filed provided by learnways) file with a specified key name (query) as a parameter/payload
     makeArray: (state) => (query) => {
-      const array2 = Object.entries(state.data).map(([key, value]) => {
+      const array = Object.entries(state.data).map(([key, value]) => {
         return { key, value }
       })
-      const filteredArray2 = array2.filter(item => {
+      const filteredArray = array.filter(item => {
         return item.key.includes(query)
       })
-      return filteredArray2
-      // return Object.values(state.data)
-      // return Object.fromEntries(Object.entries(state.data).filter((([key]) => key.startsWith(query))))
-      // return Object.keys(state.data).map(key => state.data[key]).filter(key => key[key].startsWith(query));
+      return filteredArray
+ 
     } ,
     
   },
  
   mutations: {
+    //checks if data from sv.json contains markup and removes it
     removeMarkup(state){
       Object.keys(state.data).forEach(key => {
         state.data[key] = state.data[key].replace(/<[^>]*>?/gm, '')
       })
     },
-
     modalClose(state) {
       state.modalShown = false;
-      
+      // when modal is closed, check if all situations are completed and set the viewsCompleted.situationer to true
       if(state.situationsCompleted.length === 9){
         state.viewsCompleted.situationer = true
       }
+      // enables scrolling when modal is closed
       document.body.style.overflow = 'auto';
     },
     modalOpen(state, content) {
       state.modalShown = true;
       state.modalContent = content;
+      //removes scrollbar on background when modal is open
       document.body.style.overflow = 'hidden';
+      // check if modal contains a room, and sets the corresponding room in roomsVisited to true
       if(content.thumbnail){
         state.roomsVisited[content.thumbnail.roomNumber-1] = true;
-
-        if(state.roomsVisited.filter(Boolean).length === 5){
+      // if every room has been visited, set the viewsCompleted.olikatyper to true
+        if(Object.values(state.roomsVisited).every(Boolean)){
           state.viewsCompleted.olikatyper = true
         }
       }
     },
+    // modalContentShown is its own variable to enable smooth transitions 
     modalContentClose(state) {
       state.modalContentShown = false;
     },
@@ -137,7 +86,7 @@ export default createStore({
     toggleDone(state) {
       state.done = !state.done;
     },
-    addCompleted(state, situation) {
+    addCompletedSituation(state, situation) {
       if(!state.situationsCompleted.includes(situation)){
         state.situationsCompleted.push(situation);
       }

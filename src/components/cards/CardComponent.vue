@@ -31,62 +31,56 @@
 </template>
 
 <script setup>
-import SubHeadingComponent from "@/components/headings/SubHeadingComponent.vue";
-import ButtonComponent from "../ButtonComponent.vue";
-import { useStore } from "vuex";
+  import SubHeadingComponent from "@/components/headings/SubHeadingComponent.vue";
+  import ButtonComponent from "../ButtonComponent.vue";
+  import { useStore } from "vuex";
 
-const props = defineProps({
-  cardContent: {
-    type: Object,
-  },
-});
+  const props = defineProps({
+    cardContent: {
+      type: Object,
+    },
+  });
 
-const store = useStore();
+  const store = useStore();
 
-const modalOpen = (situation) => {
-  store.commit("modalOpen", situation);
-};
+  const modalOpen = (situation) => {
+    store.commit("modalOpen", situation);
+  };
 
-const cardContent = props.cardContent;
+  const cardContent = props.cardContent;
 </script>
 
 <style scoped lang="scss">
-.card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 500px;
-  border-radius: 5px;
-  background: #f5f2ed;
-  justify-content: space-around;
-  padding: 30px;
-  margin: 0 10px;
-  flex: 1;
-  width: 260px;
-  /* min-width: 250px; */
-  max-width: 240px;
-}
-
-p,
-ul,
-li {
-  text-align: left;
-}
-
-.button-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-}
-
-@media screen and (max-width: 480px) {
   .card {
-    padding: 40px
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 500px;
+    border-radius: 5px;
+    background: #f5f2ed;
+    justify-content: space-around;
+    padding: 30px;
+    margin: 0 10px;
+    flex: 1;
+    width: 260px;
+    max-width: 240px;
   }
-  
-}
-  
 
+  p, ul, li {
+    text-align: left;
+  }
+
+  .button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  @media screen and (max-width: 480px) {
+    .card {
+      padding: 40px
+    }
+  }
 </style>
