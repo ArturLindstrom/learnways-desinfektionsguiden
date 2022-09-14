@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <HeaderComponent bgImg="1">
+    <HeaderComponent background-image="url('/assets/bg-1.svg')">
       <HeadingComponent fontSize="big" animate>
         {{data.page_title}}
       </HeadingComponent>

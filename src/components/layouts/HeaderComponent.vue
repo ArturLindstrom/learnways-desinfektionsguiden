@@ -1,5 +1,7 @@
 <template>
-  <header :style="{ backgroundImage: bg }" class="header">
+  <header class="header">
+    <div class="background" :style="{ backgroundImage: backgroundImage }">
+    </div>
     <div class="imgs">
       <img
         src="/assets/Vårdhygien-Stockholm.svg"
@@ -19,7 +21,6 @@
       <ProgressBarComponent class="progress-bar" />
     </div>
     <Transition>
-    <!-- <Transition :name="animateScroll"> -->
       <ScrollContainer
         class="scroll-container"
         v-if="route.name != 'diplom' || done"
@@ -31,7 +32,7 @@
 <script setup>
 import ProgressBarComponent from "@/components/ProgressBarComponent.vue";
 import ScrollContainer from "@/components/ScrollContainer.vue";
-import { computed, onMounted, ref } from "vue";
+import { computed, onMounted, ref, watch } from "vue";
 import gsap from "gsap";
 import { useRoute } from "vue-router";
 import { useStore } from "vuex";
@@ -43,16 +44,53 @@ const done = computed(() => {
   return store.state.done;
 });
 
+onMounted(() => {
+  store.commit("addRoute", route.name);
+  if(route.name != 'diplom') {
+    gsap.to(".background",
+      {
+        duration: 0.75,
+        opacity: 0,
+        ease: "power2.out",
+        onComplete: () => 
+          {
+            backgroundImage.value = store.state.currentBackground;
+            gsap.to(".background", 
+              {
+                duration: 1.5,
+                opacity: 1,
+                ease: "power2.out",
+              }
+            )
+          }
+      }
+    )
+  } else {
+    gsap.to(".background",
+      {
+        duration: 0.25,
+        opacity: 0,
+        ease: "power2.out",
+        onComplete: () => 
+          {
+            backgroundImage.value = store.state.currentBackground;
+            gsap.set(".background", {scale: 0})
+            gsap.to(".background", 
+              {
+                duration: 1,
+                scale: 1,
+                opacity: 1,
+                ease: "power2.out",
+              }
+            )
+          }
+      }
+    )
+  }
+});
 
-const props = defineProps({
-  bgImg: {
-    type: String,
-    default: "home",
-  },
-});
-const bg = computed(() => {
-  return `url(../assets/bg-${props.bgImg}.svg)`;
-});
+const backgroundImage = ref(store.state.currentBackground)
+
 </script>
 
 <style scoped lang="scss">
@@ -68,7 +106,16 @@ header {
   width: 100%;
   position: relative;
 }
-
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: no-repeat center center #f4edc9;
+  background-size: cover;
+  z-index: 0;
+}
 .imgs {
   position: absolute;
   top: 1rem;

@@ -42,19 +42,7 @@ const router = createRouter({
           fullName: 'Diplom',
           component: DiplomView,
           beforeEnter: areViewsCompleted
-        },
-        // {
-        //   path: '/test',
-        //   name: 'test',
-        //   fullName: 'Test',
-        //   component: TestView
-        // },
-        // {
-        //   path: '/situations2',
-        //   name: 'situations2',
-        //   fullName: 'Situations2',
-        //   component: SituationContent2
-        // }
+        }
     
   ]
 })
