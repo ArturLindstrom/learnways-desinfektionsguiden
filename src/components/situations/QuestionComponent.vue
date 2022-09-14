@@ -55,7 +55,6 @@ const getFeedback = (i) => {
   questionDone.value = true;
   feedback.value = props.question.alternatives[i].feedback;
   emit("answer");
-  console.log(isSelected.value);
   if (mq.current != "xs") {
     gsap.to(".question-container", {
       duration: 1,

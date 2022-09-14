@@ -10,7 +10,7 @@
     </HeaderComponent>
     <MainComponent flex="column">
       <HeadingComponent fontSize="small">
-        {{s02_h2_1}}
+        {{data.s02_h2_1}}
       </HeadingComponent>
       <SubHeadingComponent>
         Du har gått igenom {{completedRooms}} av 5 rum

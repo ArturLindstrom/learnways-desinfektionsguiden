@@ -11,7 +11,6 @@ import { onMounted } from 'vue'
 const store = useStore()
 
 onMounted(() => {
-  console.log('mounted')
   store.commit('removeMarkup')
 })
 
