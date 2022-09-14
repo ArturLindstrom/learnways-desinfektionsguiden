@@ -17,7 +17,7 @@
         <p class="small">Ett urval av referenser och litteratur</p>
         <a
           class="links"
-          href="chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://projekt.learnways.com/projekt/Learnways/Praktik/Desinfektion/pdfs/Referenslista.pdf"
+          href="https://projekt.learnways.com/projekt/Learnways/Praktik/Desinfektion/pdfs/Referenslista.pdf"
           >Se referenslistan
         </a>
       </div>
@@ -40,74 +40,73 @@
 </template>
 
 <script setup>
-import { useRoute, useRouter } from "vue-router";
-import ButtonComponent from "@/components/ButtonComponent.vue";
-const route = useRoute();
+  import { useRoute, useRouter } from "vue-router";
+  import ButtonComponent from "@/components/ButtonComponent.vue";
+  const route = useRoute();
 </script>
 
 <style lang="scss" scoped>
-footer {
-  background: #e0ded9;
-  min-height: 5em;
-  /* height: auto; */
-  padding: 1em 0;
-  color: #000000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-.footer-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 70px;
-}
-
-.footer-container div {
-  text-align: left;
-  padding-left: 60px;
-  background-repeat: no-repeat;
-  background-position: top left;
-  background-size: 37px 37px;
-}
-
-.kontakt {
-  background-image: url(/assets/footerImgs/icon-kontakt.svg);
-}
-
-.referenslista {
-  background-image: url(/assets/footerImgs/icon-referens.svg);
-}
-
-.hygienrutiner {
-  background-image: url(/assets/footerImgs/icon-link.svg);
-}
-
-.links,
-.links:visited .links:link {
-  text-decoration: underline;
-}
-
-.small {
-  font-size: 15px;
-}
-
-p {
-  font-size: 17px;
-}
-
-@media (max-width: 768px) {
+  footer {
+    background: #e0ded9;
+    min-height: 5em;
+    padding: 1em 0;
+    color: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
   .footer-container {
-    flex-direction: column;
-    gap: 10px;
-    align-items: flex-start;
-    margin-left: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 70px;
   }
+
   .footer-container div {
-    padding-left: 50px;
     text-align: left;
-    background-position: center left;
+    padding-left: 60px;
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: 37px 37px;
   }
-}
+
+  .kontakt {
+    background-image: url(/assets/footerImgs/icon-kontakt.svg);
+  }
+
+  .referenslista {
+    background-image: url(/assets/footerImgs/icon-referens.svg);
+  }
+
+  .hygienrutiner {
+    background-image: url(/assets/footerImgs/icon-link.svg);
+  }
+
+  .links,
+  .links:visited .links:link {
+    text-decoration: underline;
+  }
+
+  .small {
+    font-size: 15px;
+  }
+
+  p {
+    font-size: 17px;
+  }
+
+  @media (max-width: 768px) {
+    .footer-container {
+      flex-direction: column;
+      gap: 10px;
+      align-items: flex-start;
+      margin-left: 1rem;
+    }
+    .footer-container div {
+      padding-left: 50px;
+      text-align: left;
+      background-position: center left;
+    }
+  }
 </style>

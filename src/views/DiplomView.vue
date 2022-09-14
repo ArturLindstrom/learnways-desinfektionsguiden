@@ -1,6 +1,6 @@
 <template>
 <div class="wrapper">
-  <HeaderComponent background-image="url('/assets/bg-4.svg')">
+  <HeaderComponent>
     <ConfettiExplosion v-if="done" 
     :particleCount="100"
     :stageHeight="1000"
@@ -15,7 +15,7 @@
    <HeadingComponent fontSize="big" animate v-else>
       Du är inte riktigt klar
     </HeadingComponent>
-    <button class="button" @click="toggleDone"> HEMLIGA KNAPPEN</button>
+    <button class="button" @click="toggleDone">HEMLIGA KNAPPEN</button>
     <SubHeadingComponent animate v-if="done">
       Bra jobbat! Du har genomfört hela utbildningen. Nu har du chans att hämta ditt diplom och repetera vid behov.
     </SubHeadingComponent>
@@ -36,13 +36,13 @@
 import HeaderComponent from "@/components/layouts/HeaderComponent.vue";
 import HeadingComponent from '@/components/headings/HeadingComponent.vue';
 import SubHeadingComponent from '@/components/headings/SubHeadingComponent.vue';
-import MainComponent from '@/components/layouts/MainComponent.vue';
-import { ref, computed, onMounted } from "vue";
-import cards from "@/assets/diplom/diplom.json"
-import CardWrapper from "../components/cards/CardWrapper.vue"
-import { useStore } from "vuex";
 import ConfettiExplosion from "vue-confetti-explosion";
+import MainComponent from '@/components/layouts/MainComponent.vue';
+import CardWrapper from "../components/cards/CardWrapper.vue"
 import CardComponent from "../components/cards/CardComponent.vue";
+import cards from "@/assets/diplom/diplom.json"
+import { ref, computed, onMounted } from "vue";
+import { useStore } from "vuex";
 
 const store = useStore()
 const done = computed(() => store.state.done)
@@ -53,7 +53,7 @@ const toggleDone = () => {
 
 </script>
 
-<style>
+<style scoped lang="scss">
  .wrapper{
     width: 100%;
  }

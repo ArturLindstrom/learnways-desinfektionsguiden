@@ -3,8 +3,6 @@ import HomeView from '../views/HomeView.vue'
 import OlikaTyperView from '../views/OlikaTyperView.vue'
 import SituationerView from '../views/SituationerView.vue' 
 import DiplomView from '../views/DiplomView.vue'
-import TestView from '../views/TestView.vue'
-import SituationContent2 from '../components/situations/SituationContent2.vue'
 import store from '../store/index.js'
 
 const areViewsCompleted = () => {
@@ -21,28 +19,24 @@ const router = createRouter({
     {
           path: '/',
           name: 'home',
-          fullName: 'Start',
           component: HomeView,
           meta: {title: 'Start'}
         },
         {
           path: '/olika-typer',
           name: 'olikatyper',
-          fullName: 'Olika typer',
           component: OlikaTyperView,
           meta: {title: 'Olika typer'}
         },
         {
           path: '/situationer',
           name: 'situationer',
-          fullName: 'Situationer',
           component: SituationerView,
           meta: {title: 'Situationer'}
         },
         {
           path: '/diplom',
           name: 'diplom',
-          fullName: 'Diplom',
           component: DiplomView,
           meta: {title: 'Diplom'},
           beforeEnter: areViewsCompleted

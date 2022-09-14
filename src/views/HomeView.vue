@@ -1,11 +1,11 @@
 <template>
   <div class="wrapper">
-    <HeaderComponent background-image="url('/assets/bg-1.svg')">
+    <HeaderComponent>
       <HeadingComponent fontSize="big" animate>
         {{data.page_title}}
       </HeadingComponent>
       <SubHeadingComponent animate>
-      {{data.s01_ingress}}
+        {{data.s01_ingress}}
       </SubHeadingComponent>
     </HeaderComponent>
     <MainComponent>
@@ -32,25 +32,9 @@ import { useStore } from 'vuex';
 import { computed, ref, onMounted } from 'vue';
 
 const store = useStore()
-
 const data = store.state.data
 
-const slideData = ref([])
-
-const slideHeadings = store.getters.makeArray('s01_about_h')
-const slideBodies = store.getters.makeArray('s01_about_p')
-
-onMounted(() => {
-  for (let i = 0; i < slideHeadings.length; i++) {
-  slideData.value.push({
-    heading: slideHeadings[i].value,
-    body: [slideBodies[i].value],
-    image: `assets/home/main/slide/images/start-${i+1}.svg`
-  })
-  }
-})
-
- </script>
+</script>
 
 <style lang="scss" scoped>
   .wrapper{

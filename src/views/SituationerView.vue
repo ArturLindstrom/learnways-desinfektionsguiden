@@ -1,44 +1,42 @@
 <template>
-<div class="wrapper">
-    <HeaderComponent background-image="url('/assets/bg-3.svg')">
-        <HeadingComponent fontSize="big" animate>
-            Öva på olika situationer
-        </HeadingComponent>
-        <SubHeadingComponent animate>
-            Nu är det dags att testa dina nya kunskaper i olika situationer.
-        </SubHeadingComponent>
+  <div class="wrapper">
+    <HeaderComponent>
+      <HeadingComponent fontSize="big" animate>
+        Öva på olika situationer
+      </HeadingComponent>
+      <SubHeadingComponent animate>
+        Nu är det dags att testa dina nya kunskaper i olika situationer.
+      </SubHeadingComponent>
     </HeaderComponent>
     <MainComponent flex="column">
-        <HeadingComponent fontSize="small">
-            Desinfektionsövningar
-        </HeadingComponent>
-        <SubHeadingComponent >
-            Du har gått igenom {{completedSituations}} av 9 situationer
-        </SubHeadingComponent>
-        <SituationsComponent />
+      <HeadingComponent fontSize="small">
+        Desinfektionsövningar
+      </HeadingComponent>
+      <SubHeadingComponent >
+        Du har gått igenom {{completedSituations}} av 9 situationer
+      </SubHeadingComponent>
+      <SituationsComponent />
     </MainComponent>
-</div>
+  </div>
 </template>
 
 <script setup>
-import HeaderComponent from "@/components/layouts/HeaderComponent.vue";
-import HeadingComponent from '@/components/headings/HeadingComponent.vue';
-import SubHeadingComponent from '@/components/headings/SubHeadingComponent.vue';
-import MainComponent from '@/components/layouts/MainComponent.vue';
-import SituationsComponent from "../components/situations/SituationsComponent.vue";
-import { useStore } from "vuex";
-import { computed } from "vue";
+  import HeaderComponent from "@/components/layouts/HeaderComponent.vue";
+  import HeadingComponent from '@/components/headings/HeadingComponent.vue';
+  import SubHeadingComponent from '@/components/headings/SubHeadingComponent.vue';
+  import MainComponent from '@/components/layouts/MainComponent.vue';
+  import SituationsComponent from "../components/situations/SituationsComponent.vue";
+  import { useStore } from "vuex";
+  import { computed } from "vue";
 
-const store = useStore();
+  const store = useStore();
 
-const completedSituations = computed(() => {
-    return store.state.situationsCompleted.length
-})
+  const completedSituations = computed(() => store.state.situationsCompleted.length)
 
 </script>
 
 <style scoped>
-   .wrapper{
-       width: 100%;
-   }
+  .wrapper{
+    width: 100%;
+  }
 </style>

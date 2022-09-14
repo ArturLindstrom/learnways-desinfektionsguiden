@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <HeaderComponent background-image="url('/assets/bg-2.svg')">
+    <HeaderComponent>
       <HeadingComponent fontSize="big" animate>
         {{data.s02_h1}}
       </HeadingComponent>
@@ -33,7 +33,7 @@ const store = useStore()
 
 const data = store.state.data
 
-const completedRooms = computed(() => store.state.roomsVisited.filter(Boolean).length)
+const completedRooms = computed(() => Object.values(store.state.roomsVisited).reduce((a, item) => a + item, 0))
 </script>
 
 <style scoped>
