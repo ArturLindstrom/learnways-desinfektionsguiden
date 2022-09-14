@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="wrapper">
     <HeaderComponent background-image="url('/assets/bg-2.svg')">
       <HeadingComponent fontSize="big" animate>
         {{data.s02_h1}}
@@ -37,4 +37,7 @@ const completedRooms = computed(() => store.state.roomsVisited.filter(Boolean).l
 </script>
 
 <style scoped>
+  .wrapper{
+    width: 100%;
+  }
 </style>
