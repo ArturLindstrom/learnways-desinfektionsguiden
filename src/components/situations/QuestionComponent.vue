@@ -13,12 +13,11 @@
         :key="alternative.alternative"
         :class="
           {
-            selected: isSelected === i + 1,
+            'selected': isSelected === i + 1,
             'not-selected': isSelected && isSelected !== i + 1,
           }"
           :tabindex="isSelected ? -1 : 0"
       >
-          {{selected}}
         {{ alternative.alternative }}
       </QuizButton>
     </div>

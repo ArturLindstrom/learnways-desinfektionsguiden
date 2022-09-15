@@ -74,11 +74,12 @@ onMounted(() => {
     grid-column-gap: 10px;
     grid-row-gap: 10px;
     height: 70vh;
-    width: 90vw;
+    width: 85vw;
   }
   .parent div {
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
+    background-position: center bottom;
     display: grid;
     place-items: center;
 

@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <img :src="cardContent.image" class="image" />
-    <SubHeadingComponent>
+    <SubHeadingComponent cardSize class="card-heading">
       {{ cardContent.title }}
     </SubHeadingComponent>
     <p v-if="cardContent.body">
@@ -68,6 +68,10 @@
     flex: 1;
     min-width: 220px;
     gap: 30px;
+  }
+
+  .card-heading {
+    height: 2.5rem;
   }
 
   p, ul, li {

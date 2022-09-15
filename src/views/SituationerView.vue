@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <HeaderComponent>
-      <HeadingComponent fontSize="big" animate>
+      <HeadingComponent animate>
         Öva på olika situationer
       </HeadingComponent>
       <SubHeadingComponent animate>

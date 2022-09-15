@@ -8,7 +8,7 @@
         <Carousel v-model="currentIndex" :items-to-show=1 :transition=500 ref="myCarousel" :mouse-drag="false" >
           <Slide v-for="slide in slides" :key="slide" >
             <div class="text-container">
-              <h3 class="slide-heading" :class="{'left-align' : slide.heading.length > 200}">{{ slide.heading }}</h3>
+              <h5 class="slide-heading" :class="{'left-align' : slide.heading.length > 200}">{{ slide.heading }}</h5>
               <p v-for="paragraph in slide.body" :key="paragraph">{{ paragraph }}</p>
               <i v-if="slide.source" class="slide-source">{{slide.source}}</i>
               <p v-if="slide.link">
@@ -160,13 +160,13 @@
     }
     .slide-heading {
       font-size: 17px;
-      font-family: 'Nunito', sans-serif;
       font-weight: 700;
       font-style: normal;
       margin: 0 0 0.5em 0;
-      line-height: 1;
+      line-height: 1.1;
       color: #003340;
-      }
+      font-family: 'Nunito', sans-serif;
+    }
     .slide-source {
       font-size: 0.75rem;
     }

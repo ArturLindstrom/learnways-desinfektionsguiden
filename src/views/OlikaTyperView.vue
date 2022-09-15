@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <HeaderComponent>
-      <HeadingComponent fontSize="big" animate>
+      <HeadingComponent animate>
         {{data.s02_h1}}
       </HeadingComponent>
       <SubHeadingComponent animate>

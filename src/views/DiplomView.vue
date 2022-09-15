@@ -8,11 +8,11 @@
     :duration="3000"
     :particleSize="7"
     />
-   <HeadingComponent fontSize="big" animate v-if="done">
+   <HeadingComponent animate v-if="done">
       Bra jobbat!
     </HeadingComponent>
   
-   <HeadingComponent fontSize="big" animate v-else>
+   <HeadingComponent animate v-else>
       Du är inte riktigt klar
     </HeadingComponent>
     <button class="button" @click="toggleDone">HEMLIGA KNAPPEN</button>

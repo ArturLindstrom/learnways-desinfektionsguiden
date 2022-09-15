@@ -43,8 +43,9 @@
 <style scoped lang="scss">
   h1 {
     font-size: 5vw;
-    font-weight: 700;
+    font-weight: 600;
     color: #003340;
+    line-height: 1.1;
   }
   .big {
     font-size: 6.5vw;
@@ -55,7 +56,8 @@
   }
   @media screen and (max-width: 768px) {
     h1 {
-      font-size: 3rem;
+      font-size: 2rem;
+      margin-bottom: 1rem;
     }
 
     .big {

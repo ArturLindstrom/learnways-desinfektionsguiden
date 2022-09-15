@@ -43,7 +43,7 @@
 
 <style scoped lang="scss">
   button {
-    font-size: 18px;
+    font-size: 17px;
     cursor: pointer;
     background-color: #1d4c7b;
     color: white;
