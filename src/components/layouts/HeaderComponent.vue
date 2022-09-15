@@ -20,13 +20,7 @@
       <slot></slot>
       <ProgressBarComponent class="progress-bar" />
     </div>
-    <Transition>
-      <ScrollContainer
-        
-        class="scroll-container"
-        v-if="route.name != 'diplom' && !modalOpen || done" 
-      />
-    </Transition>
+      <ScrollContainer class="scroll-container" />
   </header>
 </template>
 
@@ -151,15 +145,6 @@
     bottom: -40px;
   }
 
-  .v-enter-active,
-  .v-leave-active {
-    transition: opacity 0.5s ease;
-  }
-
-  .v-enter-from,
-  .v-leave-to {
-    opacity: 0;
-  }
 
   @media (max-width: 768px) {
 

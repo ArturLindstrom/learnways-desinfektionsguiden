@@ -1,5 +1,4 @@
 <template >
-  <transition>
     <div class="scroll-container">
       <p class="scroll">Skrolla ner</p>
         <img
@@ -10,15 +9,19 @@
           tabindex="0"
         />
     </div>
-  </transition>
 </template>
 
 <script setup>
-import { onMounted } from 'vue';
-import { useRoute } from 'vue-router';
+import { onMounted, computed } from 'vue';
+import { useRouter } from 'vue-router';
+import { useStore } from 'vuex';
 import gsap from 'gsap';
 
-const route = useRoute();
+const store = useStore();
+const router = useRouter();
+
+const done = computed(() => store.state.done);
+const modalOpen = computed(() => store.state.modalShown);
 
 const toBottom = () => {
   window.scrollTo({
@@ -29,24 +32,13 @@ const toBottom = () => {
 };
 
 onMounted(() => {
-  gsap.to(".scroll-container", {
-    scale: 1.1,
-    delay: 1.5,
-    duration: 1,
-    onComplete: () => {
-      scrollAnimation();
-    },
-    ease: "power2.out",
+  if(router.currentRoute.value.name == 'diplom' && !done.value ) {
+    gsap.to(".scroll-container", {
+      opacity: 0
     })
-});
-
-const scrollAnimation = () => {
-  gsap.to(".scroll-container", {
-    scale: 1,
-    duration: 1,
-    ease: "power2.out",
-  });
-}
+  } 
+})
+ 
 
 </script>
 
@@ -67,6 +59,7 @@ const scrollAnimation = () => {
     transition: all 0.3s ease-in-out;
   }
 }
+
 
 @media screen and (max-width: 480px) {
   .scroll {
