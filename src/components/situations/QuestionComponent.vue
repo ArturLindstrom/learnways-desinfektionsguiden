@@ -47,6 +47,17 @@
 
   const emit = defineEmits(["answer", "drawLine"]);
 
+  const scrollIntoView = (e) => {
+    const scrollTarget = e.target.parentElement.parentElement;
+    setTimeout(() => {
+      e.target.parentElement.scrollIntoView({
+        behavior: "smooth",
+        inline: "nearest",
+      });
+    }, 1000)
+    
+  }
+
   const isSelected = ref(null);
 
   const feedback = ref('');
@@ -58,6 +69,7 @@
     feedback.value = props.question.alternatives[i].feedback;
     emit("answer");
     spreadElements()
+    scrollIntoView(e)
   };
 
   const spreadElements = () => {
