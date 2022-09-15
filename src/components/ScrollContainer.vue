@@ -1,14 +1,16 @@
 <template>
-  <div class="scroll-container">
-    <p class="scroll">Skrolla ner</p>
-      <img
-        tabindex="0"
-        class="scroll-icon"
-        src="/assets/home/main/scroll.svg"
-        @keyup.enter="toBottom"
-        @click="toBottom"
-      />
-  </div>
+  <transition>
+    <div class="scroll-container">
+      <p class="scroll">Skrolla ner</p>
+        <img
+          tabindex="0"
+          class="scroll-icon"
+          src="/assets/home/main/scroll.svg"
+          @keyup.enter="toBottom"
+          @click="toBottom"
+        />
+    </div>
+  </transition>
 </template>
 
 <script setup>

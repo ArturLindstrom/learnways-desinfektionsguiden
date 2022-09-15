@@ -1,5 +1,5 @@
 <template>
-  <header class="header">
+  <header class="header" ref="header">
     <div class="background" :style="{ backgroundImage: backgroundImage }">
     </div>
     <div class="imgs">
@@ -44,8 +44,12 @@
     return store.state.done;
   });
 
+  const vh = computed(() => window.innerHeight * 0.01);
+  const header = ref(null)
+
   const backgroundImage = ref(store.state.currentBackground)
   onMounted(() => {
+    gsap.set(header.value, { height: vh.value * 95 });
     store.commit("addRoute", route.name);
     //animates background image when route changes. diplom view has a scaling effect that only looks good on the diplom background image. 
     if(route.name != 'diplom') {
@@ -155,7 +159,7 @@
   @media (max-width: 768px) {
 
     header{
-      height: 95vh;
+      height: 95dvh;
     }
     .logo-vardhygien {
       width: 175px;
