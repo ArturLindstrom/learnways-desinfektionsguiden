@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-    <img :src="cardContent.image" />
+    <img :src="cardContent.image" class="image" />
     <SubHeadingComponent>
       {{ cardContent.title }}
     </SubHeadingComponent>
@@ -55,15 +55,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 500px;
+    min-height: 450px;
     border-radius: 5px;
     background: #f5f2ed;
-    justify-content: space-around;
+    justify-content: flex-start;
     padding: 30px;
     margin: 0 10px;
     flex: 1;
     width: 260px;
     max-width: 240px;
+    gap: 30px;
   }
 
   p, ul, li {
@@ -76,6 +77,11 @@
     align-items: center;
     justify-content: space-between;
     gap: 10px;
+  }
+
+  .image{
+    width: 169px;
+    height: 169px;
   }
 
   @media screen and (max-width: 480px) {
