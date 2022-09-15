@@ -8,7 +8,7 @@
         class="logo-vardhygien"
         alt=""
       />
-      <router-link to="/">
+      <router-link to="/" :tabindex="modalOpen ? -1 : 4">
         <img
           src="/assets/Group-119.svg"
           class="logo-region-stockholm"
@@ -22,8 +22,9 @@
     </div>
     <Transition>
       <ScrollContainer
+        
         class="scroll-container"
-        v-if="route.name != 'diplom' || done"
+        v-if="route.name != 'diplom' && !modalOpen || done" 
       />
     </Transition>
   </header>
@@ -42,6 +43,10 @@
 
   const done = computed(() => {
     return store.state.done;
+  });
+
+  const modalOpen = computed(() => {
+    return store.state.modalShown;
   });
 
   const vh = computed(() => window.innerHeight * 0.01);

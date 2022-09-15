@@ -4,11 +4,14 @@
       class="arrow arrow-left"
       :class="{ disabled: index === 0 }"
       @click="$emit('previousSlide')"
-    />
+      :tabindex="index === 0 ? -1 : 2"    
+      title="previous slide"/>
     <button
       class="arrow arrow-right"
       :class="{ disabled: index === slides.length - 1 }"
       @click="$emit('nextSlide')"
+      :tabindex="index === slides.length - 1 ? -1 : 1"
+      title="next slide"
     />
   </div>
 </template>

@@ -10,9 +10,12 @@
         backgroundImage: 'url(' + room.thumbnail.image + ')',
       }"
       @click="modalOpen(room)"
+      :tabindex="modalComponentOpen ? -1 : 0"
+      @keyup.enter="modalOpen(room)"
+      :title="room.thumbnail.title"
     >
       <span class="overlay"> </span>
-      <ButtonComponent class="button">
+      <ButtonComponent class="button" >
         Rum {{ room.thumbnail.roomNumber }}: {{ room.thumbnail.title }}
       </ButtonComponent>
       <img
