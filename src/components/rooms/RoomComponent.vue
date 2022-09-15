@@ -87,7 +87,6 @@
     flex-direction: column;
     justify-content: space-between;
   }
-
   .room-heading {
     text-align: left;
     margin: 3rem;

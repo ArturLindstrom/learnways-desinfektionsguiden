@@ -18,11 +18,16 @@
         :class="{ 'active-button': dialogShown === i + 1 }"
       ></button>
     </div>
+    <div class="click-here-arrow" v-if="arrowShown">
+        <span>Klicka här!</span>
+        <img src="/assets/hs-instr.svg">
+      </div>
   </div>
 </template>
 
 <script setup>
-  import { ref } from "vue";
+  import { ref, onMounted } from "vue";
+  import gsap from "gsap";
 
   const props = defineProps({
     room: {
@@ -30,9 +35,22 @@
     },
   });
 
+  // onMounted, set position of .click-here-arrow to the position of the first dialog-button using gsap
+  onMounted(() => {
+    const firstDialogButton = document.querySelector(".dialog1");
+    const clickHereArrow = document.querySelector(".click-here-arrow");
+    gsap.set(clickHereArrow, {
+      x: firstDialogButton.offsetLeft - 10,
+      y: firstDialogButton.offsetTop - 85,
+    });
+  });
+
+  const arrowShown = ref(true);
+
   const dialogShown = ref(0);
 
   const toggleDialog = (i) => {
+    arrowShown.value = false
     if (dialogShown.value == i + 1) {
       dialogShown.value = 0;
     } else {
@@ -47,6 +65,14 @@
     width: 100%;
     height: 100%;
   }
+
+  .click-here-arrow {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   .dialog-wrapper {
     position: absolute;
     flex-direction: column;
