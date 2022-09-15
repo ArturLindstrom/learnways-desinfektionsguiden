@@ -24,12 +24,18 @@
     align-items: center;
     margin-top: 50px;
     gap: 20px;
-    flex-wrap: wrap;
+  }
+  
+  @media (max-width: 1154px) {
+    .card-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
   }
 
   @media screen and (max-width: 768px) {
     .card-wrapper {
-      flex-direction: column;
+      grid-template-columns: 1fr;
     }
   }
 </style>

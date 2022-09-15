@@ -59,11 +59,11 @@
     border-radius: 5px;
     background: #f5f2ed;
     justify-content: flex-start;
-    padding: 30px;
+    padding: 20px;
     margin: 0 10px;
     flex: 1;
-    min-width: 240px;
-    max-width: 240px;
+    min-width: 210px;
+    /* max-width: 200px; */
     gap: 30px;
   }
 
