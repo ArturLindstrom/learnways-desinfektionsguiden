@@ -62,8 +62,7 @@
     padding: 20px;
     margin: 0 10px;
     flex: 1;
-    min-width: 210px;
-    /* max-width: 200px; */
+    min-width: 220px;
     gap: 30px;
   }
 
