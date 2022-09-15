@@ -131,7 +131,7 @@
 
   @media (max-width: 768px) {
     .container {
-      width: 80vw;
+      max-width: 60%;
     }
     .line {
       width: 90%;
@@ -144,6 +144,7 @@
   @media screen and (max-width: 480px) {
     .container {
       width: 90vw;
+      max-width: none;
     }
     .line {
       width: 90%;
