@@ -37,10 +37,6 @@
   const forward = () => {
     const index = routes.map((route) => route.path).indexOf(route.path);
     router.push(routes[index + 1].path);
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
   };
 
 </script>

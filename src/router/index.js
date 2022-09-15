@@ -42,7 +42,12 @@ const router = createRouter({
           beforeEnter: areViewsCompleted
         }
     
-  ]
+  ],
+  scrollBehavior(to, from, savedPosition) {
+    // always scroll to top
+    return { top: 0, behavior: 'smooth' }
+  }
+
 })
 
 router.afterEach((to, from) => {
