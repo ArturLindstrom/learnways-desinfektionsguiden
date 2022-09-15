@@ -23,6 +23,7 @@
         :key="i"
         @click="modalOpen(situation)"
         :situationId="situation.id"
+        :tabindex="modalComponentOpen ? -1 : 0"
       >
         Situation {{ i + 1 }}
       </ButtonComponent>
@@ -33,6 +34,7 @@
 <script setup>
   import SubHeadingComponent from "@/components/headings/SubHeadingComponent.vue";
   import ButtonComponent from "../ButtonComponent.vue";
+  import { computed } from "vue";
   import { useStore } from "vuex";
 
   const props = defineProps({
@@ -46,6 +48,8 @@
   const modalOpen = (situation) => {
     store.commit("modalOpen", situation);
   };
+
+  const modalComponentOpen = computed(() => store.state.modalShown);
 
   const cardContent = props.cardContent;
 </script>

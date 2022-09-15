@@ -1,11 +1,11 @@
-<template>
+<template >
   <Transition name="modal-animation" @enter="showContent">
     <div class="modal" @click.self="closeModal" v-if="modalComponentOpen">
       <Transition name="modal-animation-inner" @enter="showCloseContainer">
         <div class="modal-content" v-if="showModalContent">
             <div class="close-container" >
               <p class="close-text" @click="closeModal">Stäng</p>
-              <img class="close-icon" src="/assets/close.svg" @click="closeModal" />
+              <img class="close-icon" src="/assets/close.svg" alt="Stäng" @click="closeModal" tabindex="3" @keyup.enter="closeModal"/>
             </div>
           <slot></slot>
         </div>

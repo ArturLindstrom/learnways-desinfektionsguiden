@@ -9,6 +9,7 @@
         <a
           class="links"
           href="https://vardgivarguiden.se/kunskapsstod/vardhygien/"
+          tabindex="2"
           >Vårdhygien Vårdgivarguiden
         </a>
       </div>
@@ -18,6 +19,7 @@
         <a
           class="links"
           href="https://projekt.learnways.com/projekt/Learnways/Praktik/Desinfektion/pdfs/Referenslista.pdf"
+          tabindex="2"
           >Se referenslistan
         </a>
       </div>
@@ -26,6 +28,7 @@
         <a
           class="links"
           href="https://www.basala-hygienrutiner.se/login.aspx?ReturnUrl=%2f"
+          tabindex="2"
           >Klicka här för att komma till vår andra webbutbildning.
         </a>
       </div>
@@ -34,14 +37,20 @@
       v-if="route.name == 'olikatyper' || route.name == 'situationer'"
       class="footer-container"
     >
-      <ButtonComponent action="forward"> Gå till nästa del </ButtonComponent>
+      <ButtonComponent action="forward" v-if="!modalOpen"> Gå till nästa del </ButtonComponent>
     </div>
   </footer>
 </template>
 
 <script setup>
-  import { useRoute, useRouter } from "vue-router";
+  import { useRoute } from "vue-router";
+  import { computed } from "vue";
   import ButtonComponent from "@/components/ButtonComponent.vue";
+  import { useStore } from "vuex";
+  const store = useStore();
+  const modalOpen = computed(() => {
+    return store.state.modalShown;
+  });
   const route = useRoute();
 </script>
 

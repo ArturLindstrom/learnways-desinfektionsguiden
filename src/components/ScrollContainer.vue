@@ -1,13 +1,13 @@
-<template>
+<template >
   <transition>
     <div class="scroll-container">
       <p class="scroll">Skrolla ner</p>
         <img
-          tabindex="0"
           class="scroll-icon"
           src="/assets/home/main/scroll.svg"
           @keyup.enter="toBottom"
           @click="toBottom"
+          tabindex="0"
         />
     </div>
   </transition>

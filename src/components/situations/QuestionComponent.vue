@@ -16,7 +16,9 @@
             selected: isSelected === i + 1,
             'not-selected': isSelected && isSelected !== i + 1,
           }"
+          :tabindex="isSelected ? -1 : 0"
       >
+          {{selected}}
         {{ alternative.alternative }}
       </QuizButton>
     </div>
@@ -170,6 +172,8 @@
     background: #606060;
     border: #606060 2px solid;
     pointer-events: none;
+    
+    
   }
 
   @media screen and (max-width: 768px) {

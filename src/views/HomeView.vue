@@ -13,7 +13,7 @@
         {{data.s01_h2_1}}
       </HeadingComponent>
       <SliderComponent :slides="HomeSlides" />
-      <ButtonComponent action="forward">
+      <ButtonComponent action="forward" tabindex="2">
         {{data.btn_nextsection}}
       </ButtonComponent>
     </MainComponent>
