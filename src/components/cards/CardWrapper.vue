@@ -24,6 +24,7 @@
     align-items: center;
     margin-top: 50px;
     gap: 20px;
+    flex-wrap: wrap;
   }
 
   @media screen and (max-width: 768px) {
