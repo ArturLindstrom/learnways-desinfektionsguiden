@@ -11,7 +11,6 @@
    <HeadingComponent animate v-if="done" @click="toggleDone">
       Bra jobbat!
     </HeadingComponent>
-  
    <HeadingComponent animate v-else @click="toggleDone">
       Du är inte riktigt klar
     </HeadingComponent>
