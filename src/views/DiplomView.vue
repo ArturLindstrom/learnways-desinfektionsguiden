@@ -8,14 +8,13 @@
     :duration="3000"
     :particleSize="7"
     />
-   <HeadingComponent animate v-if="done">
+   <HeadingComponent animate v-if="done" @click="toggleDone">
       Bra jobbat!
     </HeadingComponent>
   
-   <HeadingComponent animate v-else>
+   <HeadingComponent animate v-else @click="toggleDone">
       Du är inte riktigt klar
     </HeadingComponent>
-    <button class="button" @click="toggleDone">HEMLIGA KNAPPEN</button>
     <SubHeadingComponent animate v-if="done">
       Bra jobbat! Du har genomfört hela utbildningen. Nu har du chans att hämta ditt diplom och repetera vid behov.
     </SubHeadingComponent>
