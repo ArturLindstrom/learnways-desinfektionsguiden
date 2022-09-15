@@ -8,7 +8,7 @@
     </header>
     <MainComponent v-if="situation.questions" class="main">
       <div class="vertical-line">
-        <div class="circle">
+        <div class="circle" ref="circle">
           <img
             src="/assets/scroll-icon-small.svg"
             alt=""
@@ -71,6 +71,7 @@ const incrementQuestionIndex = (situationId) => {
     store.commit("addCompletedSituation", situationId);
   }
 };
+
 
 const showNextQuestion = (el, done) => {
   gsap.from(el, {
