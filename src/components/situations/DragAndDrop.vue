@@ -128,6 +128,7 @@
     if(placedItemsInDisk.value.length == 4 && placedItemsInSpol.value.length == 4) {
       emit('done')
       store.commit('addCompletedSituation' , props.id)
+      scrollToBottom()
     }
   };
 
@@ -135,6 +136,16 @@
       gsap.to(draggedItem.value, { scale: 0.9, repeat: 3, duration: 0.2 });
       gsap.to(draggedItem.value, { duration: 0.5, scale: 1, x: 0, y: 0, delay: 0.6 });
   };
+
+  const scrollToBottom = () => {
+    const modalContent = document.querySelector(".drag-and-drop-container").parentElement.parentElement.parentElement;
+    setTimeout(() => {
+      modalContent.scrollTo({
+      top: modalContent.scrollHeight,
+      behavior: "smooth",
+        });
+      }, 500);
+  }
 
 
 </script>
