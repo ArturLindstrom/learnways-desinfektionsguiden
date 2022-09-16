@@ -47,6 +47,7 @@
   import { computed } from "vue";
   import ButtonComponent from "@/components/ButtonComponent.vue";
   import { useStore } from "vuex";
+  
   const store = useStore();
   const modalOpen = computed(() => {
     return store.state.modalShown;

@@ -31,6 +31,8 @@
   import gsap from "gsap";
   import { useRoute } from "vue-router";
   import { useStore } from "vuex";
+  import bg2 from "/assets/bg-2.svg";
+
 
   const store = useStore();
   const route = useRoute();
@@ -118,6 +120,7 @@
     background: no-repeat center center #f4edc9;
     background-size: cover;
     z-index: 0;
+    opacity: 0;
   }
   .imgs {
     position: absolute;

@@ -57,8 +57,8 @@ onMounted(() => {
     scrollTrigger: {
       trigger: ".parent",
     },
-    y: "100%",
     opacity: 0,
+    y: 200,
     stagger: 0.1,
     duration: 1,
   });

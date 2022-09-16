@@ -83,25 +83,20 @@
     fadeImage()
   }
 
-  // watch(currentIndex, () => {
-  //   fadeImage()
-  //   // myCarousel.value.restartCarousel()
-  // })
+  watch(currentIndex, () => {
+    // fadeImage()
+    myCarousel.value.restartCarousel()
+  })
 
   const slideImage = ref(slides.value[currentIndex.value].image)
 
   const fadeImage = () => {
-    gsap.to('.slide-image', {
+    slideImage.value = slides.value[currentIndex.value].image
+    gsap.fromTo('.slide-image', {
       opacity: 0,
-      delay: 0.5,
-      duration: 0.25,
-      onComplete: () => {
-        slideImage.value = slides.value[currentIndex.value].image
-        gsap.to('.slide-image', {
-          opacity: 1,
-          duration: 0.5
-        })
-      }
+    }, {
+      opacity: 1,
+      duration: 1,
     })
   }
 

@@ -1,12 +1,30 @@
 <template>
   <div class="card-wrapper">
-    <CardComponent v-for="card in cards" :key="card" :cardContent="card" />
+    <CardComponent v-for="card in cards" :key="card" :cardContent="card" class="card"/>
   </div>
 </template>
 
 <script setup>
   import CardComponent from "./CardComponent.vue";
-  import { computed } from "vue";
+  import { computed, onMounted } from "vue";
+  import gsap from "gsap";
+  import ScrollTrigger from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
+
+  onMounted(() => {
+    gsap.from(".card", {
+      scrollTrigger: {
+        trigger: ".card",
+        start: "top 80%",
+        end: "bottom 20%",
+      },
+      opacity: 0,
+      y: 100,
+      stagger: 0.2,
+    });
+  });
+
+  
 
   const props = defineProps({
     cards: {
