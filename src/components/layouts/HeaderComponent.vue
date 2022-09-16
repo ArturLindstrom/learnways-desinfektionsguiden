@@ -4,7 +4,7 @@
     </div>
     <div class="imgs">
       <img
-        src="/assets/Vårdhygien-Stockholm.svg"
+        src="/assets/vardhygien.svg"
         class="logo-vardhygien"
         alt=""
       />
