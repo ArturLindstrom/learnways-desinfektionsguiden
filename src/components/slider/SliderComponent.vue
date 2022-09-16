@@ -69,21 +69,24 @@
   const incrementIndex = () => {
     if(currentIndex.value < props.slides.length - 1) {
       currentIndex.value++
+      fadeImage()
     }
   }
   const decrementIndex = () => {
     if(currentIndex.value > 0) {
       currentIndex.value--
+      fadeImage()
     }
   }
   const setIndex = (index) => {
     currentIndex.value = index
+    fadeImage()
   }
 
-  watch(currentIndex, () => {
-    fadeImage()
-    // myCarousel.value.restartCarousel()
-  })
+  // watch(currentIndex, () => {
+  //   fadeImage()
+  //   // myCarousel.value.restartCarousel()
+  // })
 
   const slideImage = ref(slides.value[currentIndex.value].image)
 
