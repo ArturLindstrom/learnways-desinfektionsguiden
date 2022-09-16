@@ -2,7 +2,7 @@
   <div class="carousel-wrapper" :class="{'modal' : modal}" @keyup.right="incrementIndex" @keyup.left="decrementIndex">
     <div class="slider-container">
       <div class="image-container">
-        <img :src="slideImage" alt="" class="slide-image" />
+        <img :src="slides[currentIndex].image" alt="" class="slide-image" />
       </div>
       <div class="text-and-button-container">
         <Carousel v-model="currentIndex" :items-to-show=1 :transition=500 ref="myCarousel" :mouse-drag="false" >
@@ -88,10 +88,8 @@
     myCarousel.value.restartCarousel()
   })
 
-  const slideImage = ref(slides.value[currentIndex.value].image)
 
   const fadeImage = () => {
-    slideImage.value = slides.value[currentIndex.value].image
     gsap.fromTo('.slide-image', {
       opacity: 0,
     }, {
