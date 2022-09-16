@@ -2,7 +2,7 @@
   <div class="carousel-wrapper" :class="{'modal' : modal}" @keyup.right="incrementIndex" @keyup.left="decrementIndex">
     <div class="slider-container">
       <div class="image-container">
-        <img :src="slides[currentIndex].image" alt="" class="slide-image" />
+        <img :src="currentImage" alt="" class="slide-image" />
       </div>
       <div class="text-and-button-container">
         <Carousel v-model="currentIndex" :items-to-show=1 :transition=500 ref="myCarousel" :mouse-drag="false" >
@@ -55,13 +55,13 @@
 
   const slides = computed(() => props.slides)
   const modal = computed(() => props.modal)
+  const currentImage = computed(() => slides.value[currentIndex.value].image)
   
   const myCarousel = ref(null)
 
 
   watch(slides, () => {
     currentIndex.value = 0
-    fadeImage()
   })
  
   const currentIndex = ref(0)
@@ -69,34 +69,17 @@
   const incrementIndex = () => {
     if(currentIndex.value < props.slides.length - 1) {
       currentIndex.value++
-      fadeImage()
     }
   }
   const decrementIndex = () => {
     if(currentIndex.value > 0) {
       currentIndex.value--
-      fadeImage()
     }
   }
   const setIndex = (index) => {
     currentIndex.value = index
-    fadeImage()
   }
 
-  watch(currentIndex, () => {
-    // fadeImage()
-    myCarousel.value.restartCarousel()
-  })
-
-
-  const fadeImage = () => {
-    gsap.fromTo('.slide-image', {
-      opacity: 0,
-    }, {
-      opacity: 1,
-      duration: 1,
-    })
-  }
 
 </script>
 
